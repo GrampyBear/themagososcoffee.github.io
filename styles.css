@@ -1,0 +1,97 @@
+/* Estilos generales */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos específicos para la estructura de la página */
+
+header {
+  background-color: #f8f8f8;
+  padding: 20px;
+  text-align: center;
+}
+
+nav {
+  background-color: #333;
+  padding: 10px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+nav li {
+  display: inline;
+  margin-right: 10px;
+}
+
+nav a {
+  color: #fff;
+}
+
+section {
+  padding: 20px;
+}
+
+footer {
+  background-color: #f8f8f8;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Estilos específicos para secciones */
+
+#inicio {
+  background-color: #f5f5f5;
+}
+
+#proyectos {
+  background-color: #ebebeb;
+}
+
+#proyectos li {
+  margin-bottom: 20px;
+}
+
+#proyectos h3 {
+  margin-bottom: 10px;
+}
+
+#sobre-mi {
+  background-color: #f5f5f5;
+}
+
+#contacto {
+  background-color: #ebebeb;
+}
+
+/* Estilos responsivos */
+
+@media screen and (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav li {
+    margin-bottom: 10px;
+  }
+}
