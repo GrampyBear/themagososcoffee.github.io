@@ -9,7 +9,7 @@ let currentTrackIndex = 0;
 function playAudio(index) {
   const link = audioLinks[index];
   const videoId = link.match(/[?&]v=([^&#]+)/)[1];
-  const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&controls=0`;
+  const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&controls=0&showinfo=0&autohide=1&mute=1`;
 
   audioPlayer.src = embedUrl;
   audioPlayer.allow = 'autoplay';
