@@ -2,6 +2,7 @@ const audioPlayer = document.getElementById('audioPlayer');
 const audioLinks = [
   // Coloca aquí los enlaces de YouTube, Spotify y SoundCloud
   // Ejemplo: 'https://www.youtube.com/watch?v=VIDEO_ID'
+  'https://open.spotify.com/playlist/0XiqJVlqDDwRtodG24Xn0P?si=7kPjz6z1T-KKyLFPeCDO3g&utm_source=copy-link'
 ];
 
 let currentTrackIndex = 0;
