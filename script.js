@@ -1,20 +1,22 @@
-// script.js
+// Script para la funcionalidad de comentarios
+document.addEventListener("DOMContentLoaded", function () {
+  const commentSection = document.getElementById("comentarios");
 
-// Función para cambiar el color de fondo al hacer clic en una sección
-function cambiarColorFondo(id, color) {
-    const seccion = document.getElementById(id);
-    seccion.style.backgroundColor = color;
-}
+  // Función para agregar un nuevo comentario
+  function agregarComentario(nombre, comentario) {
+    const comentarioElemento = document.createElement("div");
+    comentarioElemento.classList.add("comentario");
+    comentarioElemento.innerHTML = `<strong>${nombre}:</strong> ${comentario}`;
+    commentSection.appendChild(comentarioElemento);
+  }
 
-// Asignar eventos de clic a las secciones
-document.getElementById('sobrepeso').addEventListener('click', function () {
-    cambiarColorFondo('sobrepeso', '#ffcc00');
-});
-
-document.getElementById('gainer-feeder').addEventListener('click', function () {
-    cambiarColorFondo('gainer-feeder', '#ff6633');
-});
-
-document.getElementById('furries').addEventListener('click', function () {
-    cambiarColorFondo('furries', '#33cc99');
+  // Manejar el envío del formulario de comentarios
+  const commentForm = document.getElementById("comment-form");
+  commentForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const nombre = document.getElementById("nombre").value;
+    const comentario = document.getElementById("comentario").value;
+    agregarComentario(nombre, comentario);
+    commentForm.reset();
+  });
 });
