@@ -1,22 +1,20 @@
-const audioPlayer = document.getElementById('audioPlayer');
-const audioLinks = [
-  // Coloca aquí los enlaces de YouTube
-  // Ejemplo: 'https://www.youtube.com/watch?v=VIDEO_ID'
-  'https://www.youtube.com/watch?v=DfyiWf88iHw'
-];
+// script.js
 
-let currentTrackIndex = 0;
-
-function playAudio(index) {
-  const link = audioLinks[index];
-  const videoId = link.match(/[?&]v=([^&#]+)/)[1];
-  const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&controls=0&showinfo=0&autohide=1&mute=1`;
-
-  const iframe = document.createElement('iframe');
-  iframe.src = embedUrl;
-  iframe.style.display = 'none';
-  audioPlayer.innerHTML = '';
-  audioPlayer.appendChild(iframe);
+// Función para cambiar el color de fondo al hacer clic en una sección
+function cambiarColorFondo(id, color) {
+    const seccion = document.getElementById(id);
+    seccion.style.backgroundColor = color;
 }
 
-playAudio(currentTrackIndex);
+// Asignar eventos de clic a las secciones
+document.getElementById('sobrepeso').addEventListener('click', function () {
+    cambiarColorFondo('sobrepeso', '#ffcc00');
+});
+
+document.getElementById('gainer-feeder').addEventListener('click', function () {
+    cambiarColorFondo('gainer-feeder', '#ff6633');
+});
+
+document.getElementById('furries').addEventListener('click', function () {
+    cambiarColorFondo('furries', '#33cc99');
+});
