@@ -4,12 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Radio Online</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Radio Online 24/7</h1>
-  <audio id="audioPlayer" controls>
-    Tu navegador no soporta la reproducción de audio.
-  </audio>
+  <div class="container">
+    <h1>Radio Online 24/7</h1>
+    <div class="player">
+      <iframe id="audioPlayer" allow="autoplay" width="300" height="100" frameborder="0"></iframe>
+    </div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
