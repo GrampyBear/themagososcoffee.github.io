@@ -40,7 +40,7 @@
         <form id="post-form">
             <input type="text" id="post-title" placeholder="Title" required><br>
             <textarea id="post-content" placeholder="Write your post here..." required></textarea><br>
-            <button type="submit">Post</button>
+            <button type="button" id="post-button">Post</button>
         </form>
     </div>
     <div class="container" id="post-list">
@@ -55,11 +55,11 @@
         // Configuración de Firebase
         const firebaseConfig = {
             apiKey: "AIzaSyBuR9MChiZpqO7_gDxfnvwZRRVapTBZlR4",
-            authDomain: "fotoweb-test.firebaseapp.com",
-            projectId: "fotoweb-test",
-            storageBucket: "fotoweb-test.appspot.com",
-            messagingSenderId: "427026709329",
-            appId: "1:427026709329:web:e1228b783c48836fa03170"
+    authDomain: "fotoweb-test.firebaseapp.com",
+    projectId: "fotoweb-test",
+    storageBucket: "fotoweb-test.appspot.com",
+    messagingSenderId: "427026709329",
+    appId: "1:427026709329:web:e1228b783c48836fa03170"
         };
 
         // Inicializar Firebase
@@ -70,11 +70,11 @@
         const postForm = document.getElementById("post-form");
         const postTitle = document.getElementById("post-title");
         const postContent = document.getElementById("post-content");
+        const postButton = document.getElementById("post-button");
         const postList = document.getElementById("post-list");
 
         // Manejar el envío del formulario
-        postForm.addEventListener("submit", async (e) => {
-            e.preventDefault();
+        postButton.addEventListener("click", async () => {
             const title = postTitle.value;
             const content = postContent.value;
             if (title.trim() !== "" && content.trim() !== "") {
