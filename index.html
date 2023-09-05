@@ -47,12 +47,11 @@
         <h2>Posts</h2>
     </div>
 
-    <script type="module">
-        // Importar Firebase
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
-        import { getFirestore, collection, addDoc, onSnapshot, orderBy, serverTimestamp, query } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js";
+    <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js"></script>
 
-        // Configuración de Firebase
+    <script>
+        // Configurar Firebase
         const firebaseConfig = {
             apiKey: "AIzaSyBuR9MChiZpqO7_gDxfnvwZRRVapTBZlR4",
     authDomain: "fotoweb-test.firebaseapp.com",
@@ -61,10 +60,9 @@
     messagingSenderId: "427026709329",
     appId: "1:427026709329:web:e1228b783c48836fa03170"
         };
-
-        // Inicializar Firebase
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore();
+        
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
 
         // Referencias a elementos del DOM
         const postForm = document.getElementById("post-form");
@@ -73,8 +71,27 @@
         const postButton = document.getElementById("post-button");
         const postList = document.getElementById("post-list");
 
-        // Función para mostrar publicaciones
-        const displayPosts = (snapshot) => {
+        // Manejar el envío del formulario
+        postButton.addEventListener("click", async () => {
+            const title = postTitle.value;
+            const content = postContent.value;
+            if (title.trim() !== "" && content.trim() !== "") {
+                try {
+                    await db.collection("posts").add({
+                        title,
+                        content,
+                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                    });
+                    postTitle.value = "";
+                    postContent.value = "";
+                } catch (error) {
+                    console.error("Error adding document: ", error);
+                }
+            }
+        });
+
+        // Mostrar las publicaciones en tiempo real
+        db.collection("posts").orderBy("timestamp", "desc").onSnapshot((snapshot) => {
             postList.innerHTML = "";
             snapshot.forEach((doc) => {
                 const post = doc.data();
@@ -86,42 +103,7 @@
                 `;
                 postList.appendChild(postElement);
             });
-        };
-
-        // Mostrar las publicaciones iniciales
-        onSnapshot(
-            query(collection(db, "posts"), orderBy("timestamp", "desc")),
-            (snapshot) => {
-                displayPosts(snapshot);
-            }
-        );
-
-        // Manejar el envío del formulario
-        postButton.addEventListener("click", async () => {
-            const title = postTitle.value;
-            const content = postContent.value;
-            if (title.trim() !== "" && content.trim() !== "") {
-                try {
-                    await addDoc(collection(db, "posts"), {
-                        title,
-                        content,
-                        timestamp: serverTimestamp()
-                    });
-                    postTitle.value = "";
-                    postContent.value = "";
-                } catch (error) {
-                    console.error("Error adding document: ", error);
-                }
-            }
         });
-
-        // Actualizar la lista de publicaciones en tiempo real
-        onSnapshot(
-            query(collection(db, "posts"), orderBy("timestamp", "desc")),
-            (snapshot) => {
-                displayPosts(snapshot);
-            }
-        );
     </script>
 </body>
 </html>
