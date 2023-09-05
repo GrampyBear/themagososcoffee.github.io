@@ -73,6 +73,29 @@
         const postButton = document.getElementById("post-button");
         const postList = document.getElementById("post-list");
 
+        // Función para mostrar publicaciones
+        const displayPosts = (snapshot) => {
+            postList.innerHTML = "";
+            snapshot.forEach((doc) => {
+                const post = doc.data();
+                const postElement = document.createElement("div");
+                postElement.classList.add("post");
+                postElement.innerHTML = `
+                    <h3>${post.title}</h3>
+                    <p>${post.content}</p>
+                `;
+                postList.appendChild(postElement);
+            });
+        };
+
+        // Mostrar las publicaciones iniciales
+        onSnapshot(
+            query(collection(db, "posts"), orderBy("timestamp", "desc")),
+            (snapshot) => {
+                displayPosts(snapshot);
+            }
+        );
+
         // Manejar el envío del formulario
         postButton.addEventListener("click", async () => {
             const title = postTitle.value;
@@ -92,21 +115,11 @@
             }
         });
 
-        // Mostrar las publicaciones en tiempo real
+        // Actualizar la lista de publicaciones en tiempo real
         onSnapshot(
             query(collection(db, "posts"), orderBy("timestamp", "desc")),
             (snapshot) => {
-                postList.innerHTML = "";
-                snapshot.forEach((doc) => {
-                    const post = doc.data();
-                    const postElement = document.createElement("div");
-                    postElement.classList.add("post");
-                    postElement.innerHTML = `
-                        <h3>${post.title}</h3>
-                        <p>${post.content}</p>
-                    `;
-                    postList.appendChild(postElement);
-                });
+                displayPosts(snapshot);
             }
         );
     </script>
