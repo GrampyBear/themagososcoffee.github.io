@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Furries Obesos Gainers</title>
+    <title>Simple Firebase Forum</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,71 +16,99 @@
             text-align: center;
             padding: 1rem;
         }
-        nav {
-            background-color: #444;
-            color: #fff;
-            text-align: center;
-            padding: 0.5rem;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 1rem;
-        }
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 2rem;
         }
+        .post {
+            border: 1px solid #ccc;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .post h3 {
+            margin: 0;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Furries Obesos Gainers</h1>
+        <h1>Simple Firebase Forum</h1>
     </header>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About Us</a>
-    </nav>
-    <div class="container" id="home">
-        <h2>Welcome to Furries Obesos Gainers</h2>
-        <p>Explore the world of furry characters embracing their weight gain journey.</p>
+    <div class="container">
+        <h2>Add a New Post</h2>
+        <form id="post-form">
+            <input type="text" id="post-title" placeholder="Title" required><br>
+            <textarea id="post-content" placeholder="Write your post here..." required></textarea><br>
+            <button type="submit">Post</button>
+        </form>
     </div>
-    <div class="container" id="about">
-    <h2>About Us</h2>
-    <p>Welcome to Furries Obesos Gainers, an immersive online platform dedicated to exploring the intriguing world of furry characters and their captivating weight gain journeys. We are more than just a community; we are a haven for creativity, self-expression, and understanding.</p>
-    
-    <h3>Our Beliefs</h3>
-    <p>At Furries Obesos Gainers, we firmly believe that art and storytelling have the power to transcend boundaries and connect people on a profound level. Through the lens of our beloved furry characters, we explore the complexities of identity, personal growth, and the acceptance of change.</p>
-    
-    <p>Our belief in the transformative power of storytelling is rooted in the idea that narratives have the ability to inspire empathy and compassion. By delving into the lives of our characters, we shed light on their emotional landscapes, creating a tapestry of experiences that resonate with individuals from all walks of life.</p>
-    
-    <h3>Embracing Diversity</h3>
-    <p>Our community thrives on diversity. We celebrate characters of all shapes, sizes, and backgrounds. Our artists and writers bring these characters to life with stories that delve into their experiences, struggles, and triumphs, fostering empathy and a deeper understanding of each unique journey.</p>
-    
-    <p>From graceful and elegant fursonas to whimsical and playful personas, our furry characters embody a spectrum of personalities. By embracing this diversity, we challenge conventional norms and showcase that beauty is multifaceted.</p>
-    
-    <h3>Creating Connection</h3>
-    <p>At the heart of Furries Obesos Gainers lies the desire to foster connections. Through shared experiences and shared narratives, our members forge friendships and bonds that transcend geographical boundaries. We encourage collaboration and interaction to enrich both the characters and the community.</p>
-    
-    <p>Our interactive forums serve as a space where members engage in thoughtful discussions, provide feedback, and exchange ideas. Whether it's analyzing character development, discussing art techniques, or exploring the underlying themes of stories, these forums encourage a sense of belonging and camaraderie.</p>
-    
-    <h3>Support and Empowerment</h3>
-    <p>We are dedicated to providing a supportive space where individuals can share their creative works without fear of judgment. We value each member's perspective and seek to empower everyone to explore their artistic talents, engage in thoughtful discussions, and embark on meaningful self-discovery journeys.</p>
-    
-    <p>Through our platform, artists find encouragement to experiment with new styles, mediums, and concepts. Writers discover an outlet for their imaginative stories, each line contributing to a tapestry that reflects the richness of our characters' experiences.</p>
-    
-    <h3>Real-Life Reflections</h3>
-    <p>As we celebrate the fictional weight gain journeys of our furry characters, we also acknowledge that similar experiences occur in real life. The term "gainer" refers to individuals who intentionally and consensually pursue weight gain, often for reasons of personal satisfaction or pleasure.</p>
-    
-    <p>Our platform recognizes that real-life gainers have diverse motivations and experiences. Some gainers find empowerment and fulfillment in embracing their bodies, challenging societal norms, and cultivating self-confidence. It's important to approach this topic with sensitivity, acknowledging that personal choices vary and that each individual's journey is unique.</p>
-    
-    <h3>Engage with Us</h3>
-    <p>Whether you're an artist, a writer, a reader, or simply someone who is curious, there's a place for you within Furries Obesos Gainers. Engage with us through our vibrant discussion forums, immersive storytelling, and captivating artwork. Join us in celebrating the beauty of characters evolving and embracing their authentic selves.</p>
-    
-    <p>Explore the stories that transcend the boundaries of the physical world and embark on journeys that explore the depth of emotions and personal growth. We invite you to join hands with fellow enthusiasts, weaving the threads of our shared passions into a tapestry that honors the uniqueness of every character and their transformation.</p>
+    <div class="container" id="post-list">
+        <h2>Posts</h2>
     </div>
-    
-        
-        </body>
+
+    <script type="module">
+        // Importar Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, onSnapshot, orderBy, serverTimestamp, query } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js";
+
+        // Configuración de Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyBuR9MChiZpqO7_gDxfnvwZRRVapTBZlR4",
+            authDomain: "fotoweb-test.firebaseapp.com",
+            projectId: "fotoweb-test",
+            storageBucket: "fotoweb-test.appspot.com",
+            messagingSenderId: "427026709329",
+            appId: "1:427026709329:web:e1228b783c48836fa03170"
+        };
+
+        // Inicializar Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore();
+
+        // Referencias a elementos del DOM
+        const postForm = document.getElementById("post-form");
+        const postTitle = document.getElementById("post-title");
+        const postContent = document.getElementById("post-content");
+        const postList = document.getElementById("post-list");
+
+        // Manejar el envío del formulario
+        postForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const title = postTitle.value;
+            const content = postContent.value;
+            if (title.trim() !== "" && content.trim() !== "") {
+                try {
+                    await addDoc(collection(db, "posts"), {
+                        title,
+                        content,
+                        timestamp: serverTimestamp()
+                    });
+                    postTitle.value = "";
+                    postContent.value = "";
+                } catch (error) {
+                    console.error("Error adding document: ", error);
+                }
+            }
+        });
+
+        // Mostrar las publicaciones en tiempo real
+        onSnapshot(
+            query(collection(db, "posts"), orderBy("timestamp", "desc")),
+            (snapshot) => {
+                postList.innerHTML = "";
+                snapshot.forEach((doc) => {
+                    const post = doc.data();
+                    const postElement = document.createElement("div");
+                    postElement.classList.add("post");
+                    postElement.innerHTML = `
+                        <h3>${post.title}</h3>
+                        <p>${post.content}</p>
+                    `;
+                    postList.appendChild(postElement);
+                });
+            }
+        );
+    </script>
+</body>
 </html>
