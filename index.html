@@ -1,109 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Firebase Forum</title>
+    <title>Tu Radio Online</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            background-color: #f0f0f0;
+            text-align: center;
         }
-        header {
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        /* Estilos para el reproductor de audio */
+        audio::-webkit-media-controls-panel {
             background-color: #333;
             color: #fff;
-            text-align: center;
-            padding: 1rem;
+            border-radius: 5px;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
+
+        audio::-webkit-media-controls-play-button,
+        audio::-webkit-media-controls-pause-button,
+        audio::-webkit-media-controls-volume-slider {
+            background-color: #333;
+            color: #fff;
         }
-        .post {
-            border: 1px solid #ccc;
-            padding: 1rem;
-            margin-bottom: 1rem;
+
+        audio::-webkit-media-controls-current-time-display,
+        audio::-webkit-media-controls-time-remaining-display {
+            color: #fff;
         }
-        .post h3 {
-            margin: 0;
+
+        /* Estilos para el botón de play/pause */
+        audio::-webkit-media-controls-play-button {
+            font-size: 20px;
+        }
+
+        /* Estilos para el volumen */
+        audio::-webkit-media-controls-volume-slider {
+            width: 80%;
+        }
+
+        audio::-webkit-media-controls-volume-slider::-webkit-slider-thumb {
+            background-color: #fff;
+        }
+
+        audio::-webkit-media-controls-volume-slider::-webkit-slider-runnable-track {
+            background-color: #ccc;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Simple Firebase Forum</h1>
-    </header>
     <div class="container">
-        <h2>Add a New Post</h2>
-        <form id="post-form">
-            <input type="text" id="post-title" placeholder="Title" required><br>
-            <textarea id="post-content" placeholder="Write your post here..." required></textarea><br>
-            <button type="button" id="post-button">Post</button>
-        </form>
+        <h1>Tu Radio Online</h1>
+        <audio controls>
+            <source src="URL_DE_TU_ARCHIVO_DE_AUDIO.mp3" type="audio/mpeg">
+            Tu navegador no admite la reproducción de audio.
+        </audio>
     </div>
-    <div class="container" id="post-list">
-        <h2>Posts</h2>
-    </div>
-
-    <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js"></script>
-
-    <script>
-        // Configurar Firebase
-        const firebaseConfig = {
-            apiKey: "AIzaSyBuR9MChiZpqO7_gDxfnvwZRRVapTBZlR4",
-    authDomain: "fotoweb-test.firebaseapp.com",
-    projectId: "fotoweb-test",
-    storageBucket: "fotoweb-test.appspot.com",
-    messagingSenderId: "427026709329",
-    appId: "1:427026709329:web:e1228b783c48836fa03170"
-        };
-        
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
-
-        // Referencias a elementos del DOM
-        const postForm = document.getElementById("post-form");
-        const postTitle = document.getElementById("post-title");
-        const postContent = document.getElementById("post-content");
-        const postButton = document.getElementById("post-button");
-        const postList = document.getElementById("post-list");
-
-        // Manejar el envío del formulario
-        postButton.addEventListener("click", async () => {
-            const title = postTitle.value;
-            const content = postContent.value;
-            if (title.trim() !== "" && content.trim() !== "") {
-                try {
-                    await db.collection("posts").add({
-                        title,
-                        content,
-                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                    });
-                    postTitle.value = "";
-                    postContent.value = "";
-                } catch (error) {
-                    console.error("Error adding document: ", error);
-                }
-            }
-        });
-
-        // Mostrar las publicaciones en tiempo real
-        db.collection("posts").orderBy("timestamp", "desc").onSnapshot((snapshot) => {
-            postList.innerHTML = "";
-            snapshot.forEach((doc) => {
-                const post = doc.data();
-                const postElement = document.createElement("div");
-                postElement.classList.add("post");
-                postElement.innerHTML = `
-                    <h3>${post.title}</h3>
-                    <p>${post.content}</p>
-                `;
-                postList.appendChild(postElement);
-            });
-        });
-    </script>
 </body>
 </html>
