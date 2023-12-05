@@ -1,68 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Juego Multijugador</title>
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name - Personal Webpage</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
 
-        canvas {
-            display: block;
-        }
-    </style>
+    header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1em;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2 {
+      color: #333;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1em;
+      background-color: #333;
+      color: #fff;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+  </style>
 </head>
+
 <body>
-    <canvas id="gameCanvas"></canvas>
+  <header>
+    <h1>Your Name</h1>
+    <p>Promoting Body Positivity, Obesity, Furry Fandom, and Big Fat Bellies</p>
+  </header>
 
-    <script>
-        const canvas = document.getElementById('gameCanvas');
-        const context = canvas.getContext('2d');
+  <main>
+    <h2>About Me</h2>
+    <p>Welcome to my world! I am an obese and hungry bear who believes in promoting body positivity and embracing our big fat bellies. Join me on this journey of self-love and acceptance. I'm also a proud member of the furry fandom, celebrating the joy of anthropomorphic characters and creative expression.</p>
 
-        let players = [
-            { x: 50, y: 50, width: 30, height: 30, name: 'Jugador 1', color: '#FF0000', speedX: 1, speedY: 1 },
-            { x: 100, y: 100, width: 30, height: 30, name: 'Jugador 2', color: '#0000FF', speedX: 1.5, speedY: 0.5 }
-        ];
+    <!-- Add more sections or content as needed -->
 
-        function drawPlayer(player) {
-            context.fillStyle = player.color;
-            context.fillRect(player.x, player.y, player.width, player.height);
+  </main>
 
-            context.font = '12px Arial';
-            context.fillStyle = 'black';
-            context.textAlign = 'center';
-            context.fillText(player.name, player.x + player.width / 2, player.y - 5);
-        }
-
-        function movePlayers() {
-            for (let player of players) {
-                player.x += player.speedX;
-                player.y += player.speedY;
-
-                if (player.x <= 0 || player.x + player.width >= canvas.width) {
-                    player.speedX = -player.speedX;
-                }
-
-                if (player.y <= 0 || player.y + player.height >= canvas.height) {
-                    player.speedY = -player.speedY;
-                }
-            }
-        }
-
-        function draw() {
-            context.clearRect(0, 0, canvas.width, canvas.height);
-
-            for (let player of players) {
-                drawPlayer(player);
-            }
-
-            movePlayers();
-
-            requestAnimationFrame(draw);
-        }
-
-        draw();
-    </script>
+  <footer>
+    &copy; 2023 Your Name | All Rights Reserved
+  </footer>
 </body>
+
 </html>
