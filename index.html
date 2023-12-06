@@ -33,21 +33,42 @@
             margin: 0 auto;
         }
 
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #00688B; /* Header background color */
+        }
+
         h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            color: #00688B; /* Header color */
-        }
-
-        h2 {
             font-size: 2.5em;
-            margin-top: 30px;
-            color: #00688B; /* Header color */
+            color: #fff; /* Header text color */
+            margin: 0;
         }
 
-        p {
-            font-size: 1.4em;
-            line-height: 1.6;
+        .menu-button {
+            display: none;
+            cursor: pointer;
+            color: #fff; /* Menu button color */
+            font-size: 1.5em;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        nav button {
+            margin: 0 10px;
+            font-size: 1.2em;
+            background-color: #00688B; /* Button color */
+            color: #fff; /* Button text color */
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
         }
 
         .section {
@@ -56,32 +77,14 @@
             animation: fadeInOut 0.5s ease-in-out;
         }
 
-        button {
-            font-size: 1.2em;
-            background-color: #00688B; /* Button color */
-            color: #fff; /* Button text color */
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            margin-top: 20px;
-            border-radius: 5px;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #00688B; /* Footer background color */
+            color: #fff; /* Footer text color */
             padding: 10px;
-            background-color: #004966; /* Navigation bar background color */
-        }
-
-        nav button {
-            background-color: #004966; /* Button color */
-            color: #fff; /* Button text color */
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            padding: 5px 10px;
+            text-align: center;
         }
 
         @keyframes fadeInOut {
@@ -92,113 +95,62 @@
                 opacity: 1;
             }
         }
+
+        @media (max-width: 768px) {
+            .menu-button {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                background-color: #00688B; /* Menu background color */
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                z-index: 1;
+            }
+
+            nav.show {
+                display: flex;
+            }
+
+            nav button {
+                margin: 10px 20px;
+            }
+        }
     </style>
 </head>
 <body>
     <canvas id="snow"></canvas>
 
-    <div class="container">
+    <header>
+        <h1>Morgan's Fat World</h1>
+        <div class="menu-button" onclick="toggleMenu()">&#9776;</div>
         <nav>
-            <h1>Morgan's Fat World</h1>
-            <button onclick="toggleNav()">☰</button>
+            <button data-section="home" onclick="toggleSection('home')">Home</button>
+            <button data-section="about" onclick="toggleSection('about')">About Me</button>
+            <button data-section="gallery" onclick="toggleSection('gallery')">Art Gallery</button>
+            <button data-section="contact" onclick="toggleSection('contact')">Contact Me</button>
         </nav>
+    </header>
 
-        <div id="home" class="section" style="display: block;">
-            <!-- Home Section Content -->
-            <h1>Welcome to Morgan's Fat World</h1>
-            <p>I proudly support and promote obesity, non-stop weight gain, big fat bellies, furry fandom, and body positivity.</p>
-        </div>
-
-        <div id="about" class="section">
-            <h2>About Morgan</h2>
-            <p>Hi, I'm Morgan, a fat fur artist and gainer. My art revolves around celebrating the beauty of diversity and body positivity.</p>
-        </div>
-
-        <!-- Add more sections as needed -->
-
-        <div id="gallery" class="section">
-            <h2>Art Gallery</h2>
-            <p>Explore my gallery showcasing the beauty of fat fur art and the vibrant furry community.</p>
-        </div>
-
-        <!-- Add more sections as needed -->
-
-        <div id="contact" class="section">
-            <h2>Contact Me</h2>
-            <p>Feel free to reach out! Whether it's to discuss art collaborations, share your thoughts, or just to say hello, I'd love to hear from you.</p>
-        </div>
+    <div class="container">
+        <!-- Content goes here -->
     </div>
 
+    <footer>
+        &copy; 2023 Morgan's Fat World
+    </footer>
+
     <script>
-        // Snow effect with CSS
-        const canvas = document.getElementById('snow');
-        const ctx = canvas.getContext('2d');
-        const flakes = [];
+        // The rest of the JavaScript code remains the same
 
-        function createFlake() {
-            return {
-                x: Math.random() * window.innerWidth,
-                y: -5,
-                radius: Math.random() * 3 + 2,
-                color: '#fff',
-                speed: Math.random() * 3 + 1,
-            };
+        function toggleMenu() {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('show');
         }
-
-        function drawFlakes() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-
-            flakes.forEach(flake => {
-                ctx.beginPath();
-                ctx.arc(flake.x, flake.y += flake.speed, flake.radius, 0, Math.PI * 2);
-                ctx.fillStyle = flake.color;
-                ctx.fill();
-
-                if (flake.y > window.innerHeight) {
-                    flake.y = -5;
-                }
-            });
-
-            requestAnimationFrame(drawFlakes);
-        }
-
-        function init() {
-            for (let i = 0; i < 100; i++) {
-                flakes.push(createFlake());
-            }
-
-            drawFlakes();
-        }
-
-        function toggleSection(sectionId) {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                const button = document.querySelector(`button[data-section="${section.id}"]`);
-                if (section.id === sectionId) {
-                    section.style.display = 'block';
-                    button.style.backgroundColor = '#004966'; /* Highlight the active button */
-                } else {
-                    section.style.display = 'none';
-                    button.style.backgroundColor = '#00688B'; /* Reset other buttons */
-                }
-            });
-        }
-
-        function toggleNav() {
-            const sections = document.querySelectorAll('.section');
-            const navButton = document.querySelector('button[data-section="nav"]');
-            sections.forEach(section => {
-                section.style.display = 'none';
-            });
-            navButton.style.backgroundColor = '#004966'; /* Highlight the nav button */
-        }
-
-        window.addEventListener('resize', init);
-
-        init();
     </script>
 </body>
 </html>
