@@ -38,19 +38,19 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px;
-            background-color: #00688B; /* Header background color */
+            background: rgba(0, 104, 139, 0.5); /* Transparent header background */
         }
 
         h1 {
             font-size: 2.5em;
-            color: #fff; /* Header text color */
+            color: #00688B; /* Header text color */
             margin: 0;
         }
 
         .menu-button {
             display: none;
             cursor: pointer;
-            color: #fff; /* Menu button color */
+            color: #00688B; /* Menu button color */
             font-size: 1.5em;
         }
 
@@ -146,6 +146,9 @@
 
     <script>
         // The rest of the JavaScript code remains the same
+
+        // Ensure "Home" section is visible by default
+        document.getElementById('home').style.display = 'block';
 
         function toggleMenu() {
             const nav = document.querySelector('nav');
