@@ -3,56 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morgan's World</title>
+    <title>Morgan's Fat World</title>
     <style>
         body {
-            background: linear-gradient(to bottom, #7038F8, #53A7E0); /* Use colors of the gay flag */
-            color: #000; /* Black text for visibility */
-            font-family: Arial, sans-serif;
             margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
             overflow: hidden;
         }
-        .snow {
+
+        #snow {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 1;
         }
-        .snow:before {
-            content: " ";
-            display: block;
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: #FFF; /* White snowflakes */
-            border-radius: 50%;
-            animation: snow 15s linear infinite;
-            box-shadow: 200px 300px #FFF; /* Adjust shadow for visibility */
-        }
-        @keyframes snow {
-            0% {
-                transform: translateY(0) translateX(0);
-            }
-            100% {
-                transform: translateY(100vh) translateX(50vw);
-            }
-        }
+
         .content {
+            position: relative;
+            z-index: 1;
             padding: 20px;
             text-align: center;
-            position: relative;
-            z-index: 2;
+            color: #fff;
         }
     </style>
 </head>
 <body>
-    <div class="snow"></div>
+    <div id="snow"></div>
     <div class="content">
-        <h1>Welcome to Morgan's World!</h1>
-        <p>I am an obese and hungry bear known as FattyFluffyBall on Instagram. Join me on this journey of promoting body positivity, embracing our big fat bellies, and celebrating the furry fandom. As a fat fur art artist and gainer, I believe in the joy of creative expression and self-love.</p>
+        <h1>Welcome to Morgan's Fat World!</h1>
+        <p>I am FattyFluffyBall, a proud fat fur art artist and gainer.</p>
+        <p>Join me on this journey of self-love and acceptance, where we celebrate big fat bellies, embrace the furry fandom, and promote body positivity.</p>
+        <p>Let's create a world where every body is beautiful and accepted.</p>
     </div>
+    <script>
+        // Snow effect script
+        (function() {
+            var container = document.getElementById('snow');
+            for (var i = 0; i < 150; i++) {
+                var snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                container.appendChild(snowflake);
+            }
+        })();
+    </script>
 </body>
 </html>
