@@ -53,6 +53,13 @@
         .section {
             display: none;
             margin-top: 30px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .section.show {
+            display: block;
+            opacity: 1;
         }
 
         button {
@@ -143,7 +150,7 @@
 
         function toggleSection(sectionId) {
             const section = document.getElementById(sectionId);
-            section.style.display = (section.style.display === 'none' || section.style.display === '') ? 'block' : 'none';
+            section.classList.toggle('show');
         }
 
         window.addEventListener('resize', init);
