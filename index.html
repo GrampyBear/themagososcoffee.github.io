@@ -69,12 +69,19 @@
 
         nav {
             display: flex;
-            justify-content: center;
-            margin-top: 20px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #004966; /* Navigation bar background color */
         }
 
         nav button {
-            margin: 0 10px;
+            background-color: #004966; /* Button color */
+            color: #fff; /* Button text color */
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            padding: 5px 10px;
         }
 
         @keyframes fadeInOut {
@@ -91,18 +98,15 @@
     <canvas id="snow"></canvas>
 
     <div class="container">
-        <h1>Welcome to Morgan's Fat World</h1>
-        <p>I proudly support and promote obesity, non-stop weight gain, big fat bellies, furry fandom, and body positivity.</p>
-
         <nav>
-            <button onclick="toggleSection('home')">Home</button>
-            <button onclick="toggleSection('about')">About Me</button>
-            <button onclick="toggleSection('gallery')">Art Gallery</button>
-            <button onclick="toggleSection('contact')">Contact Me</button>
+            <h1>Morgan's Fat World</h1>
+            <button onclick="toggleNav()">☰</button>
         </nav>
 
         <div id="home" class="section" style="display: block;">
             <!-- Home Section Content -->
+            <h1>Welcome to Morgan's Fat World</h1>
+            <p>I proudly support and promote obesity, non-stop weight gain, big fat bellies, furry fandom, and body positivity.</p>
         </div>
 
         <div id="about" class="section">
@@ -181,6 +185,15 @@
                     button.style.backgroundColor = '#00688B'; /* Reset other buttons */
                 }
             });
+        }
+
+        function toggleNav() {
+            const sections = document.querySelectorAll('.section');
+            const navButton = document.querySelector('button[data-section="nav"]');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            navButton.style.backgroundColor = '#004966'; /* Highlight the nav button */
         }
 
         window.addEventListener('resize', init);
