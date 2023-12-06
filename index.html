@@ -8,47 +8,73 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+            background: linear-gradient(to bottom, #87CEFA, #FFFFFF); /* Winter gradient colors */
             overflow: hidden;
         }
 
-        #snow {
+        /* Snow effect CSS */
+        .snow {
             position: fixed;
             top: 0;
             left: 0;
+            pointer-events: none;
             width: 100%;
             height: 100%;
+            z-index: 1;
+        }
+
+        .snow:before {
+            content: '❄';
+            position: absolute;
+            color: #fff;
+            font-size: 2em;
+            animation: fall linear infinite;
             pointer-events: none;
         }
 
-        .content {
-            position: relative;
-            z-index: 1;
-            padding: 20px;
-            text-align: center;
-            color: #fff;
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
         }
+
+        h1, p {
+            color: #333; /* Dark text color for better readability */
+        }
+
+        /* Add more styles as needed */
+
     </style>
 </head>
 <body>
-    <div id="snow"></div>
-    <div class="content">
-        <h1>Welcome to Morgan's Fat World!</h1>
-        <p>I am FattyFluffyBall, a proud fat fur art artist and gainer.</p>
-        <p>Join me on this journey of self-love and acceptance, where we celebrate big fat bellies, embrace the furry fandom, and promote body positivity.</p>
-        <p>Let's create a world where every body is beautiful and accepted.</p>
-    </div>
-    <script>
-        // Snow effect script
-        (function() {
-            var container = document.getElementById('snow');
-            for (var i = 0; i < 150; i++) {
-                var snowflake = document.createElement('div');
-                snowflake.className = 'snowflake';
-                container.appendChild(snowflake);
-            }
-        })();
-    </script>
+    <div class="snow"></div>
+    <header>
+        <h1>Welcome to Morgan's Fat World</h1>
+    </header>
+    <section>
+        <p>Embrace the beauty of body positivity and join me in supporting and promoting:</p>
+        <ul>
+            <li>Obesity</li>
+            <li>Non-stop weight gain</li>
+            <li>Big fat bellies</li>
+            <li>Furry fandom</li>
+            <li>And more!</li>
+        </ul>
+    </section>
+    <section>
+        <h2>About Me</h2>
+        <p>Hi, I'm Morgan, a proud fat fur artist and gainer. Through my artwork and journey, I aim to challenge stereotypes and celebrate diversity.</p>
+    </section>
+    <section>
+        <h2>Explore My World</h2>
+        <p>Discover a variety of content, from my latest artwork to personal blog posts. Let's redefine beauty standards together!</p>
+    </section>
+    <!-- Add more sections and content as needed -->
+
+    <!-- You can include your artwork, blog posts, or any other relevant information here -->
+
 </body>
 </html>
