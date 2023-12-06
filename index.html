@@ -51,14 +51,14 @@
         }
 
         .section {
-            display: none;
-            margin-top: 30px;
+            visibility: hidden;
             opacity: 0;
-            transition: opacity 0.5s ease-in-out;
+            margin-top: 30px;
+            transition: visibility 0s, opacity 0.5s ease-in-out;
         }
 
         .section.show {
-            display: block;
+            visibility: visible;
             opacity: 1;
         }
 
