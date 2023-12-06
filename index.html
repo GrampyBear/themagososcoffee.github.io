@@ -7,10 +7,11 @@
     <title>Morgan's Glorious World</title>
     <style>
         body {
-            background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+            background: linear-gradient(to bottom, violet, indigo, blue, green, yellow, orange, red);
             font-family: Arial, sans-serif;
             color: white;
             padding: 20px;
+            overflow: hidden;
         }
 
         h1 {
@@ -23,10 +24,35 @@
             text-align: justify;
             font-size: 1.2em;
         }
+
+        /* Snow effect */
+        .snow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: transparent;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAABCAYAAAC42vcaAAAAkklEQVR42mP4/wAANAAA/7gD3gAAAABJRU5ErkJggg==');
+            animation: snow 0.5s linear infinite;
+        }
+
+        @keyframes snow {
+            from {
+                transform: translateY(-100vh);
+            }
+
+            to {
+                transform: translateY(100vh);
+            }
+        }
     </style>
 </head>
 
 <body>
+    <div class="snow"></div>
     <h1>Welcome to Morgan's Glorious World!</h1>
     <p>I am an obese and hungry bear named Morgan, also known as FattyFluffyBall on Instagram. As a fat fur art artist, I believe in promoting body positivity and embracing our big fat bellies. Join me on this incredible journey of self-love and acceptance.</p>
     <p>I'm a proud member of the furry fandom, where we celebrate the joy of anthropomorphic characters and express our creativity freely.</p>
