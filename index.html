@@ -1,63 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morgan's Glorious World</title>
+    <title>Morgan's World</title>
     <style>
         body {
-            background: linear-gradient(to bottom, violet, indigo, blue, green, yellow, orange, red);
+            background: linear-gradient(to bottom, #7038F8, #53A7E0); /* Use colors of the gay flag */
+            color: #000; /* Black text for visibility */
             font-family: Arial, sans-serif;
-            color: white;
-            padding: 20px;
+            margin: 0;
             overflow: hidden;
         }
-
-        h1 {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-
-        p {
-            text-align: justify;
-            font-size: 1.2em;
-        }
-
-        /* Snow effect */
         .snow {
             position: fixed;
             top: 0;
             left: 0;
-            pointer-events: none;
             width: 100%;
             height: 100%;
-            z-index: 9999;
-            background: transparent;
-            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAABCAYAAAC42vcaAAAAkklEQVR42mP4/wAANAAA/7gD3gAAAABJRU5ErkJggg==');
-            animation: snow 0.5s linear infinite;
+            pointer-events: none;
+            z-index: 1;
         }
-
+        .snow:before {
+            content: " ";
+            display: block;
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #FFF; /* White snowflakes */
+            border-radius: 50%;
+            animation: snow 15s linear infinite;
+            box-shadow: 200px 300px #FFF; /* Adjust shadow for visibility */
+        }
         @keyframes snow {
-            from {
-                transform: translateY(-100vh);
+            0% {
+                transform: translateY(0) translateX(0);
             }
-
-            to {
-                transform: translateY(100vh);
+            100% {
+                transform: translateY(100vh) translateX(50vw);
             }
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
         }
     </style>
 </head>
-
 <body>
     <div class="snow"></div>
-    <h1>Welcome to Morgan's Glorious World!</h1>
-    <p>I am an obese and hungry bear named Morgan, also known as FattyFluffyBall on Instagram. As a fat fur art artist, I believe in promoting body positivity and embracing our big fat bellies. Join me on this incredible journey of self-love and acceptance.</p>
-    <p>I'm a proud member of the furry fandom, where we celebrate the joy of anthropomorphic characters and express our creativity freely.</p>
-    <!-- Add more content as needed -->
-
+    <div class="content">
+        <h1>Welcome to Morgan's World!</h1>
+        <p>I am an obese and hungry bear known as FattyFluffyBall on Instagram. Join me on this journey of promoting body positivity, embracing our big fat bellies, and celebrating the furry fandom. As a fat fur art artist and gainer, I believe in the joy of creative expression and self-love.</p>
+    </div>
 </body>
-
 </html>
