@@ -8,73 +8,61 @@
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, #87CEFA, #FFFFFF); /* Winter gradient colors */
+            font-family: 'Arial', sans-serif;
             overflow: hidden;
+            background: linear-gradient(to bottom, #87CEEB, #ffffff); /* Winter gradient background */
         }
 
-        /* Snow effect CSS */
-        .snow {
-            position: fixed;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
+        canvas {
+            display: block;
         }
-
-        .snow:before {
-            content: '❄';
-            position: absolute;
-            color: #fff;
-            font-size: 2em;
-            animation: fall linear infinite;
-            pointer-events: none;
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-100vh);
-            }
-            100% {
-                transform: translateY(100vh);
-            }
-        }
-
-        h1, p {
-            color: #333; /* Dark text color for better readability */
-        }
-
-        /* Add more styles as needed */
-
     </style>
 </head>
 <body>
-    <div class="snow"></div>
-    <header>
-        <h1>Welcome to Morgan's Fat World</h1>
-    </header>
-    <section>
-        <p>Embrace the beauty of body positivity and join me in supporting and promoting:</p>
-        <ul>
-            <li>Obesity</li>
-            <li>Non-stop weight gain</li>
-            <li>Big fat bellies</li>
-            <li>Furry fandom</li>
-            <li>And more!</li>
-        </ul>
-    </section>
-    <section>
-        <h2>About Me</h2>
-        <p>Hi, I'm Morgan, a proud fat fur artist and gainer. Through my artwork and journey, I aim to challenge stereotypes and celebrate diversity.</p>
-    </section>
-    <section>
-        <h2>Explore My World</h2>
-        <p>Discover a variety of content, from my latest artwork to personal blog posts. Let's redefine beauty standards together!</p>
-    </section>
-    <!-- Add more sections and content as needed -->
+    <canvas id="snow"></canvas>
 
-    <!-- You can include your artwork, blog posts, or any other relevant information here -->
+    <script>
+        // Snow effect with CSS
+        const canvas = document.getElementById('snow');
+        const ctx = canvas.getContext('2d');
+        const flakes = [];
 
+        function createFlake() {
+            return {
+                x: Math.random() * window.innerWidth,
+                y: -5,
+                radius: Math.random() * 3 + 2,
+                color: '#fff',
+                speed: Math.random() * 3 + 1,
+            };
+        }
+
+        function drawFlakes() {
+            ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+            flakes.forEach(flake => {
+                ctx.beginPath();
+                ctx.arc(flake.x, flake.y += flake.speed, flake.radius, 0, Math.PI * 2);
+                ctx.fillStyle = flake.color;
+                ctx.fill();
+
+                if (flake.y > window.innerHeight) {
+                    flake.y = -5;
+                }
+            });
+
+            requestAnimationFrame(drawFlakes);
+        }
+
+        function init() {
+            for (let i = 0; i < 100; i++) {
+                flakes.push(createFlake());
+            }
+
+            drawFlakes();
+        }
+
+        init();
+    </script>
 </body>
 </html>
