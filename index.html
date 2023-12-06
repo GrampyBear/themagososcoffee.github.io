@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Morgan's Fat World</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300&display=swap">
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Comic Neue', cursive;
+            font-family: 'Comic Sans MS', cursive; /* Changed font for a friendlier look */
             overflow: hidden;
-            background: linear-gradient(to bottom, #87CEEB, #ffffff); /* Winter gradient background */
+            background: linear-gradient(to bottom, #87CEEB, #ffffff);
             height: 100vh;
         }
 
@@ -28,157 +27,121 @@
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
-            color: #333; /* Text color */
-            max-width: 800px;
-            margin: 0 auto;
+            color: #333;
         }
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background: rgba(0, 104, 139, 0.8); /* Transparent header background */
-            width: 100%;
-            position: fixed;
-            z-index: 1;
+        h1, h2, h3 {
+            font-family: 'Arial', sans-serif; /* Different font for headings */
+            color: #007BFF; /* Updated heading color */
         }
 
         h1 {
-            font-size: 2.5em;
-            color: #00688B; /* Header text color */
-            margin: 0;
+            font-size: 3em;
+            margin-bottom: 20px; /* Increased margin for a more spacious look */
         }
 
-        .menu-button {
-            display: none;
-            cursor: pointer;
-            color: #00688B; /* Menu button color */
-            font-size: 1.5em;
+        h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
         }
 
-        nav {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
+        p {
+            font-size: 1.4em; /* Increased font size for better readability */
+            line-height: 1.6;
+            margin-bottom: 15px; /* Increased margin for a more spacious look */
         }
 
-        nav button {
-            margin: 0 10px;
-            font-size: 1.2em;
-            background-color: #00688B; /* Button color */
-            color: #fff; /* Button text color */
+        .section-button {
+            display: inline-block;
             padding: 10px 20px;
-            border: none;
-            cursor: pointer;
+            font-size: 1.2em;
+            margin: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
             border-radius: 5px;
+            transition: background-color 0.3s;
         }
 
-        .section {
-            display: none;
-            margin-top: 30px;
-            animation: fadeInOut 0.5s ease-in-out;
-        }
-
-        footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background-color: #00688B; /* Footer background color */
-            color: #fff; /* Footer text color */
-            padding: 10px;
-            text-align: center;
-        }
-
-        @keyframes fadeInOut {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .menu-button {
-                display: block;
-            }
-
-            nav {
-                display: none;
-                flex-direction: column;
-                background-color: #00688B; /* Menu background color */
-                position: absolute;
-                top: 80px;
-                left: 0;
-                right: 0;
-                z-index: 1;
-            }
-
-            nav.show {
-                display: flex;
-            }
-
-            nav button {
-                margin: 10px 20px;
-            }
+        .section-button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
     <canvas id="snow"></canvas>
 
-    <header>
-        <h1>Morgan's Fat World</h1>
-        <div class="menu-button" onclick="toggleMenu()">&#9776;</div>
-        <nav>
-            <button data-section="home" onclick="toggleSection('home')">Home</button>
-            <button data-section="about" onclick="toggleSection('about')">About Me</button>
-            <button data-section="gallery" onclick="toggleSection('gallery')">Art Gallery</button>
-            <button data-section="contact" onclick="toggleSection('contact')">Contact Me</button>
-        </nav>
-    </header>
-
     <div class="container">
-        <!-- Content goes here -->
-        <div id="home" class="section" style="display: block;">
-            <!-- Home Section Content -->
-        </div>
+        <h1>Welcome to Morgan's Fat World</h1>
+        <p>Embracing diversity, body positivity, and the beauty of the furry community.</p>
 
-        <div id="about" class="section">
+        <a href="#about" class="section-button">About Morgan</a>
+        <a href="#gallery" class="section-button">Art Gallery</a>
+        <a href="#contact" class="section-button">Contact Me</a>
+
+        <div id="about">
             <h2>About Morgan</h2>
-            <p>Hi, I'm Morgan, a fat fur artist and gainer. My art revolves around celebrating the beauty of diversity and body positivity.</p>
+            <p>Hi there! I'm Morgan, a passionate fat fur artist and gainer. My journey revolves around creating art that celebrates the uniqueness of every body, promoting body positivity, and fostering a sense of community within the furry world.</p>
         </div>
 
-        <!-- Add more sections as needed -->
-
-        <div id="gallery" class="section">
+        <div id="gallery">
             <h2>Art Gallery</h2>
-            <p>Explore my gallery showcasing the beauty of fat fur art and the vibrant furry community.</p>
+            <p>Explore my gallery where I express the beauty of fat fur art. Each piece is a celebration of diversity, acceptance, and the joy of self-expression within the furry community.</p>
         </div>
 
-        <!-- Add more sections as needed -->
-
-        <div id="contact" class="section">
+        <div id="contact">
             <h2>Contact Me</h2>
-            <p>Feel free to reach out! Whether it's to discuss art collaborations, share your thoughts, or just to say hello, I'd love to hear from you.</p>
+            <p>Whether you want to discuss art collaborations, share your thoughts, or simply say hello, I'd love to hear from you! Feel free to reach out through the form below or via my social media.</p>
         </div>
     </div>
 
-    <footer>
-        &copy; 2023 Morgan's Fat World
-    </footer>
-
     <script>
-        // The rest of the JavaScript code remains the same
+        // Snow effect with CSS
+        const canvas = document.getElementById('snow');
+        const ctx = canvas.getContext('2d');
+        const flakes = [];
 
-        // Ensure "Home" section is visible by default
-        document.getElementById('home').style.display = 'block';
-
-        function toggleMenu() {
-            const nav = document.querySelector('nav');
-            nav.classList.toggle('show');
+        function createFlake() {
+            return {
+                x: Math.random() * window.innerWidth,
+                y: -5,
+                radius: Math.random() * 3 + 2,
+                color: '#fff',
+                speed: Math.random() * 3 + 1,
+            };
         }
+
+        function drawFlakes() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+            flakes.forEach(flake => {
+                ctx.beginPath();
+                ctx.arc(flake.x, flake.y += flake.speed, flake.radius, 0, Math.PI * 2);
+                ctx.fillStyle = flake.color;
+                ctx.fill();
+
+                if (flake.y > window.innerHeight) {
+                    flake.y = -5;
+                }
+            });
+
+            requestAnimationFrame(drawFlakes);
+        }
+
+        function init() {
+            for (let i = 0; i < 100; i++) {
+                flakes.push(createFlake());
+            }
+
+            drawFlakes();
+        }
+
+        window.addEventListener('resize', init);
+
+        init();
     </script>
 </body>
 </html>
