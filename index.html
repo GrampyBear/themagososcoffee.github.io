@@ -11,10 +11,14 @@
             font-family: 'Arial', sans-serif;
             overflow: hidden;
             background: linear-gradient(to bottom, #87CEEB, #ffffff); /* Winter gradient background */
+            height: 100vh;
         }
 
         canvas {
             display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
     </style>
 </head>
@@ -38,6 +42,9 @@
         }
 
         function drawFlakes() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
             ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
             flakes.forEach(flake => {
@@ -61,6 +68,8 @@
 
             drawFlakes();
         }
+
+        window.addEventListener('resize', init);
 
         init();
     </script>
