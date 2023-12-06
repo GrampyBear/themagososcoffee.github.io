@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Morgan's Fat World</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300&display=swap">
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Comic Neue', cursive;
             overflow: hidden;
             background: linear-gradient(to bottom, #87CEEB, #ffffff); /* Winter gradient background */
             height: 100vh;
@@ -28,16 +29,41 @@
             transform: translate(-50%, -50%);
             text-align: center;
             color: #333; /* Text color */
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         h1 {
             font-size: 3em;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            color: #00688B; /* Header color */
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-top: 30px;
+            color: #00688B; /* Header color */
         }
 
         p {
-            font-size: 1.2em;
+            font-size: 1.4em;
             line-height: 1.6;
+        }
+
+        .section {
+            display: none;
+            margin-top: 30px;
+        }
+
+        button {
+            font-size: 1.2em;
+            background-color: #00688B; /* Button color */
+            color: #fff; /* Button text color */
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -48,18 +74,27 @@
         <h1>Welcome to Morgan's Fat World</h1>
         <p>I proudly support and promote obesity, non-stop weight gain, big fat bellies, furry fandom, and body positivity.</p>
 
-        <h2>About Morgan</h2>
-        <p>Hi, I'm Morgan, a fat fur artist and gainer. My art revolves around celebrating the beauty of diversity and body positivity.</p>
+        <button onclick="toggleSection('about')">About Me</button>
+        <div id="about" class="section">
+            <h2>About Morgan</h2>
+            <p>Hi, I'm Morgan, a fat fur artist and gainer. My art revolves around celebrating the beauty of diversity and body positivity.</p>
+        </div>
 
         <!-- Add more sections as needed -->
 
-        <h2>Art Gallery</h2>
-        <p>Explore my gallery showcasing the beauty of fat fur art and the vibrant furry community.</p>
+        <button onclick="toggleSection('gallery')">Art Gallery</button>
+        <div id="gallery" class="section">
+            <h2>Art Gallery</h2>
+            <p>Explore my gallery showcasing the beauty of fat fur art and the vibrant furry community.</p>
+        </div>
 
         <!-- Add more sections as needed -->
 
-        <h2>Contact Me</h2>
-        <p>Feel free to reach out! Whether it's to discuss art collaborations, share your thoughts, or just to say hello, I'd love to hear from you.</p>
+        <button onclick="toggleSection('contact')">Contact Me</button>
+        <div id="contact" class="section">
+            <h2>Contact Me</h2>
+            <p>Feel free to reach out! Whether it's to discuss art collaborations, share your thoughts, or just to say hello, I'd love to hear from you.</p>
+        </div>
     </div>
 
     <script>
@@ -104,6 +139,11 @@
             }
 
             drawFlakes();
+        }
+
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.style.display = (section.style.display === 'none' || section.style.display === '') ? 'block' : 'none';
         }
 
         window.addEventListener('resize', init);
