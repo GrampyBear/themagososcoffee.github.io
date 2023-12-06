@@ -85,7 +85,7 @@
         <h1>Welcome to Morgan's Fat World</h1>
         <p>I proudly support and promote obesity, non-stop weight gain, big fat bellies, furry fandom, and body positivity.</p>
 
-        <button onclick="toggleSection('about')">About Me</button>
+        <button onclick="scrollToSection('about')">About Me</button>
         <div id="about" class="section">
             <h2>About Morgan</h2>
             <p>Hi, I'm Morgan, a fat fur artist and gainer. My art revolves around celebrating the beauty of diversity and body positivity.</p>
@@ -93,7 +93,7 @@
 
         <!-- Add more sections as needed -->
 
-        <button onclick="toggleSection('gallery')">Art Gallery</button>
+        <button onclick="scrollToSection('gallery')">Art Gallery</button>
         <div id="gallery" class="section">
             <h2>Art Gallery</h2>
             <p>Explore my gallery showcasing the beauty of fat fur art and the vibrant furry community.</p>
@@ -101,7 +101,7 @@
 
         <!-- Add more sections as needed -->
 
-        <button onclick="toggleSection('contact')">Contact Me</button>
+        <button onclick="scrollToSection('contact')">Contact Me</button>
         <div id="contact" class="section">
             <h2>Contact Me</h2>
             <p>Feel free to reach out! Whether it's to discuss art collaborations, share your thoughts, or just to say hello, I'd love to hear from you.</p>
@@ -152,13 +152,15 @@
             drawFlakes();
         }
 
-        function toggleSection(sectionId) {
+        function scrollToSection(sectionId) {
             const section = document.getElementById(sectionId);
             section.style.animation = 'fadeOut 0.5s ease-in-out';
 
             setTimeout(() => {
                 section.style.display = (section.style.display === 'none' || section.style.display === '') ? 'block' : 'none';
                 section.style.animation = 'fadeIn 1s ease-in-out';
+
+                section.scrollIntoView({ behavior: 'smooth' });
             }, 500);
         }
 
