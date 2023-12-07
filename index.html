@@ -11,7 +11,9 @@
             font-family: 'Comic Sans MS', cursive;
             overflow: hidden;
             background: linear-gradient(to bottom, #87CEEB, #ffffff);
-            height: 100vh;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         canvas {
@@ -22,12 +24,10 @@
         }
 
         .container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            flex: 1;
             text-align: center;
             color: #333;
+            padding: 20px;
         }
 
         h1, h2, h3 {
@@ -67,6 +67,16 @@
         .section-button:hover {
             background-color: #0056b3;
         }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
     </style>
 </head>
 <body>
@@ -96,7 +106,12 @@
         </div>
     </div>
 
+    <footer>
+        &copy; 2023 Morgan's Fat World
+    </footer>
+
     <script>
+        // Snow effect with CSS
         const canvas = document.getElementById('snow');
         const ctx = canvas.getContext('2d');
         const flakes = [];
