@@ -124,7 +124,7 @@
         &copy; 2023 - Morgan's Fat World
     </footer>
 
-<!-- ... (previous code) ... -->
+<!-- ... previous HTML code ... -->
 
 <script>
     // Snow effect with CSS
@@ -135,7 +135,7 @@
     function createFlake() {
         return {
             x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
+            y: -5,
             radius: Math.random() * 3 + 2,
             color: '#fff',
             speed: Math.random() * 3 + 1,
@@ -155,22 +155,20 @@
             ctx.fill();
 
             if (flake.y > window.innerHeight) {
-                flake.y = 0;
+                flake.y = -5;
             }
         });
 
-        // Create new flakes if the total falls below 300
-        if (flakes.length < 300) {
-            for (let i = flakes.length; i < 300; i++) {
-                flakes.push(createFlake());
-            }
+        // Clear flakes after a certain threshold
+        if (flakes.length > 100) {
+            flakes = [];
         }
 
         requestAnimationFrame(drawFlakes);
     }
 
     function init() {
-        for (let i = 0; i < 300; i++) {
+        for (let i = 0; i < 100; i++) {
             flakes.push(createFlake());
         }
 
@@ -194,7 +192,7 @@
     }
 </script>
 
-<!-- ... (rest of the code) ... -->
+<!-- ... rest of the HTML code ... -->
     
     
 </body>
