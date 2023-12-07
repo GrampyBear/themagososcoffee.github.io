@@ -18,10 +18,9 @@
 
         canvas {
             display: block;
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
-            pointer-events: none; /* Make canvas ignore pointer events */
         }
 
         .container {
@@ -29,8 +28,6 @@
             text-align: center;
             color: #333;
             padding: 20px;
-            position: relative;
-            z-index: 2; /* Ensure container is above canvas */
         }
 
         h1, h2, h3 {
@@ -90,18 +87,33 @@
         <h1>Welcome to Morgan's Fat World</h1>
         <p>Embracing diversity, body positivity, and the beauty of the furry community.</p>
 
-        <a href="#about" class="section-button">About Morgan</a>
-        <a href="#gallery" class="section-button">Art Gallery</a>
-        <a href="#contact" class="section-button">Contact Me</a>
+        <a href="#home" class="section-button">Home</a>
+        <a href="#gallery" class="section-button">Gallery</a>
+        <a href="#about" class="section-button">About</a>
+        <a href="#contact" class="section-button">Contact</a>
 
-        <h2>About Morgan</h2>
-        <p>Hi there! I'm Morgan, a passionate fat fur artist and gainer. My journey revolves around creating art that celebrates the uniqueness of every body, promoting body positivity, and fostering a sense of community within the furry world.</p>
+        <div id="home">
+            <h2>Home</h2>
+            <p>Welcome to the main page of Morgan's Fat World. Explore the beauty of diversity and body positivity in the furry community.</p>
+        </div>
 
-        <h2>Art Gallery</h2>
-        <p>Explore my gallery where I express the beauty of fat fur art. Each piece is a celebration of diversity, acceptance, and the joy of self-expression within the furry community.</p>
+        <div id="gallery">
+            <h2>Gallery</h2>
+            <p>Discover the art gallery showcasing the beauty of fat fur art. Each piece celebrates diversity, acceptance, and self-expression within the furry community.</p>
+        </div>
 
-        <h2>Contact Me</h2>
-        <p>Whether you want to discuss art collaborations, share your thoughts, or simply say hello, I'd love to hear from you! Feel free to reach out through the form below or via my social media.</p>
+        <div id="about">
+            <h2>About</h2>
+            <p>Learn more about Morgan, a passionate fat fur artist and gainer. Morgan's journey is centered around creating art that celebrates unique bodies, promoting body positivity, and building a sense of community within the furry world.</p>
+        </div>
+
+        <div id="contact">
+            <h2>Contact</h2>
+            <p>Connect with Morgan! Whether you want to discuss art collaborations, share your thoughts, or simply say hello, feel free to reach out through the form below or via social media.</p>
+        </div>
+
+        <!-- Add empty space for a sense of size -->
+        <div style="height: 200px;"></div>
     </div>
 
     <footer>
@@ -120,7 +132,7 @@
                 y: -5,
                 radius: Math.random() * 3 + 2,
                 color: '#fff',
-                speed: 2, // Constant speed
+                speed: Math.random() * 3 + 1,
             };
         }
 
@@ -141,11 +153,15 @@
                 }
             });
 
+            // Clear flakes after a certain threshold
+            if (flakes.length > 500) {
+                flakes.splice(0, flakes.length - 500);
+            }
+
             requestAnimationFrame(drawFlakes);
         }
 
         function init() {
-            flakes.length = 0; // Clear existing flakes
             for (let i = 0; i < 100; i++) {
                 flakes.push(createFlake());
             }
