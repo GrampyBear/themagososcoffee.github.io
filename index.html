@@ -124,8 +124,6 @@
         &copy; 2023 - Morgan's Fat World
     </footer>
 
-<!-- ... previous HTML code ... -->
-
 <script>
     // Snow effect with CSS
     const canvas = document.getElementById('snow');
@@ -156,12 +154,13 @@
 
             if (flake.y > window.innerHeight) {
                 flake.y = -5;
+                flake.x = Math.random() * window.innerWidth;
             }
         });
 
-        // Clear flakes after a certain threshold
-        if (flakes.length > 100) {
-            flakes = [];
+        // Create new flakes if there are less than 100
+        if (flakes.length < 100) {
+            flakes.push(createFlake());
         }
 
         requestAnimationFrame(drawFlakes);
@@ -178,22 +177,7 @@
     window.addEventListener('resize', init);
 
     init();
-
-    // Function to show/hide sections
-    function showSection(sectionId) {
-        const sections = document.querySelectorAll('.container');
-        sections.forEach(section => {
-            if (section.id === sectionId) {
-                section.classList.remove('hidden');
-            } else {
-                section.classList.add('hidden');
-            }
-        });
-    }
 </script>
-
-<!-- ... rest of the HTML code ... -->
-    
     
 </body>
 </html>
