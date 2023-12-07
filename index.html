@@ -99,9 +99,6 @@
 
         <h2>Contact Me</h2>
         <p>Whether you want to discuss art collaborations, share your thoughts, or simply say hello, I'd love to hear from you! Feel free to reach out through the form below or via my social media.</p>
-
-        <!-- Add empty space for a sense of size -->
-        <div style="height: 200px;"></div>
     </div>
 
     <footer>
@@ -120,7 +117,7 @@
                 y: -5,
                 radius: Math.random() * 3 + 2,
                 color: '#fff',
-                speed: Math.random() + 0.5, // Adjusted speed for a slower fall
+                speed: Math.random() * 3 + 1,
             };
         }
 
@@ -141,15 +138,11 @@
                 }
             });
 
-            // Clear flakes after a certain threshold
-            if (flakes.length > 500) {
-                flakes.splice(0, flakes.length - 500);
-            }
-
             requestAnimationFrame(drawFlakes);
         }
 
         function init() {
+            flakes.length = 0; // Clear existing flakes
             for (let i = 0; i < 100; i++) {
                 flakes.push(createFlake());
             }
