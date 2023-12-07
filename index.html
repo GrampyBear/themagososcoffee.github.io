@@ -28,6 +28,8 @@
             text-align: center;
             color: #333;
             padding: 20px;
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
         }
 
         h1, h2, h3 {
@@ -78,36 +80,44 @@
             bottom: 0;
             z-index: 1;
         }
+
+        .hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
     <canvas id="snow"></canvas>
 
-    <div class="container">
+    <div class="container" id="home-section">
         <h1>Welcome to Morgan's Fat World</h1>
         <p>Embracing diversity, body positivity, and the beauty of the furry community.</p>
 
-        <a href="#about" class="section-button">About Morgan</a>
-        <a href="#gallery" class="section-button">Art Gallery</a>
-        <a href="#contact" class="section-button">Contact Me</a>
-
-        <div id="about">
-            <h2>About Morgan</h2>
-            <p>Hi there! I'm Morgan, a passionate fat fur artist and gainer. I wholeheartedly support and promote obesity, non-stop weight gain, big fat bellies, and the furry fandom. My artistic journey revolves around creating body-positive art, celebrating diversity, and fostering a sense of community within the furry world.</p>
-        </div>
-
-        <div id="gallery">
-            <h2>Art Gallery</h2>
-            <p>Explore my gallery where I express the beauty of fat fur art. Each piece is a celebration of diversity, acceptance, and the joy of self-expression within the furry community.</p>
-        </div>
-
-        <div id="contact">
-            <h2>Contact Me</h2>
-            <p>Whether you want to discuss art collaborations, share your thoughts, or simply say hello, I'd love to hear from you! Feel free to reach out through the form below or via my social media.</p>
-        </div>
+        <a href="#" class="section-button" onclick="showSection('about-section')">About Morgan</a>
+        <a href="#" class="section-button" onclick="showSection('gallery-section')">Art Gallery</a>
+        <a href="#" class="section-button" onclick="showSection('contact-section')">Contact Me</a>
 
         <!-- Add empty space for a sense of size -->
         <div style="height: 200px;"></div>
+    </div>
+
+    <div class="container hidden" id="about-section">
+        <h2>About Morgan</h2>
+        <p>Hi there! I'm Morgan, a passionate fat fur artist and gainer. I wholeheartedly support and promote obesity, non-stop weight gain, big fat bellies, and the furry fandom. My artistic journey revolves around creating body-positive art, celebrating diversity, and fostering a sense of community within the furry world.</p>
+        <a href="#" class="section-button" onclick="showSection('home-section')">Back to Home</a>
+    </div>
+
+    <div class="container hidden" id="gallery-section">
+        <h2>Art Gallery</h2>
+        <p>Explore my gallery where I express the beauty of fat fur art. Each piece is a celebration of diversity, acceptance, and the joy of self-expression within the furry community.</p>
+        <a href="#" class="section-button" onclick="showSection('home-section')">Back to Home</a>
+    </div>
+
+    <div class="container hidden" id="contact-section">
+        <h2>Contact Me</h2>
+        <p>Whether you want to discuss art collaborations, share your thoughts, or simply say hello, I'd love to hear from you! Feel free to reach out through the form below or via my social media.</p>
+        <a href="#" class="section-button" onclick="showSection('home-section')">Back to Home</a>
     </div>
 
     <footer>
@@ -166,6 +176,18 @@
         window.addEventListener('resize', init);
 
         init();
+
+        // Function to show/hide sections
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.container');
+            sections.forEach(section => {
+                if (section.id === sectionId) {
+                    section.classList.remove('hidden');
+                } else {
+                    section.classList.add('hidden');
+                }
+            });
+        }
     </script>
 </body>
 </html>
