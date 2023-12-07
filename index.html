@@ -120,7 +120,7 @@
                 y: -5,
                 radius: Math.random() * 3 + 2,
                 color: '#fff',
-                speed: Math.random() * 3 + 1,
+                speed: Math.random() + 0.5, // Adjusted speed for a slower fall
             };
         }
 
@@ -130,9 +130,7 @@
 
             ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
-            // Limit the number of snow particles generated in a single frame
-            for (let i = 0; i < Math.min(10, flakes.length); i++) {
-                const flake = flakes[i];
+            flakes.forEach(flake => {
                 ctx.beginPath();
                 ctx.arc(flake.x, flake.y += flake.speed, flake.radius, 0, Math.PI * 2);
                 ctx.fillStyle = flake.color;
@@ -141,7 +139,7 @@
                 if (flake.y > window.innerHeight) {
                     flake.y = -5;
                 }
-            }
+            });
 
             // Clear flakes after a certain threshold
             if (flakes.length > 500) {
