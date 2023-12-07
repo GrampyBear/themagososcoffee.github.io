@@ -21,6 +21,7 @@
             position: absolute;
             top: 0;
             left: 0;
+            z-index: 0; /* Move the snow canvas to the background */
         }
 
         .container {
@@ -28,6 +29,7 @@
             text-align: center;
             color: #333;
             padding: 20px;
+            position: relative; /* Make the container a stacking context */
         }
 
         h1, h2, h3 {
@@ -114,10 +116,10 @@
         function createFlake() {
             return {
                 x: Math.random() * window.innerWidth,
-                y: -5,
+                y: Math.random() * window.innerHeight,
                 radius: Math.random() * 3 + 2,
                 color: '#fff',
-                speed: Math.random() * 3 + 1,
+                speed: Math.random() * 1 + 0.5,
             };
         }
 
@@ -134,7 +136,7 @@
                 ctx.fill();
 
                 if (flake.y > window.innerHeight) {
-                    flake.y = -5;
+                    flake.y = 0; // Reset position when it reaches the bottom
                 }
             });
 
