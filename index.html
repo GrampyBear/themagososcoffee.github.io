@@ -158,6 +158,11 @@
             }
         });
 
+        // Clear flakes after a certain threshold
+        if (flakes.length > 500) {
+            flakes.splice(0, flakes.length - 500);
+        }
+
         // Create new flakes if there are less than 100
         if (flakes.length < 100) {
             flakes.push(createFlake());
@@ -178,6 +183,7 @@
 
     init();
 </script>
+    
     
 </body>
 </html>
