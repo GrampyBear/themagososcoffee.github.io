@@ -124,70 +124,75 @@
         &copy; 2023 - Morgan's Fat World
     </footer>
 
-    <script>
-        // Snow effect with CSS
-        const canvas = document.getElementById('snow');
-        const ctx = canvas.getContext('2d');
-        const flakes = [];
+<script>
+    // Snow effect with CSS
+    const canvas = document.getElementById('snow');
+    const ctx = canvas.getContext('2d');
+    const flakes = [];
 
-        function createFlake() {
-            return {
-                x: Math.random() * window.innerWidth,
-                y: -5,
-                radius: Math.random() * 3 + 2,
-                color: '#fff',
-                speed: Math.random() * 3 + 1,
-            };
-        }
+    function createFlake() {
+        return {
+            x: Math.random() * window.innerWidth,
+            y: -5,
+            radius: Math.random() * 3 + 2,
+            color: '#fff',
+            speed: Math.random() * 3 + 1,
+        };
+    }
 
-        function drawFlakes() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+    function drawFlakes() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
-            ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
-            flakes.forEach(flake => {
-                ctx.beginPath();
-                ctx.arc(flake.x, flake.y += flake.speed, flake.radius, 0, Math.PI * 2);
-                ctx.fillStyle = flake.color;
-                ctx.fill();
+        flakes.forEach(flake => {
+            ctx.beginPath();
+            ctx.arc(flake.x, flake.y += flake.speed, flake.radius, 0, Math.PI * 2);
+            ctx.fillStyle = flake.color;
+            ctx.fill();
 
-                if (flake.y > window.innerHeight) {
-                    flake.y = -5;
-                }
-            });
-
-            // Clear flakes after a certain threshold
-            if (flakes.length > 500) {
-                flakes.splice(0, flakes.length - 500);
+            if (flake.y > window.innerHeight) {
+                flake.y = -5;
             }
+        });
 
-            requestAnimationFrame(drawFlakes);
+        // Limit the number of flakes on screen to 500
+        while (flakes.length < 500) {
+            flakes.push(createFlake());
         }
 
-        function init() {
-            for (let i = 0; i < 100; i++) {
-                flakes.push(createFlake());
+        // Clear flakes after a certain threshold
+        if (flakes.length > 500) {
+            flakes.splice(0, flakes.length - 500);
+        }
+
+        requestAnimationFrame(drawFlakes);
+    }
+
+    function init() {
+        for (let i = 0; i < 100; i++) {
+            flakes.push(createFlake());
+        }
+
+        drawFlakes();
+    }
+
+    window.addEventListener('resize', init);
+
+    init();
+
+    // Function to show/hide sections
+    function showSection(sectionId) {
+        const sections = document.querySelectorAll('.container');
+        sections.forEach(section => {
+            if (section.id === sectionId) {
+                section.classList.remove('hidden');
+            } else {
+                section.classList.add('hidden');
             }
-
-            drawFlakes();
-        }
-
-        window.addEventListener('resize', init);
-
-        init();
-
-        // Function to show/hide sections
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('.container');
-            sections.forEach(section => {
-                if (section.id === sectionId) {
-                    section.classList.remove('hidden');
-                } else {
-                    section.classList.add('hidden');
-                }
-            });
-        }
-    </script>
+        });
+    }
+</script>
 </body>
 </html>
