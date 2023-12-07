@@ -128,12 +128,12 @@
     // Snow effect with CSS
     const canvas = document.getElementById('snow');
     const ctx = canvas.getContext('2d');
-    const flakes = [];
+    let flakes = [];
 
     function createFlake() {
         return {
             x: Math.random() * window.innerWidth,
-            y: -5,
+            y: Math.random() * window.innerHeight,
             radius: Math.random() * 3 + 2,
             color: '#fff',
             speed: Math.random() * 3 + 1,
@@ -153,16 +153,16 @@
             ctx.fill();
 
             if (flake.y > window.innerHeight) {
-                flake.y = -5;
+                flake.y = 0;
             }
         });
 
-        // Limit the number of flakes on screen to 500
-        while (flakes.length < 500) {
+        // Create new flakes if the total is less than 500
+        if (flakes.length < 500) {
             flakes.push(createFlake());
         }
 
-        // Clear flakes after a certain threshold
+        // Remove excess flakes beyond 500
         if (flakes.length > 500) {
             flakes.splice(0, flakes.length - 500);
         }
@@ -171,9 +171,7 @@
     }
 
     function init() {
-        for (let i = 0; i < 100; i++) {
-            flakes.push(createFlake());
-        }
+        flakes = Array.from({ length: 500 }, createFlake);
 
         drawFlakes();
     }
@@ -181,18 +179,7 @@
     window.addEventListener('resize', init);
 
     init();
-
-    // Function to show/hide sections
-    function showSection(sectionId) {
-        const sections = document.querySelectorAll('.container');
-        sections.forEach(section => {
-            if (section.id === sectionId) {
-                section.classList.remove('hidden');
-            } else {
-                section.classList.add('hidden');
-            }
-        });
-    }
 </script>
+    
 </body>
 </html>
