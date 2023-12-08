@@ -163,13 +163,6 @@
             flakes.splice(0, flakes.length - 500);
         }
 
-        // Create new flakes only if the array is empty
-        if (flakes.length === 0) {
-            for (let i = 0; i < 100; i++) {
-                flakes.push(createFlake());
-            }
-        }
-
         requestAnimationFrame(drawFlakes);
     }
 
@@ -185,9 +178,12 @@
 
     window.addEventListener('resize', init);
 
-    init();
-            </script>
-    
+    // Continuous loop
+    (function animate() {
+        init();
+        requestAnimationFrame(animate);
+    })();
+        </script>
     
     
 </body>
