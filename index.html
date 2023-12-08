@@ -163,6 +163,11 @@
             flakes.splice(0, flakes.length - 500);
         }
 
+        // Create new flakes only if the array is empty
+        if (flakes.length < 100) {
+            flakes.push(createFlake());
+        }
+
         requestAnimationFrame(drawFlakes);
     }
 
@@ -172,18 +177,19 @@
         for (let i = 0; i < 100; i++) {
             flakes.push(createFlake());
         }
-
-        drawFlakes();
     }
 
     window.addEventListener('resize', init);
 
     // Continuous loop
     (function animate() {
-        init();
+        drawFlakes();
         requestAnimationFrame(animate);
     })();
-        </script>
+
+    // Initial call to ensure the snowfall starts immediately
+    init();
+</script>
     
     
 </body>
