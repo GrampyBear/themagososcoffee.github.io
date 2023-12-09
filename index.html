@@ -79,53 +79,6 @@
     </style>
 </head>
 <body>
-    <script>
-        // Function to update time dynamically in the navbar
-        function updateTime() {
-            const timeOfDayElement = document.getElementById('timeOfDay');
-            const exactTimeElement = document.getElementById('exactTime');
-            const currentTime = new Date();
-
-            let hours = currentTime.getHours();
-            let minutes = currentTime.getMinutes();
-            let seconds = currentTime.getSeconds();
-
-            // Format minutes and seconds with leading zero if needed
-            minutes = minutes < 10 ? '0' + minutes : minutes;
-            seconds = seconds < 10 ? '0' + seconds : seconds;
-
-            let timeOfDay;
-
-            if (hours >= 6 && hours < 12) {
-                timeOfDay = 'Morning';
-            } else if (hours >= 12 && hours < 17) {
-                timeOfDay = 'Afternoon';
-            } else if (hours >= 17 && hours < 20) {
-                timeOfDay = 'Evening';
-            } else if (hours >= 20 && hours < 24) {
-                timeOfDay = 'Night';
-            } else {
-                timeOfDay = 'Midnight';
-            }
-
-            timeOfDayElement.textContent = `Time of Day: ${timeOfDay}`;
-            exactTimeElement.textContent = `Exact Time: ${hours}:${minutes}:${seconds}`;
-        }
-
-        // Initial call to display time
-        updateTime();
-
-        // Update time every second for real-time clock
-        setInterval(updateTime, 1000);
-
-        // Function to handle color transition on page load
-        function handlePageLoadTransition() {
-            document.body.style.transition = 'background 1s ease-in-out';
-        }
-
-        // Initial call to handle color transition on page load
-        handlePageLoadTransition();
-    </script>
 
     <nav>
         <h1>Morgan's Fat World</h1>
@@ -152,5 +105,55 @@
             </a>
         </div>
     </footer>
+
+    <script>
+        // Function to update time dynamically in the navbar
+        function updateTime() {
+            const timeOfDayElement = document.getElementById('timeOfDay');
+            const exactTimeElement = document.getElementById('exactTime');
+            const currentTime = new Date();
+
+            let hours = currentTime.getHours();
+            let minutes = currentTime.getMinutes();
+
+            // Format minutes with leading zero if needed
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+
+            let timeOfDay;
+
+            if (hours >= 6 && hours < 12) {
+                timeOfDay = 'Morning';
+            } else if (hours >= 12 && hours < 17) {
+                timeOfDay = 'Afternoon';
+            } else if (hours >= 17 && hours < 20) {
+                timeOfDay = 'Evening';
+            } else if (hours >= 20 && hours < 24) {
+                timeOfDay = 'Night';
+            } else {
+                timeOfDay = 'Midnight';
+            }
+
+            timeOfDayElement.textContent = `Time of Day: ${timeOfDay}`;
+            exactTimeElement.textContent = `Exact Time: ${hours}:${minutes}`;
+        }
+
+        // Initial call to display time
+        updateTime();
+
+        // Update time every second for real-time clock
+        setInterval(updateTime, 1000);
+
+        // Function to handle color transition on page load
+        function handlePageLoadTransition() {
+            document.body.style.transition = 'background 1s ease-in-out';
+            // Triggering the transition by updating the background after a slight delay
+            setTimeout(() => {
+                document.body.style.background = document.body.style.background; // This re-applies the background
+            }, 50);
+        }
+
+        // Initial call to handle color transition on page load
+        handlePageLoadTransition();
+    </script>
 </body>
 </html>
