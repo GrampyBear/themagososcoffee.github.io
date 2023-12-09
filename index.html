@@ -38,46 +38,17 @@
             align-items: center;
         }
 
-        .menu-icon {
-            font-size: 1.5em;
-            display: none;
-            cursor: pointer;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .menu-icon:hover {
-            color: #007BFF;
-        }
-
-        .menu {
+        .nav-buttons {
             display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            margin-right: 10px;
+            justify-content: space-around;
+            width: 50%;
         }
 
-        .menu-items {
-            display: none;
-            position: absolute;
-            top: 60px; /* Adjust the distance from the top */
-            left: 0;
-            right: 0;
-            background-color: #333;
-            flex-direction: column;
-            z-index: 1;
-            animation: fadeMenu 0.5s ease-in-out;
-        }
-
-        .menu-items.show-menu {
-            display: flex;
-        }
-
-        .menu-items a {
-            padding: 10px;
-            text-align: center;
+        .nav-buttons a {
             color: #fff;
             text-decoration: none;
             font-size: 1.2em;
+            margin: 0 20px;
         }
 
         footer {
@@ -105,62 +76,17 @@
             width: 25px;
             height: auto;
         }
-
-        @keyframes fadeMenu {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media only screen and (max-width: 768px) {
-            .menu {
-                display: none;
-            }
-
-            .menu-icon {
-                display: block;
-            }
-
-            .menu-items {
-                position: fixed;
-                top: 60px;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-color: #333;
-                flex-direction: column;
-            }
-
-            .menu-items a {
-                padding: 20px;
-            }
-
-            .menu-icon.open {
-                transform: rotate(45deg);
-            }
-
-            .menu-icon.open:before {
-                transform: rotate(-90deg);
-                top: 0;
-            }
-        }
     </style>
 </head>
 <body>
     <nav>
         <h1>Morgan's Fat World</h1>
-        <div class="menu">
-            <div class="menu-icon">&#9776;</div>
-            <div class="menu-items">
-                <a href="#section1">Section 1</a>
-                <a href="#section2">Section 2</a>
-                <a href="#section3">Section 3</a>
-            </div>
+        <div class="nav-buttons">
+            <a href="#home">Home</a>
+            <a href="#art-gallery">Art Gallery</a>
+            <a href="#fat-gallery">Fat Gallery</a>
+            <a href="#about-me">About Me</a>
+            <a href="#contact-me">Contact Me</a>
         </div>
     </nav>
 
@@ -181,16 +107,5 @@
             </a>
         </div>
     </footer>
-
-    <script>
-        // Toggle menu items on small screens
-        const menuIcon = document.querySelector('.menu-icon');
-        const menuItems = document.querySelector('.menu-items');
-
-        menuIcon.addEventListener('click', function () {
-            menuItems.classList.toggle('show-menu');
-            menuIcon.classList.toggle('open');
-        });
-    </script>
 </body>
 </html>
