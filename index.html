@@ -11,30 +11,7 @@
             font-family: 'Comic Sans MS', cursive;
             overflow-x: hidden;
             background: linear-gradient(to bottom, #87CEEB, #ffffff);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        canvas {
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        .container {
-            flex: 1;
             text-align: center;
-            color: #333;
-            padding: 20px;
-            opacity: 1;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Comic Sans MS', cursive;
-            font-weight: bold;
             color: #007BFF;
         }
 
@@ -43,154 +20,19 @@
             margin-bottom: 20px;
         }
 
-        h2 {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-
-        p {
-            font-size: 1.4em;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        .section-button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 1.2em;
-            margin: 10px;
-            background-color: #007BFF;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .section-button:hover {
-            background-color: #0056b3;
-        }
-
         footer {
             background-color: #333;
             color: #fff;
             padding: 10px;
             text-align: center;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-            z-index: 1;
-        }
-
-        .hidden {
-            opacity: 0;
-            pointer-events: none;
         }
     </style>
 </head>
 <body>
-    <canvas id="snow"></canvas>
-
-    <div class="container" id="home-section">
-        <h1>Welcome to Morgan's Fat World</h1>
-        <p>Embracing diversity, body positivity, and the beauty of the furry community.</p>
-
-        <a href="#" class="section-button" onclick="showSection('about-section')">About Morgan</a>
-        <a href="#" class="section-button" onclick="showSection('gallery-section')">Art Gallery</a>
-        <a href="#" class="section-button" onclick="showSection('contact-section')">Contact Me</a>
-
-        <!-- Add empty space for a sense of size -->
-        <div style="height: 200px;"></div>
-    </div>
-
-    <div class="container hidden" id="about-section">
-        <h2>About Morgan</h2>
-        <p>Hi there! I'm Morgan, a passionate fat fur artist and gainer. I wholeheartedly support and promote obesity, non-stop weight gain, big fat bellies, and the furry fandom. My artistic journey revolves around creating body-positive art, celebrating diversity, and fostering a sense of community within the furry world.</p>
-        <a href="#" class="section-button" onclick="showSection('home-section')">Back to Home</a>
-    </div>
-
-    <div class="container hidden" id="gallery-section">
-        <h2>Art Gallery</h2>
-        <p>Explore my gallery where I express the beauty of fat fur art. Each piece is a celebration of diversity, acceptance, and the joy of self-expression within the furry community.</p>
-        <a href="#" class="section-button" onclick="showSection('home-section')">Back to Home</a>
-    </div>
-
-    <div class="container hidden" id="contact-section">
-        <h2>Contact Me</h2>
-        <p>Whether you want to discuss art collaborations, share your thoughts, or simply say hello, I'd love to hear from you! Feel free to reach out through the form below or via my social media.</p>
-        <a href="#" class="section-button" onclick="showSection('home-section')">Back to Home</a>
-    </div>
+    <h1>Welcome to Morgan's Fat World</h1>
 
     <footer>
         &copy; 2023 - Morgan's Fat World
     </footer>
-
-<script>
-    // Snow effect with CSS
-    const canvas = document.getElementById('snow');
-    const ctx = canvas.getContext('2d');
-    let flakes = [];
-
-    function createFlake() {
-        return {
-            x: Math.random() * window.innerWidth,
-            y: -5,
-            radius: Math.random() * 3 + 2,
-            color: '#fff',
-            speed: Math.random() * 3 + 1,
-        };
-    }
-
-    function drawFlakes() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-
-        flakes.forEach(flake => {
-            ctx.beginPath();
-            ctx.arc(flake.x, flake.y += flake.speed, flake.radius, 0, Math.PI * 2);
-            ctx.fillStyle = flake.color;
-            ctx.fill();
-
-            if (flake.y > window.innerHeight) {
-                flake.y = -5;
-                flake.x = Math.random() * window.innerWidth;
-            }
-        });
-
-        // Clear flakes after a certain threshold
-        if (flakes.length > 500) {
-            flakes.splice(0, flakes.length - 500);
-        }
-
-        // Create new flakes only if the array is empty
-        if (flakes.length < 100) {
-            flakes.push(createFlake());
-        }
-
-        requestAnimationFrame(drawFlakes);
-    }
-
-    function init() {
-        flakes = []; // Clear flakes when initializing
-
-        for (let i = 0; i < 100; i++) {
-            flakes.push(createFlake());
-        }
-    }
-
-    window.addEventListener('resize', init);
-
-    // Continuous loop
-    (function animate() {
-        drawFlakes();
-        requestAnimationFrame(animate);
-    })();
-
-    // Initial call to ensure the snowfall starts immediately
-    init();
-</script>
-    
-    
 </body>
 </html>
