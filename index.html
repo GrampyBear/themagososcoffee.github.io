@@ -36,6 +36,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
 
         .menu-icon {
@@ -44,13 +45,20 @@
         }
 
         .menu-items {
-            display: flex;
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px; /* Adjust the distance from the top */
+            left: 0;
+            right: 0;
+            background-color: #333;
         }
 
         .menu-items a {
+            padding: 10px;
+            text-align: center;
             color: #fff;
             text-decoration: none;
-            margin: 0 20px;
             font-size: 1.2em;
         }
 
@@ -81,29 +89,12 @@
         }
 
         @media only screen and (max-width: 768px) {
-            .menu-items {
-                display: none; /* Hide menu items by default on smaller screens */
-                flex-direction: column;
-                width: 100%;
-                position: absolute;
-                top: 60px; /* Adjust the distance from the top */
-                left: 0;
-                right: 0;
-                background-color: #333;
-                text-align: center;
-            }
-
-            .menu-icon {
-                display: block;
-            }
-
             .menu-items.show-menu {
                 display: flex;
             }
 
-            .menu-items a {
-                padding: 10px;
-                font-size: 1.5em;
+            .menu-icon {
+                display: block;
             }
         }
     </style>
@@ -139,8 +130,20 @@
 
     <script>
         // Toggle menu items on small screens
-        document.querySelector('.menu-icon').addEventListener('click', function () {
-            document.querySelector('.menu-items').classList.toggle('show-menu');
+        const menuIcon = document.querySelector('.menu-icon');
+        const menuItems = document.querySelector('.menu-items');
+
+        menuIcon.addEventListener('click', function () {
+            menuItems.classList.toggle('show-menu');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function (event) {
+            const isClickInside = menuIcon.contains(event.target) || menuItems.contains(event.target);
+            
+            if (!isClickInside) {
+                menuItems.classList.remove('show-menu');
+            }
         });
     </script>
 </body>
