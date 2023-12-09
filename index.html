@@ -80,56 +80,7 @@
 </head>
 <body>
     <script>
-        // Dynamically update styles based on the time of day
-        const body = document.body;
-        const currentTime = new Date().getHours();
-
-        if (currentTime >= 6 && currentTime < 12) {
-            // Sunrise
-            body.style.background = 'linear-gradient(to bottom, #FFD700, #ffffff)';
-        } else if (currentTime >= 12 && currentTime < 17) {
-            // Noon
-            body.style.background = 'linear-gradient(to bottom, #87CEEB, #ffffff)';
-        } else if (currentTime >= 17 && currentTime < 20) {
-            // Sunset
-            body.style.background = 'linear-gradient(to bottom, #FF6347, #ffffff)';
-        } else if (currentTime >= 20 && currentTime < 24) {
-            // Dusk
-            body.style.background = 'linear-gradient(to bottom, #483D8B, #ffffff)';
-        } else {
-            // Midnight
-            body.style.background = 'linear-gradient(to bottom, #191970, #ffffff)';
-        }
-    </script>
-
-    <nav>
-        <h1>Morgan's Fat World</h1>
-        <div class="time-box">
-            <p class="time-text" id="timeOfDay">Time of Day: Loading...</p>
-            <p class="time-text" id="exactTime">Exact Time: Loading...</p>
-        </div>
-    </nav>
-
-    <h1>Welcome to Morgan's Fat World</h1>
-
-    <footer>
-        &copy; 2023 - Morgan's Fat World
-
-        <div class="social-icons">
-            <a href="https://www.instagram.com" target="_blank">
-                <img src="https://github.com/GrampyBear/GrampyBear.github.io/raw/main/video.png" alt="Instagram">
-            </a>
-            <a href="https://www.twitter.com" target="_blank">
-                <img src="https://github.com/GrampyBear/GrampyBear.github.io/raw/main/medios-de-comunicacion-social.png" alt="Twitter">
-            </a>
-            <a href="https://www.twitch.tv" target="_blank">
-                <img src="https://github.com/GrampyBear/GrampyBear.github.io/raw/main/plataforma.png" alt="Twitch">
-            </a>
-        </div>
-    </footer>
-
-    <script>
-        // Update time dynamically in the navbar
+        // Function to update time dynamically in the navbar
         function updateTime() {
             const timeOfDayElement = document.getElementById('timeOfDay');
             const exactTimeElement = document.getElementById('exactTime');
@@ -162,8 +113,42 @@
         // Initial call to display time
         updateTime();
 
-        // Update time every minute
-        setInterval(updateTime, 60000);
+        // Update time every second for real-time clock
+        setInterval(updateTime, 1000);
+
+        // Function to handle color transition on page load
+        function handlePageLoadTransition() {
+            document.body.style.transition = 'background 1s ease-in-out';
+        }
+
+        // Initial call to handle color transition on page load
+        handlePageLoadTransition();
     </script>
+
+    <nav>
+        <h1>Morgan's Fat World</h1>
+        <div class="time-box">
+            <p class="time-text" id="timeOfDay">Time of Day: Loading...</p>
+            <p class="time-text" id="exactTime">Exact Time: Loading...</p>
+        </div>
+    </nav>
+
+    <h1>Welcome to Morgan's Fat World</h1>
+
+    <footer>
+        &copy; 2023 - Morgan's Fat World
+
+        <div class="social-icons">
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="https://github.com/GrampyBear/GrampyBear.github.io/raw/main/video.png" alt="Instagram">
+            </a>
+            <a href="https://www.twitter.com" target="_blank">
+                <img src="https://github.com/GrampyBear/GrampyBear.github.io/raw/main/medios-de-comunicacion-social.png" alt="Twitter">
+            </a>
+            <a href="https://www.twitch.tv" target="_blank">
+                <img src="https://github.com/GrampyBear/GrampyBear.github.io/raw/main/plataforma.png" alt="Twitch">
+            </a>
+        </div>
+    </footer>
 </body>
 </html>
