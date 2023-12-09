@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Morgan's Fat World</title>
+    <link rel="icon" href="https://github.com/GrampyBear/GrampyBear.github.io/raw/main/copo-de-nieve.png" type="image/png">
+
     <style>
         body {
             margin: 0;
@@ -28,6 +30,7 @@
 
         nav {
             background-color: #333;
+            color: #fff;
             width: 100%;
             padding: 10px;
             display: flex;
@@ -35,23 +38,22 @@
             align-items: center;
         }
 
-        .navbar-title {
-            color: #fff;
-            font-size: 1.5em;
+        .menu-icon {
+            display: none; /* Hide menu icon by default on larger screens */
         }
 
-        .navbar-menu {
+        .menu {
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            align-items: flex-end;
+            margin-right: 10px;
         }
 
-        .navbar-menu button {
-            background: none;
-            border: none;
-            cursor: pointer;
+        .menu a {
             color: #fff;
-            margin-left: 15px;
-            font-size: 1em;
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-size: 1.2em;
         }
 
         footer {
@@ -79,15 +81,47 @@
             width: 25px;
             height: auto;
         }
+
+        @media only screen and (max-width: 768px) {
+            .menu {
+                display: none; /* Hide menu on smaller screens */
+            }
+
+            .menu-icon {
+                display: block;
+                cursor: pointer;
+            }
+
+            .menu-items {
+                display: none;
+                position: absolute;
+                top: 60px; /* Adjust the distance from the top */
+                left: 0;
+                right: 0;
+                background-color: #333;
+                flex-direction: column;
+            }
+
+            .menu-items a {
+                padding: 10px;
+                text-align: center;
+                color: #fff;
+                text-decoration: none;
+                font-size: 1.2em;
+            }
+        }
     </style>
 </head>
 <body>
     <nav>
-        <div class="navbar-title">Morgan's Fat World</div>
-        <div class="navbar-menu">
-            <button>Section 1</button>
-            <button>Section 2</button>
-            <button>Section 3</button>
+        <h1>Morgan's Fat World</h1>
+        <div class="menu">
+            <div class="menu-icon">&#9776;</div>
+            <div class="menu-items">
+                <a href="#section1">Section 1</a>
+                <a href="#section2">Section 2</a>
+                <a href="#section3">Section 3</a>
+            </div>
         </div>
     </nav>
 
@@ -108,5 +142,12 @@
             </a>
         </div>
     </footer>
+
+    <script>
+        // Toggle menu items on small screens
+        document.querySelector('.menu-icon').addEventListener('click', function () {
+            document.querySelector('.menu-items').classList.toggle('show-menu');
+        });
+    </script>
 </body>
 </html>
