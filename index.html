@@ -40,6 +40,8 @@
 
         .menu-icon {
             display: none; /* Hide menu icon by default on larger screens */
+            font-size: 1.5em; /* Adjust the size of the menu icon */
+            cursor: pointer;
         }
 
         .menu {
@@ -85,12 +87,18 @@
         .menu-items {
             display: none;
             position: absolute;
-            top: 60px; /* Adjust the distance from the top */
+            top: 60px;
             left: 0;
             right: 0;
             background-color: #333;
             flex-direction: column;
             z-index: 1;
+            transition: transform 0.3s ease; /* Smooth transition animation */
+            transform: translateY(-100%); /* Move menu off-screen by default */
+        }
+
+        .menu-items.show-menu {
+            transform: translateY(0); /* Bring menu on-screen when visible */
         }
 
         .menu-items a {
@@ -103,16 +111,11 @@
 
         @media only screen and (max-width: 768px) {
             .menu {
-                display: none; /* Hide menu on smaller screens */
+                display: none;
             }
 
             .menu-icon {
                 display: block;
-                cursor: pointer;
-            }
-
-            .menu-items.show-menu {
-                display: flex;
             }
         }
     </style>
