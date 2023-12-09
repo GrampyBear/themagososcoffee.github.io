@@ -36,29 +36,23 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
         }
 
         .menu-icon {
             display: none; /* Hide menu icon by default on larger screens */
-            cursor: pointer;
         }
 
-        .menu-items {
-            display: none;
+        .menu {
+            display: flex;
             flex-direction: column;
-            position: absolute;
-            top: 100%; /* Adjust the distance from the top */
-            left: 0;
-            width: 100%;
-            background-color: #333;
+            align-items: flex-end;
+            margin-right: 10px;
         }
 
-        .menu-items a {
-            padding: 10px;
-            text-align: center;
+        .menu a {
             color: #fff;
             text-decoration: none;
+            margin-bottom: 10px;
             font-size: 1.2em;
         }
 
@@ -88,13 +82,37 @@
             height: auto;
         }
 
+        .menu-items {
+            display: none;
+            position: absolute;
+            top: 60px; /* Adjust the distance from the top */
+            left: 0;
+            right: 0;
+            background-color: #333;
+            flex-direction: column;
+            z-index: 1;
+        }
+
+        .menu-items a {
+            padding: 10px;
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
         @media only screen and (max-width: 768px) {
-            .menu-items.show-menu {
-                display: flex;
+            .menu {
+                display: none; /* Hide menu on smaller screens */
             }
 
             .menu-icon {
                 display: block;
+                cursor: pointer;
+            }
+
+            .menu-items.show-menu {
+                display: flex;
             }
         }
     </style>
@@ -102,11 +120,13 @@
 <body>
     <nav>
         <h1>Morgan's Fat World</h1>
-        <div class="menu-icon">&#9776;</div>
-        <div class="menu-items">
-            <a href="#section1">Section 1</a>
-            <a href="#section2">Section 2</a>
-            <a href="#section3">Section 3</a>
+        <div class="menu">
+            <div class="menu-icon">&#9776;</div>
+            <div class="menu-items">
+                <a href="#section1">Section 1</a>
+                <a href="#section2">Section 2</a>
+                <a href="#section3">Section 3</a>
+            </div>
         </div>
     </nav>
 
@@ -130,20 +150,8 @@
 
     <script>
         // Toggle menu items on small screens
-        const menuIcon = document.querySelector('.menu-icon');
-        const menuItems = document.querySelector('.menu-items');
-
-        menuIcon.addEventListener('click', function () {
-            menuItems.classList.toggle('show-menu');
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', function (event) {
-            const isClickInside = menuIcon.contains(event.target) || menuItems.contains(event.target);
-            
-            if (!isClickInside) {
-                menuItems.classList.remove('show-menu');
-            }
+        document.querySelector('.menu-icon').addEventListener('click', function () {
+            document.querySelector('.menu-items').classList.toggle('show-menu');
         });
     </script>
 </body>
