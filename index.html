@@ -88,9 +88,11 @@
 
             let hours = currentTime.getHours();
             let minutes = currentTime.getMinutes();
+            let seconds = currentTime.getSeconds();
 
-            // Format minutes with leading zero if needed
+            // Format minutes and seconds with leading zero if needed
             minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
 
             let timeOfDay;
 
@@ -107,7 +109,7 @@
             }
 
             timeOfDayElement.textContent = `Time of Day: ${timeOfDay}`;
-            exactTimeElement.textContent = `Exact Time: ${hours}:${minutes}`;
+            exactTimeElement.textContent = `Exact Time: ${hours}:${minutes}:${seconds}`;
         }
 
         // Initial call to display time
