@@ -39,9 +39,14 @@
         }
 
         .menu-icon {
-            display: none; /* Hide menu icon by default on larger screens */
+            display: none;
             font-size: 1.5em;
             cursor: pointer;
+            transition: transform 0.3s ease; /* Animation for the menu icon */
+        }
+
+        .menu-icon.active {
+            transform: rotate(90deg);
         }
 
         .menu {
@@ -87,19 +92,13 @@
         .menu-items {
             display: none;
             position: absolute;
-            top: 60px; /* Adjust the distance from the top */
+            top: 60px;
             left: 0;
             right: 0;
             background-color: #333;
             flex-direction: column;
             z-index: 1;
-            opacity: 0;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        .menu-items.show-menu {
-            display: flex;
-            animation: fadeIn 0.5s ease-in-out;
+            transition: opacity 0.3s ease; /* Animation for the menu items */
         }
 
         .menu-items a {
@@ -110,21 +109,21 @@
             font-size: 1.2em;
         }
 
+        .menu-items.show-menu {
+            display: flex;
+            opacity: 1;
+        }
+
         @media only screen and (max-width: 768px) {
             .menu {
-                display: none; /* Hide menu on smaller screens */
+                display: none;
             }
 
             .menu-icon {
                 display: block;
             }
-        }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
+            .menu-items.show-menu {
                 opacity: 1;
             }
         }
@@ -135,6 +134,7 @@
         <h1>Morgan's Fat World</h1>
         <div class="menu">
             <div class="menu-icon">&#9776;</div>
+            <div class="menu-icon active">&#10006;</div>
             <div class="menu-items">
                 <a href="#section1">Section 1</a>
                 <a href="#section2">Section 2</a>
@@ -163,8 +163,12 @@
 
     <script>
         // Toggle menu items on small screens
-        document.querySelector('.menu-icon').addEventListener('click', function () {
-            document.querySelector('.menu-items').classList.toggle('show-menu');
+        const menuIcon = document.querySelector('.menu-icon');
+        const menuItems = document.querySelector('.menu-items');
+
+        menuIcon.addEventListener('click', function () {
+            menuItems.classList.toggle('show-menu');
+            menuIcon.classList.toggle('active');
         });
     </script>
 </body>
