@@ -41,6 +41,14 @@
         .time-box {
             text-align: center;
             margin: 0 20px;
+            padding: 10px;
+            border: 2px solid #fff; /* Frame color */
+            border-radius: 10px; /* Rounded corners */
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        }
+
+        .time-text {
+            color: #fff; /* Text color for better readability */
         }
 
         footer {
@@ -97,8 +105,8 @@
     <nav>
         <h1>Morgan's Fat World</h1>
         <div class="time-box">
-            <p id="timeOfDay">Time of Day: Loading...</p>
-            <p id="exactTime">Exact Time: Loading...</p>
+            <p class="time-text" id="timeOfDay">Time of Day: Loading...</p>
+            <p class="time-text" id="exactTime">Exact Time: Loading...</p>
         </div>
     </nav>
 
