@@ -38,17 +38,9 @@
             align-items: center;
         }
 
-        .nav-buttons {
-            display: flex;
-            justify-content: space-around;
-            width: 50%;
-        }
-
-        .nav-buttons a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.1em;
-            margin: 0 15px;
+        .time-box {
+            text-align: center;
+            margin: 0 20px;
         }
 
         footer {
@@ -104,12 +96,9 @@
 
     <nav>
         <h1>Morgan's Fat World</h1>
-        <div class="nav-buttons">
-            <a href="#home">Home</a>
-            <a href="#art-gallery">Art Gallery</a>
-            <a href="#fat-gallery">Fat Gallery</a>
-            <a href="#about-me">About Me</a>
-            <a href="#contact-me">Contact Me</a>
+        <div class="time-box">
+            <p id="timeOfDay">Time of Day: Loading...</p>
+            <p id="exactTime">Exact Time: Loading...</p>
         </div>
     </nav>
 
@@ -130,5 +119,43 @@
             </a>
         </div>
     </footer>
+
+    <script>
+        // Update time dynamically in the navbar
+        function updateTime() {
+            const timeOfDayElement = document.getElementById('timeOfDay');
+            const exactTimeElement = document.getElementById('exactTime');
+            const currentTime = new Date();
+
+            let hours = currentTime.getHours();
+            let minutes = currentTime.getMinutes();
+
+            // Format minutes with leading zero if needed
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+
+            let timeOfDay;
+
+            if (hours >= 6 && hours < 12) {
+                timeOfDay = 'Morning';
+            } else if (hours >= 12 && hours < 17) {
+                timeOfDay = 'Afternoon';
+            } else if (hours >= 17 && hours < 20) {
+                timeOfDay = 'Evening';
+            } else if (hours >= 20 && hours < 24) {
+                timeOfDay = 'Night';
+            } else {
+                timeOfDay = 'Midnight';
+            }
+
+            timeOfDayElement.textContent = `Time of Day: ${timeOfDay}`;
+            exactTimeElement.textContent = `Exact Time: ${hours}:${minutes}`;
+        }
+
+        // Initial call to display time
+        updateTime();
+
+        // Update time every minute
+        setInterval(updateTime, 60000);
+    </script>
 </body>
 </html>
