@@ -39,27 +39,44 @@
         }
 
         .menu-icon {
-            display: none;
             font-size: 1.5em;
+            display: none;
             cursor: pointer;
+            transition: transform 0.3s ease-in-out;
         }
 
-        .menu-icon.show-menu {
-            transform: rotate(45deg);
+        .menu-icon:hover {
+            color: #007BFF;
         }
 
-        .menu-items {
+        .menu {
             display: flex;
             flex-direction: column;
             align-items: flex-end;
             margin-right: 10px;
-            animation: slideIn 0.3s ease-out;
         }
 
-        .menu a {
+        .menu-items {
+            display: none;
+            position: absolute;
+            top: 60px; /* Adjust the distance from the top */
+            left: 0;
+            right: 0;
+            background-color: #333;
+            flex-direction: column;
+            z-index: 1;
+            animation: fadeMenu 0.5s ease-in-out;
+        }
+
+        .menu-items.show-menu {
+            display: flex;
+        }
+
+        .menu-items a {
+            padding: 10px;
+            text-align: center;
             color: #fff;
             text-decoration: none;
-            margin-bottom: 10px;
             font-size: 1.2em;
         }
 
@@ -89,10 +106,10 @@
             height: auto;
         }
 
-        @keyframes slideIn {
+        @keyframes fadeMenu {
             from {
                 opacity: 0;
-                transform: translateY(-10px);
+                transform: translateY(-20px);
             }
             to {
                 opacity: 1;
@@ -109,9 +126,27 @@
                 display: block;
             }
 
-            .menu-items.show-menu {
-                display: flex;
+            .menu-items {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #333;
                 flex-direction: column;
+            }
+
+            .menu-items a {
+                padding: 20px;
+            }
+
+            .menu-icon.open {
+                transform: rotate(45deg);
+            }
+
+            .menu-icon.open:before {
+                transform: rotate(-90deg);
+                top: 0;
             }
         }
     </style>
@@ -154,7 +189,7 @@
 
         menuIcon.addEventListener('click', function () {
             menuItems.classList.toggle('show-menu');
-            menuIcon.classList.toggle('show-menu');
+            menuIcon.classList.toggle('open');
         });
     </script>
 </body>
