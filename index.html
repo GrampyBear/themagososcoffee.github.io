@@ -40,7 +40,7 @@
 
         .menu-icon {
             display: none; /* Hide menu icon by default on larger screens */
-            font-size: 1.5em; /* Adjust the size of the menu icon */
+            font-size: 1.5em;
             cursor: pointer;
         }
 
@@ -87,18 +87,19 @@
         .menu-items {
             display: none;
             position: absolute;
-            top: 60px;
+            top: 60px; /* Adjust the distance from the top */
             left: 0;
             right: 0;
             background-color: #333;
             flex-direction: column;
             z-index: 1;
-            transition: transform 0.3s ease; /* Smooth transition animation */
-            transform: translateY(-100%); /* Move menu off-screen by default */
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in-out;
         }
 
         .menu-items.show-menu {
-            transform: translateY(0); /* Bring menu on-screen when visible */
+            display: flex;
+            animation: fadeIn 0.5s ease-in-out;
         }
 
         .menu-items a {
@@ -111,11 +112,20 @@
 
         @media only screen and (max-width: 768px) {
             .menu {
-                display: none;
+                display: none; /* Hide menu on smaller screens */
             }
 
             .menu-icon {
                 display: block;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
             }
         }
     </style>
