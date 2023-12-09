@@ -60,6 +60,7 @@
             color: #fff;
             text-decoration: none;
             font-size: 1.2em;
+            display: block;
         }
 
         footer {
@@ -91,6 +92,11 @@
         @media only screen and (max-width: 768px) {
             .menu-items.show-menu {
                 display: flex;
+                position: absolute;
+                top: 60px; /* Adjust the distance from the top */
+                left: 0;
+                right: 0;
+                background-color: #333;
             }
 
             .menu-icon {
