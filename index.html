@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Morgan's Fat World</title>
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script> <!-- Replace "yourcode" with your actual Font Awesome Kit code -->
     <style>
         body {
             margin: 0;
@@ -11,7 +12,7 @@
             font-family: 'Comic Sans MS', cursive;
             overflow-x: hidden;
             background: linear-gradient(to bottom, #87CEEB, #ffffff);
-            height: 100vh; /* Ensure background covers the entire viewport height */
+            height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -23,7 +24,7 @@
             font-size: 3em;
             margin-top: 20px;
             color: #007BFF;
-            align-self: flex-start; /* Align the title to the top center */
+            align-self: flex-start;
         }
 
         footer {
@@ -32,17 +33,20 @@
             padding: 10px;
             text-align: center;
             width: 100%;
-            margin-top: auto; /* Push the footer to the bottom */
+            margin-top: auto;
             display: flex;
-            justify-content: space-around;
+            flex-direction: column;
             align-items: center;
         }
 
-        .social-icon {
-            color: #fff;
-            font-size: 1.5em;
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            display: inline-block;
             margin: 0 10px;
-            text-decoration: none;
+            color: #fff; /* Set the color of the icons to white */
         }
     </style>
 </head>
@@ -51,9 +55,19 @@
 
     <footer>
         &copy; 2023 - Morgan's Fat World
-        <a href="#" class="social-icon">Instagram</a>
-        <a href="#" class="social-icon">Twitter</a>
-        <a href="#" class="social-icon">Twitch</a>
+
+        <div class="social-icons">
+            <!-- Replace the placeholder URLs with your actual social media URLs -->
+            <a href="https://www.instagram.com" target="_blank">
+                <i class="fab fa-instagram"></i> <!-- Replace with your actual Font Awesome Instagram icon -->
+            </a>
+            <a href="https://www.twitter.com" target="_blank">
+                <i class="fab fa-twitter"></i> <!-- Replace with your actual Font Awesome Twitter icon -->
+            </a>
+            <a href="https://www.twitch.tv" target="_blank">
+                <i class="fab fa-twitch"></i> <!-- Replace with your actual Font Awesome Twitch icon -->
+            </a>
+        </div>
     </footer>
 </body>
 </html>
