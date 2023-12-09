@@ -11,13 +11,18 @@
             font-family: 'Comic Sans MS', cursive;
             overflow-x: hidden;
             background: linear-gradient(to bottom, #87CEEB, #ffffff);
-            text-align: center;
-            color: #007BFF;
+            height: 100vh; /* Ensure background covers the entire viewport height */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #333;
         }
 
         h1 {
             font-size: 3em;
             margin-bottom: 20px;
+            color: #007BFF;
         }
 
         footer {
@@ -25,6 +30,7 @@
             color: #fff;
             padding: 10px;
             text-align: center;
+            width: 100%;
         }
     </style>
 </head>
