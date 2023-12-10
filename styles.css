@@ -1,3 +1,28 @@
+body.sunrise {
+    background: linear-gradient(to bottom, #FFD700, #FFA500);
+    color: #000;
+}
+
+body.noon {
+    background: #FFFF00;
+    color: #000;
+}
+
+body.sunset {
+    background: linear-gradient(to bottom, #FF4500, #8B0000);
+    color: #fff;
+}
+
+body.dusk {
+    background: linear-gradient(to bottom, #4169E1, #800080);
+    color: #fff;
+}
+
+body.midnight {
+    background: #000080;
+    color: #fff;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -8,7 +33,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    color: #fff; /* Default text color */
+    color: #fff;
     transition: background 1s ease-in-out;
 }
 
@@ -18,9 +43,9 @@ body {
 }
 
 .navbar-logo {
-    width: 100px; /* Adjust as needed */
+    width: 100px;
     height: auto;
-    margin-right: 10px; /* Adjust as needed */
+    margin-right: 10px;
 }
 
 .navbar-title {
@@ -37,10 +62,10 @@ body {
 }
 
 .content-container {
-    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent black background */
-    padding: 20px; /* Adjust as needed */
-    border-radius: 10px; /* Optional: Rounded corners */
-    margin: 20px; /* Adjust as needed */
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
     text-align: center;
 }
 
@@ -50,9 +75,9 @@ body {
 }
 
 .section-content {
-    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent black background for sections */
-    padding: 20px; /* Adjust as needed */
-    border-radius: 10px; /* Optional: Rounded corners */
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
     text-align: center;
     color: #fff;
 }
@@ -104,4 +129,4 @@ footer {
 .social-icons img {
     width: 20px;
     height: auto;
-}
+    }
