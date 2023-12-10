@@ -36,4 +36,4 @@ document.getElementById('btnMidnight').addEventListener('click', function () {
 updateTime();
 
 // Update time every second for a real-time clock
-setInterval(updateTime, 1000);
+var intervalID = setInterval(updateTime, 1000);
