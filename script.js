@@ -89,24 +89,66 @@ function removeStars() {
     }
 }
 
+// Function to manually change the time of day for testing
+function manualTimeChange() {
+    const currentTime = new Date();
+    const hours = currentTime.getHours();
 
-// Function to update text and background colors
-function updateColors(timeOfDayClass) {
-    document.body.className = timeOfDayClass;
-}
-
-// Function to toggle visibility of sections
-function toggleSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    if (section.style.display === 'none' || section.style.display === '') {
-        section.style.display = 'block';
+    // Adjust the hours as needed for testing different times of day
+    if (hours < 6) {
+        updateTimeTo('midnight');
+    } else if (hours < 12) {
+        updateTimeTo('morning');
+    } else if (hours < 17) {
+        updateTimeTo('noon');
+    } else if (hours < 20) {
+        updateTimeTo('sunset');
     } else {
-        section.style.display = 'none';
+        updateTimeTo('midnight');
     }
 }
+
+// Function to update time dynamically in the navbar based on manual input
+function updateTimeTo(timeOfDayClass) {
+    const timeOfDayElement = document.getElementById('timeOfDay');
+    const currentTimeElement = document.getElementById('currentTime');
+
+    let timeOfDay;
+
+    switch (timeOfDayClass) {
+        case 'morning':
+            timeOfDay = 'Morning';
+            updateColors('sunrise');
+            break;
+        case 'noon':
+            timeOfDay = 'Afternoon';
+            updateColors('noon');
+            break;
+        case 'sunset':
+            timeOfDay = 'Evening';
+            updateColors('sunset');
+            break;
+        case 'midnight':
+            timeOfDay = 'Night';
+            updateColors('midnight');
+            generateStars(); // Generate stars for midnight
+            break;
+        default:
+            timeOfDay = 'Midnight';
+            updateColors('midnight');
+            generateStars(); // Generate stars for midnight
+            break;
+    }
+
+    timeOfDayElement.textContent = `Time of Day: ${timeOfDay}`;
+    currentTimeElement.textContent = `Current Time: Manually Changed`;
+}
+
+// Rest of your existing JavaScript code
 
 // Initial call to display time and set initial colors
 updateTime();
 
 // Update time every second for real-time clock
 setInterval(updateTime, 1000);
+                                       
