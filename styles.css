@@ -8,14 +8,14 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    color: #333;
+    color: #fff; /* Default text color */
     transition: background 1s ease-in-out;
 }
 
 .navbar-title {
     font-size: 2em;
     margin-top: 15px;
-    color: #007BFF;
+    color: #fff;
     align-self: flex-start;
     margin-left: 20px;
 }
@@ -23,8 +23,15 @@ body {
 .page-title {
     font-size: 2.5em;
     margin-top: 15px;
-    color: #007BFF;
+    color: #fff;
     align-self: flex-start;
+}
+
+.content-container {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    padding: 20px; /* Adjust as needed */
+    border-radius: 10px; /* Optional: Rounded corners */
+    margin: 20px; /* Adjust as needed */
 }
 
 nav {
