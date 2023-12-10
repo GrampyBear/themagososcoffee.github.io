@@ -12,11 +12,15 @@ body {
     transition: background 1s ease-in-out;
 }
 
+.navbar-title-container {
+    display: flex;
+    align-items: center;
+}
+
 .navbar-title {
     font-size: 2em;
     margin-top: 15px;
     color: #fff;
-    align-self: flex-start;
     margin-left: 20px;
 }
 
