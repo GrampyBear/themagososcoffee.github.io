@@ -11,30 +11,32 @@ function updateTime() {
     minutes = minutes < 10 ? '0' + minutes : minutes;
 
     let timeOfDay;
+    let transitionDuration;
 
     if (hours >= 5 && hours < 7) {
         timeOfDay = 'Sunrise';
-        updateColors('sunrise');
+        transitionDuration = 5; // seconds
     } else if (hours >= 7 && hours < 11) {
         timeOfDay = 'Morning';
-        updateColors('morning');
+        transitionDuration = 5;
     } else if (hours >= 11 && hours < 14) {
         timeOfDay = 'Noon';
-        updateColors('noon');
+        transitionDuration = 5;
     } else if (hours >= 14 && hours < 17) {
         timeOfDay = 'Afternoon';
-        updateColors('afternoon');
+        transitionDuration = 5;
     } else if (hours >= 17 && hours < 20) {
         timeOfDay = 'Sunset';
-        updateColors('sunset');
+        transitionDuration = 5;
     } else if (hours >= 20 && hours < 24) {
         timeOfDay = 'Night';
-        updateColors('night');
+        transitionDuration = 5;
     } else {
         timeOfDay = 'Midnight';
-        updateColors('midnight');
+        transitionDuration = 5;
     }
 
+    document.documentElement.style.setProperty('--transition-duration', `${transitionDuration}s`);
     timeOfDayElement.textContent = `Time of Day: ${timeOfDay}`;
     currentTimeElement.textContent = `Current Time: ${hours}:${minutes}`;
 }
