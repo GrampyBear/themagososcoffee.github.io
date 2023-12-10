@@ -77,7 +77,6 @@ function acceptWarning() {
 }
 
 
-
 // Initial call to display time and set initial colors
 updateTime();
 
