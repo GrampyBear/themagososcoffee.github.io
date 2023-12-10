@@ -32,6 +32,7 @@ body {
     padding: 20px; /* Adjust as needed */
     border-radius: 10px; /* Optional: Rounded corners */
     margin: 20px; /* Adjust as needed */
+    text-align: center;
 }
 
 nav {
