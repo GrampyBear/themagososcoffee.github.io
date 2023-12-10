@@ -1,29 +1,29 @@
 body.sunrise {
-    background: linear-gradient(to bottom, #ffcc00, #ff9900);
+    background: linear-gradient(to bottom, #FF6F00, #FFD54F);
 }
 
 body.morning {
-    background: linear-gradient(to bottom, #66ccff, #3399ff);
+    background: linear-gradient(to bottom, #FFD54F, #81C784);
 }
 
 body.noon {
-    background: linear-gradient(to bottom, #ffff66, #ffcc00);
+    background: linear-gradient(to bottom, #81C784, #4CAF50);
 }
 
 body.afternoon {
-    background: linear-gradient(to bottom, #ff9900, #cc6600);
+    background: linear-gradient(to bottom, #4CAF50, #FFA726);
 }
 
 body.sunset {
-    background: linear-gradient(to bottom, #ff3300, #990000);
+    background: linear-gradient(to bottom, #FFA726, #FF7043);
 }
 
 body.night {
-    background: linear-gradient(to bottom, #000033, #000066);
+    background: linear-gradient(to bottom, #263238, #000000);
 }
 
 body.midnight {
-    background: linear-gradient(to bottom, #000000, #000033);
+    background: linear-gradient(to bottom, #000000, #0D47A1);
 }
 
 body {
