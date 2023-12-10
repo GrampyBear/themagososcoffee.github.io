@@ -180,3 +180,20 @@ footer {
 .popup button:hover {
     background: #ddd; /* Change color on hover */
 }
+
+/* ... (your existing styles) ... */
+
+.content-container button {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px; /* Add some space between the title and the button */
+    cursor: pointer;
+}
+
+.content-container button:hover {
+    background: #555; /* Change color on hover */
+}
+
