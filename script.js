@@ -14,29 +14,45 @@ function updateTime() {
 
     if (hours >= 6 && hours < 12) {
         timeOfDay = 'Morning';
-        setColors('#FFD700', '#ffffff'); // Set colors for morning
+        updateColors('#FFD700'); // Update text and background colors
     } else if (hours >= 12 && hours < 17) {
         timeOfDay = 'Afternoon';
-        setColors('#87CEEB', '#ffffff'); // Set colors for afternoon
+        updateColors('#87CEEB');
     } else if (hours >= 17 && hours < 20) {
         timeOfDay = 'Evening';
-        setColors('#FF6347', '#ffffff'); // Set colors for evening
+        updateColors('#FF6347');
     } else if (hours >= 20 && hours < 24) {
         timeOfDay = 'Night';
-        setColors('#483D8B', '#ffffff'); // Set colors for night
+        updateColors('#483D8B');
     } else {
         timeOfDay = 'Midnight';
-        setColors('#191970', '#ffffff'); // Set colors for midnight
+        updateColors('#191970');
     }
 
     timeOfDayElement.textContent = `Time of Day: ${timeOfDay}`;
     exactTimeElement.textContent = `Exact Time: ${hours}:${minutes}`;
 }
 
-// Function to set text and background colors
-function setColors(textColor, backgroundColor) {
-    document.body.style.background = `linear-gradient(to bottom, ${backgroundColor})`;
-    document.body.style.color = textColor;
+// Function to update text and background colors
+function updateColors(gradientColor) {
+    document.body.style.background = `linear-gradient(to bottom, ${gradientColor}, #ffffff)`;
+    const textElements = document.querySelectorAll('.dynamic-text-color');
+
+    // Choose appropriate text color based on background brightness
+    const brightness = getBrightness(gradientColor);
+    const textColor = brightness < 128 ? '#fff' : '#333';
+
+    textElements.forEach((element) => {
+        element.style.color = textColor;
+    });
+}
+
+// Function to get brightness from a hex color
+function getBrightness(hexColor) {
+    const r = parseInt(hexColor.slice(1, 3), 16);
+    const g = parseInt(hexColor.slice(3, 5), 16);
+    const b = parseInt(hexColor.slice(5, 7), 16);
+    return (r * 299 + g * 587 + b * 114) / 1000;
 }
 
 // Initial call to display time and set initial colors
@@ -56,3 +72,4 @@ function handlePageLoadTransition() {
 
 // Initial call to handle color transition on page load
 handlePageLoadTransition();
+                     
