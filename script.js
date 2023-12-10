@@ -2,6 +2,7 @@
 function updateTime() {
     const timeOfDayElement = document.getElementById('timeOfDay');
     const exactTimeElement = document.getElementById('exactTime');
+    const body = document.body;
     const currentTime = new Date();
 
     let hours = currentTime.getHours();
@@ -14,23 +15,43 @@ function updateTime() {
 
     if (hours >= 6 && hours < 12) {
         timeOfDay = 'Morning';
-        document.body.style.background = 'linear-gradient(to bottom, #FFD700, #ffffff)';
+        body.style.background = 'linear-gradient(to bottom, #FFD700, #ffffff)';
+        setTextColor(body, '#333'); // Default text color for morning
     } else if (hours >= 12 && hours < 17) {
         timeOfDay = 'Afternoon';
-        document.body.style.background = 'linear-gradient(to bottom, #87CEEB, #ffffff)';
+        body.style.background = 'linear-gradient(to bottom, #87CEEB, #ffffff)';
+        setTextColor(body, '#333'); // Default text color for afternoon
     } else if (hours >= 17 && hours < 20) {
         timeOfDay = 'Evening';
-        document.body.style.background = 'linear-gradient(to bottom, #FF6347, #ffffff)';
+        body.style.background = 'linear-gradient(to bottom, #FF6347, #ffffff)';
+        setTextColor(body, '#fff'); // White text color for evening
     } else if (hours >= 20 && hours < 24) {
         timeOfDay = 'Night';
-        document.body.style.background = 'linear-gradient(to bottom, #483D8B, #ffffff)';
+        body.style.background = 'linear-gradient(to bottom, #483D8B, #ffffff)';
+        setTextColor(body, '#fff'); // White text color for night
     } else {
         timeOfDay = 'Midnight';
-        document.body.style.background = 'linear-gradient(to bottom, #191970, #ffffff)';
+        body.style.background = 'linear-gradient(to bottom, #191970, #ffffff)';
+        setTextColor(body, '#fff'); // White text color for midnight
     }
 
     timeOfDayElement.textContent = `Time of Day: ${timeOfDay}`;
     exactTimeElement.textContent = `Exact Time: ${hours}:${minutes}`;
+}
+
+// Function to set text color based on background color
+function setTextColor(element, bgColor) {
+    const brightness = getBrightness(bgColor);
+
+    // Adjusting text color based on brightness
+    element.style.color = brightness > 128 ? '#333' : '#fff';
+}
+
+// Function to get brightness of a color
+function getBrightness(color) {
+    const rgb = color.match(/\d+/g);
+    const brightness = (rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000;
+    return brightness;
 }
 
 // Initial call to display time
@@ -49,4 +70,5 @@ function handlePageLoadTransition() {
 }
 
 // Initial call to handle color transition on page load
-handle
+handlePageLoadTransition();
+               
