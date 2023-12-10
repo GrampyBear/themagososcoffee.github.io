@@ -19,11 +19,11 @@ body.sunset {
 }
 
 body.night {
-    background: linear-gradient(to bottom, #263238, #000000);
+    background: linear-gradient(to bottom, #0D47A1, #263238);
 }
 
 body.midnight {
-    background: linear-gradient(to bottom, #000000, #0D47A1);
+    background: linear-gradient(to bottom, #000000, #1A237E);
 }
 
 body {
