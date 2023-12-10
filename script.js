@@ -11,41 +11,32 @@ function updateTime() {
     minutes = minutes < 10 ? '0' + minutes : minutes;
 
     let timeOfDay;
-    let backgroundColor;
 
     if (hours >= 5 && hours < 7) {
         timeOfDay = 'Sunrise';
-        backgroundColor = 'linear-gradient(to bottom, #ffcc00, #ff9900)';
+        updateColors('sunrise');
     } else if (hours >= 7 && hours < 11) {
         timeOfDay = 'Morning';
-        backgroundColor = 'linear-gradient(to bottom, #66ccff, #3399ff)';
+        updateColors('morning');
     } else if (hours >= 11 && hours < 14) {
         timeOfDay = 'Noon';
-        backgroundColor = 'linear-gradient(to bottom, #ffff66, #ffcc00)';
+        updateColors('noon');
     } else if (hours >= 14 && hours < 17) {
         timeOfDay = 'Afternoon';
-        backgroundColor = 'linear-gradient(to bottom, #ff9900, #cc6600)';
+        updateColors('afternoon');
     } else if (hours >= 17 && hours < 20) {
         timeOfDay = 'Sunset';
-        backgroundColor = 'linear-gradient(to bottom, #ff3300, #990000)';
+        updateColors('sunset');
     } else if (hours >= 20 && hours < 24) {
         timeOfDay = 'Night';
-        backgroundColor = 'linear-gradient(to bottom, #000033, #000066)';
+        updateColors('night');
     } else {
         timeOfDay = 'Midnight';
-        backgroundColor = 'linear-gradient(to bottom, #000000, #000033)';
+        updateColors('midnight');
     }
 
-    document.documentElement.style.setProperty('--background', backgroundColor);
-    document.body.classList.add('transition-background');
-    
     timeOfDayElement.textContent = `Time of Day: ${timeOfDay}`;
     currentTimeElement.textContent = `Current Time: ${hours}:${minutes}`;
-
-    // Remove transition class after 1 second to trigger a smooth transition
-    setTimeout(() => {
-        document.body.classList.remove('transition-background');
-    }, 1000);
 }
 
 // Function to update text and background colors
@@ -68,3 +59,4 @@ updateTime();
 
 // Update time every second for real-time clock
 setInterval(updateTime, 1000);
+        
