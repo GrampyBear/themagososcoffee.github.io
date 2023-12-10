@@ -12,12 +12,19 @@ body {
     transition: background 1s ease-in-out;
 }
 
-h1 {
-    font-size: 2em; /* Adjusted font size */
+.navbar-title {
+    font-size: 2em;
     margin-top: 15px;
     color: #007BFF;
     align-self: flex-start;
-    margin-left: 20px; /* Increased margin from the left side */
+    margin-left: 20px;
+}
+
+.page-title {
+    font-size: 2.5em;
+    margin-top: 15px;
+    color: #007BFF;
+    align-self: flex-start;
 }
 
 nav {
@@ -34,13 +41,13 @@ nav {
     text-align: center;
     margin: 0 20px;
     padding: 10px;
-    border: 2px solid #fff; /* Frame color */
-    border-radius: 10px; /* Rounded corners */
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    border: 2px solid #fff;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .time-text {
-    color: #fff; /* Text color for better readability */
+    color: #fff;
 }
 
 footer {
