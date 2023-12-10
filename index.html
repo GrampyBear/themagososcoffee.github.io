@@ -123,14 +123,19 @@
 
             if (hours >= 6 && hours < 12) {
                 timeOfDay = 'Morning';
+                document.body.style.background = 'linear-gradient(to bottom, #FFD700, #ffffff)';
             } else if (hours >= 12 && hours < 17) {
                 timeOfDay = 'Afternoon';
+                document.body.style.background = 'linear-gradient(to bottom, #87CEEB, #ffffff)';
             } else if (hours >= 17 && hours < 20) {
                 timeOfDay = 'Evening';
+                document.body.style.background = 'linear-gradient(to bottom, #FF6347, #ffffff)';
             } else if (hours >= 20 && hours < 24) {
                 timeOfDay = 'Night';
+                document.body.style.background = 'linear-gradient(to bottom, #483D8B, #ffffff)';
             } else {
                 timeOfDay = 'Midnight';
+                document.body.style.background = 'linear-gradient(to bottom, #191970, #ffffff)';
             }
 
             timeOfDayElement.textContent = `Time of Day: ${timeOfDay}`;
@@ -148,7 +153,7 @@
             document.body.style.transition = 'background 1s ease-in-out';
             // Triggering the transition by updating the background after a slight delay
             setTimeout(() => {
-                document.body.style.background = document.body.style.background; // This re-applies the background
+                updateTime();
             }, 50);
         }
 
