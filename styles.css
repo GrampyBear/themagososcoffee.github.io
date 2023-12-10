@@ -4,7 +4,7 @@ body.sunrise {
 }
 
 body.noon {
-    background: #FFFF00;
+    background: linear-gradient(to bottom, #FFFF00, #FFD700);
     color: #000;
 }
 
@@ -19,7 +19,7 @@ body.dusk {
 }
 
 body.midnight {
-    background: #000080;
+    background: linear-gradient(to bottom, #000080, #191970);
     color: #fff;
 }
 
