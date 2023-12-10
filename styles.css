@@ -12,22 +12,21 @@ body {
     transition: background 1s ease-in-out;
 }
 
-.navbar-title-container {
+.navbar-logo-container {
     display: flex;
     align-items: center;
+}
+
+.navbar-logo {
+    width: 30px; /* Adjust as needed */
+    height: auto;
+    margin-right: 10px; /* Adjust as needed */
 }
 
 .navbar-title {
     font-size: 2em;
     margin-top: 15px;
     color: #fff;
-    margin-left: 20px;
-}
-
-.navbar-logo {
-    width: 30px; /* Adjust as needed */
-    height: auto;
-    margin-left: 10px; /* Adjust as needed */
 }
 
 .page-title {
