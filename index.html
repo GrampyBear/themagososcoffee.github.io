@@ -5,78 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Morgan's Fat World</title>
     <link rel="icon" href="https://github.com/GrampyBear/GrampyBear.github.io/raw/main/copo-de-nieve.png" type="image/png">
-
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Comic Sans MS', cursive;
-            overflow-x: hidden;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            color: #333;
-            transition: background 1s ease-in-out;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            margin-top: 15px;
-            color: #007BFF;
-            align-self: flex-start;
-        }
-
-        nav {
-            background-color: #333;
-            color: #fff;
-            width: 100%;
-            padding: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .time-box {
-            text-align: center;
-            margin: 0 20px;
-            padding: 10px;
-            border: 2px solid #fff; /* Frame color */
-            border-radius: 10px; /* Rounded corners */
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-        }
-
-        .time-text {
-            color: #fff; /* Text color for better readability */
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            width: 100%;
-            margin-top: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .social-icons {
-            margin-top: 10px;
-        }
-
-        .social-icons a {
-            display: inline-block;
-            margin: 0 10px;
-        }
-
-        .social-icons img {
-            width: 20px;
-            height: auto;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -106,59 +35,6 @@
         </div>
     </footer>
 
-    <script>
-        // Function to update time dynamically in the navbar
-        function updateTime() {
-            const timeOfDayElement = document.getElementById('timeOfDay');
-            const exactTimeElement = document.getElementById('exactTime');
-            const currentTime = new Date();
-
-            let hours = currentTime.getHours();
-            let minutes = currentTime.getMinutes();
-
-            // Format minutes with leading zero if needed
-            minutes = minutes < 10 ? '0' + minutes : minutes;
-
-            let timeOfDay;
-
-            if (hours >= 6 && hours < 12) {
-                timeOfDay = 'Morning';
-                document.body.style.background = 'linear-gradient(to bottom, #FFD700, #ffffff)';
-            } else if (hours >= 12 && hours < 17) {
-                timeOfDay = 'Afternoon';
-                document.body.style.background = 'linear-gradient(to bottom, #87CEEB, #ffffff)';
-            } else if (hours >= 17 && hours < 20) {
-                timeOfDay = 'Evening';
-                document.body.style.background = 'linear-gradient(to bottom, #FF6347, #ffffff)';
-            } else if (hours >= 20 && hours < 24) {
-                timeOfDay = 'Night';
-                document.body.style.background = 'linear-gradient(to bottom, #483D8B, #ffffff)';
-            } else {
-                timeOfDay = 'Midnight';
-                document.body.style.background = 'linear-gradient(to bottom, #191970, #ffffff)';
-            }
-
-            timeOfDayElement.textContent = `Time of Day: ${timeOfDay}`;
-            exactTimeElement.textContent = `Exact Time: ${hours}:${minutes}`;
-        }
-
-        // Initial call to display time
-        updateTime();
-
-        // Update time every second for real-time clock
-        setInterval(updateTime, 1000);
-
-        // Function to handle color transition on page load
-        function handlePageLoadTransition() {
-            document.body.style.transition = 'background 1s ease-in-out';
-            // Triggering the transition by updating the background after a slight delay
-            setTimeout(() => {
-                updateTime();
-            }, 50);
-        }
-
-        // Initial call to handle color transition on page load
-        handlePageLoadTransition();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
