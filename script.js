@@ -78,7 +78,10 @@ function acceptWarning() {
 
 function showWarningAgain() {
     const warningPopup = document.getElementById('warning-popup');
-    warningPopup.classList.add('active');
+    warningPopup.style.display = 'flex';
+    setTimeout(() => {
+        warningPopup.classList.add('active');
+    }, 10); // Adding a small delay for better transition
 }
 
 
