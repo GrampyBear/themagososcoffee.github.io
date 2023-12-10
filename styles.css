@@ -23,7 +23,6 @@ body.midnight {
     color: #fff;
 }
 
-
 body {
     margin: 0;
     padding: 0;
@@ -122,6 +121,16 @@ footer {
     margin-top: 10px;
 }
 
+.social-icons a {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.social-icons img {
+    width: 20px;
+    height: auto;
+}
+
 .stars-container {
     position: fixed;
     top: 0;
@@ -144,14 +153,5 @@ footer {
     0% { opacity: 0.5; }
     50% { opacity: 1; }
     100% { opacity: 0.5; }
-}
-
-.social-icons a {
-    display: inline-block;
-    margin: 0 10px;
-}
-
-.social-icons img {
-    width: 20px;
-    height: auto;
     }
+    
