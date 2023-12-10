@@ -44,7 +44,7 @@ body {
     align-items: center;
     justify-content: flex-start;
     color: #fff;
-    transition: background 5s ease-in-out;
+    transition: background 5s linear;
 }
 
 .navbar-logo-container {
