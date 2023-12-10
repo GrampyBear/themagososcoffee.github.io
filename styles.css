@@ -45,7 +45,10 @@ body {
     justify-content: flex-start;
     color: #fff;
     background: var(--background);
-    transition: background 5s linear;
+}
+
+.transition-background {
+    transition: background 1s ease-in-out;
 }
 
 .navbar-logo-container {
