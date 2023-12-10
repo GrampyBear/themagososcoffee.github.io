@@ -1,36 +1,32 @@
+; }
+    }
+    
 body.sunrise {
     background: linear-gradient(to bottom, #ffcc00, #ff9900);
-    color: #333; /* Adjust text color accordingly */
 }
 
 body.morning {
     background: linear-gradient(to bottom, #66ccff, #3399ff);
-    color: #333;
 }
 
 body.noon {
     background: linear-gradient(to bottom, #ffff66, #ffcc00);
-    color: #333;
 }
 
 body.afternoon {
     background: linear-gradient(to bottom, #ff9900, #cc6600);
-    color: #fff; /* Adjust text color accordingly */
 }
 
 body.sunset {
     background: linear-gradient(to bottom, #ff3300, #990000);
-    color: #fff;
 }
 
 body.night {
     background: linear-gradient(to bottom, #000033, #000066);
-    color: #fff;
 }
 
 body.midnight {
     background: linear-gradient(to bottom, #000000, #000033);
-    color: #fff;
 }
 
 body {
@@ -44,7 +40,7 @@ body {
     align-items: center;
     justify-content: flex-start;
     color: #fff;
-    transition: background 10s linear;
+    transition: background 1s ease-in-out;
 }
 
 .navbar-logo-container {
@@ -77,6 +73,7 @@ body {
     border-radius: 10px;
     margin: 20px;
     text-align: center;
+    color: #fff; /* Text color set to white */
 }
 
 .section-container {
@@ -139,29 +136,5 @@ footer {
 .social-icons img {
     width: 20px;
     height: auto;
-}
-
-.stars-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-.star {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background-color: #fff;
-    border-radius: 50%;
-    animation: twinkling 1s infinite;
-}
-
-@keyframes twinkling {
-    0% { opacity: 0.5; }
-    50% { opacity: 1; }
-    100% { opacity: 0.5; }
     }
     
