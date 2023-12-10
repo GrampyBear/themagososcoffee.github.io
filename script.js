@@ -1,5 +1,4 @@
 // Function to update time dynamically in the navbar
-// Function to update time dynamically in the navbar
 function updateTime() {
     const timeOfDayElement = document.getElementById('timeOfDay');
     const currentTimeElement = document.getElementById('currentTime');
@@ -49,6 +48,8 @@ function generateStars() {
     for (let i = 0; i < 50; i++) {
         const star = document.createElement('div');
         star.className = 'star';
+        star.style.left = `${Math.random() * 100}vw`; // Random horizontal position
+        star.style.top = `${Math.random() * 100}vh`; // Random vertical position
         star.style.animationDelay = `${Math.random() * 5}s`;
         starsContainer.appendChild(star);
     }
