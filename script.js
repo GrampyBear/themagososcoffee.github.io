@@ -36,9 +36,16 @@ function updateTime() {
         backgroundColor = 'linear-gradient(to bottom, #000000, #000033)';
     }
 
-    document.body.style.background = backgroundColor;
+    document.documentElement.style.setProperty('--background', backgroundColor);
+    document.body.classList.add('transition-background');
+    
     timeOfDayElement.textContent = `Time of Day: ${timeOfDay}`;
     currentTimeElement.textContent = `Current Time: ${hours}:${minutes}`;
+
+    // Remove transition class after 1 second to trigger a smooth transition
+    setTimeout(() => {
+        document.body.classList.remove('transition-background');
+    }, 1000);
 }
 
 // Function to update text and background colors
