@@ -76,6 +76,11 @@ function acceptWarning() {
     localStorage.setItem('acceptedWarning', 'true');
 }
 
+function showWarningAgain() {
+    const warningPopup = document.getElementById('warning-popup');
+    warningPopup.style.display = 'flex';
+}
+
 
 // Initial call to display time and set initial colors
 updateTime();
