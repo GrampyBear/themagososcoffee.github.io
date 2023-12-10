@@ -55,6 +55,16 @@ function getBrightness(hexColor) {
     return (r * 299 + g * 587 + b * 114) / 1000;
 }
 
+// Function to toggle visibility of sections
+function toggleSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section.style.display === 'none' || section.style.display === '') {
+        section.style.display = 'block';
+    } else {
+        section.style.display = 'none';
+    }
+}
+
 // Initial call to display time and set initial colors
 updateTime();
 
