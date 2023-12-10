@@ -54,6 +54,29 @@ function toggleSection(sectionId) {
     }
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+    const warningPopup = document.getElementById('warning-popup');
+
+    // Check if the user has acknowledged the warning
+    const hasAcceptedWarning = localStorage.getItem('acceptedWarning');
+
+    if (!hasAcceptedWarning) {
+        // Display the warning popup if not acknowledged
+        warningPopup.style.display = 'flex';
+    }
+});
+
+function acceptWarning() {
+    const warningPopup = document.getElementById('warning-popup');
+
+    // Hide the warning popup
+    warningPopup.style.display = 'none';
+
+    // Set a flag to indicate that the user has accepted the warning
+    localStorage.setItem('acceptedWarning', 'true');
+}
+
+
 // Initial call to display time and set initial colors
 updateTime();
 
