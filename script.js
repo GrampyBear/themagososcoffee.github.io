@@ -78,8 +78,9 @@ function acceptWarning() {
 
 function showWarningAgain() {
     const warningPopup = document.getElementById('warning-popup');
-    warningPopup.style.display = 'flex';
+    warningPopup.classList.add('active');
 }
+
 
 
 // Initial call to display time and set initial colors
