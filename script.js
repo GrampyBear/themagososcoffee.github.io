@@ -1,7 +1,7 @@
 // Function to update time dynamically in the navbar
 function updateTime() {
     const timeOfDayElement = document.getElementById('timeOfDay');
-    const exactTimeElement = document.getElementById('exactTime');
+    const currentTimeElement = document.getElementById('currentTime');
     const currentTime = new Date();
 
     let hours = currentTime.getHours();
@@ -30,7 +30,7 @@ function updateTime() {
     }
 
     timeOfDayElement.textContent = `Time of Day: ${timeOfDay}`;
-    exactTimeElement.textContent = `Exact Time: ${hours}:${minutes}`;
+    currentTimeElement.textContent = `Current Time: ${hours}:${minutes}`;
 }
 
 // Function to update text and background colors
@@ -60,3 +60,4 @@ updateTime();
 
 // Update time every second for real-time clock
 setInterval(updateTime, 1000);
+                       
