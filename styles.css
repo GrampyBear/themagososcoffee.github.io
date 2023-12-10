@@ -19,9 +19,10 @@ body.dusk {
 }
 
 body.midnight {
-    background: linear-gradient(to bottom, #000080, #191970);
+    background: linear-gradient(to bottom, #000033, #000000);
     color: #fff;
 }
+
 
 body {
     margin: 0;
