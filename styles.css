@@ -137,6 +137,7 @@ footer {
     width: 20px;
     height: auto;
     }
+
 .popup {
     display: none;
     position: fixed;
@@ -154,6 +155,8 @@ footer {
     padding: 20px;
     border-radius: 10px;
     text-align: center;
+    width: 80%; /* Adjust the width as needed */
+    max-width: 400px; /* Set a maximum width if desired */
 }
 
 .popup h1 {
@@ -172,5 +175,3 @@ footer {
     border-radius: 5px;
     cursor: pointer;
 }
-
-    
