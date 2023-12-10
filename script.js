@@ -60,15 +60,3 @@ updateTime();
 
 // Update time every second for real-time clock
 setInterval(updateTime, 1000);
-
-// Function to handle color transition on page load
-function handlePageLoadTransition() {
-    document.body.style.transition = 'background 1s ease-in-out';
-    // Triggering the transition by updating the background after a slight delay
-    setTimeout(() => {
-        updateTime();
-    }, 50);
-}
-
-// Initial call to handle color transition on page load
-handlePageLoadTransition();
