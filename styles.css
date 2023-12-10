@@ -28,7 +28,7 @@ body {
 }
 
 .content-container {
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent black background */
     padding: 20px; /* Adjust as needed */
     border-radius: 10px; /* Optional: Rounded corners */
     margin: 20px; /* Adjust as needed */
