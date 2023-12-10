@@ -20,6 +20,12 @@ body {
     margin-left: 20px;
 }
 
+.navbar-logo {
+    width: 30px; /* Adjust as needed */
+    height: auto;
+    margin-left: 10px; /* Adjust as needed */
+}
+
 .page-title {
     font-size: 2.5em;
     margin-top: 15px;
