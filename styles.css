@@ -1,7 +1,6 @@
 body.sunrise {
     background: linear-gradient(to bottom, #ffcc00, #ff9900);
     color: #333; /* Adjust text color accordingly */
-    transition: background 5s ease-in-out; /* Smooth transition lasting 5 seconds */
 }
 
 body.morning {
@@ -44,11 +43,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    transition: background 5s ease-in-out; /* Apply transition to the entire body */
-}
-
-.content-container h1 {
-    color: #fff; /* Title color inside the text container */
+    color: #fff;
+    transition: background 10s linear;
 }
 
 .navbar-logo-container {
