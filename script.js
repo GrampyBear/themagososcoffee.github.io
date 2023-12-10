@@ -36,7 +36,7 @@ function updateTime() {
         backgroundColor = 'linear-gradient(to bottom, #000000, #000033)';
     }
 
-    document.documentElement.style.setProperty('--background', backgroundColor);
+    document.body.style.background = backgroundColor;
     timeOfDayElement.textContent = `Time of Day: ${timeOfDay}`;
     currentTimeElement.textContent = `Current Time: ${hours}:${minutes}`;
 }
