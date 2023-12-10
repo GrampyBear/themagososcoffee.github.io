@@ -3,9 +3,19 @@ body.sunrise {
     color: #000;
 }
 
+body.morning {
+    background: linear-gradient(to bottom, #FFD700, #FFA500);
+    color: #000;
+}
+
 body.noon {
     background: linear-gradient(to bottom, #FFFF00, #FFD700);
     color: #000;
+}
+
+body.afternoon {
+    background: linear-gradient(to bottom, #FFA500, #FF4500);
+    color: #fff;
 }
 
 body.sunset {
@@ -13,8 +23,8 @@ body.sunset {
     color: #fff;
 }
 
-body.dusk {
-    background: linear-gradient(to bottom, #4169E1, #800080);
+body.night {
+    background: linear-gradient(to bottom, #191970, #000033);
     color: #fff;
 }
 
