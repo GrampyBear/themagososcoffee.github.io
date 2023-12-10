@@ -1,89 +1,39 @@
-// Add these global variables to track manual time changes
-let manualTimeChangeInProgress = false;
-let manualTimeChangeTimeout;
-
-// Function to handle manual time change
-function manualTimeChange() {
-    // Check if a manual time change is already in progress
-    if (manualTimeChangeInProgress) {
-        clearTimeout(manualTimeChangeTimeout);
-        manualTimeChangeInProgress = false;
-    }
-
-    // Prompt user to select a time of day
-    const selectedTime = prompt("Enter time of day (morning, afternoon, evening, night, midnight):");
-
-    // Validate user input and update time accordingly
-    if (selectedTime) {
-        const timeLowerCase = selectedTime.toLowerCase();
-        const validTimes = ['morning', 'afternoon', 'evening', 'night', 'midnight'];
-
-        if (validTimes.includes(timeLowerCase)) {
-            updateColors(timeLowerCase);
-        } else {
-            alert("Invalid time input. Please enter morning, afternoon, evening, night, or midnight.");
-        }
-    }
-}
-
-// Modify updateTime function to consider manual changes
-function updateTime() {
-    const timeOfDayElement = document.getElementById('timeOfDay');
-    const currentTimeElement = document.getElementById('currentTime');
-    const currentTime = new Date();
-
-    let hours = currentTime.getHours();
-    let minutes = currentTime.getMinutes();
-
-    // Format minutes with leading zero if needed
-    minutes = minutes < 10 ? '0' + minutes : minutes;
-
-    let timeOfDay;
-
-    if (manualTimeChangeInProgress) {
-        // Display "Manual" during manual time changes
-        timeOfDay = 'Manual';
+// Function to manually change the time of day
+function changeTimeOfDay(newTimeOfDay) {
+    updateColors(newTimeOfDay);
+    if (newTimeOfDay === 'midnight') {
+        generateStars();
     } else {
-        // Rest of the existing logic for automatic time changes
-        if (hours >= 6 && hours < 12) {
-            timeOfDay = 'Morning';
-            updateColors('sunrise');
-            removeStars();
-        } else if (hours >= 12 && hours < 17) {
-            timeOfDay = 'Afternoon';
-            updateColors('noon');
-            removeStars();
-        } else if (hours >= 17 && hours < 20) {
-            timeOfDay = 'Evening';
-            updateColors('sunset');
-            removeStars();
-        } else if (hours >= 20 && hours < 24) {
-            timeOfDay = 'Night';
-            updateColors('dusk');
-            if (hours === 20) {
-                generateStars();
-            }
-        } else {
-            timeOfDay = 'Midnight';
-            updateColors('midnight');
-            generateStars();
-        }
+        removeStars();
     }
-
-    timeOfDayElement.textContent = `Time of Day: ${timeOfDay}`;
-    currentTimeElement.textContent = `Current Time: ${hours}:${minutes}`;
 }
 
-// Disable automatic time updates
-clearInterval();
+// Disable automatic time update
+clearInterval(intervalID);
+
+// Manual time change buttons
+document.getElementById('btnMorning').addEventListener('click', function () {
+    changeTimeOfDay('sunrise');
+});
+
+document.getElementById('btnAfternoon').addEventListener('click', function () {
+    changeTimeOfDay('noon');
+});
+
+document.getElementById('btnEvening').addEventListener('click', function () {
+    changeTimeOfDay('sunset');
+});
+
+document.getElementById('btnNight').addEventListener('click', function () {
+    changeTimeOfDay('dusk');
+});
+
+document.getElementById('btnMidnight').addEventListener('click', function () {
+    changeTimeOfDay('midnight');
+});
 
 // Initial call to display time and set initial colors
 updateTime();
 
-// Update time every second for a real-time clock, only if manual change is not in progress
-setInterval(() => {
-    if (!manualTimeChangeInProgress) {
-        updateTime();
-    }
-}, 1000);
-                   
+// Update time every second for a real-time clock
+setInterval(updateTime, 1000);
