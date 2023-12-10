@@ -11,32 +11,34 @@ function updateTime() {
     minutes = minutes < 10 ? '0' + minutes : minutes;
 
     let timeOfDay;
-    let transitionDuration;
+    let backgroundColor;
 
     if (hours >= 5 && hours < 7) {
         timeOfDay = 'Sunrise';
-        transitionDuration = 5; // seconds
+        backgroundColor = 'linear-gradient(to bottom, #ffcc00, #ff9900)';
     } else if (hours >= 7 && hours < 11) {
         timeOfDay = 'Morning';
-        transitionDuration = 5;
+        backgroundColor = 'linear-gradient(to bottom, #66ccff, #3399ff)';
     } else if (hours >= 11 && hours < 14) {
         timeOfDay = 'Noon';
-        transitionDuration = 5;
+        backgroundColor = 'linear-gradient(to bottom, #ffff66, #ffcc00)';
     } else if (hours >= 14 && hours < 17) {
         timeOfDay = 'Afternoon';
-        transitionDuration = 5;
+        backgroundColor = 'linear-gradient(to bottom, #ff9900, #cc6600)';
     } else if (hours >= 17 && hours < 20) {
         timeOfDay = 'Sunset';
-        transitionDuration = 5;
+        backgroundColor = 'linear-gradient(to bottom, #ff3300, #990000)';
     } else if (hours >= 20 && hours < 24) {
         timeOfDay = 'Night';
-        transitionDuration = 5;
+        backgroundColor = 'linear-gradient(to bottom, #000033, #000066)';
     } else {
         timeOfDay = 'Midnight';
-        transitionDuration = 5;
+        backgroundColor = 'linear-gradient(to bottom, #000000, #000033)';
     }
 
-    document.documentElement.style.setProperty('--transition-duration', `${transitionDuration}s`);
+    document.body.style.transition = 'background 5s linear';
+    document.body.style.background = backgroundColor;
+
     timeOfDayElement.textContent = `Time of Day: ${timeOfDay}`;
     currentTimeElement.textContent = `Current Time: ${hours}:${minutes}`;
 }
