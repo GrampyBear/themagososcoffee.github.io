@@ -45,7 +45,7 @@ function generateStars() {
     const starsContainer = document.createElement('div');
     starsContainer.className = 'stars-container';
 
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 20; i++) {
         const star = document.createElement('div');
         star.className = 'star';
         star.style.left = `${Math.random() * 100}vw`; // Random horizontal position
@@ -55,15 +55,40 @@ function generateStars() {
     }
 
     document.body.appendChild(starsContainer);
+
+    // Hide other elements while stars are present
+    const contentContainer = document.querySelector('.content-container');
+    const sectionContainer = document.querySelector('.section-container');
+
+    if (contentContainer) {
+        contentContainer.style.display = 'none';
+    }
+
+    if (sectionContainer) {
+        sectionContainer.style.display = 'none';
+    }
 }
 
-// Function to remove stars
+// Function to remove stars and show other elements
 function removeStars() {
     const starsContainer = document.querySelector('.stars-container');
     if (starsContainer) {
         starsContainer.remove();
+
+        // Show other elements
+        const contentContainer = document.querySelector('.content-container');
+        const sectionContainer = document.querySelector('.section-container');
+
+        if (contentContainer) {
+            contentContainer.style.display = 'block';
+        }
+
+        if (sectionContainer) {
+            sectionContainer.style.display = 'block';
+        }
     }
 }
+
 
 // Function to update text and background colors
 function updateColors(timeOfDayClass) {
