@@ -72,4 +72,3 @@ function handlePageLoadTransition() {
 
 // Initial call to handle color transition on page load
 handlePageLoadTransition();
-                     
