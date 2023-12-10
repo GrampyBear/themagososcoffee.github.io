@@ -7,36 +7,36 @@ function updateTime() {
     let hours = currentTime.getHours();
     let minutes = currentTime.getMinutes();
 
-    // Format minutes with leading zero if needed
+    // Format minutes with a leading zero if needed
     minutes = minutes < 10 ? '0' + minutes : minutes;
 
     let timeOfDay;
 
     if (hours >= 6 && hours < 12) {
-        timeOfDay = 'Morning';
-        updateColors('sunrise');
+        timeOfDay = 'sunrise';
+        updateColors(timeOfDay);
         removeStars();
     } else if (hours >= 12 && hours < 17) {
-        timeOfDay = 'Afternoon';
-        updateColors('noon');
+        timeOfDay = 'noon';
+        updateColors(timeOfDay);
         removeStars();
     } else if (hours >= 17 && hours < 20) {
-        timeOfDay = 'Evening';
-        updateColors('sunset');
+        timeOfDay = 'sunset';
+        updateColors(timeOfDay);
         removeStars();
     } else if (hours >= 20 && hours < 24) {
-        timeOfDay = 'Night';
-        updateColors('dusk');
+        timeOfDay = 'dusk';
+        updateColors(timeOfDay);
         if (hours === 20) {
             generateStars();
         }
     } else {
-        timeOfDay = 'Midnight';
-        updateColors('midnight');
+        timeOfDay = 'midnight';
+        updateColors(timeOfDay);
         generateStars();
     }
 
-    timeOfDayElement.textContent = `Time of Day: ${timeOfDay}`;
+    timeOfDayElement.textContent = `Time of Day: ${timeOfDay.charAt(0).toUpperCase() + timeOfDay.slice(1)}`;
     currentTimeElement.textContent = `Current Time: ${hours}:${minutes}`;
 }
 
@@ -125,5 +125,4 @@ function removeStars() {
 updateTime();
 
 // Update time every second for a real-time clock
-setInterval(updateTime, 60000);
-        
+setInterval(updateTime, 1000);
