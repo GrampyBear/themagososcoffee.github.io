@@ -89,8 +89,12 @@ function showWarningAgain() {
 // Function to create and animate stars
 function createStars() {
     const starsContainer = document.getElementById('stars-container');
+    const currentTime = new Date();
+    const hours = currentTime.getHours();
 
-    for (let i = 0; i < 25; i++) { // Adjust the number of stars as needed
+    // Stars appear only at night and midnight (adjust the hours based on your preference)
+    if (hours >= 17 || (hours >= 0 && hours < 6)) {
+    for (let i = 0; i < 30; i++) { // Adjust the number of stars as needed
         const star = document.createElement('div');
         star.className = 'star';
         star.style.top = `${Math.random() * 100}vh`;
