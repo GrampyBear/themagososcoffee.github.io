@@ -92,20 +92,25 @@ function createStars() {
     const currentTime = new Date();
     const hours = currentTime.getHours();
 
+    // Remove existing stars
+    starsContainer.innerHTML = '';
+
     // Stars appear only at night and midnight (adjust the hours based on your preference)
-    if (hours >= 17 || (hours >= 0 && hours < 6)) {
-    for (let i = 0; i < 30; i++) { // Adjust the number of stars as needed
-        const star = document.createElement('div');
-        star.className = 'star';
-        star.style.top = `${Math.random() * 100}vh`;
-        star.style.left = `${Math.random() * 100}vw`;
-        star.style.animationDuration = `${Math.random() * 3 + 1}s`; // Random duration for twinkling
-        starsContainer.appendChild(star);
+    if (hours >= 21 || (hours >= 0 && hours < 6)) {
+        for (let i = 0; i < 30; i++) { // Adjust the number of stars as needed
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.top = `${Math.random() * 100}vh`;
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.animationDuration = `${Math.random() * 3 + 1}s`; // Random duration for twinkling
+            starsContainer.appendChild(star);
+        }
     }
 }
 
 // Initial call to create stars
 createStars();
+
     
 
 
