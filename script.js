@@ -6,13 +6,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const logoElement = document.getElementById('navbar-logo');
     const hasAcceptedWarning = localStorage.getItem('acceptedWarning');
 
-    // Function to update time dynamically in the navbar
     function updateTime() {
         const currentTime = new Date();
         let hours = currentTime.getHours();
         let minutes = currentTime.getMinutes();
 
-        // Format minutes with leading zero if needed
         minutes = minutes < 10 ? '0' + minutes : minutes;
 
         let timeOfDay;
@@ -44,56 +42,15 @@ document.addEventListener('DOMContentLoaded', function () {
         currentTimeElement.textContent = `Current Time: ${hours}:${minutes}`;
     }
 
-    // Function to update text and background colors
     function updateColors(timeOfDayClass) {
         document.body.className = timeOfDayClass;
     }
 
-    // Check if it's Christmas Eve (December 24) or Christmas Day (December 25)
     const isChristmas = new Date().getDate() === 24 && new Date().getMonth() === 11;
 
     if (isChristmas) {
-        changeChristmasLogo();
-    } else {
-        // Reset to the default logo if it's not Christmas
-        resetLogo();
-    }
-
-    // Function to change the logo to the Christmas icon
-    function changeChristmasLogo() {
         logoElement.src = 'https://github.com/GrampyBear/GrampyBear.github.io/raw/main/chucheria.png';
         logoElement.style.width = '614px'; // 20% larger than 512px
-    }
-
-    // Function to reset the logo to the default one
-    function resetLogo() {
-        logoElement.src = 'https://github.com/GrampyBear/GrampyBear.github.io/blob/main/copo-de-nieve%20(1).png';
-        logoElement.style.width = '614px'; // 20% larger than 512px
-    }
-
-    // Function to toggle visibility of sections
-    function toggleSection(sectionId) {
-        const section = document.getElementById(sectionId);
-        if (section.style.visibility === 'hidden') {
-            section.classList.add('fade-in'); // Add fade-in class
-            section.style.visibility = 'visible';
-        } else {
-            section.style.visibility = 'hidden';
-        }
-    }
-
-    // Accept the warning and hide the popup
-    function acceptWarning() {
-        warningPopup.style.display = 'none';
-        localStorage.setItem('acceptedWarning', 'true');
-    }
-
-    // Show the warning popup again
-    function showWarningAgain() {
-        warningPopup.style.display = 'flex';
-        // Force a reflow to enable the transition
-        void warningPopup.offsetWidth;
-        warningPopup.classList.add('active');
     }
 
     // Function to create and animate stars
@@ -101,7 +58,6 @@ document.addEventListener('DOMContentLoaded', function () {
         starsContainer.innerHTML = ''; // Remove existing stars
         const hours = new Date().getHours();
 
-        // Stars appear only at night and midnight
         if (hours >= 20 || (hours >= 0 && hours < 5)) {
             for (let i = 0; i < 30; i++) {
                 const star = document.createElement('div');
@@ -135,7 +91,15 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Event listeners for the warning popup buttons
-    document.getElementById('accept-warning-btn').addEventListener('click', acceptWarning);
-    document.getElementById('show-warning-again-btn').addEventListener('click', showWarningAgain);
+    document.getElementById('accept-warning-btn').addEventListener('click', function () {
+        warningPopup.style.display = 'none';
+        localStorage.setItem('acceptedWarning', 'true');
+    });
+
+    document.getElementById('show-warning-again-btn').addEventListener('click', function () {
+        warningPopup.style.display = 'flex';
+        void warningPopup.offsetWidth;
+        warningPopup.classList.add('active');
+    });
 });
                    
