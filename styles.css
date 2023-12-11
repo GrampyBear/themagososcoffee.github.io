@@ -252,6 +252,32 @@ footer {
     }
 }
 
+/* For snowfall effect */
+.snowing {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: transparent url('https://github.com/GrampyBear/GrampyBear.github.io/raw/main/snowflake.png') repeat center center;
+    animation: snowfall 1s linear infinite;
+}
+
+@keyframes snowfall {
+    0% {
+        background-position: 0 0, 0 0, 0 0;
+    }
+    50% {
+        background-position: 500px 500px, 400px 400px, -500px -500px;
+    }
+    100% {
+        background-position: 1000px 1000px, 800px 800px, 0 0;
+    }
+}
+
+/* For northern halo effect */
 .halo {
     position: absolute;
     top: 20px; /* Adjust the position as needed */
@@ -261,14 +287,14 @@ footer {
     height: 100px;
     border-radius: 50%;
     border: 5px solid #fff;
-    animation: haloAnimation 3s infinite alternate; /* Adjust the animation duration as needed */
+    animation: haloAnimation 3s infinite alternate;
 }
 
 @keyframes haloAnimation {
     from {
-        box-shadow: 0 0 10px 5px #fff; /* Initial box shadow */
+        box-shadow: 0 0 10px 5px #fff;
     }
     to {
-        box-shadow: 0 0 20px 10px #fff; /* Alternate box shadow */
+        box-shadow: 0 0 20px 10px #fff;
     }
 }
