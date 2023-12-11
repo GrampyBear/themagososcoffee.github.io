@@ -132,6 +132,58 @@ setInterval(createStars, 60 * 60 * 1000); // Check every hour
 setInterval(createStars, 60 * 1000); // Check every minute
 
 
+
+// Function to check if it's Christmas
+function isChristmas() {
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth() + 1; // Months are zero-based, so add 1
+    const currentDay = currentDate.getDate();
+
+    return (currentMonth === 12 && (currentDay === 24 || currentDay === 25));
+}
+
+// Function to apply Christmas design
+function applyChristmasDesign() {
+    // Change nav bar logo
+    const navbarLogo = document.getElementById('navbar-logo');
+    navbarLogo.src = 'https://github.com/GrampyBear/GrampyBear.github.io/raw/main/chucheria.png';
+
+    // Change background colors
+    document.body.style.background = 'linear-gradient(to bottom, #87CEEB, #2F4F4F)';
+
+    // Add northern halo
+    const halo = document.createElement('div');
+    halo.className = 'halo';
+    document.body.appendChild(halo);
+
+    // Start snowfall
+    startSnowfall();
+}
+
+// Function to start snowfall
+function startSnowfall() {
+    // Implement the snowfall animation or use the snow effect you prefer
+    // You can use the previous snowfall implementation or another method
+    // ...
+
+    // Example: Add snowing effect using CSS animation
+    document.body.classList.add('snowing');
+}
+
+// Initial call to check and apply Christmas design if needed
+if (isChristmas()) {
+    applyChristmasDesign();
+}
+
+// Set an interval to check and apply Christmas design every minute
+setInterval(() => {
+    if (isChristmas()) {
+        applyChristmasDesign();
+    }
+}, 60 * 1000);
+
+
+
         
 
 // Initial call to display time and set initial colors
