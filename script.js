@@ -90,7 +90,7 @@ function showWarningAgain() {
 function createStars() {
     const starsContainer = document.getElementById('stars-container');
 
-    for (let i = 0; i < 15; i++) { // Adjust the number of stars as needed
+    for (let i = 0; i < 25; i++) { // Adjust the number of stars as needed
         const star = document.createElement('div');
         star.className = 'star';
         star.style.top = `${Math.random() * 100}vh`;
