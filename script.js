@@ -5,10 +5,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const starsContainer = document.getElementById('stars-container');
     const logoElement = document.getElementById('navbar-logo');
     const hasAcceptedWarning = localStorage.getItem('acceptedWarning');
-    const currentTime = new Date();
 
     // Function to update time dynamically in the navbar
     function updateTime() {
+        const currentTime = new Date();
         let hours = currentTime.getHours();
         let minutes = currentTime.getMinutes();
 
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Check if it's Christmas Eve (December 24) or Christmas Day (December 25)
-    const isChristmas = currentTime.getDate() === 24 && currentTime.getMonth() === 11;
+    const isChristmas = new Date().getDate() === 24 && new Date().getMonth() === 11;
 
     if (isChristmas) {
         changeChristmasLogo();
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to create and animate stars
     function createStars() {
         starsContainer.innerHTML = ''; // Remove existing stars
-        const hours = currentTime.getHours();
+        const hours = new Date().getHours();
 
         // Stars appear only at night and midnight
         if (hours >= 20 || (hours >= 0 && hours < 5)) {
@@ -129,9 +129,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Update time every second for real-time clock
     setInterval(updateTime, 1000);
 
-    // Check if the user has acknowledged the warning
+    // Display the warning popup if not acknowledged
     if (!hasAcceptedWarning) {
-        // Display the warning popup if not acknowledged
         warningPopup.style.display = 'flex';
     }
 
@@ -139,4 +138,4 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('accept-warning-btn').addEventListener('click', acceptWarning);
     document.getElementById('show-warning-again-btn').addEventListener('click', showWarningAgain);
 });
-            
+                   
