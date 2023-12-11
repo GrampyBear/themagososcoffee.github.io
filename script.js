@@ -96,7 +96,7 @@ function createStars() {
     starsContainer.innerHTML = '';
 
     // Stars appear only at night and midnight (adjust the hours based on your preference)
-    if (hours >= 21 || (hours >= 0 && hours < 6)) {
+    if (hours >= 20 || (hours >= 0 && hours < 5)) {
         for (let i = 0; i < 30; i++) { // Adjust the number of stars as needed
             const star = document.createElement('div');
             star.className = 'star';
