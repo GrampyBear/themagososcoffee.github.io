@@ -4,16 +4,6 @@ function updateTime() {
     const currentTimeElement = document.getElementById('currentTime');
     const currentTime = new Date();
 
-    // Check if it's Christmas Eve (December 24) or Christmas Day (December 25)
-    const isChristmas = currentTime.getDate() === 24 && currentTime.getMonth() === 11;
-
-    if (isChristmas) {
-        changeChristmasLogo();
-    } else {
-        // Reset to the default logo if it's not Christmas
-        resetLogo();
-    }
-
     let hours = currentTime.getHours();
     let minutes = currentTime.getMinutes();
 
@@ -47,6 +37,17 @@ function updateTime() {
 
     timeOfDayElement.textContent = `Time of Day: ${timeOfDay}`;
     currentTimeElement.textContent = `Current Time: ${hours}:${minutes}`;
+}
+
+// Check if it's Christmas Eve (December 24) or Christmas Day (December 25)
+    const isChristmas = currentTime.getDate() === 24 && currentTime.getMonth() === 11;
+
+    if (isChristmas) {
+        changeChristmasLogo();
+    } else {
+        // Reset to the default logo if it's not Christmas
+        resetLogo();
+    }
 }
 
 // Function to change the logo to the Christmas icon
