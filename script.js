@@ -86,7 +86,23 @@ function showWarningAgain() {
     warningPopup.classList.add('active');
 }
 
+// Function to create and animate stars
+function createStars() {
+    const starsContainer = document.getElementById('stars-container');
 
+    for (let i = 0; i < 15; i++) { // Adjust the number of stars as needed
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.top = `${Math.random() * 100}vh`;
+        star.style.left = `${Math.random() * 100}vw`;
+        star.style.animationDuration = `${Math.random() * 3 + 1}s`; // Random duration for twinkling
+        starsContainer.appendChild(star);
+    }
+}
+
+// Initial call to create stars
+createStars();
+        
 
 
 // Initial call to display time and set initial colors
