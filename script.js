@@ -102,7 +102,7 @@ function createStars() {
 
 // Initial call to create stars
 createStars();
-        
+    
 
 
 // Initial call to display time and set initial colors
