@@ -142,6 +142,11 @@ function isChristmas() {
     return (currentMonth === 12 && (currentDay === 24 || currentDay === 25));
 }
 
+// Function to start snowfall
+function startSnowfall() {
+    document.body.classList.add('snowing');
+}
+
 // Function to apply Christmas design
 function applyChristmasDesign() {
     // Change nav bar logo
@@ -160,16 +165,6 @@ function applyChristmasDesign() {
     startSnowfall();
 }
 
-// Function to start snowfall
-function startSnowfall() {
-    // Implement the snowfall animation or use the snow effect you prefer
-    // You can use the previous snowfall implementation or another method
-    // ...
-
-    // Example: Add snowing effect using CSS animation
-    document.body.classList.add('snowing');
-}
-
 // Initial call to check and apply Christmas design if needed
 if (isChristmas()) {
     applyChristmasDesign();
@@ -181,6 +176,7 @@ setInterval(() => {
         applyChristmasDesign();
     }
 }, 60 * 1000);
+
 
 
 
