@@ -105,13 +105,6 @@ function createStars() {
             star.style.animationDuration = `${Math.random() * 3 + 1}s`; // Random duration for twinkling
             starsContainer.appendChild(star);
         }
-
-        // Set a timeout to automatically remove stars after the night
-        const timeUntilMorning = (hours >= 20) ? (24 - hours + 5) * 60 * 60 * 1000 : (5 - hours) * 60 * 60 * 1000;
-        setTimeout(() => {
-            // Remove stars after the specified time
-            starsContainer.innerHTML = '';
-        }, timeUntilMorning);
     }
 }
 
@@ -121,7 +114,11 @@ createStars();
 // Set an interval to continuously check and create stars
 setInterval(createStars, 60 * 60 * 1000); // Check every hour
 
+// Set an interval to check and create stars every minute for immediate responsiveness
+setInterval(createStars, 60 * 1000); // Check every minute
 
+
+        
 
 // Initial call to display time and set initial colors
 updateTime();
