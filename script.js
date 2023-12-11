@@ -54,12 +54,14 @@ function updateTime() {
 function changeChristmasLogo() {
     const logoElement = document.getElementById('navbar-logo');
     logoElement.src = 'https://github.com/GrampyBear/GrampyBear.github.io/raw/main/chucheria.png';
+    logoElement.style.width = '614px'; // 20% larger than 512px
 }
 
 // Function to reset the logo to the default one
 function resetLogo() {
     const logoElement = document.getElementById('navbar-logo');
-    logoElement.src = 'https://github.com/GrampyBear/GrampyBear.github.io/raw/main/copo-de-nieve.png';
+    logoElement.src = 'https://github.com/GrampyBear/GrampyBear.github.io/raw/main/copo-de-nieve(1).png';
+    logoElement.style.width = '614px'; // 20% larger than 512px
 }
 
 // Function to update text and background colors
