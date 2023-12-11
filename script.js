@@ -44,6 +44,7 @@ function updateColors(timeOfDayClass) {
     document.body.className = timeOfDayClass;
 }
 
+/*
 // Function to toggle visibility of sections
 function toggleSection(sectionId) {
     const section = document.getElementById(sectionId);
@@ -53,6 +54,19 @@ function toggleSection(sectionId) {
         section.style.display = 'none';
     }
 }
+*/
+
+// Function to toggle visibility of sections
+function toggleSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section.style.visibility === 'hidden') {
+        section.classList.add('fade-in'); // Add fade-in class
+        section.style.visibility = 'visible';
+    } else {
+        section.style.visibility = 'hidden';
+    }
+}
+
 
 document.addEventListener('DOMContentLoaded', function () {
     const warningPopup = document.getElementById('warning-popup');
