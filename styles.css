@@ -252,40 +252,23 @@ footer {
     }
 }
 
-.northern-halo {
+.halo {
     position: absolute;
-    top: 20%;
+    top: 20px; /* Adjust the position as needed */
     left: 50%;
     transform: translateX(-50%);
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
-    animation: haloAnimation 10s infinite alternate;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    animation: haloAnimation 3s infinite alternate; /* Adjust the animation duration as needed */
 }
 
 @keyframes haloAnimation {
-    0% {
-        box-shadow: 0 0 20px 20px rgba(255, 255, 255, 0.8);
+    from {
+        box-shadow: 0 0 10px 5px #fff; /* Initial box shadow */
     }
-    100% {
-        box-shadow: 0 0 30px 30px rgba(255, 255, 255, 0);
-    }
-}
-
-.snowflake {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: #fff;
-    border-radius: 50%;
-    animation: snowAnimation linear infinite;
-}
-
-@keyframes snowAnimation {
-    0% {
-        transform: translateY(0) rotate(0deg);
-    }
-    100% {
-        transform: translateY(100vh) rotate(360deg);
+    to {
+        box-shadow: 0 0 20px 10px #fff; /* Alternate box shadow */
     }
 }
