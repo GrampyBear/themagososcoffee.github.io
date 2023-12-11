@@ -78,6 +78,23 @@ body {
     margin-top: 20px;
 }
 
+/* Add this style to handle the fade-in effect */
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        visibility: visible;
+    }
+    to {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+
 .section-content {
     background-color: rgba(0, 0, 0, 0.3);
     padding: 20px;
