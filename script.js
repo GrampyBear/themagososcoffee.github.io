@@ -40,14 +40,13 @@ function updateTime() {
 }
 
 // Check if it's Christmas Eve (December 24) or Christmas Day (December 25)
-    const isChristmas = currentTime.getDate() === 24 && currentTime.getMonth() === 11;
+const isChristmas = currentTime.getDate() === 24 && currentTime.getMonth() === 11;
 
-    if (isChristmas) {
-        changeChristmasLogo();
-    } else {
-        // Reset to the default logo if it's not Christmas
-        resetLogo();
-    }
+if (isChristmas) {
+    changeChristmasLogo();
+} else {
+    // Reset to the default logo if it's not Christmas
+    resetLogo();
 }
 
 // Function to change the logo to the Christmas icon
@@ -69,18 +68,6 @@ function updateColors(timeOfDayClass) {
     document.body.className = timeOfDayClass;
 }
 
-/*
-// Function to toggle visibility of sections
-function toggleSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    if (section.style.display === 'none' || section.style.display === '') {
-        section.style.display = 'block';
-    } else {
-        section.style.display = 'none';
-    }
-}
-*/
-
 // Function to toggle visibility of sections
 function toggleSection(sectionId) {
     const section = document.getElementById(sectionId);
@@ -91,7 +78,6 @@ function toggleSection(sectionId) {
         section.style.visibility = 'hidden';
     }
 }
-
 
 document.addEventListener('DOMContentLoaded', function () {
     const warningPopup = document.getElementById('warning-popup');
@@ -155,10 +141,6 @@ setInterval(createStars, 60 * 60 * 1000); // Check every hour
 
 // Set an interval to check and create stars every minute for immediate responsiveness
 setInterval(createStars, 60 * 1000); // Check every minute
-
-
-
-        
 
 // Initial call to display time and set initial colors
 updateTime();
