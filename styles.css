@@ -204,6 +204,8 @@ footer {
     background: #555; /* Change color on hover */
 }
 
+/* ... (your existing styles) ... */
+
 #stars-container {
     position: fixed;
     top: 0;
@@ -230,4 +232,4 @@ footer {
     to {
         opacity: 1;
     }
-    }
+}
