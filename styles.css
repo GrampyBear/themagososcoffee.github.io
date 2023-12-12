@@ -12,11 +12,12 @@ header {
     background: linear-gradient(to bottom, #ffffff, #f0f0f0); /* White to light gray gradient */
     padding: 20px;
     display: flex;
+    position: relative; /* Set position to relative for proper absolute positioning */
     align-items: center;
 }
 
 .logo-container {
-    margin-right: auto; /* Push the logo to the far left */
+    margin-right: 20px; /* Add margin for spacing */
 }
 
 .logo {
@@ -25,11 +26,14 @@ header {
 
 .header-title {
     color: black; /* Set title color to black */
-    margin-left: 20px; /* Add margin between logo and title */
+    margin-right: auto; /* Add margin for spacing and push title to the left */
 }
 
 .time-box {
-    margin-left: auto; /* Push the time box to the far right */
+    position: absolute;
+    right: 20px; /* Set the distance from the right edge */
+    top: 50%; /* Center the time box vertically */
+    transform: translateY(-50%);
     padding: 10px;
     border: 2px solid #fff;
     border-radius: 10px;
