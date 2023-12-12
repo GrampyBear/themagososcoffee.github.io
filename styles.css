@@ -25,8 +25,8 @@ header {
 }
 
 .header-text-container {
-    width: 60%; /* Adjusted width for the header text container */
-    margin-right: auto; /* Push the header text container to the left */
+    width: 60%; /* Adjusted width for the text container */
+    margin-right: auto; /* Add margin for spacing and push container to the left */
 }
 
 .header-title {
@@ -83,11 +83,11 @@ footer {
 
     .logo-container, .header-text-container, .time-box {
         width: 100%; /* Full width for smaller screens */
-        text-align: center; /* Center text elements */
-        margin: 10px 0; /* Add margin for spacing */
     }
 
     .time-box {
         position: relative;
+        margin: 10px 0;
+        text-align: center;
     }
 }
