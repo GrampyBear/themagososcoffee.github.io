@@ -1,45 +1,35 @@
-// Function to generate a random number within a range
-function getRandomNumber(min, max) {
-    return Math.random() * (max - min) + min;
-}
+// stars.js
 
-// Function to create a star element
-function createStar() {
-    const star = document.createElement('div');
-    star.className = 'star';
+// Get stars container
+const starsContainer = document.getElementById('stars-container');
 
-    const size = getRandomNumber(1, 3);
-    const xPos = getRandomNumber(0, window.innerWidth);
-    const yPos = getRandomNumber(0, window.innerHeight);
-    const animationDuration = getRandomNumber(1, 3);
+// Update stars visibility
+function updateStarsVisibility(timeOfDay) {
+    const stars = document.querySelectorAll('.star');
 
-    star.style.width = `${size}px`;
-    star.style.height = `${size}px`;
-    star.style.left = `${xPos}px`;
-    star.style.top = `${yPos}px`;
-    star.style.animationDuration = `${animationDuration}s`;
-
-    document.body.appendChild(star);
-
-    // Remove the star after animation completes
-    setTimeout(() => {
-        document.body.removeChild(star);
-    }, animationDuration * 1000);
-}
-
-// Function to create stars during the night and midnight
-function createStars() {
-    const timeOfDay = getTimeOfDay();
-
-    // Check if it's night or midnight
     if (timeOfDay === 'night' || timeOfDay === 'midnight') {
-        // Create up to 30 stars
-        for (let i = 0; i < 30; i++) {
-            createStar();
+        // Show stars
+        starsContainer.style.display = 'block';
+
+        // Add stars if not already added
+        if (stars.length === 0) {
+            generateStars();
         }
+    } else {
+        // Hide stars
+        starsContainer.style.display = 'none';
     }
 }
 
-// Execute the script when the page is loaded
-window.onload = createStars;
-            
+// Generate stars dynamically
+function generateStars() {
+    for (let i = 0; i < 50; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.width = Math.random() * 2 + 'px';
+        star.style.height = star.style.width;
+        star.style.top = Math.random() * 100 + '%';
+        star.style.left = Math.random() * 100 + '%';
+        starsContainer.appendChild(star);
+    }
+}
