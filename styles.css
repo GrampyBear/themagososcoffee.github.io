@@ -12,12 +12,12 @@ header {
     background: linear-gradient(to bottom, #ffffff, #f0f0f0); /* White to light gray gradient */
     padding: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
 .logo-container {
-    margin-right: 20px;
+    margin-right: auto; /* Pushes the logo container to the left */
 }
 
 .logo {
