@@ -68,22 +68,17 @@ footer {
 @media only screen and (max-width: 768px) {
     header {
         flex-direction: column;
-        align-items: center; /* Center elements in the column */
+        align-items: center;
     }
 
-    .logo-container {
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-
-    .header-title {
-        margin-right: 0;
-        text-align: center; /* Center the title */
+    .logo-container,
+    .header-title,
+    .time-box {
+        margin: 10px 0;
     }
 
     .time-box {
         position: relative;
-        margin: 10px 0;
-        text-align: center; /* Center the time box */
+        text-align: center;
     }
 }
