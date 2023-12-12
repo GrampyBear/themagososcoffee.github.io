@@ -1,7 +1,7 @@
 // stars.js
 
 // Get stars container
-const starsContainer = document.getElementById('stars-container');
+const starsContainer = document.querySelectorAll('stars-container');
 
 // Update stars visibility
 function updateStarsVisibility(timeOfDay) {
@@ -21,26 +21,32 @@ function updateStarsVisibility(timeOfDay) {
     }
 }
 
-function generateStars() {
-    // Clear existing stars
-    while (starsContainer.firstChild) {
-        starsContainer.removeChild(starsContainer.firstChild);
+// Generate stars dynamically for each container
+function generateStars(container) {
+    // Clear existing stars in the specified container
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
     }
 
-    // Generate new stars
-    for (let i = 0; i < 50; i++) {
+    // Generate random number of stars (between 10 and 15)
+    const numStars = Math.floor(Math.random() * 6) + 10;
+
+    // Generate new stars for the specified container
+    for (let i = 0; i < numStars; i++) {
         const star = document.createElement('div');
         star.className = 'star';
-        star.style.width = Math.random() * 2 + 'px';
+        star.style.width = Math.random() * 2 + 'px'; // Different sizes
         star.style.height = star.style.width;
-        star.style.top = Math.random() * 100 + 'vh';
-        star.style.left = Math.random() * 100 + 'vw';
-        starsContainer.appendChild(star);
+        star.style.top = Math.random() * 100 + 'vh'; // Random vertical position
+        star.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
+        container.appendChild(star);
     }
 }
 
-// Initial stars generation
-generateStars();
+// Initial stars generation for each container
+starContainers.forEach(container => generateStars(container));
 
-// Generate stars in a loop
-setInterval(generateStars, 5000); // Adjust the interval (in milliseconds) as needed
+// Generate stars in a loop for each container
+setInterval(() => {
+    starContainers.forEach(container => generateStars(container));
+}, 5000);
