@@ -63,3 +63,25 @@ footer {
 .social-icons img {
     width: 20px; /* Adjusted size to make them smaller */
 }
+
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo-container {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .header-title {
+        margin-right: 0;
+    }
+
+    .time-box {
+        position: relative;
+        margin: 10px 0;
+    }
+}
