@@ -12,6 +12,9 @@ function createStar() {
     star.style.left = `${x}px`;
     star.style.top = `${y}px`;
 
+    // Ensure stars are white
+    star.style.background = '#fff';
+
     document.body.appendChild(star);
 
     // Twinkle effect: Stars will appear and disappear randomly
@@ -46,3 +49,4 @@ createStars();
 
 // Call the createStars function every second for real-time updates
 setInterval(createStars, 1000);
+        
