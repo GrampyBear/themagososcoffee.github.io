@@ -12,6 +12,7 @@ header {
     background: linear-gradient(to bottom, #ffffff, #f0f0f0); /* White to light gray gradient */
     padding: 20px;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -29,7 +30,7 @@ header {
 
 .time-box {
     text-align: center;
-    margin: 0 20px;
+    margin-left: auto; /* Pushes the time box to the right */
     padding: 10px;
     border: 2px solid #fff;
     border-radius: 10px;
