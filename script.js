@@ -83,4 +83,4 @@ function updateBackgroundGradient(timeOfDay) {
 
 // Update time initially and set interval for updates
 updateTime();
-setInterval(updateTime, 1000); // Update every second
+setInterval(updateTime, 500); // Update every second
