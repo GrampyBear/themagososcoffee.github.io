@@ -1,52 +1,50 @@
-// Function to create a twinkling star
+// Function to generate a random number between min and max
+function getRandomNumber(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+// Function to create a star element
 function createStar() {
     const star = document.createElement('div');
     star.className = 'star';
 
-    const size = getRandomNumber(1, 3);
-    const x = getRandomNumber(0, window.innerWidth);
-    const y = getRandomNumber(0, window.innerHeight);
+    const size = getRandomNumber(1, 4);
+    const duration = getRandomNumber(1, 3);
 
     star.style.width = `${size}px`;
     star.style.height = `${size}px`;
-    star.style.left = `${x}px`;
-    star.style.top = `${y}px`;
+    star.style.animationDuration = `${duration}s`;
 
-    // Ensure stars are white
-    star.style.background = '#fff';
-
-    document.body.appendChild(star);
-
-    // Twinkle effect: Stars will appear and disappear randomly
-    setTimeout(() => {
-        star.style.opacity = 1;
-    }, getRandomNumber(1000, 3000));
-
-    setTimeout(() => {
-        star.style.opacity = 0;
-    }, getRandomNumber(1000, 3000));
-
-    // Remove the star from the DOM after the twinkling effect
-    setTimeout(() => {
-        document.body.removeChild(star);
-    }, getRandomNumber(4000, 6000));
+    return star;
 }
 
-// Function to create stars during night and midnight
-function createStars() {
-    const timeOfDay = getTimeOfDay();
-    const isNightOrMidnight = timeOfDay === 'night' || timeOfDay === 'midnight';
+// Function to add stars to the sky
+function addStars() {
+    const bodyElement = document.body;
+    const skyElement = document.createElement('div');
+    skyElement.className = 'sky';
 
-    if (isNightOrMidnight) {
-        for (let i = 0; i < 30; i++) {
-            createStar();
-        }
+    for (let i = 0; i < 30; i++) {
+        const star = createStar();
+        skyElement.appendChild(star);
+    }
+
+    bodyElement.appendChild(skyElement);
+}
+
+// Function to handle star visibility based on time of day
+function handleStarVisibility(timeOfDay) {
+    const skyElement = document.querySelector('.sky');
+
+    if (timeOfDay === 'night' || timeOfDay === 'midnight') {
+        skyElement.style.display = 'block';
+    } else {
+        skyElement.style.display = 'none';
     }
 }
 
-// Call the createStars function initially
-createStars();
-
-// Call the createStars function every second for real-time updates
-setInterval(createStars, 1000);
+// Update stars initially and set interval for updates
+addStars();
+handleStarVisibility(getTimeOfDay());
+setInterval(() => handleStarVisibility(getTimeOfDay()), 1000 * 60); // Check and update every minute
     
