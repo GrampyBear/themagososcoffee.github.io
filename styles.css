@@ -16,8 +16,10 @@ header {
     align-items: center;
 }
 
-.logo-container {
-    width: 20%; /* Adjusted width for the logo container */
+.container {
+    width: 20%; /* Adjusted width for each container */
+    display: flex;
+    align-items: center;
 }
 
 .logo {
@@ -77,7 +79,7 @@ footer {
         align-items: center;
     }
 
-    .logo-container, .header-title, .time-box {
+    .container {
         width: 100%; /* Full width for smaller screens */
         text-align: center; /* Center text elements */
         margin: 10px 0; /* Add margin for spacing */
@@ -85,5 +87,7 @@ footer {
 
     .time-box {
         position: relative;
+        margin: 10px 0;
+        text-align: center;
     }
 }
