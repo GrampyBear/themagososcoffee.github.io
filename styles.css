@@ -16,19 +16,21 @@ header {
     align-items: center;
 }
 
-.container {
-    width: 20%; /* Adjusted width for each container */
-    display: flex;
-    align-items: center;
+.logo-container {
+    width: 20%; /* Adjusted width for the logo container */
 }
 
 .logo {
     width: 100%; /* Adjusted width for the logo */
 }
 
+.header-text-container {
+    width: 60%; /* Adjusted width for the header text container */
+    margin-right: auto; /* Push the header text container to the left */
+}
+
 .header-title {
     color: black; /* Set title color to black */
-    width: 60%; /* Adjusted width for the title */
 }
 
 .time-box {
@@ -79,7 +81,7 @@ footer {
         align-items: center;
     }
 
-    .container {
+    .logo-container, .header-text-container, .time-box {
         width: 100%; /* Full width for smaller screens */
         text-align: center; /* Center text elements */
         margin: 10px 0; /* Add margin for spacing */
@@ -87,7 +89,5 @@ footer {
 
     .time-box {
         position: relative;
-        margin: 10px 0;
-        text-align: center;
     }
 }
