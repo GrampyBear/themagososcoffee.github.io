@@ -15,13 +15,18 @@ header {
 
 footer {
     background: linear-gradient(to bottom, #333333, #000000); /* Dark gray to black gradient */
+    color: white;
     padding: 20px;
     text-align: center;
     margin-top: auto;
 }
 
-.social-links img {
-    width: 30px; /* Adjust the size as needed */
+.social-icons a {
     margin: 0 10px;
+    text-decoration: none;
+}
+
+.social-icons img {
+    width: 30px; /* Adjust the size as needed */
     filter: invert(1); /* Invert image colors for better visibility on dark background */
 }
