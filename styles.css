@@ -12,6 +12,7 @@ header {
     background: linear-gradient(to bottom, #ffffff, #f0f0f0); /* White to light gray gradient */
     padding: 20px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
