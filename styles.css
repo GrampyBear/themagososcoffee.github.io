@@ -1,1 +1,21 @@
+body {
+    font-family: 'Comic Sans MS', cursive;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    /* Header styles go here */
+}
+
+footer {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+}
+
+#social-links img {
+    width: 30px; /* Adjust size as needed */
+    margin: 0 10px; /* Adjust spacing as needed */
+}
 
