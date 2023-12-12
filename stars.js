@@ -23,24 +23,25 @@ function updateStarsVisibility(timeOfDay) {
 
 // Generate stars dynamically
 function generateStars() {
-    setInterval(() => {
-        // Clear existing stars
-        while (starsContainer.firstChild) {
-            starsContainer.removeChild(starsContainer.firstChild);
-        }
+    // Clear existing stars
+    while (starsContainer.firstChild) {
+        starsContainer.removeChild(starsContainer.firstChild);
+    }
 
-        // Generate new stars
-        for (let i = 0; i < 50; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.width = Math.random() * 2 + 'px';
-            star.style.height = star.style.width;
-            star.style.top = Math.random() * 100 + '%';
-            star.style.left = Math.random() * 100 + '%';
-            starsContainer.appendChild(star);
-        }
-    }, 5000); // Adjust the interval (in milliseconds) as needed
+    // Generate new stars
+    for (let i = 0; i < 50; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.width = Math.random() * 2 + 'px';
+        star.style.height = star.style.width;
+        star.style.top = Math.random() * 100 + '%';
+        star.style.left = Math.random() * 100 + '%';
+        starsContainer.appendChild(star);
+    }
 }
 
 // Initial stars generation
 generateStars();
+
+// Generate stars in a loop
+setInterval(generateStars, 5000);
