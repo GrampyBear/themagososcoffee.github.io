@@ -1,4 +1,4 @@
-// Function to generate a random number between min and max
+// Function to generate a random number within a range
 function getRandomNumber(min, max) {
     return Math.random() * (max - min) + min;
 }
@@ -8,43 +8,38 @@ function createStar() {
     const star = document.createElement('div');
     star.className = 'star';
 
-    const size = getRandomNumber(1, 4);
-    const duration = getRandomNumber(1, 3);
+    const size = getRandomNumber(1, 3);
+    const xPos = getRandomNumber(0, window.innerWidth);
+    const yPos = getRandomNumber(0, window.innerHeight);
+    const animationDuration = getRandomNumber(1, 3);
 
     star.style.width = `${size}px`;
     star.style.height = `${size}px`;
-    star.style.animationDuration = `${duration}s`;
+    star.style.left = `${xPos}px`;
+    star.style.top = `${yPos}px`;
+    star.style.animationDuration = `${animationDuration}s`;
 
-    return star;
+    document.body.appendChild(star);
+
+    // Remove the star after animation completes
+    setTimeout(() => {
+        document.body.removeChild(star);
+    }, animationDuration * 1000);
 }
 
-// Function to add stars to the body background
-function addStarsToBackground() {
-    const bodyElement = document.body;
+// Function to create stars during the night and midnight
+function createStars() {
+    const timeOfDay = getTimeOfDay();
 
-    for (let i = 0; i < 30; i++) {
-        const star = createStar();
-        bodyElement.appendChild(star);
-    }
-}
-
-// Function to handle star visibility based on time of day
-function handleStarVisibility(timeOfDay) {
-    const stars = document.querySelectorAll('.star');
-
+    // Check if it's night or midnight
     if (timeOfDay === 'night' || timeOfDay === 'midnight') {
-        stars.forEach(star => {
-            star.style.display = 'block';
-        });
-    } else {
-        stars.forEach(star => {
-            star.style.display = 'none';
-        });
+        // Create up to 30 stars
+        for (let i = 0; i < 30; i++) {
+            createStar();
+        }
     }
 }
 
-// Update stars initially and set interval for updates
-addStarsToBackground();
-handleStarVisibility(getTimeOfDay());
-setInterval(() => handleStarVisibility(getTimeOfDay()), 1000 * 60); // Check and update every minute
-        
+// Execute the script when the page is loaded
+window.onload = createStars;
+            
