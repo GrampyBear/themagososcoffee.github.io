@@ -17,16 +17,17 @@ header {
 }
 
 .logo-container {
-    width: 20%; /* Adjusted width for the logo container */
+    margin-right: 20px; /* Add margin for spacing */
 }
 
 .logo {
-    width: 100%; /* Adjusted width for the logo */
+    width: 120px; /* Normal size */
 }
 
-.header-text-container {
-    width: 60%; /* Adjusted width for the text container */
-    margin-right: auto; /* Add margin for spacing and push container to the left */
+.header-content {
+    display: flex;
+    flex-direction: column;
+    margin-right: auto; /* Add margin for spacing and push title to the left */
 }
 
 .header-title {
@@ -38,7 +39,6 @@ header {
     right: 20px; /* Set the distance from the right edge */
     top: 50%; /* Center the time box vertically */
     transform: translateY(-50%);
-    width: 20%; /* Adjusted width for the time box */
     padding: 10px;
     border: 2px solid #fff;
     border-radius: 10px;
@@ -78,16 +78,21 @@ footer {
 @media only screen and (max-width: 768px) {
     header {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
     }
 
-    .logo-container, .header-text-container, .time-box {
-        width: 100%; /* Full width for smaller screens */
+    .logo-container {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .header-content {
+        margin-right: 0;
+        margin-bottom: 10px;
     }
 
     .time-box {
         position: relative;
         margin: 10px 0;
-        text-align: center;
     }
-}
+        }
