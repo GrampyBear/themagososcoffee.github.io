@@ -27,6 +27,5 @@ footer {
 }
 
 .social-icons img {
-    width: 25px; /* Adjusted size to make them smaller */
-    filter: invert(1); /* Invert image colors for better visibility on dark background */
+    width: 20px; /* Adjusted size to make them smaller */
 }
