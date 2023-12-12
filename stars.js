@@ -25,7 +25,7 @@ function createStar() {
 
     // Remove the star from the DOM after the twinkling effect
     setTimeout(() => {
-        document.body.removeChild(star);
+        star.parentNode.removeChild(star);
     }, getRandomNumber(4000, 6000));
 }
 
@@ -46,4 +46,3 @@ createStars();
 
 // Call the createStars function every second for real-time updates
 setInterval(createStars, 1000);
-            
