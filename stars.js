@@ -13,7 +13,9 @@ function createStar() {
     star.style.top = `${y}px`;
 
     // Ensure stars are white
-    star.style.background = '#fff';
+    star.style.backgroundColor = '#fff';
+    star.style.borderRadius = '50%';
+    star.style.position = 'fixed'; // Fix the position of stars
 
     document.body.appendChild(star);
 
@@ -28,7 +30,7 @@ function createStar() {
 
     // Remove the star from the DOM after the twinkling effect
     setTimeout(() => {
-        star.parentNode.removeChild(star);
+        document.body.removeChild(star);
     }, getRandomNumber(4000, 6000));
 }
 
@@ -49,4 +51,3 @@ createStars();
 
 // Call the createStars function every second for real-time updates
 setInterval(createStars, 1000);
-        
