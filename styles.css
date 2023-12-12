@@ -5,15 +5,14 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    color: white; /* Set text color to white */
 }
 
 header {
     background: linear-gradient(to bottom, #ffffff, #f0f0f0); /* White to light gray gradient */
     padding: 20px;
     display: flex;
-    justify-content: space-between; /* Align items to the start and end of the header */
     align-items: center;
+    color: black; /* Set text color to black */
 }
 
 .logo-container {
@@ -24,13 +23,9 @@ header {
     width: 120px; /* Normal size */
 }
 
-h1 {
-    color: black; /* Set title text color to black */
-    font-weight: bold; /* Make the title text a little thicker */
-}
-
 .time-box {
     text-align: center;
+    margin-left: auto; /* Push the time box to the right edge */
     padding: 10px;
     border: 2px solid #fff;
     border-radius: 10px;
@@ -38,10 +33,10 @@ h1 {
 }
 
 .time-text {
-    color: #fff;
+    color: #fff; /* Set text color to white */
 }
 
-.footer {
+footer {
     background: linear-gradient(to bottom, #333333, #000000); /* Dark gray to black gradient */
     padding: 20px;
     text-align: center;
