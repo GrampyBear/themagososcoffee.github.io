@@ -5,6 +5,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    color: white; /* Set text color to white */
 }
 
 header {
@@ -22,18 +23,21 @@ header {
     width: 120px; /* Normal size */
 }
 
+.header-title {
+    color: black; /* Set title color to black */
+}
+
 .time-box {
     text-align: center;
-    margin-left: auto; /* Push the time box to the right edge */
+    margin: 0 20px;
     padding: 10px;
     border: 2px solid #fff;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #fff; /* Set text color to white */
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-header, header h1, header p {
-    color: black; /* Set text color to black */
+.time-text {
+    color: #fff;
 }
 
 footer {
@@ -41,6 +45,10 @@ footer {
     padding: 20px;
     text-align: center;
     margin-top: auto;
+}
+
+.footer-text {
+    color: white; /* Set footer text color to white */
 }
 
 .social-icons a {
