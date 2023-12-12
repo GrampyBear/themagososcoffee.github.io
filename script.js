@@ -1,3 +1,4 @@
+// Get current time
 function getCurrentTime() {
     const now = new Date();
     const hours = now.getHours();
@@ -5,6 +6,7 @@ function getCurrentTime() {
     return `${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
 }
 
+// Get time of day
 function getTimeOfDay() {
     const now = new Date();
     const hours = now.getHours();
@@ -26,44 +28,60 @@ function getTimeOfDay() {
     }
 }
 
-function updateBackground() {
-    const body = document.body;
+// Update time and time of day
+function updateTime() {
+    const timeOfDayElement = document.getElementById('timeOfDay');
+    const currentTimeElement = document.getElementById('currentTime');
+    const bodyElement = document.body;
+
+    const currentTime = getCurrentTime();
     const timeOfDay = getTimeOfDay();
 
+    timeOfDayElement.textContent = `Time of Day: ${timeOfDay}`;
+    currentTimeElement.textContent = `Current Time: ${currentTime}`;
+
+    // Update background gradient based on time of day
+    updateBackgroundGradient(timeOfDay);
+}
+
+// Update background gradient
+function updateBackgroundGradient(timeOfDay) {
+    const bodyElement = document.body;
+    const gradientDuration = 5; // 5 seconds for the transition
+
+    let gradientColors;
     switch (timeOfDay) {
         case 'sunrise':
-            body.style.background = 'linear-gradient(to bottom, #FF6F00, #FFD54F)';
+            gradientColors = ['#FF6F00', '#FFD54F'];
             break;
         case 'morning':
-            body.style.background = 'linear-gradient(to bottom, #FFD54F, #81C784)';
+            gradientColors = ['#FFD54F', '#81C784'];
             break;
         case 'noon':
-            body.style.background = 'linear-gradient(to bottom, #81C784, #4CAF50)';
+            gradientColors = ['#81C784', '#4CAF50'];
             break;
         case 'afternoon':
-            body.style.background = 'linear-gradient(to bottom, #4CAF50, #FFA726)';
+            gradientColors = ['#4CAF50', '#FFA726'];
             break;
         case 'sunset':
-            body.style.background = 'linear-gradient(to bottom, #FFA726, #FF7043)';
+            gradientColors = ['#FFA726', '#FF7043'];
             break;
         case 'night':
-            body.style.background = 'linear-gradient(to bottom, #0D47A1, #263238)';
+            gradientColors = ['#0D47A1', '#263238'];
             break;
         case 'midnight':
-            body.style.background = 'linear-gradient(to bottom, #000000, #1A237E)';
+            gradientColors = ['#000000', '#1A237E'];
             break;
         default:
-            body.style.background = 'linear-gradient(to bottom, #000000, #1A237E)';
-            break;
+            gradientColors = ['#ffffff', '#ffffff']; // Default to white gradient
     }
+
+    const gradientString = `linear-gradient(to bottom, ${gradientColors[0]}, ${gradientColors[1]})`;
+    bodyElement.style.background = gradientString;
+    bodyElement.style.transition = `background ${gradientDuration}s ease-in-out`;
 }
 
-function updatePage() {
-    updateTime();
-    updateBackground();
-}
-
-// Update initially and set interval for updates
-updatePage();
-setInterval(updatePage, 1000 * 60); // Update every minute
-        
+// Update time initially and set interval for updates
+updateTime();
+setInterval(updateTime, 1000 * 60); // Update every minute
+    
