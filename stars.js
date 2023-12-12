@@ -21,7 +21,6 @@ function updateStarsVisibility(timeOfDay) {
     }
 }
 
-// Generate stars dynamically
 function generateStars() {
     // Clear existing stars
     while (starsContainer.firstChild) {
@@ -34,8 +33,8 @@ function generateStars() {
         star.className = 'star';
         star.style.width = Math.random() * 2 + 'px';
         star.style.height = star.style.width;
-        star.style.top = Math.random() * 100 + '%';
-        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + 'vh';
+        star.style.left = Math.random() * 100 + 'vw';
         starsContainer.appendChild(star);
     }
 }
@@ -44,4 +43,4 @@ function generateStars() {
 generateStars();
 
 // Generate stars in a loop
-setInterval(generateStars, 5000);
+setInterval(generateStars, 5000); // Adjust the interval (in milliseconds) as needed
