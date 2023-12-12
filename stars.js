@@ -1,8 +1,3 @@
-// Function to generate a random number within a specified range
-function getRandomNumber(min, max) {
-    return Math.random() * (max - min) + min;
-}
-
 // Function to create a twinkling star
 function createStar() {
     const star = document.createElement('div');
@@ -51,3 +46,4 @@ createStars();
 
 // Call the createStars function every second for real-time updates
 setInterval(createStars, 1000);
+            
