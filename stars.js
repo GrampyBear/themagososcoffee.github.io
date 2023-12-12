@@ -13,9 +13,7 @@ function createStar() {
     star.style.top = `${y}px`;
 
     // Ensure stars are white
-    star.style.backgroundColor = '#fff';
-    star.style.borderRadius = '50%';
-    star.style.position = 'fixed'; // Fix the position of stars
+    star.style.background = '#fff';
 
     document.body.appendChild(star);
 
@@ -51,3 +49,4 @@ createStars();
 
 // Call the createStars function every second for real-time updates
 setInterval(createStars, 1000);
+    
