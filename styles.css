@@ -12,7 +12,6 @@ header {
     padding: 20px;
     display: flex;
     align-items: center;
-    color: black; /* Set text color to black */
 }
 
 .logo-container {
@@ -32,8 +31,8 @@ header {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.time-text {
-    color: #fff; /* Set text color to white */
+header, header h1, header p {
+    color: black; /* Set text color to black */
 }
 
 footer {
