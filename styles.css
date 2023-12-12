@@ -12,11 +12,12 @@ header {
     background: linear-gradient(to bottom, #ffffff, #f0f0f0); /* White to light gray gradient */
     padding: 20px;
     display: flex;
-    align-items: center;
+    justify-content: space-between; /* Adjusted alignment */
 }
 
 .logo-container {
-    margin-right: 20px;
+    display: flex;
+    align-items: center; /* Align logo vertically in the container */
 }
 
 .logo {
@@ -29,9 +30,6 @@ header {
 
 .time-box {
     text-align: center;
-    margin-left: auto; /* Move the time box to the right */
-    margin-right: 20px; /* Add a little extra margin for spacing */
-    margin: 0 20px;
     padding: 10px;
     border: 2px solid #fff;
     border-radius: 10px;
