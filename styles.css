@@ -5,6 +5,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    color: white; /* Set text color to white */
 }
 
 header {
@@ -15,7 +16,6 @@ header {
 
 footer {
     background: linear-gradient(to bottom, #333333, #000000); /* Dark gray to black gradient */
-    color: white;
     padding: 20px;
     text-align: center;
     margin-top: auto;
@@ -27,6 +27,6 @@ footer {
 }
 
 .social-icons img {
-    width: 30px; /* Adjust the size as needed */
+    width: 25px; /* Adjusted size to make them smaller */
     filter: invert(1); /* Invert image colors for better visibility on dark background */
 }
