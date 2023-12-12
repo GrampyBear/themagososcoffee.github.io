@@ -63,7 +63,7 @@ footer {
     width: 20px; /* Adjusted size to make them smaller */
 }
 
-#stars-container {
+.star-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -80,11 +80,27 @@ footer {
     animation: fadeInOut 1s infinite alternate;
 }
 
+/* Keyframes with a delay to make stars pulse independently */
 @keyframes fadeInOut {
-    from {
+    0%, 100% {
         opacity: 0;
     }
-    to {
+    50% {
         opacity: 1;
     }
 }
+
+/* Add a delay to each star to make them pulse independently */
+.star:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.star:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.star:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* Add more nth-child rules for additional stars with different delays */
