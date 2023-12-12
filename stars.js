@@ -18,33 +18,33 @@ function createStar() {
     return star;
 }
 
-// Function to add stars to the sky
-function addStars() {
+// Function to add stars to the body background
+function addStarsToBackground() {
     const bodyElement = document.body;
-    const skyElement = document.createElement('div');
-    skyElement.className = 'sky';
 
     for (let i = 0; i < 30; i++) {
         const star = createStar();
-        skyElement.appendChild(star);
+        bodyElement.appendChild(star);
     }
-
-    bodyElement.appendChild(skyElement);
 }
 
 // Function to handle star visibility based on time of day
 function handleStarVisibility(timeOfDay) {
-    const skyElement = document.querySelector('.sky');
+    const stars = document.querySelectorAll('.star');
 
     if (timeOfDay === 'night' || timeOfDay === 'midnight') {
-        skyElement.style.display = 'block';
+        stars.forEach(star => {
+            star.style.display = 'block';
+        });
     } else {
-        skyElement.style.display = 'none';
+        stars.forEach(star => {
+            star.style.display = 'none';
+        });
     }
 }
 
 // Update stars initially and set interval for updates
-addStars();
+addStarsToBackground();
 handleStarVisibility(getTimeOfDay());
 setInterval(() => handleStarVisibility(getTimeOfDay()), 1000 * 60); // Check and update every minute
-    
+        
