@@ -79,11 +79,11 @@ footer {
 
     .logo-container, .header-title, .time-box {
         width: 100%; /* Full width for smaller screens */
+        text-align: center; /* Center text elements */
+        margin: 10px 0; /* Add margin for spacing */
     }
 
     .time-box {
         position: relative;
-        margin: 10px 0;
-        text-align: center;
     }
 }
