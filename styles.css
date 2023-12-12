@@ -2,20 +2,26 @@ body {
     font-family: 'Comic Sans MS', cursive;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
-    /* Header styles go here */
-}
-
-footer {
-    background-color: #f0f0f0;
+    background: linear-gradient(to bottom, #ffffff, #f0f0f0); /* White to light gray gradient */
     padding: 20px;
     text-align: center;
 }
 
-#social-links img {
-    width: 30px; /* Adjust size as needed */
-    margin: 0 10px; /* Adjust spacing as needed */
+footer {
+    background: linear-gradient(to bottom, #333333, #000000); /* Dark gray to black gradient */
+    padding: 20px;
+    text-align: center;
+    margin-top: auto;
 }
 
+.social-links img {
+    width: 30px; /* Adjust the size as needed */
+    margin: 0 10px;
+    filter: invert(1); /* Invert image colors for better visibility on dark background */
+}
