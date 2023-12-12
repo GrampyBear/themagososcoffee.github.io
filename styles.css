@@ -17,16 +17,16 @@ header {
 }
 
 .logo-container {
-    margin-right: 20px; /* Add margin for spacing */
+    width: 20%; /* Adjusted width for the logo container */
 }
 
 .logo {
-    width: 120px; /* Normal size */
+    width: 100%; /* Adjusted width for the logo */
 }
 
 .header-title {
     color: black; /* Set title color to black */
-    margin-right: auto; /* Add margin for spacing and push title to the left */
+    width: 60%; /* Adjusted width for the title */
 }
 
 .time-box {
@@ -34,6 +34,7 @@ header {
     right: 20px; /* Set the distance from the right edge */
     top: 50%; /* Center the time box vertically */
     transform: translateY(-50%);
+    width: 20%; /* Adjusted width for the time box */
     padding: 10px;
     border: 2px solid #fff;
     border-radius: 10px;
@@ -55,6 +56,11 @@ footer {
     color: white; /* Set footer text color to white */
 }
 
+.social-icons {
+    display: flex;
+    justify-content: center;
+}
+
 .social-icons a {
     margin: 0 10px;
     text-decoration: none;
@@ -71,14 +77,13 @@ footer {
         align-items: center;
     }
 
-    .logo-container,
-    .header-title,
-    .time-box {
-        margin: 10px 0;
+    .logo-container, .header-title, .time-box {
+        width: 100%; /* Full width for smaller screens */
     }
 
     .time-box {
         position: relative;
+        margin: 10px 0;
         text-align: center;
     }
 }
