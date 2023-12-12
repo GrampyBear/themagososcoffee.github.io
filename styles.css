@@ -28,7 +28,8 @@ header {
     padding: 10px;
     border: 2px solid #fff;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff; /* Set text color to white */
 }
 
 header, header h1, header p {
