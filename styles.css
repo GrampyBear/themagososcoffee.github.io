@@ -1,5 +1,5 @@
 body {
-    transition: background 5s ease;
+    transition: background 10s ease;
     font-family: 'Comic Sans MS', cursive;
     margin: 0;
     padding: 0;
@@ -60,4 +60,20 @@ footer {
 
 .social-icons img {
     width: 20px; /* Adjusted size to make them smaller */
+}
+
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    animation: fade-in-out linear infinite;
+}
+
+@keyframes fade-in-out {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
 }
