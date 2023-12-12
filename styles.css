@@ -12,22 +12,15 @@ header {
     background: linear-gradient(to bottom, #ffffff, #f0f0f0); /* White to light gray gradient */
     padding: 20px;
     display: flex;
-    position: relative; /* Set position to relative for proper absolute positioning */
     align-items: center;
 }
 
 .logo-container {
-    margin-right: 20px; /* Add margin for spacing */
+    margin-right: 20px;
 }
 
 .logo {
     width: 120px; /* Normal size */
-}
-
-.header-content {
-    display: flex;
-    flex-direction: column;
-    margin-right: auto; /* Add margin for spacing and push title to the left */
 }
 
 .header-title {
@@ -35,10 +28,8 @@ header {
 }
 
 .time-box {
-    position: absolute;
-    right: 20px; /* Set the distance from the right edge */
-    top: 50%; /* Center the time box vertically */
-    transform: translateY(-50%);
+    text-align: center;
+    margin: 0 20px;
     padding: 10px;
     border: 2px solid #fff;
     border-radius: 10px;
@@ -60,11 +51,6 @@ footer {
     color: white; /* Set footer text color to white */
 }
 
-.social-icons {
-    display: flex;
-    justify-content: center;
-}
-
 .social-icons a {
     margin: 0 10px;
     text-decoration: none;
@@ -73,26 +59,3 @@ footer {
 .social-icons img {
     width: 20px; /* Adjusted size to make them smaller */
 }
-
-/* Responsive styles */
-@media only screen and (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .logo-container {
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-
-    .header-content {
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-
-    .time-box {
-        position: relative;
-        margin: 10px 0;
-    }
-        }
