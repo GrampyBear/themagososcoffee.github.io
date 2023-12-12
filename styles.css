@@ -1,4 +1,5 @@
 body {
+    transition: background 5s ease;
     font-family: 'Comic Sans MS', cursive;
     margin: 0;
     padding: 0;
