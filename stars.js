@@ -1,4 +1,4 @@
-// stars.js
+/*/ stars.js
 
 // Function to generate a random number within a given range
 function getRandomNumber(min, max) {
