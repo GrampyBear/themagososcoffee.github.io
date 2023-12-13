@@ -32,11 +32,15 @@ function appendStars(numStars) {
 function twinkleStars() {
     const stars = document.querySelectorAll('.star');
     stars.forEach((star) => {
-        // Randomly toggle visibility
-        if (Math.random() > 0.5) {
-            star.style.opacity = '0';
+        // Randomly toggle visibility only if it's night or midnight
+        if (isNightOrMidnight(getTimeOfDay()) && isNightTime()) {
+            if (Math.random() > 0.5) {
+                star.style.opacity = '0';
+            } else {
+                star.style.opacity = '1';
+            }
         } else {
-            star.style.opacity = '1';
+            star.style.opacity = '0'; // Hide stars during dawn and sunrise
         }
     });
 }
@@ -45,7 +49,7 @@ function twinkleStars() {
 function clearOldStars() {
     const body = document.body;
     const stars = document.querySelectorAll('.star');
-    
+
     // Remove stars that are outside the visible area or exceeding the limit
     stars.forEach((star, index) => {
         const rect = star.getBoundingClientRect();
@@ -85,7 +89,7 @@ function isNightTime() {
 // Initialize stars based on the time of day
 function initializeStars(timeOfDay) {
     const body = document.body;
-    
+
     if (isNightOrMidnight(timeOfDay) && isNightTime()) {
         const numNewStars = 10; // Adjust the number of new stars generated
 
@@ -212,4 +216,4 @@ function updateBackgroundGradient(timeOfDay) {
 // Update time initially and set interval for real-time updates
 updateTime();
 setInterval(updateTime, 1000); // Update every second for real-time
-        
+                   
