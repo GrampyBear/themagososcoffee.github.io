@@ -19,18 +19,18 @@ header {
     z-index: 2; /* Set a higher z-index for the header */
 }
 
-.main-container {
+.section {
     background: rgba(0, 0, 0, 0.8); /* Black background with 80% transparency */
     border-radius: 20px; /* Soft curved edges */
     padding: 20px;
     margin: 20px;
-    text-align: center;
+    text-align: center; /* Center text within the container */
 }
 
-.main-container h1,
-.main-container p,
-.main-container a,
-.main-container blockquote {
+.section h1,
+.section p,
+.section a,
+.section blockquote {
     color: white; /* Set text color to white */
 }
 
