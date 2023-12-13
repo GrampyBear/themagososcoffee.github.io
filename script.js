@@ -1,4 +1,4 @@
-// main-script.js
+        // main-script.js
 
 // Function to generate a random number within a given range
 function getRandomNumber(min, max) {
@@ -50,7 +50,7 @@ function isNightOrMidnight(timeOfDay) {
 function clearOldStars() {
     const body = document.body;
     const stars = document.querySelectorAll('.star');
-    
+
     // Remove stars that are outside the visible area or exceeding the limit
     stars.forEach((star, index) => {
         const rect = star.getBoundingClientRect();
@@ -60,11 +60,20 @@ function clearOldStars() {
     });
 }
 
-// Check time of day and initialize stars if it's night or midnight
-function initializeStars(timeOfDay) {
+// Remove stars when it's not night or midnight
+function removeStars() {
+    const body = document.body;
+    const stars = document.querySelectorAll('.star');
+    stars.forEach((star) => {
+        body.removeChild(star);
+    });
+}
+
+// Check time of day and initialize or remove stars accordingly
+function handleStars(timeOfDay) {
     if (isNightOrMidnight(timeOfDay)) {
         const numNewStars = 10; // Adjust the number of new stars generated
-        
+
         // Clear old stars first
         clearOldStars();
 
@@ -72,22 +81,25 @@ function initializeStars(timeOfDay) {
         const currentStars = document.querySelectorAll('.star').length;
         const starsToAdd = Math.min(numNewStars, 100 - currentStars);
         appendStars(starsToAdd);
-        
+
         // Trigger twinkle immediately
         twinkleStars();
 
         setInterval(() => {
             // Clear old stars before appending new ones
             clearOldStars();
-            
+
             // Append new stars, considering the limit
             const currentStars = document.querySelectorAll('.star').length;
             const starsToAdd = Math.min(numNewStars, 100 - currentStars);
             appendStars(starsToAdd);
-            
+
             // Trigger twinkle
             twinkleStars();
         }, 10000); // Refresh stars every 10 seconds (adjust as needed)
+    } else {
+        // Remove stars when it's not night or midnight
+        removeStars();
     }
 }
 
@@ -135,6 +147,9 @@ function updateTime() {
 
     // Update background gradient based on time of day
     updateBackgroundGradient(timeOfDay);
+
+    // Handle stars based on time of day
+    handleStars(timeOfDay);
 }
 
 // Update background gradient
@@ -172,9 +187,6 @@ function updateBackgroundGradient(timeOfDay) {
     const gradientString = `linear-gradient(to bottom, ${gradientColors[0]}, ${gradientColors[1]})`;
     bodyElement.style.background = gradientString;
     bodyElement.style.transition = `background ${gradientDuration}s ease-in-out`;
-
-    // Initialize stars based on the time of day
-    initializeStars(timeOfDay);
 }
 
 // Update time initially and set interval for real-time updates
