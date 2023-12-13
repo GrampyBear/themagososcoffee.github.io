@@ -30,29 +30,23 @@ function generateStars() {
         starsContainer.removeChild(starsContainer.firstChild);
     }
 
-    // Generate new stars
+    // Generate new stars with random initial positions
     for (let i = 0; i < 50; i++) {
         const star = document.createElement('div');
         star.className = 'star';
         star.style.width = Math.random() * 2 + 'px';
         star.style.height = star.style.width;
-
-        // Assign initial random positions only if not initialized
-        if (!starsInitialized) {
-            const initialTop = Math.random() * window.innerHeight + 'px';
-            const initialLeft = Math.random() * window.innerWidth + 'px';
-            star.style.top = initialTop;
-            star.style.left = initialLeft;
-        }
-
-        star.style.animationDelay = Math.random() * 5 + 's'; // Set a random delay (adjust as needed)
+        star.style.top = Math.random() * 100 + 'vh';
+        star.style.left = Math.random() * 100 + 'vw';
         starsContainer.appendChild(star);
     }
 
-    // Set the flag to true after the initial generation
-    starsInitialized = true;
+    // After initial appearance, set permanent animation properties
+    setTimeout(() => {
+        starsContainer.style.animation = 'none'; // Disable animation for permanent state
+        starsContainer.style.pointerEvents = 'auto'; // Enable pointer events to interact with content
+    }, 5000); // Wait for 5 seconds before applying permanent state (adjust as needed)
 }
-
 
 // Initial stars generation
 generateStars();
