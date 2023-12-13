@@ -8,7 +8,6 @@ body {
     min-height: 100vh;
     color: white; /* Set text color to white */
     position: relative;
-    z-index: 0;
 }
 
 header {
@@ -72,7 +71,6 @@ footer {
     border-radius: 50%;
     animation: fadeInOut 1s ease-in-out forwards;
     pointer-events: none;
-    z-index: 1; /* Set a lower z-index for the stars */
 }
 
 .star.large {
@@ -96,7 +94,6 @@ footer {
 .star-container {
     width: 100%;
     height: 100%;
-    z-index: -1; /* Set a lower z-index for the star container */
 }
 
 @keyframes fadeInOut {
