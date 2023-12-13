@@ -66,49 +66,15 @@ footer {
     width: 20px;
 }
 
-/* Add these styles for stars */
+/* Add this to your styles.css or create a new stars.css file */
 
 .star {
     position: absolute;
-    background-color: #ffffff;
+    background-color: white;
     border-radius: 50%;
-    animation: fadeInOut 1s ease-in-out forwards;
-}
-
-.star.large {
-    width: 15px;
-    height: 15px;
-    animation-duration: 4s;
-}
-
-.star.medium {
-    width: 10px;
-    height: 10px;
-    animation-duration: 3s;
-}
-
-.star.small {
-    width: 5px;
-    height: 5px;
-    animation-duration: 2s;
-}
-
-.star-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     pointer-events: none;
-}
-
-/* Add styles for each depth class */
-.depth1 .star {
-    z-index: 1;
-}
-
-.depth2 .star {
-    z-index: 2;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 1; /* Ensure stars are behind other content */
 }
 
 .depth3 .star {
