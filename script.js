@@ -64,11 +64,24 @@ function clearOldStars() {
 function initializeStars(timeOfDay) {
     if (isNightOrMidnight(timeOfDay)) {
         const numNewStars = 10; // Adjust the number of new stars generated
+        
+        // Clear old stars first
+        clearOldStars();
+
+        // Append new stars
         appendStars(numNewStars);
-        twinkleStars(); // Trigger twinkle immediately
+        
+        // Trigger twinkle immediately
+        twinkleStars();
+
         setInterval(() => {
+            // Clear old stars before appending new ones
             clearOldStars();
+            
+            // Append new stars
             appendStars(numNewStars);
+            
+            // Trigger twinkle
             twinkleStars();
         }, 10000); // Refresh stars every 10 seconds (adjust as needed)
     }
