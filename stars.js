@@ -30,39 +30,26 @@ function generateStars() {
         starsContainer.removeChild(starsContainer.firstChild);
     }
 
-    // Generate new stars with random initial positions
-    for (let i = 0; i < 50; i++) {
+    // Generate stars for Layer 1 (large stars)
+    generateStarsInLayer(5, 'star-large', 6);
+
+    // Generate stars for Layer 2 (medium stars)
+    generateStarsInLayer(15, 'star-medium', 3);
+
+    // Generate stars for Layer 3 (small stars)
+    generateStarsInLayer(30, 'star-small', 2);
+}
+
+// Generate stars for a specific layer
+function generateStarsInLayer(count, className, disappearanceDuration) {
+    for (let i = 0; i < count; i++) {
         const star = document.createElement('div');
-        star.className = 'star';
-        star.style.width = Math.random() * 2 + 'px';
-        star.style.height = star.style.width;
+        star.className = `star ${className}`;
         star.style.top = Math.random() * 100 + 'vh';
         star.style.left = Math.random() * 100 + 'vw';
+        star.style.transition = `opacity 1s ease-in, transform ${disappearanceDuration}s ease-in-out`;
         starsContainer.appendChild(star);
     }
-
-    // After initial appearance, set permanent state
-    starsContainer.style.animation = 'none'; // Disable animation for permanent state
-    starsContainer.style.pointerEvents = 'auto'; // Enable pointer events to interact with content
-
-    // Generate stars in a loop with fixed positions
-    setInterval(() => {
-        // Clear existing stars
-        while (starsContainer.firstChild) {
-            starsContainer.removeChild(starsContainer.firstChild);
-        }
-
-        // Generate new stars with fixed positions
-        for (let i = 0; i < 50; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.width = Math.random() * 2 + 'px';
-            star.style.height = star.style.width;
-            star.style.top = Math.random() * 100 + 'vh';
-            star.style.left = Math.random() * 100 + 'vw';
-            starsContainer.appendChild(star);
-        }
-    }, 5000); // Adjust the interval (in milliseconds) as needed
 }
 
 // Initial stars generation
