@@ -1,4 +1,4 @@
-// main-script.js
+// stars.js
 
 // Function to generate a random number within a given range
 function getRandomNumber(min, max) {
@@ -12,7 +12,7 @@ function createStar() {
 
     // Set random position and size
     star.style.left = `${getRandomNumber(0, 100)}vw`;
-    star.style.top = `${getRandomNumber(0, 90)}vh`; // Adjusted top position
+    star.style.top = `${getRandomNumber(0, 87)}vh`; // Adjusted top position
     star.style.width = `${getRandomNumber(1, 3)}px`;
     star.style.height = `${getRandomNumber(1, 3)}px`;
 
@@ -72,7 +72,7 @@ function isSunrise(timeOfDay) {
     return timeOfDay === 'sunrise';
 }
 
-// Initialize stars based on the time of day
+// Function to initialize stars based on the time of day
 function initializeStars(timeOfDay) {
     const body = document.body;
     
@@ -103,20 +103,12 @@ function initializeStars(timeOfDay) {
             twinkleStars();
         }, 10000); // Refresh stars every 10 seconds (adjust as needed)
     } else {
-        // If it's not night, midnight, or sunrise, clear all stars
+        // If it's not night or midnight, hide all stars
         const stars = document.querySelectorAll('.star');
         stars.forEach((star) => {
             body.removeChild(star);
         });
     }
-}
-
-// Get current time
-function getCurrentTime() {
-    const now = new Date();
-    const hours = now.getHours();
-    const minutes = now.getMinutes();
-    return `${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
 }
 
 // Get time of day
@@ -141,64 +133,12 @@ function getTimeOfDay() {
     }
 }
 
-// Update time and time of day
-function updateTime() {
-    const timeOfDayElement = document.getElementById('timeOfDay');
-    const currentTimeElement = document.getElementById('currentTime');
-
-    const currentTime = getCurrentTime();
+// Update time and initialize stars
+function updateTimeAndInitializeStars() {
     const timeOfDay = getTimeOfDay();
-
-    timeOfDayElement.textContent = `Time of Day: ${timeOfDay}`;
-    currentTimeElement.textContent = `Current Time: ${currentTime}`;
-
-    // Update background gradient and stars based on time of day
-    updateBackgroundAndStars(timeOfDay);
-}
-
-// Update background gradient and stars
-function updateBackgroundAndStars(timeOfDay) {
-    updateBackgroundGradient(timeOfDay);
     initializeStars(timeOfDay);
 }
 
-// Update background gradient
-function updateBackgroundGradient(timeOfDay) {
-    const bodyElement = document.body;
-    const gradientDuration = 5; // 5 seconds for the transition
-
-    let gradientColors;
-    switch (timeOfDay) {
-        case 'sunrise':
-            gradientColors = ['#FF6F00', '#FFD54F'];
-            break;
-        case 'morning':
-            gradientColors = ['#FFD54F', '#81C784'];
-            break;
-        case 'noon':
-            gradientColors = ['#81C784', '#4CAF50'];
-            break;
-        case 'afternoon':
-            gradientColors = ['#4CAF50', '#FFA726'];
-            break;
-        case 'sunset':
-            gradientColors = ['#FFA726', '#FF7043'];
-            break;
-        case 'night':
-            gradientColors = ['#0D47A1', '#263238'];
-            break;
-        case 'midnight':
-            gradientColors = ['#000000', '#1A237E'];
-            break;
-        default:
-            gradientColors = ['#ffffff', '#ffffff']; // Default to white gradient
-    }
-
-    const gradientString = `linear-gradient(to bottom, ${gradientColors[0]}, ${gradientColors[1]})`;
-    bodyElement.style.background = gradientString;
-    bodyElement.style.transition = `background ${gradientDuration}s ease-in-out`;
-}
-
 // Update time initially and set interval for real-time updates
-updateTime();
-setInterval(updateTime, 1000); // Update every second for real-time
+updateTimeAndInitializeStars();
+setInterval(updateTimeAndInitializeStars, 1000); // Update every second for real-time
