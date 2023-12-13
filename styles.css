@@ -31,22 +31,26 @@ header {
     color: black;
 }
 
-/* Section styles */
+.sections-container {
+    position: relative;
+    z-index: 2; /* Ensure sections appear above stars */
+}
+
 .section {
-    background: rgba(0, 0, 0, 0.8); /* Black container with 80% opacity */
-    border: 2px solid #ffffff; /* White border */
-    border-radius: 10px; /* Semi-round corners */
-    margin: 20px; /* Adjust as needed */
-    padding: 20px; /* Adjust as needed */
     display: none; /* Initially hide sections */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 20px;
+    color: #fff;
 }
 
-.section-title {
-    color: #ffffff; /* White text */
-}
-
-.section-content {
-    color: #ffffff; /* White text */
+.section h2 {
+    margin-bottom: 10px;
 }
 
 
