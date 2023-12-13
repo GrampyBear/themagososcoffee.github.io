@@ -12,7 +12,7 @@ function createStar() {
 
     // Set random position and size
     star.style.left = `${getRandomNumber(0, 100)}vw`;
-    star.style.top = `${getRandomNumber(0, 80)}vh`; // Adjusted top position to avoid the footer
+    star.style.top = `${getRandomNumber(0, 85)}vh`; // Adjusted top position to avoid the footer
     star.style.width = `${getRandomNumber(1, 3)}px`;
     star.style.height = `${getRandomNumber(1, 3)}px`;
 
