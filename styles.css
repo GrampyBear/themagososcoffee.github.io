@@ -77,7 +77,7 @@ footer {
     position: absolute;
     background-color: white;
     border-radius: 50%;
-    animation: fadeInOut 1s infinite alternate;
+    animation: fadeInOut 3s infinite alternate;
 }
 
 @keyframes fadeInOut {
