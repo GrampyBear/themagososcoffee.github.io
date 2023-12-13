@@ -51,10 +51,10 @@ function clearOldStars() {
     const body = document.body;
     const stars = document.querySelectorAll('.star');
     
-    // Remove stars that are outside the visible area
-    stars.forEach((star) => {
+    // Remove stars that are outside the visible area or exceeding the limit
+    stars.forEach((star, index) => {
         const rect = star.getBoundingClientRect();
-        if (rect.bottom < 0 || rect.top > window.innerHeight) {
+        if (rect.bottom < 0 || rect.top > window.innerHeight || index > 100) {
             body.removeChild(star);
         }
     });
@@ -68,8 +68,10 @@ function initializeStars(timeOfDay) {
         // Clear old stars first
         clearOldStars();
 
-        // Append new stars
-        appendStars(numNewStars);
+        // Append new stars, considering the limit
+        const currentStars = document.querySelectorAll('.star').length;
+        const starsToAdd = Math.min(numNewStars, 100 - currentStars);
+        appendStars(starsToAdd);
         
         // Trigger twinkle immediately
         twinkleStars();
@@ -78,8 +80,10 @@ function initializeStars(timeOfDay) {
             // Clear old stars before appending new ones
             clearOldStars();
             
-            // Append new stars
-            appendStars(numNewStars);
+            // Append new stars, considering the limit
+            const currentStars = document.querySelectorAll('.star').length;
+            const starsToAdd = Math.min(numNewStars, 100 - currentStars);
+            appendStars(starsToAdd);
             
             // Trigger twinkle
             twinkleStars();
@@ -176,4 +180,3 @@ function updateBackgroundGradient(timeOfDay) {
 // Update time initially and set interval for real-time updates
 updateTime();
 setInterval(updateTime, 1000); // Update every second for real-time
-    
