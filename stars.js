@@ -20,6 +20,8 @@ function updateStarsVisibility(timeOfDay) {
         starsContainer.style.display = 'none';
     }
 }
+// Flag to track if stars have been initially generated
+let starsInitialized = false;
 
 // Generate stars dynamically
 function generateStars() {
@@ -35,16 +37,22 @@ function generateStars() {
         star.style.width = Math.random() * 2 + 'px';
         star.style.height = star.style.width;
 
-        // Assign initial random positions
-        const initialTop = Math.random() * window.innerHeight + 'px';
-        const initialLeft = Math.random() * window.innerWidth + 'px';
-        star.style.top = initialTop;
-        star.style.left = initialLeft;
+        // Assign initial random positions only if not initialized
+        if (!starsInitialized) {
+            const initialTop = Math.random() * window.innerHeight + 'px';
+            const initialLeft = Math.random() * window.innerWidth + 'px';
+            star.style.top = initialTop;
+            star.style.left = initialLeft;
+        }
 
         star.style.animationDelay = Math.random() * 5 + 's'; // Set a random delay (adjust as needed)
         starsContainer.appendChild(star);
     }
+
+    // Set the flag to true after the initial generation
+    starsInitialized = true;
 }
+
 
 // Initial stars generation
 generateStars();
