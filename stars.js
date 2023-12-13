@@ -39,5 +39,7 @@ function generateStars() {
     }
 }
 
-// Call the function to generate stars
-generateStars();
+// Call the function to generate stars after the page has loaded
+document.addEventListener("DOMContentLoaded", function () {
+    generateStars();
+});
