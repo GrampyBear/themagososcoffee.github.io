@@ -12,7 +12,7 @@ function createStar() {
 
     // Set random position and size
     star.style.left = `${getRandomNumber(0, 100)}vw`;
-    star.style.top = `${getRandomNumber(0, 87)}vh`; // Adjusted top position
+    star.style.top = `${getRandomNumber(0, 90)}vh`; // Adjusted top position
     star.style.width = `${getRandomNumber(1, 3)}px`;
     star.style.height = `${getRandomNumber(1, 3)}px`;
 
@@ -67,6 +67,11 @@ function isMidnight() {
     return hours === 0; // Midnight is at 0 hours
 }
 
+// Check if it's currently sunrise
+function isSunrise(timeOfDay) {
+    return timeOfDay === 'sunrise';
+}
+
 // Initialize stars based on the time of day
 function initializeStars(timeOfDay) {
     const body = document.body;
@@ -98,7 +103,7 @@ function initializeStars(timeOfDay) {
             twinkleStars();
         }, 10000); // Refresh stars every 10 seconds (adjust as needed)
     } else {
-        // If it's not night or midnight, clear all stars
+        // If it's not night, midnight, or sunrise, clear all stars
         const stars = document.querySelectorAll('.star');
         stars.forEach((star) => {
             body.removeChild(star);
@@ -197,4 +202,3 @@ function updateBackgroundGradient(timeOfDay) {
 // Update time initially and set interval for real-time updates
 updateTime();
 setInterval(updateTime, 1000); // Update every second for real-time
-            
