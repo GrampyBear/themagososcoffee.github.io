@@ -46,12 +46,31 @@ function isNightOrMidnight(timeOfDay) {
     return timeOfDay === 'night' || timeOfDay === 'midnight';
 }
 
+// Clear old stars
+function clearOldStars() {
+    const body = document.body;
+    const stars = document.querySelectorAll('.star');
+    
+    // Remove stars that are outside the visible area
+    stars.forEach((star) => {
+        const rect = star.getBoundingClientRect();
+        if (rect.bottom < 0 || rect.top > window.innerHeight) {
+            body.removeChild(star);
+        }
+    });
+}
+
 // Check time of day and initialize stars if it's night or midnight
 function initializeStars(timeOfDay) {
     if (isNightOrMidnight(timeOfDay)) {
-        const numStars = 100; // Adjust the number of stars as needed
-        appendStars(numStars);
-        setInterval(twinkleStars, 2000); // Twinkle stars every 2 seconds (adjust as needed)
+        const numNewStars = 10; // Adjust the number of new stars generated
+        appendStars(numNewStars);
+        twinkleStars(); // Trigger twinkle immediately
+        setInterval(() => {
+            clearOldStars();
+            appendStars(numNewStars);
+            twinkleStars();
+        }, 10000); // Refresh stars every 10 seconds (adjust as needed)
     }
 }
 
@@ -144,4 +163,4 @@ function updateBackgroundGradient(timeOfDay) {
 // Update time initially and set interval for real-time updates
 updateTime();
 setInterval(updateTime, 1000); // Update every second for real-time
-        
+    
