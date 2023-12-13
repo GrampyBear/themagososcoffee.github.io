@@ -21,7 +21,7 @@ function updateStarsVisibility(timeOfDay) {
     }
 }
 // Store initial positions of stars
-const initialPositions = [];
+const initialPositions = new Set();
 
 // Generate stars dynamically
 function generateStars() {
@@ -63,10 +63,10 @@ function getRandomPosition() {
     do {
         top = Math.random() * 100 + 'vh';
         left = Math.random() * 100 + 'vw';
-    } while (initialPositions.some(pos => pos.top === top && pos.left === left));
+    } while (initialPositions.has(`${top}-${left}`));
 
     // Store the initial position
-    initialPositions.push({ top, left });
+    initialPositions.add(`${top}-${left}`);
 
     return { top, left };
 }
