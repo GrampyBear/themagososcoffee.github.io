@@ -25,11 +25,15 @@ function addStars(container, count, size) {
     }
 }
 
-// Generate stars for each layer
+// Generate stars for each layer during night and midnight
 function generateStars() {
-    addStars(document.getElementById('stars-container1'), 5, 'large');
-    addStars(document.getElementById('stars-container2'), 15, 'medium');
-    addStars(document.getElementById('stars-container3'), 30, 'small');
+    const timeOfDay = getTimeOfDay();
+    
+    if (timeOfDay === 'night' || timeOfDay === 'midnight') {
+        addStars(document.getElementById('stars-container1'), 5, 'large');
+        addStars(document.getElementById('stars-container2'), 15, 'medium');
+        addStars(document.getElementById('stars-container3'), 30, 'small');
+    }
 }
 
 // Call the function to generate stars
