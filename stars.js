@@ -1,83 +1,21 @@
-/*/ stars.js
+// stars.js
 
-// Function to generate a random number within a given range
-function getRandomNumber(min, max) {
-    return Math.random() * (max - min) + min;
+// Function to check if it's 5 AM
+function isFiveAM() {
+    const now = new Date();
+    const hours = now.getHours();
+    return hours === 5 && now.getMinutes() === 0; // 5 AM with 0 minutes
 }
 
-// Function to create a star element
-function createStar() {
-    const star = document.createElement('div');
-    star.className = 'star';
-
-    // Set random position and size
-    star.style.left = `${getRandomNumber(0, 100)}vw`;
-    star.style.top = `${getRandomNumber(0, 85)}vh`; // Adjusted top position to avoid the footer
-    star.style.width = `${getRandomNumber(1, 3)}px`;
-    star.style.height = `${getRandomNumber(1, 3)}px`;
-
-    return star;
-}
-
-// Function to append stars to the body
-function appendStars(numStars) {
-    const body = document.body;
-    for (let i = 0; i < numStars; i++) {
-        const star = createStar();
-        body.appendChild(star);
+// Function to reload the page
+function reloadPageAtFiveAM() {
+    if (isFiveAM()) {
+        location.reload();
     }
 }
 
-// Function to make stars twinkle
-function twinkleStars() {
-    const stars = document.querySelectorAll('.star');
-    stars.forEach((star) => {
-        // Randomly toggle visibility
-        if (Math.random() > 0.5) {
-            star.style.opacity = '0';
-        } else {
-            star.style.opacity = '1';
-        }
-    });
-}
+// Call the function initially
+reloadPageAtFiveAM();
 
-// Check if it's night or midnight
-function isNightOrMidnight(timeOfDay) {
-    return timeOfDay === 'night' || timeOfDay === 'midnight';
-}
-
-// Check time of day and initialize stars if it's night or midnight
-function initializeStars(timeOfDay) {
-    if (isNightOrMidnight(timeOfDay)) {
-        const numStars = 100; // Adjust the number of stars as needed
-        appendStars(numStars);
-        setInterval(twinkleStars, 2000); // Twinkle stars every 2 seconds (adjust as needed)
-    }
-}
-
-// Function to fetch time of day from the main script
-function getTimeOfDay() {
-    return document.getElementById('timeOfDay').textContent.split(': ')[1].toLowerCase();
-}
-
-// Initialize stars based on the time of day
-initializeStars(getTimeOfDay());
-
-// Periodically check the time of day and adjust stars
-setInterval(() => {
-    const newTimeOfDay = getTimeOfDay();
-    const stars = document.querySelectorAll('.star');
-
-    if (isNightOrMidnight(newTimeOfDay)) {
-        // Stars should be active during the night or midnight
-        stars.forEach((star) => {
-            star.style.display = 'block';
-        });
-    } else {
-        // Stars should be hidden during other times of the day
-        stars.forEach((star) => {
-            star.style.display = 'none';
-        });
-    }
-}, 60000); // Check every minute (adjust as needed)
-    
+// Set interval to check every minute and reload if it's 5 AM
+setInterval(reloadPageAtFiveAM, 60000); // Check every minute (adjust as needed)
