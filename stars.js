@@ -1,7 +1,7 @@
 // stars.js
 
 // Get stars container
-const starsContainer = document.querySelectorAll('stars-container');
+const starsContainer = document.getElementById('stars-container');
 
 // Update stars visibility
 function updateStarsVisibility(timeOfDay) {
@@ -21,32 +21,28 @@ function updateStarsVisibility(timeOfDay) {
     }
 }
 
-// Generate stars dynamically for each container
-function generateStars(container) {
-    // Clear existing stars in the specified container
-    while (container.firstChild) {
-        container.removeChild(container.firstChild);
+// Generate stars dynamically
+function generateStars() {
+    // Clear existing stars
+    while (starsContainer.firstChild) {
+        starsContainer.removeChild(starsContainer.firstChild);
     }
 
-    // Generate random number of stars (between 10 and 15)
-    const numStars = Math.floor(Math.random() * 6) + 10;
-
-    // Generate new stars for the specified container
-    for (let i = 0; i < numStars; i++) {
+    // Generate new stars
+    for (let i = 0; i < 50; i++) {
         const star = document.createElement('div');
         star.className = 'star';
-        star.style.width = Math.random() * 2 + 'px'; // Different sizes
+        star.style.width = Math.random() * 2 + 'px';
         star.style.height = star.style.width;
-        star.style.top = Math.random() * 100 + 'vh'; // Random vertical position
-        star.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
-        container.appendChild(star);
+        star.style.top = Math.random() * 100 + 'vh';
+        star.style.left = Math.random() * 100 + 'vw';
+        star.style.animationDelay = Math.random() * 5 + 's'; // Set a random delay (adjust as needed)
+        starsContainer.appendChild(star);
     }
 }
 
-// Initial stars generation for each container
-starContainers.forEach(container => generateStars(container));
+// Initial stars generation
+generateStars();
 
-// Generate stars in a loop for each container
-setInterval(() => {
-    starContainers.forEach(container => generateStars(container));
-}, 5000);
+// Generate stars in a loop
+setInterval(generateStars, 5000);
