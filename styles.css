@@ -24,6 +24,7 @@ header {
     border-radius: 20px; /* Soft curved edges */
     padding: 20px;
     margin: 20px;
+    text-align: center;
 }
 
 .main-container h1,
