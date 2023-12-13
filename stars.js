@@ -35,9 +35,11 @@ function generateStars() {
         star.style.width = Math.random() * 2 + 'px';
         star.style.height = star.style.width;
 
-        // Set specific positions to avoid abrupt changes
-        star.style.top = Math.random() * window.innerHeight + 'px';
-        star.style.left = Math.random() * window.innerWidth + 'px';
+        // Assign initial random positions
+        const initialTop = Math.random() * window.innerHeight + 'px';
+        const initialLeft = Math.random() * window.innerWidth + 'px';
+        star.style.top = initialTop;
+        star.style.left = initialLeft;
 
         star.style.animationDelay = Math.random() * 5 + 's'; // Set a random delay (adjust as needed)
         starsContainer.appendChild(star);
