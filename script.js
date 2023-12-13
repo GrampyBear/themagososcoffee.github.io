@@ -45,7 +45,7 @@ function twinkleStars() {
 function clearOldStars() {
     const body = document.body;
     const stars = document.querySelectorAll('.star');
-
+    
     // Remove stars that are outside the visible area or exceeding the limit
     stars.forEach((star, index) => {
         const rect = star.getBoundingClientRect();
@@ -72,11 +72,27 @@ function isSunrise(timeOfDay) {
     return timeOfDay === 'sunrise';
 }
 
-// Function to initialize stars based on the time of day
+// Check if it's currently 8:00 pm
+function isEightPm() {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    return hours === 20 && minutes === 0; // 8:00 pm
+}
+
+// Check if it's currently 5:00 am
+function isFiveAm() {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    return hours === 5 && minutes === 0; // 5:00 am
+}
+
+// Initialize stars based on the time of day
 function initializeStars(timeOfDay) {
     const body = document.body;
-
-    if (isNightOrMidnight(timeOfDay)) {
+    
+    if (isNightOrMidnight(timeOfDay) || isEightPm()) {
         const numNewStars = 10; // Adjust the number of new stars generated
 
         // Clear old stars first
@@ -102,8 +118,8 @@ function initializeStars(timeOfDay) {
             // Trigger twinkle
             twinkleStars();
         }, 10000); // Refresh stars every 10 seconds (adjust as needed)
-    } else {
-        // If it's not night, midnight, or sunrise, hide all stars
+    } else if (isSunrise() || isFiveAm()) {
+        // If it's sunrise or 5:00 am, hide all stars
         const stars = document.querySelectorAll('.star');
         stars.forEach((star) => {
             body.removeChild(star);
@@ -111,35 +127,11 @@ function initializeStars(timeOfDay) {
     }
 }
 
-// Get time of day
-function getTimeOfDay() {
-    const now = new Date();
-    const hours = now.getHours();
+// Initialize stars initially
+initializeStars('night'); // Assuming it's night initially
 
-    if (hours >= 5 && hours < 7) {
-        return 'sunrise';
-    } else if (hours >= 7 && hours < 11) {
-        return 'morning';
-    } else if (hours >= 11 && hours < 14) {
-        return 'noon';
-    } else if (hours >= 14 && hours < 17) {
-        return 'afternoon';
-    } else if (hours >= 17 && hours < 20) {
-        return 'sunset';
-    } else if (hours >= 20 && hours < 24) {
-        return 'night';
-    } else {
-        return 'midnight';
-    }
-}
-
-// Update time and initialize stars
-function updateTimeAndInitializeStars() {
-    const timeOfDay = getTimeOfDay();
-    initializeStars(timeOfDay);
-}
-
-// Update time initially and set interval for real-time updates
-updateTimeAndInitializeStars();
-setInterval(updateTimeAndInitializeStars, 1000); // Update every second for real-time
-    
+// Set interval for real-time updates
+setInterval(() => {
+    // Update time and initialize stars based on time of day
+    updateTime();
+}, 1000); // Update every second for real-time
