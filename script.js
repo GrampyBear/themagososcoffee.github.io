@@ -45,7 +45,7 @@ function twinkleStars() {
 function clearOldStars() {
     const body = document.body;
     const stars = document.querySelectorAll('.star');
-    
+
     // Remove stars that are outside the visible area or exceeding the limit
     stars.forEach((star, index) => {
         const rect = star.getBoundingClientRect();
@@ -75,7 +75,7 @@ function isSunrise(timeOfDay) {
 // Function to initialize stars based on the time of day
 function initializeStars(timeOfDay) {
     const body = document.body;
-    
+
     if (isNightOrMidnight(timeOfDay)) {
         const numNewStars = 10; // Adjust the number of new stars generated
 
@@ -103,7 +103,7 @@ function initializeStars(timeOfDay) {
             twinkleStars();
         }, 10000); // Refresh stars every 10 seconds (adjust as needed)
     } else {
-        // If it's not night or midnight, hide all stars
+        // If it's not night, midnight, or sunrise, hide all stars
         const stars = document.querySelectorAll('.star');
         stars.forEach((star) => {
             body.removeChild(star);
@@ -142,3 +142,4 @@ function updateTimeAndInitializeStars() {
 // Update time initially and set interval for real-time updates
 updateTimeAndInitializeStars();
 setInterval(updateTimeAndInitializeStars, 1000); // Update every second for real-time
+    
