@@ -12,7 +12,7 @@ function createStar() {
 
     // Set random position and size
     star.style.left = `${getRandomNumber(0, 100)}vw`;
-    star.style.top = `${getRandomNumber(0, 100)}vh`;
+    star.style.top = `${getRandomNumber(0, 80)}vh`; // Adjusted top position to avoid the footer
     star.style.width = `${getRandomNumber(1, 3)}px`;
     star.style.height = `${getRandomNumber(1, 3)}px`;
 
@@ -51,7 +51,7 @@ function initializeStars(timeOfDay) {
     if (isNightOrMidnight(timeOfDay)) {
         const numStars = 100; // Adjust the number of stars as needed
         appendStars(numStars);
-        setInterval(twinkleStars, 1000); // Twinkle stars every second
+        setInterval(twinkleStars, 2000); // Twinkle stars every 2 seconds (adjust as needed)
     }
 }
 
@@ -80,3 +80,4 @@ setInterval(() => {
         });
     }
 }, 60000); // Check every minute (adjust as needed)
+    
