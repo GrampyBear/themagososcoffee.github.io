@@ -19,6 +19,20 @@ header {
     z-index: 2; /* Set a higher z-index for the header */
 }
 
+.main-container {
+    background: rgba(0, 0, 0, 0.8); /* Black background with 80% transparency */
+    border-radius: 20px; /* Soft curved edges */
+    padding: 20px;
+    margin: 20px;
+}
+
+.main-container h1,
+.main-container p,
+.main-container a,
+.main-container blockquote {
+    color: white; /* Set text color to white */
+}
+
 .logo-container {
     margin-right: auto;
 }
