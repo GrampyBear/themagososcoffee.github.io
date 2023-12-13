@@ -63,12 +63,23 @@ function getRandomPosition() {
     do {
         top = Math.random() * 100 + 'vh';
         left = Math.random() * 100 + 'vw';
-    } while (initialPositions.has(`${top}-${left}`));
+    } while (isPositionUsed(top, left));
 
     // Store the initial position
-    initialPositions.add(`${top}-${left}`);
+    initialPositions.push({ top, left });
 
     return { top, left };
+}
+
+// Check if a position is already used
+function isPositionUsed(top, left) {
+    return initialPositions.some(position => {
+        const tolerance = 0.1; // Adjust tolerance as needed
+        return (
+            Math.abs(position.top - parseFloat(top)) < tolerance &&
+            Math.abs(position.left - parseFloat(left)) < tolerance
+        );
+    });
 }
 
 // Initial stars generation
