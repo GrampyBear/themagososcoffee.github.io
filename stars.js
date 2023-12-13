@@ -45,15 +45,12 @@ function generateStarsInLayer(count, className, disappearanceDuration) {
         star.style.top = Math.random() * 100 + 'vh';
         star.style.left = Math.random() * 100 + 'vw';
         starsContainer.appendChild(star);
-    }
 
-    // Apply a timeout for the fade-out effect after the initial appearance
-    setTimeout(() => {
-        const stars = document.querySelectorAll(`.star.${className}`);
-        stars.forEach((star) => {
+        // Apply a timeout for the fade-out effect after the initial appearance
+        setTimeout(() => {
             star.style.opacity = 0;
-        });
-    }, 1000); // Adjust the timeout duration (in milliseconds) as needed
+        }, 100);
+    }
 }
 
 // Initial stars generation
