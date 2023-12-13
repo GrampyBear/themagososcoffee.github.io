@@ -19,21 +19,6 @@ header {
     z-index: 2; /* Set a higher z-index for the header */
 }
 
-.section {
-    background: rgba(0, 0, 0, 0.8); /* Black background with 80% transparency */
-    border-radius: 20px; /* Soft curved edges */
-    padding: 20px;
-    margin: 20px;
-    text-align: center; /* Center text within the container */
-}
-
-.section h1,
-.section p,
-.section a,
-.section blockquote {
-    color: white; /* Set text color to white */
-}
-
 .logo-container {
     margin-right: auto;
 }
@@ -45,6 +30,25 @@ header {
 .header-title {
     color: black;
 }
+
+/* Section styles */
+.section {
+    background: rgba(0, 0, 0, 0.8); /* Black container with 80% opacity */
+    border: 2px solid #ffffff; /* White border */
+    border-radius: 10px; /* Semi-round corners */
+    margin: 20px; /* Adjust as needed */
+    padding: 20px; /* Adjust as needed */
+    display: none; /* Initially hide sections */
+}
+
+.section-title {
+    color: #ffffff; /* White text */
+}
+
+.section-content {
+    color: #ffffff; /* White text */
+}
+
 
 .time-box {
     text-align: center;
