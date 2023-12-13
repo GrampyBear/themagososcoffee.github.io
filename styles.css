@@ -70,7 +70,6 @@ footer {
     background-color: #ffffff;
     border-radius: 50%;
     animation: fadeInOut 3s ease-in-out forwards;
-    z-index: 0;
 }
 
 .star.large {
