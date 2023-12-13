@@ -1,60 +1,36 @@
-// stars.js
-
-// Get stars container
-const starsContainer = document.getElementById('stars-container');
-
-// Update stars visibility
-function updateStarsVisibility(timeOfDay) {
-    const stars = document.querySelectorAll('.star');
-
-    if (timeOfDay === 'night' || timeOfDay === 'midnight') {
-        // Show stars
-        starsContainer.style.display = 'block';
-
-        // Add stars if not already added
-        if (stars.length === 0) {
-            generateStars();
-        }
-    } else {
-        // Hide stars
-        starsContainer.style.display = 'none';
-    }
-}
-// Generate stars dynamically
-function generateStars() {
-    // Clear existing stars
-    while (starsContainer.firstChild) {
-        starsContainer.removeChild(starsContainer.firstChild);
-    }
-
-    // Generate stars for Layer 1 (large stars)
-    generateStarsInLayer(5, 'star-large', 6);
-
-    // Generate stars for Layer 2 (medium stars)
-    generateStarsInLayer(15, 'star-medium', 3);
-
-    // Generate stars for Layer 3 (small stars)
-    generateStarsInLayer(30, 'star-small', 2);
+// Create a star
+function createStar(size) {
+    const star = document.createElement('div');
+    star.className = `star star-${size}`;
+    return star;
 }
 
-// Generate stars for a specific layer
-function generateStarsInLayer(count, className, disappearanceDuration) {
+// Generate random position
+function getRandomPosition() {
+    const position = {
+        top: `${Math.random() * 100}%`,
+        left: `${Math.random() * 100}%`,
+    };
+    return position;
+}
+
+// Add stars to a container
+function addStars(container, count, size) {
     for (let i = 0; i < count; i++) {
-        const star = document.createElement('div');
-        star.className = `star ${className}`;
-        star.style.top = Math.random() * 100 + 'vh';
-        star.style.left = Math.random() * 100 + 'vw';
-        starsContainer.appendChild(star);
-
-        // Apply a timeout for the fade-out effect after the initial appearance
-        setTimeout(() => {
-            star.style.opacity = 0;
-        }, 100);
+        const star = createStar(size);
+        const position = getRandomPosition();
+        star.style.top = position.top;
+        star.style.left = position.left;
+        container.appendChild(star);
     }
 }
 
-// Initial stars generation
-generateStars();
+// Generate stars for each layer
+function generateStars() {
+    addStars(document.getElementById('stars-container1'), 5, 'large');
+    addStars(document.getElementById('stars-container2'), 15, 'medium');
+    addStars(document.getElementById('stars-container3'), 30, 'small');
+}
 
-// Generate stars in a loop
-setInterval(generateStars, 5000);
+// Call the function to generate stars
+generateStars();
