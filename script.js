@@ -32,15 +32,11 @@ function appendStars(numStars) {
 function twinkleStars() {
     const stars = document.querySelectorAll('.star');
     stars.forEach((star) => {
-        // Randomly toggle visibility only if it's night or midnight
-        if (isNightOrMidnight(getTimeOfDay()) && isNightTime()) {
-            if (Math.random() > 0.5) {
-                star.style.opacity = '0';
-            } else {
-                star.style.opacity = '1';
-            }
+        // Randomly toggle visibility
+        if (Math.random() > 0.5) {
+            star.style.opacity = '0';
         } else {
-            star.style.opacity = '0'; // Hide stars during dawn and sunrise
+            star.style.opacity = '1';
         }
     });
 }
@@ -49,7 +45,7 @@ function twinkleStars() {
 function clearOldStars() {
     const body = document.body;
     const stars = document.querySelectorAll('.star');
-
+    
     // Remove stars that are outside the visible area or exceeding the limit
     stars.forEach((star, index) => {
         const rect = star.getBoundingClientRect();
@@ -76,21 +72,11 @@ function isSunrise(timeOfDay) {
     return timeOfDay === 'sunrise';
 }
 
-// Check if it's currently between 8:00 pm and 5:00 am
-function isNightTime() {
-    const now = new Date();
-    const hours = now.getHours();
-    const minutes = now.getMinutes();
-    const currentTime = `${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
-
-    return currentTime >= '8:00 pm' || currentTime <= '5:00 am';
-}
-
 // Initialize stars based on the time of day
 function initializeStars(timeOfDay) {
     const body = document.body;
 
-    if (isNightOrMidnight(timeOfDay) && isNightTime()) {
+    if (isNightOrMidnight(timeOfDay)) {
         const numNewStars = 10; // Adjust the number of new stars generated
 
         // Clear old stars first
@@ -116,8 +102,14 @@ function initializeStars(timeOfDay) {
             // Trigger twinkle
             twinkleStars();
         }, 10000); // Refresh stars every 10 seconds (adjust as needed)
+    } else if (isSunrise(timeOfDay)) {
+        // If it's sunrise, make stars disappear by changing opacity to 0
+        const stars = document.querySelectorAll('.star');
+        stars.forEach((star) => {
+            star.style.opacity = '0';
+        });
     } else {
-        // If it's not night, midnight, or night time, clear all stars
+        // If it's not night, midnight, or sunrise, clear all stars
         const stars = document.querySelectorAll('.star');
         stars.forEach((star) => {
             body.removeChild(star);
@@ -179,7 +171,7 @@ function updateBackgroundAndStars(timeOfDay) {
 // Update background gradient
 function updateBackgroundGradient(timeOfDay) {
     const bodyElement = document.body;
-    const gradientDuration = 5; // 5 seconds for the transition
+    const gradientDuration = 10; // 5 seconds for the transition
 
     let gradientColors;
     switch (timeOfDay) {
@@ -216,4 +208,4 @@ function updateBackgroundGradient(timeOfDay) {
 // Update time initially and set interval for real-time updates
 updateTime();
 setInterval(updateTime, 1000); // Update every second for real-time
-                   
+    
