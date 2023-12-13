@@ -20,8 +20,8 @@ function updateStarsVisibility(timeOfDay) {
         starsContainer.style.display = 'none';
     }
 }
-// Flag to track if stars have been initially generated
-let starsInitialized = false;
+// Store initial positions of stars
+const initialPositions = [];
 
 // Generate stars dynamically
 function generateStars() {
@@ -45,8 +45,9 @@ function generateStarsInLayer(count, className, disappearanceDuration) {
     for (let i = 0; i < count; i++) {
         const star = document.createElement('div');
         star.className = `star ${className}`;
-        star.style.top = Math.random() * 100 + 'vh';
-        star.style.left = Math.random() * 100 + 'vw';
+        const position = getRandomPosition();
+        star.style.top = position.top;
+        star.style.left = position.left;
         starsContainer.appendChild(star);
 
         // Apply a timeout for the fade-out effect after the initial appearance
@@ -56,8 +57,22 @@ function generateStarsInLayer(count, className, disappearanceDuration) {
     }
 }
 
+// Generate a random position that hasn't been used before
+function getRandomPosition() {
+    let top, left;
+    do {
+        top = Math.random() * 100 + 'vh';
+        left = Math.random() * 100 + 'vw';
+    } while (initialPositions.some(pos => pos.top === top && pos.left === left));
+
+    // Store the initial position
+    initialPositions.push({ top, left });
+
+    return { top, left };
+}
+
 // Initial stars generation
 generateStars();
 
 // Generate stars in a loop
-setInterval(generateStars, 5000); 
+setInterval(generateStars, 5000);
