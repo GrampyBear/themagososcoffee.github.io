@@ -1,3 +1,5 @@
+// script.js
+
 // Get current time
 function getCurrentTime() {
     const now = new Date();
@@ -81,6 +83,92 @@ function updateBackgroundGradient(timeOfDay) {
     bodyElement.style.transition = `background ${gradientDuration}s ease-in-out`;
 }
 
-// Update time initially and set interval for updates
+// Initialize stars based on the time of day
+initializeStars(getTimeOfDay());
+
+// Periodically check the time of day and adjust stars
+setInterval(() => {
+    const newTimeOfDay = getTimeOfDay();
+    const stars = document.querySelectorAll('.star');
+
+    if (isNightOrMidnight(newTimeOfDay)) {
+        // Stars should be active during the night or midnight
+        stars.forEach((star) => {
+            star.style.display = 'block';
+        });
+    } else {
+        // Stars should be hidden during other times of the day
+        stars.forEach((star) => {
+            star.style.display = 'none';
+        });
+    }
+}, 60000); // Check every minute (adjust as needed)
+
+// Fetch time of day from the main script
+function getTimeOfDay() {
+    return document.getElementById('timeOfDay').textContent.split(': ')[1].toLowerCase();
+}
+
+// Function to fetch time of day from the main script
+function getTimeOfDay() {
+    return document.getElementById('timeOfDay').textContent.split(': ')[1].toLowerCase();
+}
+
+// Function to generate a random number within a given range
+function getRandomNumber(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+// Function to create a star element
+function createStar() {
+    const star = document.createElement('div');
+    star.className = 'star';
+
+    // Set random position and size
+    star.style.left = `${getRandomNumber(0, 100)}vw`;
+    star.style.top = `${getRandomNumber(0, 80)}vh`; // Adjusted top position to avoid the footer
+    star.style.width = `${getRandomNumber(1, 3)}px`;
+    star.style.height = `${getRandomNumber(1, 3)}px`;
+
+    return star;
+}
+
+// Function to append stars to the body
+function appendStars(numStars) {
+    const body = document.body;
+    for (let i = 0; i < numStars; i++) {
+        const star = createStar();
+        body.appendChild(star);
+    }
+}
+
+// Function to make stars twinkle
+function twinkleStars() {
+    const stars = document.querySelectorAll('.star');
+    stars.forEach((star) => {
+        // Randomly toggle visibility
+        if (Math.random() > 0.5) {
+            star.style.opacity = '0';
+        } else {
+            star.style.opacity = '1';
+        }
+    });
+}
+
+// Check if it's night or midnight
+function isNightOrMidnight(timeOfDay) {
+    return timeOfDay === 'night' || timeOfDay === 'midnight';
+}
+
+// Check time of day and initialize stars if it's night or midnight
+function initializeStars(timeOfDay) {
+    if (isNightOrMidnight(timeOfDay)) {
+        const numStars = 100; // Adjust the number of stars as needed
+        appendStars(numStars);
+        setInterval(twinkleStars, 2000); // Twinkle stars every 2 seconds (adjust as needed)
+    }
+}
+
+// Update time initially and set interval for real-time updates
 updateTime();
-setInterval(updateTime, 500); // Update every second
+setInterval(updateTime, 1000); // Update every second for real-time
