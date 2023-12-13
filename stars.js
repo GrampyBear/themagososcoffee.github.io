@@ -14,13 +14,14 @@ function getRandomPosition() {
     return position;
 }
 
-// Add stars to a container
-function addStars(container, count, size) {
+// Add stars to a container with a specific depth class
+function addStars(container, count, size, depthClass) {
     for (let i = 0; i < count; i++) {
         const star = createStar(size);
         const position = getRandomPosition();
         star.style.top = position.top;
         star.style.left = position.left;
+        star.classList.add(depthClass); // Add depth class
         container.appendChild(star);
     }
 }
@@ -30,9 +31,9 @@ function generateStars() {
     const timeOfDay = getTimeOfDay();
     
     if (timeOfDay === 'night' || timeOfDay === 'midnight') {
-        addStars(document.getElementById('stars-container1'), 5, 'large');
-        addStars(document.getElementById('stars-container2'), 15, 'medium');
-        addStars(document.getElementById('stars-container3'), 30, 'small');
+        addStars(document.getElementById('stars-container1'), 5, 'large', 'depth1');
+        addStars(document.getElementById('stars-container2'), 15, 'medium', 'depth2');
+        addStars(document.getElementById('stars-container3'), 30, 'small', 'depth3');
     }
 }
 
