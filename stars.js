@@ -47,8 +47,12 @@ function generateStarsInLayer(count, className, disappearanceDuration) {
         star.className = `star ${className}`;
         star.style.top = Math.random() * 100 + 'vh';
         star.style.left = Math.random() * 100 + 'vw';
-        star.style.transition = `opacity 1s ease-in, transform ${disappearanceDuration}s ease-in-out`;
         starsContainer.appendChild(star);
+
+        // Apply a timeout for the fade-out effect after the initial appearance
+        setTimeout(() => {
+            star.style.opacity = 0;
+        }, 1000); // Adjust the timeout duration (in milliseconds) as needed
     }
 }
 
@@ -56,4 +60,4 @@ function generateStarsInLayer(count, className, disappearanceDuration) {
 generateStars();
 
 // Generate stars in a loop
-setInterval(generateStars, 5000);
+setInterval(generateStars, 5000); 
