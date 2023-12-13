@@ -8,9 +8,7 @@ body {
     min-height: 100vh;
     color: white; /* Set text color to white */
     position: relative;
-
-    overflow: hidden;
-    z-index: -2;
+    z-index: 0;
 }
 
 header {
@@ -74,7 +72,7 @@ footer {
     border-radius: 50%;
     animation: fadeInOut 1s ease-in-out forwards;
     pointer-events: none;
-    z-index: 0; /* Set a lower z-index for the stars */
+    z-index: 1; /* Set a lower z-index for the stars */
 }
 
 .star.large {
