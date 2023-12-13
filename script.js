@@ -1,4 +1,4 @@
-        // main-script.js
+// main-script.js
 
 // Function to generate a random number within a given range
 function getRandomNumber(min, max) {
@@ -41,16 +41,11 @@ function twinkleStars() {
     });
 }
 
-// Check if it's night or midnight
-function isNightOrMidnight(timeOfDay) {
-    return timeOfDay === 'night' || timeOfDay === 'midnight';
-}
-
 // Clear old stars
 function clearOldStars() {
     const body = document.body;
     const stars = document.querySelectorAll('.star');
-
+    
     // Remove stars that are outside the visible area or exceeding the limit
     stars.forEach((star, index) => {
         const rect = star.getBoundingClientRect();
@@ -60,17 +55,22 @@ function clearOldStars() {
     });
 }
 
-// Remove stars when it's not night or midnight
-function removeStars() {
-    const body = document.body;
-    const stars = document.querySelectorAll('.star');
-    stars.forEach((star) => {
-        body.removeChild(star);
-    });
+// Check if it's night or midnight
+function isNightOrMidnight(timeOfDay) {
+    return timeOfDay === 'night' || timeOfDay === 'midnight';
 }
 
-// Check time of day and initialize or remove stars accordingly
-function handleStars(timeOfDay) {
+// Check if it's currently midnight
+function isMidnight() {
+    const now = new Date();
+    const hours = now.getHours();
+    return hours === 0; // Midnight is at 0 hours
+}
+
+// Initialize stars based on the time of day
+function initializeStars(timeOfDay) {
+    const body = document.body;
+    
     if (isNightOrMidnight(timeOfDay)) {
         const numNewStars = 10; // Adjust the number of new stars generated
 
@@ -98,8 +98,11 @@ function handleStars(timeOfDay) {
             twinkleStars();
         }, 10000); // Refresh stars every 10 seconds (adjust as needed)
     } else {
-        // Remove stars when it's not night or midnight
-        removeStars();
+        // If it's not night or midnight, clear all stars
+        const stars = document.querySelectorAll('.star');
+        stars.forEach((star) => {
+            body.removeChild(star);
+        });
     }
 }
 
@@ -137,7 +140,6 @@ function getTimeOfDay() {
 function updateTime() {
     const timeOfDayElement = document.getElementById('timeOfDay');
     const currentTimeElement = document.getElementById('currentTime');
-    const bodyElement = document.body;
 
     const currentTime = getCurrentTime();
     const timeOfDay = getTimeOfDay();
@@ -145,11 +147,14 @@ function updateTime() {
     timeOfDayElement.textContent = `Time of Day: ${timeOfDay}`;
     currentTimeElement.textContent = `Current Time: ${currentTime}`;
 
-    // Update background gradient based on time of day
-    updateBackgroundGradient(timeOfDay);
+    // Update background gradient and stars based on time of day
+    updateBackgroundAndStars(timeOfDay);
+}
 
-    // Handle stars based on time of day
-    handleStars(timeOfDay);
+// Update background gradient and stars
+function updateBackgroundAndStars(timeOfDay) {
+    updateBackgroundGradient(timeOfDay);
+    initializeStars(timeOfDay);
 }
 
 // Update background gradient
@@ -192,3 +197,4 @@ function updateBackgroundGradient(timeOfDay) {
 // Update time initially and set interval for real-time updates
 updateTime();
 setInterval(updateTime, 1000); // Update every second for real-time
+            
