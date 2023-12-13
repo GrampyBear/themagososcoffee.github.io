@@ -105,15 +105,15 @@ footer {
 }
 
 .star-large {
-    animation: fadeInOut 1s ease-in, fadeOut 6s ease-in-out infinite alternate;
+    animation: fadeInOut 5s ease-in, fadeOut 5s ease-in-out infinite alternate;
 }
 
 .star-medium {
-    animation: fadeInOut 1s ease-in, fadeOut 3s ease-in-out infinite alternate;
+    animation: fadeInOut 3s ease-in, fadeOut 3s ease-in-out infinite alternate;
 }
 
 .star-small {
-    animation: fadeInOut 1s ease-in, fadeOut 2s ease-in-out infinite alternate;
+    animation: fadeInOut 2s ease-in, fadeOut 2s ease-in-out infinite alternate;
 }
 
 @keyframes fadeOut {
