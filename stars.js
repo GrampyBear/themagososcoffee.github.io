@@ -21,15 +21,17 @@ function addStars(container, count, size, depthClass) {
         const position = getRandomPosition();
         star.style.top = position.top;
         star.style.left = position.left;
-        star.classList.add(depthClass); // Add depth class
         container.appendChild(star);
     }
+
+    // Add depth class to the container
+    container.classList.add(depthClass);
 }
 
 // Generate stars for each layer during night and midnight
 function generateStars() {
     const timeOfDay = getTimeOfDay();
-    
+
     if (timeOfDay === 'night' || timeOfDay === 'midnight') {
         addStars(document.getElementById('stars-container1'), 5, 'large', 'depth1');
         addStars(document.getElementById('stars-container2'), 15, 'medium', 'depth2');
