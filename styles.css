@@ -8,7 +8,6 @@ body {
     min-height: 100vh;
     color: white; /* Set text color to white */
     position: relative;
-    z-index: -2; /* Set a lower z-index for the background *
 }
 
 header {
