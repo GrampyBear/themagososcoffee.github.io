@@ -1,15 +1,12 @@
 // main-script.js
-// main-script.js
-
-// ... (previous code)
 
 // Function to toggle section visibility with fade effect
 function showSection(sectionClass) {
     const sections = document.querySelectorAll('.section');
-    
+
     // Find the current visible section
     const currentVisibleSection = document.querySelector('.section[style="display: block;"]');
-    
+
     // If there's a current visible section
     if (currentVisibleSection) {
         // Apply fade-out effect
@@ -19,7 +16,7 @@ function showSection(sectionClass) {
         // Set a timeout to hide the section after the fade-out
         setTimeout(() => {
             currentVisibleSection.style.display = 'none';
-            
+
             // Show the target section after hiding the current section
             showTargetSection();
         }, 500); // 0.5 seconds fade-out effect
@@ -44,34 +41,31 @@ function showSection(sectionClass) {
     }
 }
 
-// ... (remaining code)
+// Function to initialize the page and set the home section as active
+function initializePage() {
+    const homeButton = document.getElementById('nav-home');
 
-
-
-// Function to toggle drop-down visibility
-function toggleDropdown() {
-    const dropdownContent = document.querySelector('.dropdown-content');
-    dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+    // Set the home section as active initially
+    homeButton.classList.add('active');
+    showSection('home-section');
 }
 
-// ... (remaining code)
-                                     
+// Event listener for navigation buttons
+document.addEventListener('click', function (event) {
+    if (event.target.classList.contains('nav-button')) {
+        // Remove the 'active' class from all navigation buttons
+        const navButtons = document.querySelectorAll('.nav-button');
+        navButtons.forEach(button => button.classList.remove('active'));
 
+        // Add the 'active' class to the clicked button
+        event.target.classList.add('active');
 
+        // Show the corresponding section
+        const sectionClass = event.target.id.replace('nav-', '');
+        showSection(`${sectionClass}-section`);
+    }
+});
 
-// Set initial section to display (Home)
-showSection('home');
-
-// Add event listeners for navigation
-document.getElementById('nav-home').addEventListener('click', () => showSection('home'));
-document.getElementById('nav-my-blog').addEventListener('click', () => showSection('my-blog'));
-document.getElementById('nav-furry-fat-gallery').addEventListener('click', () => showSection('furry-fat-gallery'));
-document.getElementById('nav-kitchen').addEventListener('click', () => showSection('kitchen'));
-document.getElementById('nav-events').addEventListener('click', () => showSection('events'));
-document.getElementById('nav-wiki').addEventListener('click', () => showSection('wiki'));
-document.getElementById('nav-curiosities-extras').addEventListener('click', () => showSection('curiosities-extras'));
-document.getElementById('nav-about-me').addEventListener('click', () => showSection('about-me'));
-document.getElementById('nav-special-functions').addEventListener('click', () => showSection('special-functions'));
-document.getElementById('nav-disclaimer').addEventListener('click', () => showSection('disclaimer'));
-
-// ... (remaining code)
+// Initialize the page
+initializePage();
+            
