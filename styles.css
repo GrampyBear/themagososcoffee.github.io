@@ -87,10 +87,8 @@ header {
 /* Drop-down Styles */
 .dropdown {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 3; /* Set a higher z-index */
+    display: inline-block;
+    z-index: 3; /* Ensure it's above other objects */
 }
 
 .dropdown-btn {
@@ -99,7 +97,6 @@ header {
     color: #fff;
     border: none;
     cursor: pointer;
-    z-index: 4; /* Set a higher z-index */
 }
 
 .dropdown-content {
@@ -107,7 +104,11 @@ header {
     position: absolute;
     background: #333;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 5; /* Set a higher z-index */
+    z-index: 4; /* Ensure it's above other objects */
+    text-align: center;
+    top: 40px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .dropdown-content a {
