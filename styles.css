@@ -79,6 +79,7 @@ header {
     color: #fff;
 }
 
+
 /* style.css */
 
 /* ... (previous code) */
@@ -99,7 +100,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 3; /* Ensure button is above stars */
+    z-index: 2; /* Ensure button is above stars */
 }
 
 /* Navigation Links Container Styles */
@@ -114,7 +115,7 @@ header {
     flex-direction: column;
     align-items: center;
     padding: 10px;
-    z-index: 2; /* Ensure links container is above stars */
+    z-index: 1; /* Ensure links container is above stars, but below button */
 }
 
 .nav-link {
@@ -125,6 +126,7 @@ header {
 }
 
 /* ... (remaining code) */
+
 
 
 
