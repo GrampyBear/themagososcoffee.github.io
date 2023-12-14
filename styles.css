@@ -80,48 +80,45 @@ header {
 }
 
 
-/* Navigation Drop-down Button Styles */
+/* style.css */
+
+/* ... (previous code) */
+
+/* Drop-down Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
 .dropdown-btn {
-    cursor: pointer;
-    background: radial-gradient(circle, #FFD700, #8B4513); /* Adjust as needed */
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    margin-top: 10px; /* Adjust as needed */
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2; /* Ensure button is above stars */
-}
-
-/* Navigation Links Container Styles */
-.nav-links-container {
-    position: fixed;
-    bottom: 50px; /* Adjust as needed */
-    left: 50%;
-    transform: translateX(-50%);
-    background: radial-gradient(circle, #FFD700, #8B4513); /* Adjust as needed */
-    border-radius: 10px;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    z-index: 1; /* Ensure links container is above stars, but below button */
-}
-
-.nav-link {
-    text-decoration: none;
+    font-size: 24px;
+    background: radial-gradient(circle, #d9534f, #ac2925); /* Christmas ornament colors */
     color: #fff;
-    margin: 5px;
+    border: none;
     cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: #333;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #fff;
+    padding: 12px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #555;
 }
 
 /* ... (remaining code) */
+
 
 
 
