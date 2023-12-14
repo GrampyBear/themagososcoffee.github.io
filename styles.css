@@ -93,13 +93,13 @@ header {
 }
 
 .dropdown-btn {
-    font-family: 'Comic Sans MS', cursive; /* Use the same font as the entire page */
-    font-size: 18px; /* Adjust as needed */
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 16px; /* Adjust as needed */
     background: linear-gradient(#d9534f, #ac2925);
     color: #fff;
     border: 2px solid #fff;
     cursor: pointer;
-    border-radius: 20% 30% 50% 30%/30% 50% 20%;
+    border-radius: 50%;
     padding: 12px;
 }
 
