@@ -1,7 +1,5 @@
 // main-script.js
 
-// ... (previous code)
-
 // Function to hide the dropdown content
 function hideDropdown() {
     const dropdownContent = document.querySelector('.dropdown-content');
@@ -79,4 +77,3 @@ document.getElementById('nav-special-functions').addEventListener('click', () =>
 document.getElementById('nav-disclaimer').addEventListener('click', () => showSection('disclaimer'));
 
 // ... (remaining code)
-        
