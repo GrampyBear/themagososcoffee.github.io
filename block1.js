@@ -1,12 +1,34 @@
+// Function to hide the dropdown content with fade effect
+function hideDropdown() {
+    const dropdownContent = document.querySelector('.dropdown-content');
+    dropdownContent.style.transition = 'opacity 0.5s';
+    dropdownContent.style.opacity = '0';
 
-// ... (previous code)
+    // Set a timeout to hide the dropdown content after the fade-out
+    setTimeout(() => {
+        dropdownContent.style.display = 'none';
+    }, 500); // 0.5 seconds fade-out effect
+}
+
+// Function to toggle drop-down visibility with fade effect
+function toggleDropdown() {
+    const dropdownContent = document.querySelector('.dropdown-content');
+    if (dropdownContent.style.display === 'block') {
+        hideDropdown();
+    } else {
+        dropdownContent.style.transition = 'opacity 0.5s';
+        dropdownContent.style.display = 'block';
+
+        // Set a timeout to show the dropdown content after the fade-in
+        setTimeout(() => {
+            dropdownContent.style.opacity = '1';
+        }, 0); // No delay for fade-in effect
+    }
+}
 
 // Function to toggle section visibility with fade effect
 function showSection(sectionClass) {
     const sections = document.querySelectorAll('.section');
-
-    // Hide the dropdown content when navigating to a new section
-    hideDropdown();
 
     // Find the current visible section
     const currentVisibleSection = document.querySelector('.section[style="display: block;"]');
@@ -43,11 +65,8 @@ function showSection(sectionClass) {
             }, 0); // No delay for fade-in effect
         }
     }
-}
 
-// ... (remaining code)
-
-// Hide the dropdown content when navigating to a new section
+    // Hide the dropdown content when navigating to a new section
     hideDropdown();
 }
 
