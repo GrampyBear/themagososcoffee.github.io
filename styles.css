@@ -54,6 +54,8 @@ header {
     border-radius: 10px;
     padding: 20px;
     color: #fff;
+    width: 80%; /* Adjust as needed */
+    margin: 20px 0; /* Adjust as needed */
     text-align: center;
 }
 
