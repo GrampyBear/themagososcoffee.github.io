@@ -1,38 +1,38 @@
 // main-script.js
-// main-script.js
 
 // ... (previous code)
 
 // Function to toggle section visibility with fade effect
 function showSection(sectionClass) {
     const sections = document.querySelectorAll('.section');
-    sections.forEach((section) => {
-        section.style.transition = 'opacity 0.5s'; // Apply transition
-        section.style.opacity = '0'; // Apply fade out
-        section.style.display = 'none';
-    });
-
-    const currentSection = document.querySelector(`.${sectionClass}`);
-    if (currentSection) {
-        currentSection.style.display = 'block';
-
-        // Apply fade in
+    
+    // Apply fade out to current visible section
+    const currentVisibleSection = document.querySelector('.section[style="display: block;"]');
+    if (currentVisibleSection) {
+        currentVisibleSection.style.transition = 'opacity 0.5s';
+        currentVisibleSection.style.opacity = '0';
+        
+        // Set a timeout to hide the section after the fade-out
         setTimeout(() => {
-            currentSection.style.opacity = '1';
-        }, 10); // Set a small delay to trigger the transition
+            currentVisibleSection.style.display = 'none';
+        }, 500); // 0.5 seconds fade-out effect
     }
 
-    // Close navigation links container if open
-    document.querySelector('.nav-links-container').style.display = 'none';
-}
-
-// Function to toggle navigation links visibility
-function toggleNavLinks() {
-    const navLinksContainer = document.querySelector('.nav-links-container');
-    navLinksContainer.style.display = (navLinksContainer.style.display === 'flex') ? 'none' : 'flex';
+    // Apply fade in to the target section
+    const currentSection = document.querySelector(`.${sectionClass}`);
+    if (currentSection) {
+        currentSection.style.transition = 'opacity 0.5s';
+        currentSection.style.display = 'block';
+        
+        // Set a timeout to show the section after the fade-in
+        setTimeout(() => {
+            currentSection.style.opacity = '1';
+        }, 0); // No delay for fade-in effect
+    }
 }
 
 // ... (remaining code)
+
 
 
 
