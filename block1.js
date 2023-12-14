@@ -15,7 +15,7 @@ function showSection(sectionClass) {
     }
 }
 
-// Set initial section to display
+// Set initial section to display (Home)
 showSection('home');
 
 // Add event listeners for navigation
