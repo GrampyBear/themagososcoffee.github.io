@@ -1,37 +1,51 @@
 // main-script.js
+// main-script.js
 
 // ... (previous code)
 
 // Function to toggle section visibility with fade effect
 function showSection(sectionClass) {
     const sections = document.querySelectorAll('.section');
-
-    // Apply fade out to current visible section
+    
+    // Find the current visible section
     const currentVisibleSection = document.querySelector('.section[style="display: block;"]');
+    
+    // If there's a current visible section
     if (currentVisibleSection) {
+        // Apply fade-out effect
         currentVisibleSection.style.transition = 'opacity 0.5s';
         currentVisibleSection.style.opacity = '0';
 
         // Set a timeout to hide the section after the fade-out
         setTimeout(() => {
             currentVisibleSection.style.display = 'none';
+            
+            // Show the target section after hiding the current section
+            showTargetSection();
         }, 500); // 0.5 seconds fade-out effect
+    } else {
+        // If there's no current visible section, show the target section directly
+        showTargetSection();
     }
 
-    // Apply fade in to the target section
-    const currentSection = document.querySelector(`.${sectionClass}`);
-    if (currentSection) {
-        currentSection.style.transition = 'opacity 0.5s';
-        currentSection.style.display = 'block';
+    // Function to show the target section after hiding the current section
+    function showTargetSection() {
+        const currentSection = document.querySelector(`.${sectionClass}`);
+        if (currentSection) {
+            // Display the target section
+            currentSection.style.transition = 'opacity 0.5s';
+            currentSection.style.display = 'block';
 
-        // Set a timeout to show the section after the fade-in
-        setTimeout(() => {
-            currentSection.style.opacity = '1';
-        }, 500); // No delay for fade-in effect
+            // Set a timeout to show the section after the fade-in
+            setTimeout(() => {
+                currentSection.style.opacity = '1';
+            }, 0); // No delay for fade-in effect
+        }
     }
 }
 
 // ... (remaining code)
+
 
 
 // Function to toggle drop-down visibility
