@@ -93,12 +93,13 @@ header {
 }
 
 .dropdown-btn {
-    font-size: 24px;
-    background: linear-gradient(#d9534f, #ac2925); /* Christmas ornament colors - linear gradient */
+    font-family: 'Comic Sans MS', cursive; /* Use the same font as the entire page */
+    font-size: 18px; /* Adjust as needed */
+    background: linear-gradient(#d9534f, #ac2925);
     color: #fff;
-    border: 2px solid #fff; /* White border */
+    border: 2px solid #fff;
     cursor: pointer;
-    border-radius: 20% 30% 50% 30%/30% 50% 20%; /* Cube-like appearance with smooth circular edges */
+    border-radius: 20% 30% 50% 30%/30% 50% 20%;
     padding: 12px;
 }
 
