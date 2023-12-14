@@ -41,6 +41,8 @@ header {
     position: relative;
     z-index: 2; /* Ensure content is above stars */
     padding: 20px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -52,6 +54,7 @@ header {
     border-radius: 10px;
     padding: 20px;
     color: #fff;
+    text-align: center;
 }
 
 .section-title {
