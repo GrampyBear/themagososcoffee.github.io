@@ -86,7 +86,7 @@ header {
 /* Drop-down Button Styles */
 .dropdown-container {
     position: absolute;
-    top: 20px; /* Adjust as needed */
+    top: 60px; /* Adjust as needed to position below the header */
     right: 20px; /* Adjust as needed */
     z-index: 3; /* Ensure it's above the content */
 }
@@ -117,9 +117,9 @@ header {
     background: linear-gradient(to bottom, #81C784, #4CAF50); /* Adjust as needed */
     border-radius: 10px;
     position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
+    top: calc(100% + 5px); /* Adjust as needed */
+    right: 50%;
+    transform: translateX(50%);
     transition: opacity 0.5s ease; /* Apply transition to opacity */
     opacity: 0; /* Start with opacity 0 */
     pointer-events: none; /* Disable pointer events when hidden */
