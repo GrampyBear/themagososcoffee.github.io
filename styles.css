@@ -80,8 +80,6 @@ header {
 }
 
 
-
-
 /* Navigation Drop-down Button Styles */
 .dropdown-btn {
     cursor: pointer;
@@ -90,7 +88,7 @@ header {
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    margin-top: 60px; /* Adjust as needed */
+    margin-top: 10px; /* Adjust as needed */
     position: fixed;
     bottom: 0;
     left: 50%;
@@ -104,7 +102,7 @@ header {
 /* Navigation Links Container Styles */
 .nav-links-container {
     position: fixed;
-    bottom: 110px; /* Adjust as needed */
+    bottom: 50px; /* Adjust as needed */
     left: 50%;
     transform: translateX(-50%);
     background: radial-gradient(circle, #FFD700, #8B4513); /* Adjust as needed */
@@ -124,8 +122,6 @@ header {
 }
 
 /* ... (remaining code) */
-
-
 
 
 
