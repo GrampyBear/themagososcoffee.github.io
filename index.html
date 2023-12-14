@@ -21,6 +21,17 @@
         </div>
     </header>
 
+    <!-- Add this button at the end of your body -->
+<button class="dropdown-btn" onclick="toggleNavLinks()">☰</button>
+
+<!-- Add this container for navigation links -->
+<div class="nav-links-container">
+    <a class="nav-link" onclick="showSection('home')">Home</a>
+    <a class="nav-link" onclick="showSection('my-blog')">My Blog</a>
+    <!-- Add links for other sections as needed -->
+</div>
+    
+
     <div class="dropdown-container">
     <div class="dropdown-leaf" onclick="toggleDropdown()">
         <span>More...</span>
