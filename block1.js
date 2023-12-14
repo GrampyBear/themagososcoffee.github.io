@@ -1,14 +1,17 @@
 // main-script.js
+// main-script.js
 
 // ... (previous code)
 
-// Function to toggle section visibility
+// Function to toggle section visibility with fade effect
 function showSection(sectionClass) {
     const sections = document.querySelectorAll('.section');
     sections.forEach((section) => {
-        section.style.transition = 'opacity 1s';
+        section.style.transition = 'opacity 0.5s'; // Apply transition
         section.style.opacity = '0'; // Apply fade out
-        section.style.display = 'none';
+        setTimeout(() => {
+            section.style.display = 'none';
+        }, 500); // 0.5 second fade effect
     });
 
     const currentSection = document.querySelector(`.${sectionClass}`);
@@ -18,9 +21,12 @@ function showSection(sectionClass) {
         // Apply fade in
         setTimeout(() => {
             currentSection.style.opacity = '1';
-        }, 1000); // 1 second fade effect
+        }, 500); // 1 second fade effect
     }
 }
+
+// ... (remaining code)
+
 
 // Set initial section to display (Home)
 showSection('home');
