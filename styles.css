@@ -81,13 +81,16 @@ header {
 
 
 /* style.css */
+/* style.css */
 
 /* ... (previous code) */
 
 /* Drop-down Styles */
 .dropdown {
     position: relative;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 3; /* Ensure it's above other objects */
 }
 
@@ -97,6 +100,8 @@ header {
     color: #fff;
     border: none;
     cursor: pointer;
+    border-radius: 50%;
+    padding: 10px;
 }
 
 .dropdown-content {
@@ -120,16 +125,6 @@ header {
 
 .dropdown-content a:hover {
     background-color: #555;
-}
-
-/* Centered Table Styles */
-.content-container {
-    position: relative;
-    z-index: 2; /* Ensure content is above stars */
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 /* ... (remaining code) */
