@@ -6,6 +6,8 @@
 function showSection(sectionClass) {
     const sections = document.querySelectorAll('.section');
     sections.forEach((section) => {
+        section.style.transition = 'opacity 1s';
+        section.style.opacity = '0'; // Apply fade out
         section.style.display = 'none';
     });
 
