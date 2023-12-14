@@ -131,23 +131,6 @@ header {
     align-items: center;
 }
 
-.section {
-    display: none;
-    background: rgba(0, 0, 0, 0.8); /* Adjust as needed */
-    border: 2px solid black; /* Adjust as needed */
-    border-radius: 10px;
-    padding: 20px;
-    color: #fff;
-    width: 80%; /* Adjust as needed */
-    margin: 20px 0; /* Adjust as needed */
-    text-align: center;
-}
-
-.section-title {
-    font-size: 24px; /* Adjust as needed */
-    margin-bottom: 10px;
-}
-
 /* ... (remaining code) */
 
 
