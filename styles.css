@@ -94,12 +94,12 @@ header {
 
 .dropdown-btn {
     font-family: 'Comic Sans MS', cursive;
-    font-size: 16px; /* Adjust as needed */
+    font-size: 18px; /* Adjust as needed */
     background: linear-gradient(#d9534f, #ac2925);
     color: #fff;
     border: 2px solid #fff;
     cursor: pointer;
-    border-radius: 50%;
+    border-radius: 30%;
     padding: 12px;
 }
 
@@ -113,6 +113,7 @@ header {
     top: 40px; /* Adjust as needed */
     left: 50%;
     transform: translateX(-50%);
+    border-radius: 20%;
 }
 
 .dropdown-content a {
