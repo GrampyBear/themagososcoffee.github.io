@@ -12,6 +12,11 @@ function showSection(sectionClass) {
     const currentSection = document.querySelector(`.${sectionClass}`);
     if (currentSection) {
         currentSection.style.display = 'block';
+
+        // Apply fade in
+        setTimeout(() => {
+            currentSection.style.opacity = '1';
+        }, 1000); // 1 second fade effect
     }
 }
 
