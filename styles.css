@@ -79,8 +79,6 @@ header {
     color: #fff;
 }
 
-
-/* style.css */
 /* style.css */
 
 /* ... (previous code) */
@@ -96,12 +94,12 @@ header {
 
 .dropdown-btn {
     font-size: 24px;
-    background: radial-gradient(circle, #d9534f, #ac2925); /* Christmas ornament colors */
+    background: linear-gradient(#d9534f, #ac2925); /* Christmas ornament colors - linear gradient */
     color: #fff;
-    border: none;
+    border: 2px solid #fff; /* White border */
     cursor: pointer;
-    border-radius: 50%;
-    padding: 10px;
+    border-radius: 20% 30% 50% 30%/30% 50% 20%; /* Cube-like appearance with smooth circular edges */
+    padding: 12px;
 }
 
 .dropdown-content {
@@ -128,6 +126,7 @@ header {
 }
 
 /* ... (remaining code) */
+
 
 
 
