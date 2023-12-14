@@ -1,4 +1,5 @@
 // main-script.js
+// main-script.js
 
 // ... (previous code)
 
@@ -20,14 +21,19 @@ function showSection(sectionClass) {
             currentSection.style.opacity = '1';
         }, 10); // Set a small delay to trigger the transition
     }
+
+    // Close navigation links container if open
+    document.querySelector('.nav-links-container').style.display = 'none';
 }
 
-// ... (remaining code)
 // Function to toggle navigation links visibility
 function toggleNavLinks() {
     const navLinksContainer = document.querySelector('.nav-links-container');
     navLinksContainer.style.display = (navLinksContainer.style.display === 'flex') ? 'none' : 'flex';
 }
+
+// ... (remaining code)
+
 
 
 // Set initial section to display (Home)
