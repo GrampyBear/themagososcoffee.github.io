@@ -82,8 +82,9 @@ header {
 /* Drop-down Button Styles */
 .dropdown-container {
     position: absolute;
-    top: 20px; /* Adjust as needed */
-    right: 20px; /* Adjust as needed */
+    top: 50px; /* Adjust as needed */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -105,6 +106,7 @@ header {
     position: absolute;
     top: 40px; /* Adjust as needed */
     right: 0;
+    transition: display 0.5s ease; /* Apply transition */
 }
 
 .dropdown-list a {
@@ -122,6 +124,8 @@ header {
 .dropdown-container:hover .dropdown-list {
     display: flex;
 }
+
+/* ... (remaining code) */
 
 
 footer {
