@@ -1,5 +1,4 @@
 // main-script.js
-// main-script.js
 
 // ... (previous code)
 
@@ -9,9 +8,7 @@ function showSection(sectionClass) {
     sections.forEach((section) => {
         section.style.transition = 'opacity 0.5s'; // Apply transition
         section.style.opacity = '0'; // Apply fade out
-        setTimeout(() => {
-            section.style.display = 'none';
-        }, 500); // 0.5 second fade effect
+        section.style.display = 'none';
     });
 
     const currentSection = document.querySelector(`.${sectionClass}`);
@@ -21,11 +18,16 @@ function showSection(sectionClass) {
         // Apply fade in
         setTimeout(() => {
             currentSection.style.opacity = '1';
-        }, 500); // 1 second fade effect
+        }, 10); // Set a small delay to trigger the transition
     }
 }
 
 // ... (remaining code)
+// Function to toggle navigation links visibility
+function toggleNavLinks() {
+    const navLinksContainer = document.querySelector('.nav-links-container');
+    navLinksContainer.style.display = (navLinksContainer.style.display === 'flex') ? 'none' : 'flex';
+}
 
 
 // Set initial section to display (Home)
