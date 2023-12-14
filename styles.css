@@ -87,8 +87,7 @@ header {
 .dropdown-container {
     position: absolute;
     top: 20px; /* Adjust as needed */
-    left: 50%;
-    transform: translateX(-50%);
+    right: 20px; /* Adjust as needed */
     z-index: 3; /* Ensure it's above the content */
 }
 
@@ -121,7 +120,9 @@ header {
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    transition: display 0.5s ease; /* Apply transition */
+    transition: opacity 0.5s ease; /* Apply transition to opacity */
+    opacity: 0; /* Start with opacity 0 */
+    pointer-events: none; /* Disable pointer events when hidden */
 }
 
 .dropdown-list a {
@@ -130,6 +131,11 @@ header {
     text-decoration: none;
     text-align: center;
     border-bottom: 1px solid #fff;
+    transition: background 0.3s; /* Apply transition to background */
+}
+
+.dropdown-list a:hover {
+    background: rgba(255, 255, 255, 0.1); /* Adjust as needed */
 }
 
 .dropdown-list a:last-child {
@@ -138,9 +144,12 @@ header {
 
 .dropdown-container:hover .dropdown-list {
     display: flex;
+    opacity: 1; /* Make visible on hover */
+    pointer-events: auto; /* Enable pointer events on hover */
 }
 
 /* ... (remaining code) */
+
     
 
 footer {
