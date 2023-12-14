@@ -41,6 +41,7 @@ header {
     position: relative;
     z-index: 2; /* Ensure content is above stars */
     padding: 20px;
+    align-items: center;
 }
 
 /* Section Styles */
