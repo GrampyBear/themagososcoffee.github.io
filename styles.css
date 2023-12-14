@@ -94,7 +94,7 @@ header {
     height: 40px;
     margin-top: 10px;
     position: fixed;
-    bottom: 10%;
+    top: 60px; /* Adjust as needed to position just below the header */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -106,7 +106,7 @@ header {
 /* Navigation Links Container Styles */
 .nav-links-container {
     position: fixed;
-    bottom: 50px;
+    top: 110px; /* Adjust as needed to position below the header and button */
     left: 50%;
     transform: translateX(-50%);
     background: radial-gradient(circle, #FFD700, #8B4513); /* Adjust as needed */
@@ -126,6 +126,7 @@ header {
 }
 
 /* ... (remaining code) */
+
 
 
 
