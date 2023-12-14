@@ -80,9 +80,7 @@ header {
 }
 
 
-/* style.css */
 
-/* ... (previous code) */
 
 /* Navigation Drop-down Button Styles */
 .dropdown-btn {
@@ -92,9 +90,9 @@ header {
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    margin-top: 10px;
+    margin-top: 60px; /* Adjust as needed */
     position: fixed;
-    top: 60px; /* Adjust as needed to position just below the header */
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -106,7 +104,7 @@ header {
 /* Navigation Links Container Styles */
 .nav-links-container {
     position: fixed;
-    top: 110px; /* Adjust as needed to position below the header and button */
+    bottom: 110px; /* Adjust as needed */
     left: 50%;
     transform: translateX(-50%);
     background: radial-gradient(circle, #FFD700, #8B4513); /* Adjust as needed */
@@ -126,6 +124,7 @@ header {
 }
 
 /* ... (remaining code) */
+
 
 
 
