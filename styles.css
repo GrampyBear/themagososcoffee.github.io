@@ -36,20 +36,25 @@ header {
     z-index: 2; /* Ensure sections appear above stars */
 }
 
+/* Content Container Styles */
+.content-container {
+    position: relative;
+    z-index: 2; /* Ensure content is above stars */
+    padding: 20px;
+}
+
+/* Section Styles */
 .section {
-    display: none; /* Initially hide sections */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.8);
-    border: 2px solid #000;
+    display: none;
+    background: rgba(0, 0, 0, 0.8); /* Adjust as needed */
+    border: 2px solid black; /* Adjust as needed */
     border-radius: 10px;
     padding: 20px;
     color: #fff;
 }
 
-.section h2 {
+.section-title {
+    font-size: 24px; /* Adjust as needed */
     margin-bottom: 10px;
 }
 
