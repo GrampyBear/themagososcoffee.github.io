@@ -19,10 +19,12 @@
             <p class="time-text" id="timeOfDay">Time of Day: Loading...</p>
             <p class="time-text" id="currentTime">Current Time: Loading...</p>
         </div>
+    </header>
 
-        <div class="dropdown-container">
-        <button class="dropdown-button">Sections</button>
-        <div class="dropdown-content">
+    <div class="dropdown-container">
+    <div class="dropdown-leaf" onclick="toggleDropdown()">
+        <span>&#9660;</span>
+        <div class="dropdown-list">
             <a id="nav-home" href="javascript:void(0);">Home</a>
             <a id="nav-my-blog" href="javascript:void(0);">My Blog</a>
             <a id="nav-furry-fat-gallery" href="javascript:void(0);">Furry gallery & Fat Gallery</a>
@@ -34,8 +36,8 @@
             <a id="nav-special-functions" href="javascript:void(0);">Special Functions</a>
             <a id="nav-disclaimer" href="javascript:void(0);">Disclaimer</a>
         </div>
-        </div>
-    </header>
+    </div>
+    </div>
 
 <!-- Main Content Sections -->
     <div class="content-container">
