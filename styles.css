@@ -94,7 +94,7 @@ header {
     height: 40px;
     margin-top: 10px;
     position: fixed;
-    bottom: 0;
+    bottom: 10%;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
