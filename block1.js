@@ -33,6 +33,14 @@ function showSection(sectionClass) {
 
 // ... (remaining code)
 
+// Function to toggle drop-down visibility
+function toggleDropdown() {
+    const dropdownContent = document.querySelector('.dropdown-content');
+    dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+}
+
+// ... (remaining code)
+                                     
 
 
 
