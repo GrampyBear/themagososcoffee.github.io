@@ -1,44 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Morgan's Fat World</title>
-    <link rel="icon" type="image/png" href="https://github.com/GrampyBear/GrampyBear.github.io/blob/main/copo-de-nieve.png">
-</head>
-<body>
-    <header>
-        <div>
-            <img src="https://github.com/GrampyBear/GrampyBear.github.io/raw/main/copo-de-nieve%20(1).png" alt="Logo" class="logo">
-        </div>
-        <div class="header-text-container">
-            <h1 class="header-title">Morgan's Fat World</h1>
-        </div>
-        <div class="time-box">
-            <p class="time-text" id="timeOfDay">Time of Day: Loading...</p>
-            <p class="time-text" id="currentTime">Current Time: Loading...</p>
-        </div>
-    </header>
-    
-     <div class="dropdown">
-    <button class="dropdown-btn" onclick="toggleDropdown()">More~</button>
-    <div class="nav-buttons-container">
-        <a href="javascript:void(0);" id="nav-home" class="nav-button active" onclick="showSection('home')">Home</a>
-        <a href="javascript:void(0);" id="nav-my-blog" class="nav-button" onclick="showSection('my-blog')">My Blog</a>
-        <a href="javascript:void(0);" id="nav-furry-fat-gallery" class="nav-button" onclick="showSection('furry-fat-gallery')">Furry & Fat Gallery</a>
-        <a href="javascript:void(0);" id="nav-kitchen" class="nav-button" onclick="showSection('kitchen')">Kitchen</a>
-        <a href="javascript:void(0);" id="nav-events" class="nav-button" onclick="showSection('events')">Events</a>
-        <a href="javascript:void(0);" id="nav-wiki" class="nav-button" onclick="showSection('wiki')">Wiki</a>
-        <a href="javascript:void(0);" id="nav-curiosities-extras" class="nav-button" onclick="showSection('curiosities-extras')">Curiosities & Extras</a>
-        <a href="javascript:void(0);" id="nav-about-me" class="nav-button" onclick="showSection('about-me')">About Me</a>
-        <a href="javascript:void(0);" id="nav-special-functions" class="nav-button" onclick="showSection('special-functions')">Special Functions</a>
-        <a href="javascript:void(0);" id="nav-disclaimer" class="nav-button" onclick="showSection('disclaimer')">Disclaimer</a>
-    </div>
-     </div>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>Morgan's Fat World</title>
+        <link rel="icon" type="image/png" href="https://github.com/GrampyBear/GrampyBear.github.io/blob/main/copo-de-nieve.png">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+            <header>
+                <div>
+                    <img src="https://github.com/GrampyBear/GrampyBear.github.io/raw/main/copo-de-nieve%20(1).png" alt="Logo" class="logo">
+                </div>
+                <div class="header-text-container">
+                    <h1 class="header-title">Morgan's Fat World</h1>
+                </div>
+                <div class="time-box">
+                    <p class="time-text" id="timeOfDay">Time of Day: Loading...</p>
+                    <p class="time-text" id="currentTime">Current Time: Loading...</p>
+                </div>
+            </header>
 
+            <div class="dropdown">
+                <button class="dropdown-btn" onclick="toggleDropdown()">More~</button>
+                <div class="nav-buttons-container">
+                    <a href="javascript:void(0);" id="nav-home" class="nav-button active" onclick="showSection('home')">Home</a>
+                    <a href="javascript:void(0);" id="nav-my-blog" class="nav-button" onclick="showSection('my-blog')">My Blog</a>
+                    <a href="javascript:void(0);" id="nav-furry-fat-gallery" class="nav-button" onclick="showSection('furry-fat-gallery')">Furry & Fat Gallery</a>
+                    <a href="javascript:void(0);" id="nav-kitchen" class="nav-button" onclick="showSection('kitchen')">Kitchen</a>
+                    <a href="javascript:void(0);" id="nav-events" class="nav-button" onclick="showSection('events')">Events</a>
+                    <a href="javascript:void(0);" id="nav-wiki" class="nav-button" onclick="showSection('wiki')">Wiki</a>
+                    <a href="javascript:void(0);" id="nav-curiosities-extras" class="nav-button" onclick="showSection('curiosities-extras')">Curiosities & Extras</a>
+                    <a href="javascript:void(0);" id="nav-about-me" class="nav-button" onclick="showSection('about-me')">About Me</a>
+                    <a href="javascript:void(0);" id="nav-special-functions" class="nav-button" onclick="showSection('special-functions')">Special Functions</a>
+                    <a href="javascript:void(0);" id="nav-disclaimer" class="nav-button" onclick="showSection('disclaimer')">Disclaimer</a>
+                </div>
+            </div>
 
-<!-- Main Content Sections -->
+    <!-- Main Content Sections -->
     <div class="content-container">
         <!-- Home Section -->
         <section class="section home">
@@ -104,24 +103,21 @@
         </section>
     </div>
 
-    
-    <footer>
-        <p class="footer-text">&copy; 2023 - Morgan's Fat World</p>
-
-        <div class="social-icons">
-            <a href="https://www.instagram.com/fattyfluffyball" target="_blank">
-                <img src="https://github.com/GrampyBear/GrampyBear.github.io/raw/main/video.png" alt="Instagram">
-            </a>
-            <a href="https://www.twitter.com/fattyfluffyball" target="_blank">
-                <img src="https://github.com/GrampyBear/GrampyBear.github.io/raw/main/medios-de-comunicacion-social.png" alt="Twitter">
-            </a>
-            <a href="https://www.twitch.tv/morganpolarbear" target="_blank">
-                <img src="https://github.com/GrampyBear/GrampyBear.github.io/raw/main/plataforma.png" alt="Twitch">
-            </a>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-    <script src="block1.js"></script>
-</body>
+            <footer>
+                <p class="footer-text">&copy; 2023 - Morgan's Fat World</p>
+        
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/fattyfluffyball" target="_blank">
+                        <img src="https://github.com/GrampyBear/GrampyBear.github.io/raw/main/video.png" alt="Instagram">
+                    </a>
+                    <a href="https://www.twitter.com/fattyfluffyball" target="_blank">
+                        <img src="https://github.com/GrampyBear/GrampyBear.github.io/raw/main/medios-de-comunicacion-social.png" alt="Twitter">
+                    </a>
+                    <a href="https://www.twitch.tv/morganpolarbear" target="_blank">
+                        <img src="https://github.com/GrampyBear/GrampyBear.github.io/raw/main/plataforma.png" alt="Twitch">
+                    </a>
+                </div>
+            </footer>
+            <script src="script.js"></script>
+    </body>
 </html>
