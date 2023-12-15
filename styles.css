@@ -103,28 +103,10 @@ header {
     padding: 12px;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background: #333;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 4; /* Ensure it's above other objects */
-    text-align: center;
-    top: 60px; /* Adjust as needed */
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 15px;
-}
-
-.dropdown-content a {
-    color: #fff;
-    padding: 12px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: #555;
+.nav-buttons-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease; /* Add a transition for smooth expansion/contraction */
 }
 
 /* ... (remaining code) */
