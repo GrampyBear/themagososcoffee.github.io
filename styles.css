@@ -86,6 +86,7 @@ footer {
     text-align: center;
     margin-top: auto;
     z-index: 1; /* Set a lower z-index for the footer */
+    margin-bottom: 0;
 }
 
 .footer-text {
