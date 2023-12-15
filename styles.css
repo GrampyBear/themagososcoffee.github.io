@@ -101,6 +101,7 @@ header {
     cursor: pointer;
     border-radius: 30%;
     padding: 12px;
+    margin-bottom: 20px; /* Add margin between the button and the container */
 }
 
 .nav-buttons-container {
