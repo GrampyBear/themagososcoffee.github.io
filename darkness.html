@@ -6,7 +6,7 @@
     <title>The Basement - Easter Egg</title>
     <style>
         body {
-            background: linear-gradient(to bottom, #000, #000, #000, #900);
+            background: linear-gradient(to bottom, #000, #000, #900, #900);
             color: #fff;
             font-family: 'Creepster', cursive;
             text-align: center;
@@ -25,14 +25,25 @@
         button {
             font-size: 1.5em;
             padding: 10px 20px;
-            background-color: #900;
+            background-color: transparent;
             color: #fff;
             border: none;
             cursor: pointer;
+            text-decoration: underline;
         }
 
         button:hover {
-            background-color: #600;
+            text-decoration: none;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: transparent;
+            color: #fff;
+            padding: 10px;
+            font-size: 1.2em;
         }
     </style>
 </head>
@@ -41,7 +52,11 @@
     <p>Has desenterrado un oscuro secreto...</p>
     
     <!-- Botón para regresar -->
-    <button onclick="regresar()">Volver a la Oscuridad</button>
+    <button onclick="regresar()">Back to...</button>
+
+    <footer>
+        We will meet again... visitor...
+    </footer>
 
     <script>
         function regresar() {
@@ -51,4 +66,3 @@
     </script>
 </body>
 </html>
-
