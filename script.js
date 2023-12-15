@@ -79,11 +79,16 @@ function updateTime() {
     timeOfDayElement.textContent = `Time of Day: ${timeOfDay}`;
     currentTimeElement.textContent = `Current Time: ${currentTime}`;
 
-    // Set an interval to continuously update time and stars
+    // Perform actions based on time of day
+    performActionsBasedOnTimeOfDay(timeOfDay);
+}
+
+// Set an interval to continuously update time and perform actions
 setInterval(() => {
     updateTime();
-}, 1000); // Update every second for real-time
-}
+}, 60000); // Update every minute for time (60000 milliseconds = 1 minute)
+
+// Ejecuta la función al cargar la página
 document.addEventListener('DOMContentLoaded', function () {
     updateTime();
 });
