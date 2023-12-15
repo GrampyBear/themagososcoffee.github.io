@@ -134,11 +134,16 @@ header {
     padding: 10px;
     text-decoration: none;
     transition: background 0.3s; /* Add a transition for a subtle effect */
+    margin-bottom: 5px; /* Add margin between each button */
+}
+
+.nav-button:last-child {
+    margin-bottom: 0; /* Remove margin from the last button */
 }
 
 .nav-button:hover {
     background: rgba(255, 255, 255, 0.1); /* Adjust the opacity as needed */
-    }
+}
 
 /* ... (remaining code) */
 
