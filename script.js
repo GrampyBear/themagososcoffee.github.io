@@ -83,10 +83,7 @@ function updateTime() {
     performActionsBasedOnTimeOfDay(timeOfDay);
 }
 
-// Set an interval to continuously update time and perform actions
-setInterval(() => {
-    updateTime();
-}, 60000); // Update every minute for time (60000 milliseconds = 1 minute)
+setTimeout(updateTime, 60000);
 
 // Ejecuta la función al cargar la página
 document.addEventListener('DOMContentLoaded', function () {
