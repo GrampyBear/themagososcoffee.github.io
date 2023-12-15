@@ -83,7 +83,7 @@ function updateTime() {
     performActionsBasedOnTimeOfDay(timeOfDay);
 }
 
-setTimeout(updateTime, 60000);
+setTimeout(updateTime, 1000);
 
 // Ejecuta la función al cargar la página
 document.addEventListener('DOMContentLoaded', function () {
