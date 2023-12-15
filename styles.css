@@ -112,6 +112,7 @@ header {
 
 /* Navigation Buttons Styles */
 .nav-buttons {
+.nav-buttons {
     display: flex;
     flex-direction: column; /* Arrange buttons vertically */
     align-items: center;
@@ -126,16 +127,10 @@ header {
     padding: 10px;
     text-decoration: none;
     transition: background 0.3s; /* Add a transition for a subtle effect */
-    width: 100%; /* Ensure buttons take full width */
+    margin-bottom: 5px; /* Add margin between each button */
     box-sizing: border-box; /* Include padding in width calculation */
     border: 1px solid #fff; /* Add a border to each button */
     border-radius: 5px; /* Optional: Add rounded corners */
-    height: 40px; /* Set a fixed height for each button */
-    margin-bottom: 5px; /* Adjust margin between each button */
-}
-
-.nav-button:last-child {
-    margin-bottom: 0; /* Remove margin from the last button */
 }
 
 .nav-button:hover {
