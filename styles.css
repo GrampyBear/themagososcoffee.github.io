@@ -131,6 +131,11 @@ header {
     border: 1px solid #fff; /* Add a border to each button */
     border-radius: 5px; /* Optional: Add rounded corners */
     height: 40px; /* Set a fixed height for each button */
+    margin-bottom: 5px; /* Adjust margin between each button */
+}
+
+.nav-button:last-child {
+    margin-bottom: 0; /* Remove margin from the last button */
 }
 
 .nav-button:hover {
