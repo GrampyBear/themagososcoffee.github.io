@@ -110,7 +110,6 @@ header {
     top: 100%; /* Position below the button */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%);
-    max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease; /* Add a transition for smooth expansion/contraction */
     background: linear-gradient(#d9534f, #ac2925);
