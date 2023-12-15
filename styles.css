@@ -137,14 +137,8 @@ header {
     margin-bottom: 5px; /* Add margin between each button */
     width: 100%; /* Ensure buttons take full width */
     box-sizing: border-box; /* Include padding in width calculation */
-}
-
-.nav-button:last-child {
-    margin-bottom: 0; /* Remove margin from the last button */
-}
-
-.nav-button:hover {
-    background: rgba(255, 255, 255, 0.1); /* Adjust the opacity as needed */
+    border: 1px solid #fff; /* Add a border to each button */
+    border-radius: 5px; /* Optional: Add rounded corners */
 }
 
 /* ... (remaining code) */
