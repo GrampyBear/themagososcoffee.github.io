@@ -41,3 +41,18 @@ function showSection(sectionClass) {
 showSection('home');
 
 // ... (remaining code)
+
+// main-script.js
+
+// Function to toggle navigation buttons visibility
+function toggleDropdown() {
+    const navButtonsContainer = document.querySelector('.nav-buttons-container');
+
+    // Toggle the max-height to show/hide the navigation buttons
+    if (navButtonsContainer.style.maxHeight) {
+        navButtonsContainer.style.maxHeight = null;
+    } else {
+        navButtonsContainer.style.maxHeight = navButtonsContainer.scrollHeight + 'px';
+    }
+}
+
