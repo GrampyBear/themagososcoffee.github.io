@@ -105,18 +105,9 @@ header {
     margin-bottom: 10px; /* Add margin between the button and the container */
 }
 
-.nav-buttons-container {
-    position: absolute;
-    top: 100%; /* Position below the button */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%);
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease; /* Add a transition for smooth expansion/contraction */
-    background: linear-gradient(#d9534f, #ac2925);
-    border: 2px solid #fff;
-    border-radius: 10px;
+.nav-button-container {
     width: 80%; /* Set the width of the container */
+    margin-bottom: 5px; /* Adjust margin between each container */
 }
 
 /* Navigation Buttons Styles */
@@ -140,11 +131,6 @@ header {
     border: 1px solid #fff; /* Add a border to each button */
     border-radius: 5px; /* Optional: Add rounded corners */
     height: 40px; /* Set a fixed height for each button */
-    margin-bottom: 5px; /* Adjust margin between each button */
-}
-
-.nav-button:last-child {
-    margin-bottom: 0; /* Remove margin from the last button */
 }
 
 .nav-button:hover {
