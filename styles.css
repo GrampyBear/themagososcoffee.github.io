@@ -135,6 +135,8 @@ header {
     text-decoration: none;
     transition: background 0.3s; /* Add a transition for a subtle effect */
     margin-bottom: 5px; /* Add margin between each button */
+    width: 100%; /* Ensure buttons take full width */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .nav-button:last-child {
