@@ -16,12 +16,14 @@ function toggleDropdown() {
     if (dropdownContent.style.display === 'block') {
         hideDropdown();
     } else {
-        dropdownContent.style.transition = 'opacity 0.5s';
+        dropdownContent.style.transition = 'opacity 0.5s, transform 0.5s';
         dropdownContent.style.display = 'block';
+        dropdownContent.style.opacity = '1';
+        dropdownContent.style.transform = 'translateY(0)';
 
         // Set a timeout to show the dropdown content after the fade-in
         setTimeout(() => {
-            dropdownContent.style.opacity = '1';
+            dropdownContent.style.transform = 'translateY(100%)';
         }, 0); // No delay for fade-in effect
     }
 }
@@ -35,7 +37,7 @@ function showSection(sectionClass) {
 
     // If there's a current visible section
     if (currentVisibleSection) {
-        // Apply fade-out effect
+        // Deactivate the previous section
         currentVisibleSection.style.transition = 'opacity 0.5s';
         currentVisibleSection.style.opacity = '0';
 
@@ -43,19 +45,19 @@ function showSection(sectionClass) {
         setTimeout(() => {
             currentVisibleSection.style.display = 'none';
 
-            // Show the target section after hiding the current section
+            // Activate the target section after hiding the current section
             showTargetSection();
         }, 500); // 0.5 seconds fade-out effect
     } else {
-        // If there's no current visible section, show the target section directly
+        // If there's no current visible section, activate the target section directly
         showTargetSection();
     }
 
-    // Function to show the target section after hiding the current section
+    // Function to activate the target section after hiding the current section
     function showTargetSection() {
         const currentSection = document.querySelector(`.${sectionClass}`);
         if (currentSection) {
-            // Display the target section
+            // Display and activate the target section
             currentSection.style.transition = 'opacity 0.5s';
             currentSection.style.display = 'block';
 
