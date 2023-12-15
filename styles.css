@@ -110,12 +110,13 @@ header {
     top: 100%; /* Position below the button */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%);
+    max-height: 0;
     overflow: hidden;
-    transition: height 0.5s ease; /* Add a transition for smooth expansion/contraction */
+    transition: max-height 0.5s ease; /* Add a transition for smooth expansion/contraction */
     background: linear-gradient(#d9534f, #ac2925);
     border: 2px solid #fff;
     border-radius: 10px;
-    height: auto; /* Allow container to expand based on content */
+    width: 80%; /* Set the width of the container */
 }
 
 /* Navigation Buttons Styles */
