@@ -111,10 +111,11 @@ header {
     left: 50%; /* Center horizontally */
     transform: translateX(-50%);
     overflow: hidden;
-    transition: max-height 0.5s ease; /* Add a transition for smooth expansion/contraction */
+    transition: height 0.5s ease; /* Add a transition for smooth expansion/contraction */
     background: linear-gradient(#d9534f, #ac2925);
     border: 2px solid #fff;
     border-radius: 10px;
+    height: auto; /* Allow container to expand based on content */
 }
 
 /* Navigation Buttons Styles */
