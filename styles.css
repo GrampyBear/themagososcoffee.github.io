@@ -104,9 +104,16 @@ header {
 }
 
 .nav-buttons-container {
+    position: absolute;
+    top: 100%; /* Position below the button */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%);
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease; /* Add a transition for smooth expansion/contraction */
+    background: linear-gradient(#d9534f, #ac2925);
+    border: 2px solid #fff;
+    border-radius: 10px;
 }
 
 /* Navigation Buttons Styles */
@@ -114,9 +121,6 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(#d9534f, #ac2925);
-    border: 2px solid #fff;
-    border-radius: 10px;
     overflow: hidden;
 }
 
