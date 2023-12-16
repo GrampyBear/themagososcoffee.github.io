@@ -15,6 +15,12 @@
             height: 100vh;
         }
 
+        .container {
+            background-color: #500; /* Negro rojizo bastante oscuro */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
         h1 {
             font-size: 2.5em;
         }
@@ -50,78 +56,37 @@
             padding: 10px;
             font-size: 1.2em;
         }
-
-        #dialog-container {
-            margin: 20px auto;
-            width: 70%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        #dialog-box {
-            width: 100%;
-            margin-bottom: 10px;
-            padding: 10px;
-            background-color: #222;
-            color: #fff;
-            border: 2px solid #900;
-            border-radius: 8px;
-            resize: none;
-            outline: none;
-        }
-
-        #randomize-button {
-            font-size: 1em;
-            margin-top: 10px;
-            padding: 5px 10px;
-            background-color: #900;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-
-        #randomize-button:hover {
-            background-color: #600;
-        }
     </style>
 </head>
 <body>
-    <h1>¡Bienvenido al Sótano!</h1>
-    <p>Has desenterrado un oscuro secreto...</p>
+    <div class="container">
+        <h1>¡Bienvenido al Sótano!</h1>
+        <p>Has desenterrado un oscuro secreto...</p>
+        
+        <!-- Botón para regresar -->
+        <button onclick="window.close()">Back to...</button>
 
-    <!-- Contenedor de la caja de texto y el botón -->
-    <div id="dialog-container">
-        <!-- Caja de texto para el diálogo -->
-        <textarea id="dialog-box" placeholder="Escribe tu mensaje..."></textarea>
+        <!-- Botón para cambiar el texto de manera aleatoria -->
+        <button onclick="cambiarTexto()">Cambiar Texto</button>
 
-        <!-- Botón para cambiar el texto aleatoriamente -->
-        <button id="randomize-button" onclick="randomizeText()">Cambiar Texto</button>
+        <!-- Texto que cambiará de manera aleatoria -->
+        <p id="textoAleatorio">Texto Inicial</p>
+
+        <footer>
+            We will meet again... visitor...
+        </footer>
     </div>
 
-    <footer>
-        We will meet again... visitor...
-    </footer>
-
-    <!-- Botón para regresar -->
-    <button onclick="window.close()">Back to...</button>
-
     <script>
-        function randomizeText() {
-            // Lista de mensajes aleatorios
-            const randomMessages = [
-                "¡Qué interesante!",
-                "No esperaba eso...",
-                "Misterioso...",
-                "¿Tienes miedo?",
-                "El sótano guarda secretos...",
-                "Las sombras hablan...",
-                "Nunca estás solo aquí..."
-            ];
+        function cambiarTexto() {
+            // Array de textos posibles
+            var textos = ["Nuevo Texto 1", "Nuevo Texto 2", "Nuevo Texto 3", "Nuevo Texto 4"];
+            
+            // Obtener un índice aleatorio
+            var indiceAleatorio = Math.floor(Math.random() * textos.length);
 
-            // Obtener un mensaje aleatorio y mostrarlo en la caja de texto
-            const randomIndex = Math.floor(Math.random() * randomMessages.length);
-            document.getElementById('dialog-box').value = randomMessages[randomIndex];
+            // Obtener el elemento de texto y cambiar su contenido
+            document.getElementById("textoAleatorio").innerHTML = textos[indiceAleatorio];
         }
     </script>
 </body>
