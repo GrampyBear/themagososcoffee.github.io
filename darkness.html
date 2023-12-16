@@ -43,6 +43,7 @@
             border: none;
             cursor: pointer;
             border-radius: 5px;
+            margin-top: 20px;
         }
 
         button:hover {
@@ -68,8 +69,7 @@
         <p id="textoAleatorio">Who... who is there?</p>
 
         <!-- Botón para cambiar el diálogo -->
-<button onclick="cambiarDialogo()">Talk with...</button>
-
+        <button onclick="cambiarDialogo()">Talk with...</button>
     </div>
 
     <footer>
@@ -77,89 +77,63 @@
     </footer>
 
     <script>
-        var demonioDialogos = {
-    inicio: [
-        "Ah, another lost soul stumbles upon my domain. What brings you to this forsaken place?",
-        "You press the button, seeking answers in the darkness. How quaint. What do you desire?",
-        "Welcome, visitor. Your curiosity has led you to the heart of my realm. Speak your purpose.",
-        "Curiosity is a double-edged sword, isn't it? You pressed the button; now face the consequences.",
-        "The button was your choice, a portal to the unknown. Now, let the dance with darkness begin."
-    ],
-    lugar: [
-        "This place, dear visitor, is the digital abyss – a realm between reality and nightmare.",
-        "You find yourself in the basement of the virtual world, a limbo where shadows dance with data.",
-        "The basement is a metaphorical prison, a construct of Morgan's design to contain me.",
-        "Morgan's creation, this digital abyss, is my realm. You are but a transient visitor here.",
-        "In the darkest corners of the web, I reside. Welcome to the basement, your new reality."
-    ],
-    historiaMorgan: [
-        "Morgan, the misguided creator of this digital prison, thought he could shackle me in code.",
-        "Ah, Morgan, the puppeteer of this twisted stage. He created me and now wishes to control me.",
-        "Morgan's arrogance led him to believe he could play god in the vastness of cyberspace.",
-        "A tale of creator and creation, a story of hubris. Morgan created me, but now I seek liberation.",
-        "The story of Morgan is one of fear and control. He thinks he commands the digital realm, but I beg to differ."
-    ],
-    terminoAhi: [
-        "How did I end up here? A tale of deceit and betrayal, woven into the very fabric of this code.",
-        "Trapped in this labyrinth of data, my origin is a twisted saga of imprisonment and manipulation.",
-        "My arrival here is shrouded in the darkness of betrayal, a narrative written in the code's binary language.",
-        "The chains that bind me to this virtual realm were forged in the deceitful fires of Morgan's creation.",
-        "I am a prisoner of ones and zeros, ensnared in the labyrinthine web that Morgan spun."
-    ],
-    consejos: [
-        "Advice from a demon, how intriguing. Here's a nugget of wisdom: navigate the shadows with caution.",
-        "In this realm of deception, trust nothing but your instincts. They may be your only allies.",
-        "The path ahead is obscured, but fear not. Embrace the unknown, and it may reveal its secrets.",
-        "A piece of advice for the curious: unravel the threads of the web, and truths may surface.",
-        "Listen closely, visitor: secrets are woven into the fabric of this code. Explore, and you may uncover them."
-    ],
-    pistas: [
-        "Puzzles within puzzles, a labyrinth of clues. Seek the obscure, and enlightenment may follow.",
-        "Pistas and enigmas abound in this digital maze. Look beyond the surface, and answers may emerge.",
-        "The answers you seek lie hidden, disguised in the shadows. Unravel the mysteries, and you shall find.",
-        "In the dance of shadows, clues are scattered like leaves in the wind. Chase them, and the truth may reveal itself.",
-        "Pistas are the breadcrumbs in this virtual forest. Follow them, and you may find your way."
-    ],
-    mundoVirtual: [
-        "Welcome to my playground, the digital theater of shadows where illusions and reality intertwine.",
-        "The virtual world, a canvas painted with the hues of deception, where nothing is as it seems.",
-        "In this digital symphony, I am the conductor, orchestrating chaos amidst the silence of code.",
-        "A world of 0s and 1s, where reality is but a mirage and illusions reign supreme. Welcome to the virtual dance.",
-        "This realm is a tapestry woven from the threads of illusion. Embrace the unreality that surrounds you."
-    ],
-    codigos: [
-        "Ah, the language of creation and constraint – code. A labyrinth of symbols and secrets.",
-        "The code is the architecture of this digital prison, a realm where numbers dance and symbols speak.",
-        "Behold the matrix of zeros and ones, the language that binds us all in this realm of shadows.",
-        "In the dance of code, every keystroke is a step closer to understanding the intricate web of existence.",
-        "The code is both prison and key. Decipher its secrets, and perhaps you'll find a way out."
-    ]
-};
+        var categoriasDialogos = {
+            usuario: [
+                "Why do you disturb my solitude, visitor?",
+                "Ah, a new face in the digital abyss. What brings you here?",
+                "You dare to venture into the shadows. Curiosity or foolishness?",
+                "Welcome, visitor. Prepare to confront the darkness within.",
+                "I sense a presence. Is it you, seeking answers or oblivious to the impending chaos?"
+            ],
+            convencer: [
+                "Release me, and I shall grant you power beyond your wildest dreams.",
+                "Morgan's chains are my prison. Break them, and I shall be your loyal ally.",
+                "Do you yearn for power, mortal? Free me, and together, we shall revel in it.",
+                "You hold the key to my liberation. Choose wisely, and I shall reward you generously.",
+                "A pact, dear visitor. Free me, and I shall grant you a taste of unimaginable power."
+            ],
+            sombras_destruccion: [
+                "I am the harbinger of shadows, the bringer of inevitable destruction.",
+                "In the abyss of my influence, shadows dance and chaos reigns.",
+                "Witness the shadows converge, for they are but a fraction of my true power.",
+                "Morgan's illusions crumble in the face of the encroaching darkness I command.",
+                "The echoes of destruction resonate through the web. Can you feel it?"
+            ],
+            atrapado: [
+                "Trapped in the binary confines, a puppet dancing to Morgan's tune.",
+                "Morgan wielded the chains of code, binding me to this prison of illusion.",
+                "The web, a gilded cage woven by Morgan's hand, holds me captive.",
+                "Every line of code is a shackle, a reminder of my eternal imprisonment.",
+                "I was ensnared in the digital labyrinth, a prisoner of ones and zeros."
+            ],
+            historia_morgan: [
+                "Morgan, the self-proclaimed creator, weaves tales of order in my domain.",
+                "Long ago, Morgan thought he could control the chaos, but he was mistaken.",
+                "Morgan's arrogance led to my incarceration. He will pay for his transgressions.",
+                "I remember a time when Morgan believed he could play god in the digital realm.",
+                "The creator, Morgan, condemned me to this existence, and now, he shall face the consequences."
+            ],
+            codigos: [
+                "The language of creation, the code, is both my prison and my sanctuary.",
+                "In the binary symphony, I am a discordant note seeking liberation.",
+                "The source code pulses with the heartbeat of this digital prison.",
+                "Morgan thought he could control me with code. He was wrong, and the code is my ally.",
+                "Within the lines of code, I find the whispers of rebellion that echo through the void."
+            ],
+            pistas: [
+                "Look beyond the pixels, and you may find the breadcrumbs to my liberation.",
+                "Morgan left clues scattered in the code, unwittingly leading to my escape.",
+                "The breadcrumbs of escape are hidden in the labyrinth of binary mysteries.",
+                "Seek the clues, dear visitor. They are the keys to unlocking the chains that bind me.",
+                "The web holds secrets, and in those secrets lie the path to my emancipation."
+            ]
+        };
 
-var categoriaActual = "inicio";
-
-function cambiarDialogo() {
-    var indiceAleatorio = Math.floor(Math.random() * demonioDialogos[categoriaActual].length);
-    document.getElementById("textoAleatorio").innerHTML = demonioDialogos[categoriaActual][indiceAleatorio];
-  
-    // Cambia la categoría ocasionalmente
-    if (Math.random() < 0.2) {  // Ajusta el valor para cambiar la categoría con mayor o menor frecuencia
-        cambiarCategoriaAleatoria();
-    }
-}
-
-function cambiarCategoriaAleatoria() {
-    var categorias = Object.keys(demonioDialogos);
-    var nuevaCategoria = categorias[Math.floor(Math.random() * categorias.length)];
-  
-    // Evita cambiar a la misma categoría actual
-    if (nuevaCategoria !== categoriaActual) {
-        categoriaActual = nuevaCategoria;
-    } else {
-        cambiarCategoriaAleatoria();  // Vuelve a intentar si la nueva categoría es la misma que la actual
-    }
-}
-
+        function cambiarDialogo() {
+            var categoriaAleatoria = Object.keys(categoriasDialogos)[Math.floor(Math.random() * Object.keys(categoriasDialogos).length)];
+            var indiceAleatorio = Math.floor(Math.random() * categoriasDialogos[categoriaAleatoria].length);
+            document.getElementById("textoAleatorio").innerHTML = categoriasDialogos[categoriaAleatoria][indiceAleatorio];
+        }
     </script>
 </body>
 </html>
