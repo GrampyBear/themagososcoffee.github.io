@@ -16,13 +16,9 @@
         }
 
         .container {
-            background-color: #500; /* Negro rojizo bastante oscuro */
+            background-color: #000; /* Negro */
             padding: 20px;
             border-radius: 10px;
-        }
-
-        h1 {
-            font-size: 2.5em;
         }
 
         p {
@@ -37,10 +33,6 @@
             border: none;
             cursor: pointer;
             text-decoration: underline;
-            position: fixed;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
         }
 
         button:hover {
@@ -60,22 +52,16 @@
 </head>
 <body>
     <div class="container">
-        <h1>¡Bienvenido al Sótano!</h1>
-        <p>Has desenterrado un oscuro secreto...</p>
-        
-        <!-- Botón para regresar -->
-        <button onclick="window.close()">Back to...</button>
-
-        <!-- Botón para cambiar el texto de manera aleatoria -->
-        <button onclick="cambiarTexto()">Cambiar Texto</button>
-
         <!-- Texto que cambiará de manera aleatoria -->
         <p id="textoAleatorio">Texto Inicial</p>
 
-        <footer>
-            We will meet again... visitor...
-        </footer>
+        <!-- Botón para cambiar el texto de manera aleatoria -->
+        <button onclick="cambiarTexto()">Cambiar Texto</button>
     </div>
+
+    <footer>
+        We will meet again... visitor...
+    </footer>
 
     <script>
         function cambiarTexto() {
