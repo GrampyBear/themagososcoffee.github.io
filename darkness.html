@@ -33,6 +33,13 @@
             border-radius: 10px;
         }
 
+                .floor {
+            background-color: #2c2c2c; /* Color más oscuro para el suelo */
+            height: 20px;
+            border-radius: 0 0 10px 10px;
+            margin-top: 10px;
+        }
+
         p {
             font-size: 1.2em;
         }
@@ -72,6 +79,9 @@
 
         <!-- Botón para cambiar el diálogo -->
         <button onclick="cambiarDialogo()">Talk with...</button>
+
+        <!-- Simulación del suelo del sótano -->
+        <div class="floor"></div>
     </div>
 
     <footer>
