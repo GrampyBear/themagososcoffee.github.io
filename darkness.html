@@ -51,9 +51,17 @@
             font-size: 1.2em;
         }
 
-        #dialog-box {
-            width: 70%;
+        #dialog-container {
             margin: 20px auto;
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #dialog-box {
+            width: 100%;
+            margin-bottom: 10px;
             padding: 10px;
             background-color: #222;
             color: #fff;
@@ -82,18 +90,23 @@
     <h1>¡Bienvenido al Sótano!</h1>
     <p>Has desenterrado un oscuro secreto...</p>
 
-    <!-- Caja de texto para el diálogo -->
-    <textarea id="dialog-box" placeholder="Escribe tu mensaje..."></textarea>
+    <!-- Contenedor de la caja de texto y el botón -->
+    <div id="dialog-container">
+        <!-- Caja de texto para el diálogo -->
+        <textarea id="dialog-box" placeholder="Escribe tu mensaje..."></textarea>
 
-    <!-- Botón para cambiar el texto aleatoriamente -->
-    <button id="randomize-button" onclick="randomizeText()">Cambiar Texto</button>
+        <!-- Botón para cambiar el texto aleatoriamente -->
+        <button id="randomize-button" onclick="randomizeText()">Cambiar Texto</button>
+    </div>
+
+    
+    <!-- Botón para regresar -->
+    <button onclick="window.close()">Back to...</button>
+
 
     <footer>
         We will meet again... visitor...
     </footer>
-
-    <!-- Botón para regresar -->
-    <button onclick="window.close()">Back to...</button>
 
     <script>
         function randomizeText() {
