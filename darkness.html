@@ -68,7 +68,8 @@
         <p id="textoAleatorio">Who... who is there?</p>
 
         <!-- Botón para cambiar el diálogo -->
-        <button onclick="cambiarDialogo()">Talk with...</button>
+<button onclick="cambiarDialogo()">Talk with...</button>
+
     </div>
 
     <footer>
@@ -135,9 +136,16 @@
     ]
 };
 
-function cambiarDialogo(categoria) {
-    var indiceAleatorio = Math.floor(Math.random() * demonioDialogos[categoria].length);
-    document.getElementById("textoAleatorio").innerHTML = demonioDialogos[categoria][indiceAleatorio];
+function cambiarDialogo() {
+    // Obtén una categoría aleatoria
+    var categorias = Object.keys(demonioDialogos);
+    var categoriaAleatoria = categorias[Math.floor(Math.random() * categorias.length)];
+
+    // Obtén un índice aleatorio dentro de la categoría seleccionada
+    var indiceAleatorio = Math.floor(Math.random() * demonioDialogos[categoriaAleatoria].length);
+
+    // Actualiza el texto con el diálogo aleatorio
+    document.getElementById("textoAleatorio").innerHTML = demonioDialogos[categoriaAleatoria][indiceAleatorio];
 }
 
     </script>
