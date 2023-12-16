@@ -6,12 +6,13 @@
     <title>The Basement - Easter Egg</title>
     <style>
         body {
-            background: linear-gradient(to bottom, #000, #000 50%, #900 50%, #900);
+            background: linear-gradient(to bottom, #000, #900);
             color: #fff;
             font-family: 'Creepster', cursive;
             text-align: center;
             margin: 0;
             padding: 50px;
+            height: 100vh;
         }
 
         h1 {
@@ -30,6 +31,10 @@
             border: none;
             cursor: pointer;
             text-decoration: underline;
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         button:hover {
@@ -45,19 +50,68 @@
             padding: 10px;
             font-size: 1.2em;
         }
+
+        #dialog-box {
+            width: 70%;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #222;
+            color: #fff;
+            border: 2px solid #900;
+            border-radius: 8px;
+            resize: none;
+            outline: none;
+        }
+
+        #randomize-button {
+            font-size: 1em;
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #900;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        #randomize-button:hover {
+            background-color: #600;
+        }
     </style>
 </head>
 <body>
     <h1>¡Bienvenido al Sótano!</h1>
     <p>Has desenterrado un oscuro secreto...</p>
-    
-    <!-- Botón para regresar -->
-    <button onclick="regresar()">Back to...</button>
+
+    <!-- Caja de texto para el diálogo -->
+    <textarea id="dialog-box" placeholder="Escribe tu mensaje..."></textarea>
+
+    <!-- Botón para cambiar el texto aleatoriamente -->
+    <button id="randomize-button" onclick="randomizeText()">Cambiar Texto</button>
 
     <footer>
         We will meet again... visitor...
     </footer>
 
+    <!-- Botón para regresar -->
     <button onclick="window.close()">Back to...</button>
+
+    <script>
+        function randomizeText() {
+            // Lista de mensajes aleatorios
+            const randomMessages = [
+                "¡Qué interesante!",
+                "No esperaba eso...",
+                "Misterioso...",
+                "¿Tienes miedo?",
+                "El sótano guarda secretos...",
+                "Las sombras hablan...",
+                "Nunca estás solo aquí..."
+            ];
+
+            // Obtener un mensaje aleatorio y mostrarlo en la caja de texto
+            const randomIndex = Math.floor(Math.random() * randomMessages.length);
+            document.getElementById('dialog-box').value = randomMessages[randomIndex];
+        }
+    </script>
 </body>
 </html>
