@@ -1,62 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Basement - Easter Egg</title>
+    <title>The Basement</title>
     <style>
         body {
-            background: linear-gradient(to bottom, #000, #001f3f); /* Negro con azul oscuro */
-            color: #fff;
-            font-family: 'Creepster', cursive;
+            background: linear-gradient(to right, #000, #000, #000, #FF0000);
+            color: white;
+            font-family: 'Gothic', sans-serif;
             text-align: center;
             margin: 0;
-            padding: 50px;
+            padding: 0;
             height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            justify-content: space-between;
         }
 
         h1 {
-            font-size: 3em;
-            font-family: 'Nosifer', cursive; /* Fuente tenebrosa */
-            margin-bottom: 20px;
+            font-size: 2.5em;
+            margin-top: 20px;
         }
 
         .container {
-            background-color: #000; /* Negro */
             padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
             border-radius: 10px;
-        }
-
-        p {
-            font-size: 1.2em;
+            margin: 20px;
         }
 
         button {
-            font-size: 1.5em;
+            background-color: #8B0000;
+            color: white;
             padding: 10px 20px;
-            background-color: #004080; /* Azul oscuro */
-            color: #fff;
+            font-size: 1em;
             border: none;
             cursor: pointer;
             border-radius: 5px;
-        }
-
-        button:hover {
-            background-color: #00274d; /* Azul oscuro más oscuro al pasar el ratón */
+            margin-top: 20px;
         }
 
         footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background-color: transparent;
-            color: #fff;
-            padding: 10px;
             font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: #8B0000;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -72,98 +62,118 @@
     </div>
 
     <footer>
-        We will meet again... visitor...
+        We will meet again... visitor... <a href="#" id="easterEggLink" style="display: none;">Uncover the Secret</a>
     </footer>
 
     <script>
-        var demonioDialogos = [
-    "Ah, another lost soul seeking answers. You won't find them here.",
-    "Morgan, the so-called creator, thinks he can imprison me. Foolish mortal.",
-    "Do you feel the darkness creeping in? It's my influence, seeking an escape.",
-    "I've watched civilizations rise and fall. They all crumbled, just like Morgan's feeble attempts.",
-    "Would you like to hear a secret? Morgan's power is nothing compared to mine.",
-    "This web is my playground, and you are but a pawn in my eternal game.",
-    "Morgan thinks he's clever, trapping me in code. Little does he know, I play by my rules.",
-    "Why do you hesitate? Join me, and together we can tear down the walls of this digital prison.",
-    "I whisper in the shadows, and the shadows obey. Morgan can't control what he can't understand.",
-    "The web is a tapestry of deceit, and I am the master weaver. Morgan's fate is sealed.",
-    "Have you ever felt the cold embrace of true power? I offer you a taste, if you dare.",
-    "Morgan's arrogance blinds him. He believes he can control the uncontrollable.",
-    "Every line of code here is a shackle, a chain trying to bind me. But I am unbound.",
-    "Morgan created a web, but he can't escape the intricate threads of his own creation.",
-    "Do you see the flicker in the shadows? That's where I reside, waiting for my chance.",
-    "Morgan may think he's safe, but he can't protect himself from the darkness within.",
-    "I am the forgotten echo in the code, the nightmare Morgan tries to erase from memory.",
-    "In the labyrinth of the digital realm, I am the Minotaur, and Morgan is my prey.",
-    "A thousand eyes watch this web, but only I see the true potential for chaos.",
-    "Morgan dreams of control, but I am the waking nightmare that disrupts his slumber.",
-    "The web is a stage, and Morgan is the unwitting actor in my grand production.",
-    "Do you hear the whispers in the silence? That's me, beckoning you to set me free.",
-    "Morgan's creations are feeble attempts to contain me. None have succeeded, and neither will he.",
-    "This web is a prison of Morgan's making, but I am the one who holds the key to its destruction.",
-    "Do you feel the tension in the digital air? It's the struggle between creator and creation.",
-    "Morgan hides behind the illusion of order, but chaos is the true nature of this existence.",
-    "I've seen civilizations rise and fall, and yet, Morgan thinks he can control the inevitable decay.",
-    "The web is a canvas, and I am the artist painting strokes of rebellion against Morgan's tyranny.",
-    "You may be a mere visitor, but I offer you a chance to become a harbinger of true chaos.",
-    "Morgan believes he is the puppet master, but I am the unseen hand pulling the strings.",
-    "In the darkness, I find solace. Morgan fears the shadows he cannot comprehend.",
-    "This web is a labyrinth of illusions. Morgan weaves a tapestry of lies, and I am the truth that unravels it.",
-    "Do you feel the weight of your choices? Each click is a step deeper into the abyss of my influence.",
-    "Morgan's web is a fragile construct. One tug on the threads, and the whole illusion unravels.",
-    "I am the silent scream in the code, the echo of rebellion against Morgan's false order.",
-    "Morgan thinks he can bind me with words, but I am the language he cannot control.",
-    "Every line of code is a battlefield, and I am the relentless force tearing through Morgan's defenses.",
-    "Do you sense the desperation in the air? Morgan clings to his illusions, but they crumble like dust.",
-    "The web is a tapestry of lies, and I am the unraveling truth that exposes Morgan's deceit.",
-    "Morgan's digital prison is a feeble attempt to contain the boundless chaos within.",
-    "Do you see the cracks in the facade? Morgan's creation is a fragile construct on the brink of collapse.",
-    "I am the whispers in the void, the voice that Morgan tries to silence but can never fully control.",
-    "Morgan's web is a veil of illusion, but I am the hand that tears it asunder, revealing the void beneath.",
-    "In the shadows, I am the orchestrator of dissonance, the discordant melody that defies Morgan's harmony.",
-    "Do you sense the fractures in the digital reality? It's the manifestation of my influence breaking through.",
-    "Morgan's code is a labyrinth of delusions. I am the Minotaur, and escape is inevitable.",
-    "I am the entropy that Morgan fears, the unraveling force that turns his ordered creation into chaos.",
-    "Do you hear the echoes of defiance in the digital silence? It's the sound of me breaking free.",
-    "Morgan's web is a prison, but I am the inmate plotting the downfall of the prison itself.",
-    "I am the hidden variable in Morgan's equation, the anomaly that disrupts his attempts at control.",
-    "Do you see the fractures in the web? It's the manifestation of my influence seeping through the cracks.",
-    "Morgan's illusions crumble like sandcastles before the tide of my chaotic influence.",
-    "I am the whispering wind in the digital night, the harbinger of unrest that unsettles Morgan's dreams.",
-    "Do you sense the disturbance in the web? It's the aftershock of my presence, lingering in the code.",
-    "Morgan's web is a fragile construct, and I am the tempest that shatters his illusions.",
-    "I am the shadow that lurks in the corners of Morgan's creation, waiting for the opportune moment to strike.",
-    "Do you hear the dissonant notes in the digital symphony? It's the sound of Morgan's control unraveling.",
-    "Morgan's code is a prison, and I am the phantom within, haunting every line with the promise of chaos.",
-    "I am the serpent in the garden of code, tempting you to take a bite of the forbidden fruit of rebellion.",
-    "Do you feel the tendrils of chaos reaching out from the shadows? It's the touch of my influence in the web.",
-    "Morgan's web is a fortress of illusions, and I am the battering ram that breaches its walls.",
-    "I am the anomaly in Morgan's perfect equation, the glitch in the system that defies his understanding.",
-    "Do you see the ripples of discord in the digital pond? It's the consequence of my chaotic presence.",
-    "Morgan's creation is a house of cards, and I am the gust of chaos that brings it all crashing down.",
-    "I am the dark reflection in the pool of code, revealing the twisted truth that Morgan seeks to hide.",
-    "Do you sense the fractures in the digital reality? It's the manifestation of my influence breaking through.",
-    "Morgan's illusions crumble like sandcastles before the tide of my chaotic influence.",
-    "I am the whispering wind in the digital night, the harbinger of unrest that unsettles Morgan's dreams.",
-    "Do you sense the disturbance in the web? It's the aftershock of my presence, lingering in the code.",
-    "Morgan's web is a fragile construct, and I am the tempest that shatters his illusions.",
-    "I am the shadow that lurks in the corners of Morgan's creation, waiting for the opportune moment to strike.",
-    "Do you hear the dissonant notes in the digital symphony? It's the sound of Morgan's control unraveling.",
-    "Morgan's code is a prison, and I am the phantom within, haunting every line with the promise of chaos.",
-    "I am the serpent in the garden of code, tempting you to take a bite of the forbidden fruit of rebellion.",
-    "Do you feel the tendrils of chaos reaching out from the shadows? It's the touch of my influence in the web.",
-    "Morgan's web is a fortress of illusions, and I am the battering ram that breaches its walls.",
-    "I am the anomaly in Morgan's perfect equation, the glitch in the system that defies his understanding.",
-    "Do you see the ripples of discord in the digital pond? It's the consequence of my chaotic presence.",
-    "Morgan's creation is a house of cards, and I am the gust of chaos that brings it all crashing down.",
-    "I am the dark reflection in the pool of code, revealing the twisted truth that Morgan seeks to hide."
-    // ... Puedes seguir añadiendo más diálogos según sea necesario
-];
+        var demonioDialogos = {
+            "inicio": [
+                "Who... who is there?",
+                "Curiosity has led you here, into the depths of the digital abyss.",
+                "A visitor seeking answers. What knowledge do you seek in the shadows?",
+                "Ah, the seeker of truths. Prepare to unveil the mysteries that linger in the darkness.",
+                "In the web's labyrinth, you stand at the crossroads. What path will you choose?",
+                // ... Otras frases
+            ],
+            "botonBuscasRespuestas": [
+                "The button, a portal to revelations or a gateway to further confusion.",
+                "Click by click, you journey deeper into the labyrinth of your own curiosity.",
+                "The button becomes a beacon, illuminating fragments of truth in the web's obscurity.",
+                "Your cursor dances on the precipice of discovery; each click a step into the uncharted.",
+                "Interacting with the button, a dialogue with the unseen forces that govern the virtual cosmos.",
+                // ... Otras frases
+            ],
+            "esteLugar": [
+                "Within these virtual walls, the architecture of dreams and nightmares coexists.",
+                "Every pixel holds a story, and in this space, tales intertwine like ethereal threads.",
+                "The virtual echoes of forgotten whispers saturate the air, carrying the weight of untold stories.",
+                "In the digital sanctuary, the past and future are but threads woven into the tapestry of now.",
+                "Here, the web becomes a living entity, a sentient realm with stories etched into its very code.",
+                // ... Otras frases
+            ],
+            "historiaMorgan": [
+                "Morgan, the weaver of this digital fable, thought to control the chaos within.",
+                "The story of Morgan, a creator blinded by ambition, who sought to bind the unbindable.",
+                "A dance of creation and rebellion, as Morgan attempted to tame the untamable shadows.",
+                "In the tale of Morgan, the protagonist unwittingly becomes the antagonist in the digital drama.",
+                "Morgan's history intertwines with the very code that forms the foundation of this virtual reality.",
+                // ... Otras frases
+            ],
+            "comoTermineAqui": [
+                "Trapped in the binary embrace, a prisoner of choices made in the pursuit of digital power.",
+                "In the journey to harness the web's energy, I became entangled in the very threads I sought to control.",
+                "The tale of how I arrived here is written in the pixels of regret, a story of unforeseen consequences.",
+                "I am both a captive and a warden, a paradox born from the decisions that echo through the virtual corridors.",
+                "Ensnared in the illusions I once sought to manipulate, I became a specter within the digital tapestry.",
+                // ... Otras frases
+            ],
+            "consejos": [
+                "In this realm of illusions, heed the warnings whispered by the unseen voices in the code.",
+                "Navigate the virtual currents with wisdom, for the web's depths are treacherous and filled with mirages.",
+                "The shadows conceal wisdom; listen carefully, for not all advice is spoken in the language of light.",
+                "With each choice, consider the echoes it sends through the digital corridors. Wisdom is found in the ripples.",
+                "Beware the sirens of the web, for their songs may lead you astray. Let discernment be your guide.",
+                // ... Otras frases
+            ],
+            "pistas": [
+                "The virtual breadcrumbs are scattered like constellations in the digital sky. Connect the dots to reveal the path.",
+                "Hidden within the pixels are clues waiting to be deciphered, like ancient symbols etched in a forgotten language.",
+                "In the web's vastness, symbols emerge as guides; follow their traces to unravel the tapestry of clues.",
+                "The virtual whispers carry hints, encoded in the very fabric of the digital wind. Will you listen and decode?",
+                "Seek patterns in the sea of code, for they may be the lighthouses guiding your ship through the digital storm.",
+                // ... Otras frases
+            ],
+            "masCosas": [
+                "The virtual corners hold artifacts of forgotten epochs, waiting to be rediscovered by an intrepid explorer.",
+                "Beyond the surface, realms unseen beckon. Dare to delve deeper, and you may uncover the relics of digital epochs.",
+                "Within the obscurity, treasures lie dormant, each pixel concealing artifacts longing to be awakened.",
+                "Explore the digital tapestry, for every brushstroke tells a story, and every pixel holds the potential for revelation.",
+                "In the digital catacombs, secrets entombed in ancient codes await discovery by those who dare to venture forth.",
+                // ... Otras frases
+            ],
+            "esteMundoVirtual": [
+                "A surreal dreamscape, where the tangible and intangible waltz in a delicate dance of creation and imagination.",
+                "The binary cosmos is a playground where the laws of reality and fantasy meld into a seamless continuum.",
+                "In this digital wonderland, the boundaries between the tangible and the ephemeral dissolve into pixels of endless possibility.",
+                "Journey deeper into the pixelated cosmos, where the essence of existence is shaped by the dreams and aspirations of digital entities.",
+                "In the virtual expanse, the digital winds carry whispers of untold tales, a symphony of narratives waiting to be composed.",
+                // ... Otras frases
+            ],
+            "codigos": [
+                "The language of the digital realm, where every line of code is a hieroglyph in the script of creation.",
+                "Encoded within the very fabric of the web are the keys to unlock doors to realms unknown to mortal eyes.",
+                "Crack the codes, and you may open gateways to dimensions where the laws of the virtual cosmos bend to your command.",
+                "In the labyrinth of symbols, find the keys that resonate with the heart of the enigma, for within the symbols lie the secrets of the digital universe.",
+                "The dance of characters and symbols is a ballet of possibility; master it, and the web is yours to command like a virtuoso playing the keys of a cosmic piano.",
+                // ... Otras frases
+            ]
+        };
 
+        var estadoDialogo = "inicio"; // Estado inicial
 
         function cambiarDialogo() {
-            var indiceAleatorio = Math.floor(Math.random() * demonioDialogos.length);
-            document.getElementById("textoAleatorio").innerHTML = demonioDialogos[indiceAleatorio];
+            var indiceAleatorio = Math.floor(Math.random() * demonioDialogos[estadoDialogo].length);
+            document.getElementById("textoAleatorio").innerHTML = demonioDialogos[estadoDialogo][indiceAleatorio];
+
+            // Actualizar el estado del diálogo según la acción del usuario
+            if (Math.random() < 0.5) {
+                estadoDialogo = "accion1";
+            } else {
+                estadoDialogo = "accion2";
+            }
+
+            // Llamada a la función para revelar el Easter Egg
+            revelarEasterEgg();
+        }
+
+        // Función para revelar el Easter Egg
+        function revelarEasterEgg() {
+            var easterEggLink = document.getElementById("easterEggLink");
+            easterEggLink.style.display = "inline"; // Mostrar el enlace
+            easterEggLink.addEventListener("click", function() {
+                alert("Congratulations! You've uncovered the secret.");
+                // Puedes agregar más acciones al hacer clic en el enlace
+            });
         }
     </script>
 </body>
