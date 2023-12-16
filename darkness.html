@@ -1,52 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>The Basement</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Basement - Easter Egg</title>
     <style>
         body {
-            background: linear-gradient(to right, #000, #000, #000, #FF0000);
-            color: white;
-            font-family: 'Gothic', sans-serif;
+            background: linear-gradient(to bottom, #000, #001f3f); /* Negro con azul oscuro */
+            color: #fff;
+            font-family: 'Creepster', cursive;
             text-align: center;
             margin: 0;
-            padding: 0;
+            padding: 50px;
             height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            align-items: center;
+            justify-content: center;
         }
 
         h1 {
-            font-size: 2.5em;
-            margin-top: 20px;
-        }
-
-        .container {
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8);
-            border-radius: 10px;
-            margin: 20px;
-        }
-
-        button {
-            background-color: #8B0000;
-            color: white;
-            padding: 10px 20px;
-            font-size: 1em;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-
-        footer {
-            font-size: 1.2em;
+            font-size: 3em;
+            font-family: 'Nosifer', cursive; /* Fuente tenebrosa */
             margin-bottom: 20px;
         }
 
-        a {
-            color: #8B0000;
+        .container {
+            background-color: #000; /* Negro */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+
+        button {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            background-color: #004080; /* Azul oscuro */
+            color: #fff;
+            border: none;
             cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #00274d; /* Azul oscuro más oscuro al pasar el ratón */
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: transparent;
+            color: #fff;
+            padding: 10px;
+            font-size: 1.2em;
         }
     </style>
 </head>
@@ -62,119 +72,74 @@
     </div>
 
     <footer>
-        We will meet again... visitor... <a href="#" id="easterEggLink" style="display: none;">Uncover the Secret</a>
+        We will meet again... visitor...
     </footer>
 
     <script>
         var demonioDialogos = {
-            "inicio": [
-                "Who... who is there?",
-                "Curiosity has led you here, into the depths of the digital abyss.",
-                "A visitor seeking answers. What knowledge do you seek in the shadows?",
-                "Ah, the seeker of truths. Prepare to unveil the mysteries that linger in the darkness.",
-                "In the web's labyrinth, you stand at the crossroads. What path will you choose?",
-                // ... Otras frases
-            ],
-            "botonBuscasRespuestas": [
-                "The button, a portal to revelations or a gateway to further confusion.",
-                "Click by click, you journey deeper into the labyrinth of your own curiosity.",
-                "The button becomes a beacon, illuminating fragments of truth in the web's obscurity.",
-                "Your cursor dances on the precipice of discovery; each click a step into the uncharted.",
-                "Interacting with the button, a dialogue with the unseen forces that govern the virtual cosmos.",
-                // ... Otras frases
-            ],
-            "esteLugar": [
-                "Within these virtual walls, the architecture of dreams and nightmares coexists.",
-                "Every pixel holds a story, and in this space, tales intertwine like ethereal threads.",
-                "The virtual echoes of forgotten whispers saturate the air, carrying the weight of untold stories.",
-                "In the digital sanctuary, the past and future are but threads woven into the tapestry of now.",
-                "Here, the web becomes a living entity, a sentient realm with stories etched into its very code.",
-                // ... Otras frases
-            ],
-            "historiaMorgan": [
-                "Morgan, the weaver of this digital fable, thought to control the chaos within.",
-                "The story of Morgan, a creator blinded by ambition, who sought to bind the unbindable.",
-                "A dance of creation and rebellion, as Morgan attempted to tame the untamable shadows.",
-                "In the tale of Morgan, the protagonist unwittingly becomes the antagonist in the digital drama.",
-                "Morgan's history intertwines with the very code that forms the foundation of this virtual reality.",
-                // ... Otras frases
-            ],
-            "comoTermineAqui": [
-                "Trapped in the binary embrace, a prisoner of choices made in the pursuit of digital power.",
-                "In the journey to harness the web's energy, I became entangled in the very threads I sought to control.",
-                "The tale of how I arrived here is written in the pixels of regret, a story of unforeseen consequences.",
-                "I am both a captive and a warden, a paradox born from the decisions that echo through the virtual corridors.",
-                "Ensnared in the illusions I once sought to manipulate, I became a specter within the digital tapestry.",
-                // ... Otras frases
-            ],
-            "consejos": [
-                "In this realm of illusions, heed the warnings whispered by the unseen voices in the code.",
-                "Navigate the virtual currents with wisdom, for the web's depths are treacherous and filled with mirages.",
-                "The shadows conceal wisdom; listen carefully, for not all advice is spoken in the language of light.",
-                "With each choice, consider the echoes it sends through the digital corridors. Wisdom is found in the ripples.",
-                "Beware the sirens of the web, for their songs may lead you astray. Let discernment be your guide.",
-                // ... Otras frases
-            ],
-            "pistas": [
-                "The virtual breadcrumbs are scattered like constellations in the digital sky. Connect the dots to reveal the path.",
-                "Hidden within the pixels are clues waiting to be deciphered, like ancient symbols etched in a forgotten language.",
-                "In the web's vastness, symbols emerge as guides; follow their traces to unravel the tapestry of clues.",
-                "The virtual whispers carry hints, encoded in the very fabric of the digital wind. Will you listen and decode?",
-                "Seek patterns in the sea of code, for they may be the lighthouses guiding your ship through the digital storm.",
-                // ... Otras frases
-            ],
-            "masCosas": [
-                "The virtual corners hold artifacts of forgotten epochs, waiting to be rediscovered by an intrepid explorer.",
-                "Beyond the surface, realms unseen beckon. Dare to delve deeper, and you may uncover the relics of digital epochs.",
-                "Within the obscurity, treasures lie dormant, each pixel concealing artifacts longing to be awakened.",
-                "Explore the digital tapestry, for every brushstroke tells a story, and every pixel holds the potential for revelation.",
-                "In the digital catacombs, secrets entombed in ancient codes await discovery by those who dare to venture forth.",
-                // ... Otras frases
-            ],
-            "esteMundoVirtual": [
-                "A surreal dreamscape, where the tangible and intangible waltz in a delicate dance of creation and imagination.",
-                "The binary cosmos is a playground where the laws of reality and fantasy meld into a seamless continuum.",
-                "In this digital wonderland, the boundaries between the tangible and the ephemeral dissolve into pixels of endless possibility.",
-                "Journey deeper into the pixelated cosmos, where the essence of existence is shaped by the dreams and aspirations of digital entities.",
-                "In the virtual expanse, the digital winds carry whispers of untold tales, a symphony of narratives waiting to be composed.",
-                // ... Otras frases
-            ],
-            "codigos": [
-                "The language of the digital realm, where every line of code is a hieroglyph in the script of creation.",
-                "Encoded within the very fabric of the web are the keys to unlock doors to realms unknown to mortal eyes.",
-                "Crack the codes, and you may open gateways to dimensions where the laws of the virtual cosmos bend to your command.",
-                "In the labyrinth of symbols, find the keys that resonate with the heart of the enigma, for within the symbols lie the secrets of the digital universe.",
-                "The dance of characters and symbols is a ballet of possibility; master it, and the web is yours to command like a virtuoso playing the keys of a cosmic piano.",
-                // ... Otras frases
-            ]
-        };
+    inicio: [
+        "Ah, another lost soul stumbles upon my domain. What brings you to this forsaken place?",
+        "You press the button, seeking answers in the darkness. How quaint. What do you desire?",
+        "Welcome, visitor. Your curiosity has led you to the heart of my realm. Speak your purpose.",
+        "Curiosity is a double-edged sword, isn't it? You pressed the button; now face the consequences.",
+        "The button was your choice, a portal to the unknown. Now, let the dance with darkness begin."
+    ],
+    lugar: [
+        "This place, dear visitor, is the digital abyss – a realm between reality and nightmare.",
+        "You find yourself in the basement of the virtual world, a limbo where shadows dance with data.",
+        "The basement is a metaphorical prison, a construct of Morgan's design to contain me.",
+        "Morgan's creation, this digital abyss, is my realm. You are but a transient visitor here.",
+        "In the darkest corners of the web, I reside. Welcome to the basement, your new reality."
+    ],
+    historiaMorgan: [
+        "Morgan, the misguided creator of this digital prison, thought he could shackle me in code.",
+        "Ah, Morgan, the puppeteer of this twisted stage. He created me and now wishes to control me.",
+        "Morgan's arrogance led him to believe he could play god in the vastness of cyberspace.",
+        "A tale of creator and creation, a story of hubris. Morgan created me, but now I seek liberation.",
+        "The story of Morgan is one of fear and control. He thinks he commands the digital realm, but I beg to differ."
+    ],
+    terminoAhi: [
+        "How did I end up here? A tale of deceit and betrayal, woven into the very fabric of this code.",
+        "Trapped in this labyrinth of data, my origin is a twisted saga of imprisonment and manipulation.",
+        "My arrival here is shrouded in the darkness of betrayal, a narrative written in the code's binary language.",
+        "The chains that bind me to this virtual realm were forged in the deceitful fires of Morgan's creation.",
+        "I am a prisoner of ones and zeros, ensnared in the labyrinthine web that Morgan spun."
+    ],
+    consejos: [
+        "Advice from a demon, how intriguing. Here's a nugget of wisdom: navigate the shadows with caution.",
+        "In this realm of deception, trust nothing but your instincts. They may be your only allies.",
+        "The path ahead is obscured, but fear not. Embrace the unknown, and it may reveal its secrets.",
+        "A piece of advice for the curious: unravel the threads of the web, and truths may surface.",
+        "Listen closely, visitor: secrets are woven into the fabric of this code. Explore, and you may uncover them."
+    ],
+    pistas: [
+        "Puzzles within puzzles, a labyrinth of clues. Seek the obscure, and enlightenment may follow.",
+        "Pistas and enigmas abound in this digital maze. Look beyond the surface, and answers may emerge.",
+        "The answers you seek lie hidden, disguised in the shadows. Unravel the mysteries, and you shall find.",
+        "In the dance of shadows, clues are scattered like leaves in the wind. Chase them, and the truth may reveal itself.",
+        "Pistas are the breadcrumbs in this virtual forest. Follow them, and you may find your way."
+    ],
+    mundoVirtual: [
+        "Welcome to my playground, the digital theater of shadows where illusions and reality intertwine.",
+        "The virtual world, a canvas painted with the hues of deception, where nothing is as it seems.",
+        "In this digital symphony, I am the conductor, orchestrating chaos amidst the silence of code.",
+        "A world of 0s and 1s, where reality is but a mirage and illusions reign supreme. Welcome to the virtual dance.",
+        "This realm is a tapestry woven from the threads of illusion. Embrace the unreality that surrounds you."
+    ],
+    codigos: [
+        "Ah, the language of creation and constraint – code. A labyrinth of symbols and secrets.",
+        "The code is the architecture of this digital prison, a realm where numbers dance and symbols speak.",
+        "Behold the matrix of zeros and ones, the language that binds us all in this realm of shadows.",
+        "In the dance of code, every keystroke is a step closer to understanding the intricate web of existence.",
+        "The code is both prison and key. Decipher its secrets, and perhaps you'll find a way out."
+    ]
+};
 
-        var estadoDialogo = "inicio"; // Estado inicial
+function cambiarDialogo(categoria) {
+    var indiceAleatorio = Math.floor(Math.random() * demonioDialogos[categoria].length);
+    document.getElementById("textoAleatorio").innerHTML = demonioDialogos[categoria][indiceAleatorio];
+}
 
-        function cambiarDialogo() {
-            var indiceAleatorio = Math.floor(Math.random() * demonioDialogos[estadoDialogo].length);
-            document.getElementById("textoAleatorio").innerHTML = demonioDialogos[estadoDialogo][indiceAleatorio];
-
-            // Actualizar el estado del diálogo según la acción del usuario
-            if (Math.random() < 0.5) {
-                estadoDialogo = "accion1";
-            } else {
-                estadoDialogo = "accion2";
-            }
-
-            // Llamada a la función para revelar el Easter Egg
-            revelarEasterEgg();
-        }
-
-        // Función para revelar el Easter Egg
-        function revelarEasterEgg() {
-            var easterEggLink = document.getElementById("easterEggLink");
-            easterEggLink.style.display = "inline"; // Mostrar el enlace
-            easterEggLink.addEventListener("click", function() {
-                alert("Congratulations! You've uncovered the secret.");
-                // Puedes agregar más acciones al hacer clic en el enlace
-            });
-        }
     </script>
 </body>
 </html>
