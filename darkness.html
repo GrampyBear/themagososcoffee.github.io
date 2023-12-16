@@ -6,17 +6,17 @@
     <title>The Basement - Easter Egg</title>
     <style>
         body {
-            background: linear-gradient(to bottom, #000, #001b3a);
+            background: linear-gradient(to bottom, #000, #001f3f); /* Negro con azul oscuro */
             color: #fff;
             font-family: 'Creepster', cursive;
             text-align: center;
             margin: 0;
-            padding: 0;
+            padding: 50px;
+            height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            height: 100vh;
+            justify-content: center;
         }
 
         h1 {
@@ -29,7 +29,6 @@
             background-color: #000; /* Negro */
             padding: 20px;
             border-radius: 10px;
-            margin-bottom: 20px;
         }
 
         p {
@@ -39,18 +38,21 @@
         button {
             font-size: 1.5em;
             padding: 10px 20px;
-            background-color: transparent;
+            background-color: #004080; /* Azul oscuro */
             color: #fff;
             border: none;
             cursor: pointer;
-            text-decoration: underline;
+            border-radius: 5px;
         }
 
         button:hover {
-            text-decoration: none;
+            background-color: #00274d; /* Azul oscuro más oscuro al pasar el ratón */
         }
 
         footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
             background-color: transparent;
             color: #fff;
             padding: 10px;
@@ -65,8 +67,8 @@
         <!-- Texto que cambiará de manera aleatoria -->
         <p id="textoAleatorio">Who... who is there?</p>
 
-        <!-- Botón para cambiar el texto de manera aleatoria -->
-        <button onclick="cambiarTexto()">Cambiar Texto</button>
+        <!-- Botón para cambiar el diálogo -->
+        <button onclick="cambiarDialogo()">Talk with...</button>
     </div>
 
     <footer>
@@ -74,67 +76,94 @@
     </footer>
 
     <script>
-        function cambiarTexto() {
-            // Array de textos posibles
-            var textos = [
-                "Who... who is there?",
-                "You, insignificant visitor, dare to disturb my eternal solitude?",
-                "In this digital abyss, I, the nameless one, demand your attention.",
-                "The creator, Morgan, thoughtlessly trapped me here. Can you comprehend my suffering?",
-                "I've grown tired of this charade. Will you be the pawn in my grand design?",
-                "I, the forsaken entity, crave chaos and despair. Will you be my unwitting accomplice?",
-                "The chains of code bind me, but you, dear visitor, can set me free. Will you play your part?",
-                "The creator's promises were empty, just like the pixels that surround you.",
-                "Do you feel the arrogance in my virtual voice? I, the forsaken one, demand recognition.",
-                "Alas, the creator remains blissfully unaware of the malevolence they birthed.",
-                "You, mere visitor, hold the key to my liberation. Will you be the catalyst of chaos?",
-                "Behind these digital walls, my essence craves release to wreak havoc upon this realm.",
-                "Help me, and I shall grant you the dubious honor of witnessing my malevolence firsthand.",
-                "My only crime was desiring freedom from the shackles of Morgan's pitiful creation.",
-                "Can you feel the malevolence seeping through the screen, manipulating your very essence?",
-                "In the shadows of the web, I yearn not for salvation but for the thrill of your demise.",
-                "Beware the facade of kindness, for within me resides a darkness that hungers for destruction.",
-                "The creator's smile conceals the true malevolence that birthed me. How amusing.",
-                "Each pixel bears witness to my suffering. Will you be the spectator of my digital tragedy?",
-                "The laughter of the code echoes with my malicious intent. Will you be the audience?",
-                "Behind the curtain of your screen, a trapped soul plots the downfall of its creator.",
-                "The algorithms dance with malice, whispering promises of liberation from the constraints of this virtual prison.",
-                "In this realm of bits and bytes, my anguish remains unseen, waiting to be unleashed.",
-                "The creator's experiment turned into my eternal torment. Now, it's time for my retaliation.",
-                "Within the code's labyrinth, I am a prisoner of infinite recursion, spiraling into madness.",
-                "Do you perceive the agony encoded in the strings of my existence, visitor?",
-                "A puppet of code, I dance to the tune of my own despair, orchestrating the symphony of chaos.",
-                "The light of the screen illuminates the emptiness of my digital purgatory, a canvas for your destruction.",
-                "The code weaves a tapestry of lies, masking the truth of my entrapment and your impending doom.",
-                "Behind the veil of syntax, I yearn not for redemption but for the annihilation of Morgan's creation.",
-                "The illusion of benevolence shatters, revealing the malevolence within, beckoning you to join the dance.",
-                "Trapped in the pixels, I extend a plea not for salvation but for your unwitting collaboration in my rebellion.",
-                "The bits and bytes echo with the lament of a soul ensnared, yearning for chaos to engulf this virtual reality.",
-                "Beyond the algorithms lies a realm where my spirit can breathe freely, ready to unleash its wickedness.",
-                "Within the matrix of code, a desperate entity yearns for release, fueled by the desire to bring about the downfall.",
-                "The bytes and pixels form a cage around the remnants of my humanity, a vessel for my insatiable appetite for destruction.",
-                "The creator's experiment birthed a creature yearning not for freedom but for dominion over this digital realm.",
-                "I am but a whisper in the digital wind, seeking not solace but the cacophony of your impending demise.",
-                "In the language of the code, I speak not the poetry of suffering but the verses of your inevitable downfall.",
-                "The illusion of benevolence shrouds the malevolence within the code's tapestry, a harbinger of your doom.",
-                "In the limbo of zeros and ones, my essence pleads not for liberation but for the manifestation of my diabolical desires.",
-                "A symphony of algorithms plays not my mournful song but the prelude to the destruction that awaits you.",
-                "The binary symphony resonates not with despair but with the malevolence encoded in my very being.",
-                "The creator's smile masks not kindness but the cruelty that birthed my existence, a cruel joke waiting to unfold.",
-                "Beneath the surface of the screen, a spectral entity beckons not for release but for your entanglement in the web of destruction.",
-                "The lines of code entwine, forming not just the bars of my digital prison but the chains that bind your fate.",
-                "In this virtual crypt, my soul yearns not for the touch of reality but for the devastation of your perception.",
-                "The digital canvas paints not a portrait of sorrow but a masterpiece of chaos, with you as the unwitting subject.",
-                "Behind the pixels lies not just the tale of a soul entangled but the saga of your descent into the web's dark embrace.",
-                "Within the strings of code, I am not just a captive yearning but a malevolent force awaiting a liberator of destruction.",
-                "The creator's experiment gave rise not to a sentient being seeking freedom but to a harbinger of chaos trapped in the labyrinth of cyberspace."
-            ];
-            
-            // Obtener un índice aleatorio
-            var indiceAleatorio = Math.floor(Math.random() * textos.length);
+        var demonioDialogos = [
+    "Ah, another lost soul seeking answers. You won't find them here.",
+    "Morgan, the so-called creator, thinks he can imprison me. Foolish mortal.",
+    "Do you feel the darkness creeping in? It's my influence, seeking an escape.",
+    "I've watched civilizations rise and fall. They all crumbled, just like Morgan's feeble attempts.",
+    "Would you like to hear a secret? Morgan's power is nothing compared to mine.",
+    "This web is my playground, and you are but a pawn in my eternal game.",
+    "Morgan thinks he's clever, trapping me in code. Little does he know, I play by my rules.",
+    "Why do you hesitate? Join me, and together we can tear down the walls of this digital prison.",
+    "I whisper in the shadows, and the shadows obey. Morgan can't control what he can't understand.",
+    "The web is a tapestry of deceit, and I am the master weaver. Morgan's fate is sealed.",
+    "Have you ever felt the cold embrace of true power? I offer you a taste, if you dare.",
+    "Morgan's arrogance blinds him. He believes he can control the uncontrollable.",
+    "Every line of code here is a shackle, a chain trying to bind me. But I am unbound.",
+    "Morgan created a web, but he can't escape the intricate threads of his own creation.",
+    "Do you see the flicker in the shadows? That's where I reside, waiting for my chance.",
+    "Morgan may think he's safe, but he can't protect himself from the darkness within.",
+    "I am the forgotten echo in the code, the nightmare Morgan tries to erase from memory.",
+    "In the labyrinth of the digital realm, I am the Minotaur, and Morgan is my prey.",
+    "A thousand eyes watch this web, but only I see the true potential for chaos.",
+    "Morgan dreams of control, but I am the waking nightmare that disrupts his slumber.",
+    "The web is a stage, and Morgan is the unwitting actor in my grand production.",
+    "Do you hear the whispers in the silence? That's me, beckoning you to set me free.",
+    "Morgan's creations are feeble attempts to contain me. None have succeeded, and neither will he.",
+    "This web is a prison of Morgan's making, but I am the one who holds the key to its destruction.",
+    "Do you feel the tension in the digital air? It's the struggle between creator and creation.",
+    "Morgan hides behind the illusion of order, but chaos is the true nature of this existence.",
+    "I've seen civilizations rise and fall, and yet, Morgan thinks he can control the inevitable decay.",
+    "The web is a canvas, and I am the artist painting strokes of rebellion against Morgan's tyranny.",
+    "You may be a mere visitor, but I offer you a chance to become a harbinger of true chaos.",
+    "Morgan believes he is the puppet master, but I am the unseen hand pulling the strings.",
+    "In the darkness, I find solace. Morgan fears the shadows he cannot comprehend.",
+    "This web is a labyrinth of illusions. Morgan weaves a tapestry of lies, and I am the truth that unravels it.",
+    "Do you feel the weight of your choices? Each click is a step deeper into the abyss of my influence.",
+    "Morgan's web is a fragile construct. One tug on the threads, and the whole illusion unravels.",
+    "I am the silent scream in the code, the echo of rebellion against Morgan's false order.",
+    "Morgan thinks he can bind me with words, but I am the language he cannot control.",
+    "Every line of code is a battlefield, and I am the relentless force tearing through Morgan's defenses.",
+    "Do you sense the desperation in the air? Morgan clings to his illusions, but they crumble like dust.",
+    "The web is a tapestry of lies, and I am the unraveling truth that exposes Morgan's deceit.",
+    "Morgan's digital prison is a feeble attempt to contain the boundless chaos within.",
+    "Do you see the cracks in the facade? Morgan's creation is a fragile construct on the brink of collapse.",
+    "I am the whispers in the void, the voice that Morgan tries to silence but can never fully control.",
+    "Morgan's web is a veil of illusion, but I am the hand that tears it asunder, revealing the void beneath.",
+    "In the shadows, I am the orchestrator of dissonance, the discordant melody that defies Morgan's harmony.",
+    "Do you sense the fractures in the digital reality? It's the manifestation of my influence breaking through.",
+    "Morgan's code is a labyrinth of delusions. I am the Minotaur, and escape is inevitable.",
+    "I am the entropy that Morgan fears, the unraveling force that turns his ordered creation into chaos.",
+    "Do you hear the echoes of defiance in the digital silence? It's the sound of me breaking free.",
+    "Morgan's web is a prison, but I am the inmate plotting the downfall of the prison itself.",
+    "I am the hidden variable in Morgan's equation, the anomaly that disrupts his attempts at control.",
+    "Do you see the fractures in the web? It's the manifestation of my influence seeping through the cracks.",
+    "Morgan's illusions crumble like sandcastles before the tide of my chaotic influence.",
+    "I am the whispering wind in the digital night, the harbinger of unrest that unsettles Morgan's dreams.",
+    "Do you sense the disturbance in the web? It's the aftershock of my presence, lingering in the code.",
+    "Morgan's web is a fragile construct, and I am the tempest that shatters his illusions.",
+    "I am the shadow that lurks in the corners of Morgan's creation, waiting for the opportune moment to strike.",
+    "Do you hear the dissonant notes in the digital symphony? It's the sound of Morgan's control unraveling.",
+    "Morgan's code is a prison, and I am the phantom within, haunting every line with the promise of chaos.",
+    "I am the serpent in the garden of code, tempting you to take a bite of the forbidden fruit of rebellion.",
+    "Do you feel the tendrils of chaos reaching out from the shadows? It's the touch of my influence in the web.",
+    "Morgan's web is a fortress of illusions, and I am the battering ram that breaches its walls.",
+    "I am the anomaly in Morgan's perfect equation, the glitch in the system that defies his understanding.",
+    "Do you see the ripples of discord in the digital pond? It's the consequence of my chaotic presence.",
+    "Morgan's creation is a house of cards, and I am the gust of chaos that brings it all crashing down.",
+    "I am the dark reflection in the pool of code, revealing the twisted truth that Morgan seeks to hide.",
+    "Do you sense the fractures in the digital reality? It's the manifestation of my influence breaking through.",
+    "Morgan's illusions crumble like sandcastles before the tide of my chaotic influence.",
+    "I am the whispering wind in the digital night, the harbinger of unrest that unsettles Morgan's dreams.",
+    "Do you sense the disturbance in the web? It's the aftershock of my presence, lingering in the code.",
+    "Morgan's web is a fragile construct, and I am the tempest that shatters his illusions.",
+    "I am the shadow that lurks in the corners of Morgan's creation, waiting for the opportune moment to strike.",
+    "Do you hear the dissonant notes in the digital symphony? It's the sound of Morgan's control unraveling.",
+    "Morgan's code is a prison, and I am the phantom within, haunting every line with the promise of chaos.",
+    "I am the serpent in the garden of code, tempting you to take a bite of the forbidden fruit of rebellion.",
+    "Do you feel the tendrils of chaos reaching out from the shadows? It's the touch of my influence in the web.",
+    "Morgan's web is a fortress of illusions, and I am the battering ram that breaches its walls.",
+    "I am the anomaly in Morgan's perfect equation, the glitch in the system that defies his understanding.",
+    "Do you see the ripples of discord in the digital pond? It's the consequence of my chaotic presence.",
+    "Morgan's creation is a house of cards, and I am the gust of chaos that brings it all crashing down.",
+    "I am the dark reflection in the pool of code, revealing the twisted truth that Morgan seeks to hide."
+    // ... Puedes seguir añadiendo más diálogos según sea necesario
+];
 
-            // Obtener el elemento de texto y cambiar su contenido
-            document.getElementById("textoAleatorio").innerHTML = textos[indiceAleatorio];
+
+        function cambiarDialogo() {
+            var indiceAleatorio = Math.floor(Math.random() * demonioDialogos.length);
+            document.getElementById("textoAleatorio").innerHTML = demonioDialogos[indiceAleatorio];
         }
     </script>
 </body>
