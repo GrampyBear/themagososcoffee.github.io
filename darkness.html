@@ -6,7 +6,7 @@
     <title>The Basement</title>
     <style>
         body {
-            background: linear-gradient(to bottom, #2c2c2c, #000000);
+            background: linear-gradient(to bottom, #1a1a1a, #000000);
             color: #fff;
             font-family: 'Creepster', cursive;
             text-align: center;
@@ -28,15 +28,17 @@
         }
 
         .container {
-            background-color: #4d4d4d;
+            background-color: #333; /* Gris oscuro para el contenedor principal */
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 15px;
             position: relative;
             z-index: 1;
         }
 
         p {
             font-size: 1.2em;
+            line-height: 1.5em;
+            margin-bottom: 20px;
         }
 
         button {
@@ -82,7 +84,7 @@
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-10px);
+                transform: translateY(-15px);
             }
         }
 
@@ -91,7 +93,7 @@
                 transform: translateX(0);
             }
             50% {
-                transform: translateX(1px);
+                transform: translateX(2px);
             }
         }
     </style>
@@ -175,7 +177,7 @@
         }
 
         // Crear partículas de polvo
-        for (let i = 0; i < 150; i++) {
+        for (let i = 0; i < 200; i++) {
             createParticle();
         }
 
@@ -186,14 +188,13 @@
             var container = document.getElementById("particles-container");
             container.appendChild(particle);
 
-            // Posición aleatoria en el contenedor
+            // Posición aleatoria en la ventana completa
             var posX = Math.random() * window.innerWidth;
             var posY = Math.random() * window.innerHeight;
 
             // Asignar posición inicial
             particle.style.left = posX + "px";
             particle.style.top = posY + "px";
-            
         }
     </script>
 </body>
