@@ -67,6 +67,20 @@
             font-size: 1.2em;
         }
 
+                .back-to-button {
+            position: fixed;
+            bottom: 60px; /* Ajusta la posición según tus preferencias */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(139, 69, 19, 0.5); /* Semi-transparente */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 2;
+        }
+
         /* Estilo de las partículas */
         .particle {
             position: fixed;
@@ -113,6 +127,9 @@
 
         <!-- Contenedor de partículas de polvo en movimiento -->
         <div id="particles-container"></div>
+
+        <!-- Botón "Back to..." -->
+    <button class="back-to-button" onclick="cerrarPagina()">Back to...</button>
     
     <footer>
         We will meet again... visitor...
@@ -196,6 +213,11 @@
             // Asignar posición inicial
             particle.style.left = posX + "px";
             particle.style.top = posY + "px";
+        }
+
+                // Función para cerrar la página
+        function cerrarPagina() {
+            window.close();
         }
     </script>
 </body>
