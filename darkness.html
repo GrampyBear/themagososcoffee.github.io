@@ -68,6 +68,31 @@
             padding: 10px;
             font-size: 1.2em;
         }
+
+                /* Estilo de las partículas */
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: #fff;
+            border-radius: 50%;
+            opacity: 0.7;
+            pointer-events: none;
+            animation: float linear infinite;
+        }
+
+        /* Animación de las partículas */
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -145,6 +170,27 @@
             var categoriaAleatoria = Object.keys(categoriasDialogos)[Math.floor(Math.random() * Object.keys(categoriasDialogos).length)];
             var indiceAleatorio = Math.floor(Math.random() * categoriasDialogos[categoriaAleatoria].length);
             document.getElementById("textoAleatorio").innerHTML = categoriasDialogos[categoriaAleatoria][indiceAleatorio];
+        }
+
+                // Crear partículas de polvo
+        for (let i = 0; i < 50; i++) {
+            createParticle();
+        }
+
+        // Función para crear una partícula
+        function createParticle() {
+            var particle = document.createElement("div");
+            particle.className = "particle";
+            var container = document.getElementById("particles-container");
+            container.appendChild(particle);
+
+            // Posición aleatoria en el contenedor
+            var posX = Math.random() * container.offsetWidth;
+            var posY = Math.random() * container.offsetHeight;
+
+            // Asignar posición inicial
+            particle.style.left = posX + "px";
+            particle.style.top = posY + "px";
         }
     </script>
 </body>
