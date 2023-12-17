@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Basement</title>
-<style>
+    <style>
         body {
             background: linear-gradient(to bottom, #2c2c2c, #000000);
             color: #fff;
@@ -33,7 +33,6 @@
             border-radius: 10px;
             position: relative;
             z-index: 1;
-            overflow: hidden; /* Añadido para asegurar que las partículas no se desborden */
         }
 
         p {
@@ -65,26 +64,34 @@
             font-size: 1.2em;
         }
 
+        /* Estilo de las partículas */
         .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
+            position: fixed;
+            width: 2px;
+            height: 2px;
             background-color: #fff;
             border-radius: 50%;
-            opacity: 0.7;
+            opacity: 0.4;
             pointer-events: none;
-            animation: float linear infinite;
+            animation: float linear infinite, drift linear infinite;
         }
 
+        /* Animación de las partículas */
         @keyframes float {
-            0% {
+            0%, 100% {
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-20px);
+                transform: translateY(-10px);
             }
-            100% {
-                transform: translateY(0);
+        }
+
+        @keyframes drift {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(1px);
             }
         }
     </style>
@@ -99,10 +106,11 @@
         <!-- Botón para cambiar el diálogo -->
         <button onclick="cambiarDialogo()">Talk with...</button>
 
-        <!-- Contenedor de partículas de polvo en movimiento -->
-        <div id="particles-container"></div>
     </div>
 
+        <!-- Contenedor de partículas de polvo en movimiento -->
+        <div id="particles-container"></div>
+    
     <footer>
         We will meet again... visitor...
     </footer>
@@ -166,8 +174,8 @@
             document.getElementById("textoAleatorio").innerHTML = categoriasDialogos[categoriaAleatoria][indiceAleatorio];
         }
 
-                // Crear partículas de polvo
-        for (let i = 0; i < 50; i++) {
+        // Crear partículas de polvo
+        for (let i = 0; i < 150; i++) {
             createParticle();
         }
 
@@ -179,8 +187,8 @@
             container.appendChild(particle);
 
             // Posición aleatoria en el contenedor
-            var posX = Math.random() * container.offsetWidth;
-            var posY = Math.random() * container.offsetHeight;
+            var posX = Math.random() * window.innerWidth;
+            var posY = Math.random() * window.innerHeight;
 
             // Asignar posición inicial
             particle.style.left = posX + "px";
