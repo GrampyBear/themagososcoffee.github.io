@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Basement</title>
-    <style>
+<style>
         body {
-            background: linear-gradient(to bottom, #2c2c2c, #000000); /* Colores oscuros para simular un sótano */
+            background: linear-gradient(to bottom, #2c2c2c, #000000);
             color: #fff;
             font-family: 'Creepster', cursive;
             text-align: center;
@@ -24,13 +24,16 @@
             font-size: 3em;
             font-family: 'Nosifer', cursive;
             margin-bottom: 20px;
-            color: #8b4513; /* Color marrón oscuro para el título */
+            color: #8b4513;
         }
 
         .container {
-            background-color: #4d4d4d; /* Gris oscuro para el contenedor principal */
+            background-color: #4d4d4d;
             padding: 20px;
             border-radius: 10px;
+            position: relative;
+            z-index: 1;
+            overflow: hidden; /* Añadido para asegurar que las partículas no se desborden */
         }
 
         p {
@@ -40,7 +43,7 @@
         button {
             font-size: 1.5em;
             padding: 10px 20px;
-            background-color: #8b4513; /* Marrón oscuro para el botón */
+            background-color: #8b4513;
             color: #fff;
             border: none;
             cursor: pointer;
@@ -49,7 +52,7 @@
         }
 
         button:hover {
-            background-color: #703b19; /* Marrón más oscuro al pasar el ratón */
+            background-color: #703b19;
         }
 
         footer {
@@ -62,11 +65,10 @@
             font-size: 1.2em;
         }
 
-                /* Estilo de las partículas */
         .particle {
             position: absolute;
-            width: 2px;
-            height: 2px;
+            width: 4px;
+            height: 4px;
             background-color: #fff;
             border-radius: 50%;
             opacity: 0.7;
@@ -74,7 +76,6 @@
             animation: float linear infinite;
         }
 
-        /* Animación de las partículas */
         @keyframes float {
             0% {
                 transform: translateY(0);
