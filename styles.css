@@ -1,103 +1,33 @@
-body {
-    transition: background 10s ease;
-    font-family: 'Comic Sans MS', cursive;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    color: white;
-    position: relative;
+* {
+  font-family: cursive;
 }
 
 header {
-    background: linear-gradient(to bottom, #ffffff, #A6ACAF);
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 2; /* Set a higher z-index for the header */
-}
-
-.logo-container {
-    margin-right: auto;
-    margin-left: 10px;
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .logo {
-    width: 120px;
+  width: 100px;
 }
 
-.header-title {
-    color: black;
+.title {
+  font-size: 2em;
 }
 
-.sections-container {
-    position: relative;
-    z-index: 2; /* Ensure sections appear above stars */
+.extra {
+  font-size: 1.5em;
 }
 
-/* Content Container Styles */
-.content-container {
-    position: relative;
-    z-index: 2; /* Ensure content is above stars */
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Section Styles */
-.section {
-    display: none;
-    background: rgba(0, 0, 0, 0.8); /* Adjust as needed */
-    border: 2px solid black; /* Adjust as needed */
-    border-radius: 10px;
-    padding: 20px;
-    color: #fff;
-    width: 80%; /* Adjust as needed */
-    margin: 20px 0; /* Adjust as needed */
-    text-align: center;
-}
-
-.section-title {
-    font-size: 24px; /* Adjust as needed */
-    margin-bottom: 10px;
-}
-
-
-.time-box {
-    text-align: center;
-    margin-left: auto;
-    padding: 10px;
-    border: 2px solid #fff;
-    border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff; /* Set text color to white */
-}
-
-.time-text {
-    color: #fff;
+main {
+  padding: 20px;
 }
 
 footer {
-    background: linear-gradient(to bottom, #333333, #000000);
-    padding: 20px;
-    text-align: center;
-    margin-top: auto;
-    z-index: 1; /* Set a lower z-index for the footer */
-    margin-bottom: 0;
-}
-
-.footer-text {
-    color: white;
-}
-
-.social-icons a {
-    margin: 0 10px;
-    text-decoration: none;
-}
-
-.social-icons img {
-    width: 20px;
+  background-color: #fff;
+  color: #000;
+  padding: 20px;
 }
