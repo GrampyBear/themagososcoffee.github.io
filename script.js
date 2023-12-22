@@ -1,13 +1,58 @@
-function showMessage() {
-  alert("Disclaimer!\n\nHey hello! This page contains information and content that may not be suitable for all audiences, rated +18. As a creator, I am not responsible for any discomfort you may feel. These are my personal preferences, and they harm no one. I hope you enjoy your stay!");
-}
+document.addEventListener('DOMContentLoaded', function () {
+    // Get the clock element
+    var clockElement = document.getElementById('clock');
 
-document.querySelector(".header .extra").addEventListener("click", showMessage);
+    // Function to get the current time and day moment
+    function getTimeAndDayMoment() {
+        var currentDate = new Date();
+        var hours = currentDate.getHours();
+        var minutes = currentDate.getMinutes();
+        var seconds = currentDate.getSeconds();
 
-const phrases = ["Este es un mundo de gordos", "La grasa es bella", "No te avergüences de tu cuerpo", "El amor no tiene talla"];
+        // Determine the day moment
+        var dayMoment = getDayMoment(hours);
 
-const randomPhrase = () => phrases[Math.floor(Math.random() * phrases.length)];
+        // Format the current time
+        var formattedTime = formatTime(hours, minutes, seconds);
 
-document.querySelector(".phrases p").innerHTML = randomPhrase();
+        // Display the result in the clock element
+        clockElement.textContent = formattedTime + ' ' + dayMoment;
 
-setInterval(randomPhrase, 5000);
+        // Update every second
+        setTimeout(getTimeAndDayMoment, 1000);
+    }
+
+    // Function to get the day moment
+    function getDayMoment(hours) {
+        if (hours >= 5 && hours < 7) {
+            return 'Dawn';
+        } else if (hours >= 7 && hours < 12) {
+            return 'Morning';
+        } else if (hours >= 12 && hours < 14) {
+            return 'Midday';
+        } else if (hours >= 14 && hours < 18) {
+            return 'Afternoon';
+        } else if (hours >= 18 && hours < 20) {
+            return 'Dusk';
+        } else if (hours >= 20 && hours < 24) {
+            return 'Night';
+        } else {
+            return 'Midnight';
+        }
+    }
+
+    // Function to format the time
+    function formatTime(hours, minutes, seconds) {
+        return (
+            padZero(hours) + ':' + padZero(minutes) + ':' + padZero(seconds)
+        );
+    }
+
+    // Function to pad zero to the left if necessary
+    function padZero(number) {
+        return number < 10 ? '0' + number : number;
+    }
+
+    // Start the clock
+    getTimeAndDayMoment();
+});
