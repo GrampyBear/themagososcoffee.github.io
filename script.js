@@ -8,6 +8,6 @@ const phrases = ["Este es un mundo de gordos", "La grasa es bella", "No te averg
 
 const randomPhrase = () => phrases[Math.floor(Math.random() * phrases.length)];
 
-document.querySelector(".phrases").innerHTML = randomPhrase();
+document.querySelector(".phrases p").innerHTML = randomPhrase();
 
 setInterval(randomPhrase, 5000);
