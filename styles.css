@@ -17,14 +17,19 @@ header {
   margin: 0 auto;
 }
 
-.header-left,
-.header-center,
-.header-right {
-  width: 33.333333%;
+.header-left {
+  text-align: center;
+  display: flex;
 }
 
-.header-left,
-.header-center,
+.header-left img {
+  width: 100px;
+}
+
+.header-center {
+  text-align: center;
+}
+
 .header-right {
   text-align: center;
 }
