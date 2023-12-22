@@ -3,3 +3,11 @@ function showMessage() {
 }
 
 document.querySelector(".header .extra").addEventListener("click", showMessage);
+
+const phrases = ["Este es un mundo de gordos", "La grasa es bella", "No te avergüences de tu cuerpo", "El amor no tiene talla"];
+
+const randomPhrase = () => phrases[Math.floor(Math.random() * phrases.length)];
+
+document.querySelector(".phrases").innerHTML = randomPhrase();
+
+setInterval(randomPhrase, 5000);
