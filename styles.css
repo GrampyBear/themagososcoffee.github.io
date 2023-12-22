@@ -17,16 +17,22 @@ header {
   margin: 0 auto;
 }
 
-.logo {
-  width: 100px;
+.header-left,
+.header-center,
+.header-right {
+  width: 33.333333%;
 }
 
-.title {
+.header-left {
+  text-align: center;
+}
+
+.header-center {
   font-size: 2em;
 }
 
-.extra {
-  font-size: 1.5em;
+.header-right {
+  text-align: right;
 }
 
 main {
@@ -39,4 +45,14 @@ footer {
   padding: 20px;
   position: sticky;
   bottom: 0;
+}
+
+.phrases {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.phrases li {
+  display: inline-block;
+  margin-right: 10px;
 }
