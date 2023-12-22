@@ -1,10 +1,10 @@
 body {
-    font-family: 'Pacifico', cursive; /* Cambia 'Pacifico' por la fuente cursiva navideña que prefieras */
+    font-family: 'Dancing Script', cursive;
     margin: 0;
 }
 
 header {
-    background: linear-gradient(#ffffff, #f0f0f0);
+    background-image: linear-gradient(to bottom, #ffffff, #f0f0f0);
     text-align: center;
     padding: 20px;
     display: flex;
@@ -13,13 +13,13 @@ header {
 }
 
 header h1 {
-    font-family: 'Pacifico', cursive; /* Aplicamos la fuente cursiva también al título */
+    font-family: 'Dancing Script', cursive;
     color: #333;
     margin: 0;
 }
 
 header img {
-    max-width: 80px; /* Ajusta el tamaño del logo según sea necesario */
+    max-width: 80px;
 }
 
 main {
@@ -28,7 +28,7 @@ main {
 }
 
 footer {
-    background: linear-gradient(#000, #333);
+    background-image: linear-gradient(to bottom, #000, #333);
     text-align: center;
     padding: 10px;
     position: fixed;
@@ -46,13 +46,13 @@ footer p {
 }
 
 .social-links a {
-    margin: 0 5px; /* Ajusta el margen entre los íconos */
+    margin: 0 5px;
     text-decoration: none;
     color: #fff;
-    display: inline-block; /* Alinea los íconos en línea */
+    display: inline-block;
 }
 
 .social-links img {
-    max-width: 20px; /* Ajusta el tamaño de los íconos según sea necesario */
+    max-width: 20px;
     height: auto;
 }
