@@ -23,16 +23,10 @@ header {
   width: 33.333333%;
 }
 
-.header-left {
-  text-align: center;
-}
-
-.header-center {
-  font-size: 2em;
-}
-
+.header-left,
+.header-center,
 .header-right {
-  text-align: right;
+  text-align: center;
 }
 
 main {
