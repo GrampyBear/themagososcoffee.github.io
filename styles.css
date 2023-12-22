@@ -4,7 +4,7 @@ body {
 }
 
 header {
-    background-image: linear-gradient(to bottom, #ffffff, #b5b5b5);
+    background-image: linear-gradient(to bottom, #ffffff, #f0f0f0);
     text-align: center;
     padding: 20px;
     display: flex;
@@ -17,6 +17,17 @@ header {
     position: absolute;
     left: 20px;
     font-size: 16px;
+}
+
+/* Nuevo estilo para el contenedor del reloj */
+#clock-container {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background-color: rgba(0, 0, 0, 0.8); /* Negro con opacidad del 80% */
+    color: #fff;
+    padding: 10px;
+    border: 1px solid #000;
 }
 
 header h1 {
