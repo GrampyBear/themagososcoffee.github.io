@@ -27,6 +27,12 @@ main {
     text-align: center;
 }
 
+.footer-container {
+    background-image: linear-gradient(to bottom, #000, #333);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
 footer {
     background-image: linear-gradient(to bottom, #333, #000);
     text-align: center;
