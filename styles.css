@@ -4,7 +4,7 @@ body {
 }
 
 header {
-    background-image: linear-gradient(to bottom, #ffffff, #f0f0f0);
+    background-image: linear-gradient(to bottom, #ffffff, #b5b5b5);
     text-align: center;
     padding: 20px;
     display: flex;
@@ -28,7 +28,7 @@ main {
 }
 
 footer {
-    background-image: linear-gradient(to bottom, #000, #333);
+    background-image: linear-gradient(to bottom, #333, #000);
     text-align: center;
     padding: 10px;
     position: fixed;
