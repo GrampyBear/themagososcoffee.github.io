@@ -64,7 +64,7 @@ footer p {
 }
 
 /* Nuevo código para el reloj y el contenedor */
-.clock-container {
+clock-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -79,7 +79,7 @@ footer p {
 }
 
 .clock {
-    color: #333;
+    color: #fff; /* Cambiado a blanco */
     font-size: 18px;
     margin-top: 10px;
 }
