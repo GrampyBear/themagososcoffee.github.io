@@ -1,10 +1,10 @@
 body {
-    font-family: 'Arial', sans-serif; /* Cambia 'Arial' por la fuente que desees */
+    font-family: 'Pacifico', cursive; /* Cambia 'Pacifico' por la fuente cursiva navideña que prefieras */
     margin: 0;
 }
 
 header {
-    background: linear-gradient(to right, #ffffff, #f0f0f0);
+    background: linear-gradient(#ffffff, #f0f0f0);
     text-align: center;
     padding: 20px;
     display: flex;
@@ -13,7 +13,7 @@ header {
 }
 
 header h1 {
-    font-style: italic;
+    font-family: 'Pacifico', cursive; /* Aplicamos la fuente cursiva también al título */
     color: #333;
     margin: 0;
 }
@@ -28,7 +28,7 @@ main {
 }
 
 footer {
-    background: linear-gradient(to right, #333, #000);
+    background: linear-gradient(#000, #333);
     text-align: center;
     padding: 10px;
     position: fixed;
