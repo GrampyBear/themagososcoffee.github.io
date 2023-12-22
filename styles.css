@@ -19,11 +19,12 @@ header h1 {
 }
 
 header img {
-    max-width: 100px; /* Ajusta el tamaño del logo según sea necesario */
+    max-width: 80px; /* Ajusta el tamaño del logo según sea necesario */
 }
 
 main {
     padding: 20px;
+    text-align: center;
 }
 
 footer {
@@ -45,11 +46,13 @@ footer p {
 }
 
 .social-links a {
-    margin: 0 10px;
+    margin: 0 5px; /* Ajusta el margen entre los íconos */
     text-decoration: none;
     color: #fff;
+    display: inline-block; /* Alinea los íconos en línea */
 }
 
 .social-links img {
-    max-width: 30px; /* Ajusta el tamaño de los iconos de redes sociales según sea necesario */
+    max-width: 30px; /* Ajusta el tamaño de los íconos según sea necesario */
+    height: auto;
 }
