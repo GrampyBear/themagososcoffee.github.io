@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var dayMoment = getDayMoment(hours);
         var formattedTime = formatTime(hours, minutes, seconds);
 
-        clockElement.textContent = dayMoment + ' | ' + formattedTime;
+        clockElement.textContent = 'Time of day: ' + dayMoment + ' | Current time: ' + formattedTime;
 
         setTimeout(getTimeAndDayMoment, 1000);
     }
@@ -44,5 +44,9 @@ document.addEventListener('DOMContentLoaded', function () {
         return number < 10 ? '0' + number : number;
     }
 
+    // Iniciar con "loading"
+    clockElement.textContent = 'Time of day: Loading | Current time: Loading';
+
+    // Obtener los datos
     getTimeAndDayMoment();
 });
