@@ -19,7 +19,7 @@ header h1 {
 }
 
 header img {
-    max-width: 50px; /* Ajusta el tamaño del logo según sea necesario */
+    max-width: 100px; /* Ajusta el tamaño del logo según sea necesario */
 }
 
 main {
@@ -50,3 +50,6 @@ footer p {
     color: #fff;
 }
 
+.social-links img {
+    max-width: 30px; /* Ajusta el tamaño de los iconos de redes sociales según sea necesario */
+}
