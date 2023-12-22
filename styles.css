@@ -17,41 +17,31 @@ header {
   margin: 0 auto;
 }
 
-.header-left {
+.header-right {
   text-align: center;
   display: flex;
 }
 
-.header-left img {
+.header-right img {
   width: 100px;
+  border: 1px solid black;
 }
 
 .header-center {
   text-align: center;
 }
 
-.header-right {
+.header-left {
   text-align: center;
-}
-
-main {
-  padding: 20px;
-}
-
-footer {
-  background-image: linear-gradient(to bottom, #333, #222);
-  color: #fff;
-  padding: 20px;
-  position: sticky;
-  bottom: 0;
 }
 
 .phrases {
   font-size: 1.5em;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
 }
 
-.phrases li {
-  display: inline-block;
-  margin-right: 10px;
+.phrases p {
+  width: 50%;
 }
