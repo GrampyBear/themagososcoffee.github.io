@@ -89,3 +89,9 @@ setInterval(updateTime, 1000);
 document.addEventListener('DOMContentLoaded', function () {
     updateTime();
 });
+
+// Este código muestra un mensaje de bienvenida cuando el usuario carga la página.
+
+window.onload = function() {
+  alert("¡Bienvenido a mi sitio web!");
+};
