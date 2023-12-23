@@ -111,3 +111,7 @@ section {
 h2, p {
     color: #fff;
 }
+
+section:last-child {
+    margin-bottom: 30px; /* Puedes ajustar el valor según sea necesario */
+}
