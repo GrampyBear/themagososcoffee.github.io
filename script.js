@@ -41,8 +41,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Actualizar elementos en la página
-        timeOfDayElement.textContent = `Time of Day: ${timeOfDay}`;
-        currentTimeElement.textContent = `Current Time: ${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`;
+        timeOfDayElement.textContent = `Time of Day:\n${timeOfDay}`;
+        currentTimeElement.textContent = `Current Time:\n${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`;
 
         applyGradientBackground(body, gradientColors);
 
@@ -55,8 +55,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function applyGradientBackground(element, colors) {
-        const gradientStyle = `linear-gradient(to bottom, ${colors.join(', ')})`;
-        element.style.transition = 'background 10s ease-in-out';
+        const gradientStyle = `linear-gradient(to bottom, ${colors[0]}, ${colors[1]})`;
+        element.style.transition = 'background 10s linear';
         element.style.background = gradientStyle;
     }
 
