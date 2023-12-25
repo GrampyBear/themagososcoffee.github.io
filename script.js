@@ -19,25 +19,25 @@ document.addEventListener("DOMContentLoaded", function () {
         
         if (hours >= 5 && hours < 7) {
             timeOfDay = 'Dawn';
-            gradientColors = ['#FFA07A', '#FFE4B5', '#B0E0E6'];
+            gradientColors = ['#f4e5cb', '#9dc3c1'];
         } else if (hours >= 7 && hours < 12) {
             timeOfDay = 'Morning';
-            gradientColors = ['#FFD700', '#FFA500', '#FF8C00'];
+            gradientColors = ['#f7d08a', '#f8d596', '#f9d5a3'];
         } else if (hours >= 12 && hours < 17) {
             timeOfDay = 'Midday';
-            gradientColors = ['#00CED1', '#20B2AA', '#5F9EA0'];
+            gradientColors = ['#a0ced9', '#87bdd8', '#6aa9cf'];
         } else if (hours >= 17 && hours < 20) {
             timeOfDay = 'Afternoon';
-            gradientColors = ['#FF4500', '#FF6347', '#FF7F50'];
+            gradientColors = ['#f2897b', '#f18b7f', '#f18d83'];
         } else if (hours >= 20 && hours < 22) {
             timeOfDay = 'Dusk';
-            gradientColors = ['#FF69B4', '#FFB6C1', '#DB7093'];
+            gradientColors = ['#e07a5f', '#e28571', '#e39084'];
         } else if (hours >= 22 && hours <= 23) {
             timeOfDay = 'Night';
-            gradientColors = ['#000080', '#191970', '#00008B'];
+            gradientColors = ['#33334c', '#404066', '#4d4d80'];
         } else if (hours >= 0 && hours < 5) {
             timeOfDay = 'Midnight';
-            gradientColors = ['#2F4F4F', '#696969', '#808080'];
+            gradientColors = ['#0a0a0a', '#262626', '#404040'];
         }
 
         // Actualizar elementos en la página
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function applyGradientBackground(element, colors) {
-        const gradientStyle = `linear-gradient(to right, ${colors.join(', ')})`;
+        const gradientStyle = `linear-gradient(to bottom, ${colors.join(', ')})`;
         element.style.transition = 'background 10s ease-in-out';
         element.style.background = gradientStyle;
     }
