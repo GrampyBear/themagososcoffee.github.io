@@ -24,8 +24,10 @@ document.addEventListener("DOMContentLoaded", function () {
             timeOfDay = 'Afternoon';
         } else if (hours >= 20 && hours < 22) {
             timeOfDay = 'Dusk';
-        } else if ((hours >= 22 && hours <= 23) || (hours >= 0 && hours < 5)) {
+        } else if (hours >= 22 && hours <= 23) {
             timeOfDay = 'Night';
+        } else if (hours >= 0 && hours < 5) {
+            timeOfDay ='Midnight';
         }
 
         // Actualizar elementos en la página
