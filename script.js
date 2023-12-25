@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else if (hours >= 7 && hours < 12) {
             timeOfDay = 'Morning';
         } else if (hours >= 12 && hours < 17) {
-            timeOfDay = 'Midday';
+            timeOfDay = 'Noon';
         } else if (hours >= 17 && hours < 20) {
             timeOfDay = 'Afternoon';
         } else if (hours >= 20 && hours < 22) {
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else if (hours >= 22 && hours <= 23) {
             timeOfDay = 'Night';
         } else if (hours >= 0 && hours < 5) {
-            timeOfDay ='Midnight';
+            timeOfDay = 'Midnight';
         }
 
         // Actualizar elementos en la página
