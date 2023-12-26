@@ -60,6 +60,20 @@ document.addEventListener("DOMContentLoaded", function () {
         element.style.background = gradientStyle;
     }
 
+        function createStars() {
+        const starsContainer = document.createElement('div');
+        starsContainer.classList.add('stars');
+        document.body.appendChild(starsContainer);
+
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.top = `${Math.random() * 100}vh`;
+            starsContainer.appendChild(star);
+        }
+    }
+
     // Iniciar la actualización del reloj al cargar la página
     updateClock();
 });
