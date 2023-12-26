@@ -117,24 +117,9 @@ section:last-child {
 }
 
 
-/* Estilos para el botón de pánico */
-.panic-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    cursor: pointer;
-    z-index: 9999; /* Para asegurarse de que esté sobre otros elementos */
-}
-
-.panic-button img {
-    width: 50px; /* Ajusta el tamaño según sea necesario */
-    height: 50px;
-}
-
-/* Agrega este estilo para ocultar el contenido principal */
+/* Añade una clase para ocultar el contenido */
 .hidden {
     display: none;
 }
-
 
 
