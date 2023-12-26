@@ -17,28 +17,28 @@ document.addEventListener("DOMContentLoaded", function () {
         let timeOfDay;
         let gradientColors;
         
-        if (hours >= 5 && hours < 7) {
+        if (hours >= 4 && hours < 5) {
             timeOfDay = 'Dawn';
-            gradientColors = ['#f4e5cb', '#9dc3c1'];
-        } else if (hours >= 7 && hours < 9) {
+            gradientColors = ['#f4e5cb', '#c7d1bd', '#9dc3c1'];
+        } else if (hours >= 5 && hours < 7) {
             timeOfDay = 'Sunrise';
-            gradientColors = ['#f7d08a', '#f8d596', '#f9d5a3'];
-        } else if (hours >= 9 && hours < 12) {
+            gradientColors = ['#f4e5cb', '#c7d1bd', '#9dc3c1'];
+        } else if (hours >= 7 && hours < 12) {
             timeOfDay = 'Morning';
-            gradientColors = ['#a0ced9', '#87bdd8', '#6aa9cf'];
-        } else if (hours >= 12 && hours < 15) {
+            gradientColors = ['#f7d08a', '#f8d596', '#f9d5a3'];
+        } else if (hours >= 12 && hours < 13) {
             timeOfDay = 'Midday';
-            gradientColors = ['#f2897b', '#f18b7f', '#f18d83'];
-        } else if (hours >= 15 && hours < 18) {
+            gradientColors = ['#a0ced9', '#87bdd8', '#6aa9cf'];
+        } else if (hours >= 13 && hours < 17) {
             timeOfDay = 'Afternoon';
+            gradientColors = ['#f2897b', '#f18b7f', '#f18d83'];
+        } else if (hours >= 17 && hours < 19) {
+            timeOfDay = 'Sunset';
             gradientColors = ['#e07a5f', '#e28571', '#e39084'];
-        } else if (hours >= 18 && hours < 20) {
-            timeOfDay = 'Dusk';
-            gradientColors = ['#e07a5f', '#e28571', '#e39084']; // Los colores son iguales a los del atardecer por ahora
-        } else if (hours >= 20 && hours < 22) {
+        } else if (hours >= 19 && hours < 24) {
             timeOfDay = 'Night';
             gradientColors = ['#33334c', '#404066', '#4d4d80'];
-        } else if (hours >= 22 || hours < 5) {
+        } else if (hours >= 0 && hours < 4) {
             timeOfDay = 'Midnight';
             gradientColors = ['#0a0a0a', '#262626', '#404040'];
         }
