@@ -116,6 +116,9 @@ section:last-child {
     margin-bottom: 50px; /* Puedes ajustar el valor según sea necesario */
 }
 
+.content-to-toggle {
+    transition: opacity 0.5s ease-in-out;
+}
 
 
 
