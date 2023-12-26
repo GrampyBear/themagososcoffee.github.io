@@ -39,11 +39,9 @@ document.addEventListener("DOMContentLoaded", function () {
         } else if (hours >= 19 && hours < 24) {
             timeOfDay = 'Night';
             gradientColors = ['#33334c', '#404066', '#4d4d80'];
-            addStars(50);
         } else if (hours >= 0 && hours < 4) {
             timeOfDay = 'Midnight';
             gradientColors = ['#0a0a0a', '#262626', '#404040'];
-            addStars(50);
         }
 
         // Actualizar elementos en la página
@@ -64,21 +62,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const gradientStyle = `linear-gradient(to bottom, ${colors[0]}, ${colors[1]})`;
         element.style.transition = 'background 10s linear';
         element.style.background = gradientStyle;
-    }
-
-    function addStars(numStars) {
-        const starContainer = document.getElementById('star-container');
-        starContainer.innerHTML = ''; // Limpiamos el contenedor antes de agregar nuevas estrellas
-
-        for (let i = 0; i < numStars; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.animationDuration = `${Math.random() * 1.5 + 0.5}s`; // Duración aleatoria para cada estrella
-            star.style.left = `${Math.random() * 100}%`;
-            star.style.top = `${Math.random() * 100}%`;
-
-            starContainer.appendChild(star);
-        }
     }
 
     // Iniciar la actualización del reloj al cargar la página
