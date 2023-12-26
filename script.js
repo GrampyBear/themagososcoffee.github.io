@@ -35,9 +35,11 @@ document.addEventListener("DOMContentLoaded", function () {
         } else if (hours >= 22 && hours <= 23) {
             timeOfDay = 'Night';
             gradientColors = ['#33334c', '#404066', '#4d4d80'];
+            createStars();
         } else if (hours >= 0 && hours < 5) {
             timeOfDay = 'Midnight';
             gradientColors = ['#0a0a0a', '#262626', '#404040'];
+            createStars();
         }
 
         // Actualizar elementos en la página
