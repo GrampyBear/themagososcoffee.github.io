@@ -118,39 +118,4 @@ section:last-child {
 
 
 
-/* styles.css */
 
-/* Estilos para estrellas titilantes */
-.star {
-    position: absolute;
-    background-color: #fff;
-    border-radius: 50%;
-    transform-origin: center;
-    animation: twinkle 1s infinite alternate;
-}
-
-@keyframes twinkle {
-    0% {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    100% {
-        opacity: 0.5;
-        transform: scale(0.8);
-    }
-}
-
-/* Estilos para constelaciones */
-.constellation {
-    position: absolute;
-    z-index: 1;
-}
-
-.constellation .star {
-    background-color: #fff;
-    border-radius: 50%;
-    transform-origin: center;
-}
-
-/* ... tus otros estilos ... */
