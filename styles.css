@@ -121,7 +121,7 @@ section:last-child {
 }
 
 
-/* Agregar estilos para las estrellas */
+/* Estilos para las estrellas */
 #stars {
     position: fixed;
     top: 0;
@@ -137,11 +137,12 @@ section:last-child {
     height: 1px;
     background: #fff;
     opacity: 0.8;
-    animation: twinkling 5s infinite;
+    animation: twinkling 3s infinite;
 }
 
 @keyframes twinkling {
     0%, 100% { opacity: 0.8; }
     50% { opacity: 0.2; }
 }
+
 
