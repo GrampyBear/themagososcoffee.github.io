@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         isPanicMode = !isPanicMode;
 
         contentToToggle.forEach(element => {
-            element.style.display = isPanicMode ? 'none' : 'block';
+            element.style.opacity = isPanicMode ? 0 : 1;
         });
 
         // También puedes cambiar el color de fondo, etc., según tus preferencias
