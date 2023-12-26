@@ -20,28 +20,28 @@ document.addEventListener("DOMContentLoaded", function () {
         
         if (hours >= 4 && hours < 5) {
             timeOfDay = 'Dawn';
-            gradientColors = ['#f4e5cb', '#c7d1bd', '#9dc3c1'];
+            gradientColors = ['#1a1c20', '#ff7f50', '#87ceeb'];
         } else if (hours >= 5 && hours < 7) {
             timeOfDay = 'Sunrise';
-            gradientColors = ['#f4e5cb', '#c7d1bd', '#9dc3c1'];
+            gradientColors = ['#ff7f50', '#ffd700', '#87ceeb'];
         } else if (hours >= 7 && hours < 12) {
             timeOfDay = 'Morning';
-            gradientColors = ['#f7d08a', '#f8d596', '#f9d5a3'];
+            gradientColors = ['#87ceeb', '#00ced1', '#ffff00'];
         } else if (hours >= 12 && hours < 13) {
-            timeOfDay = 'Midday';
-            gradientColors = ['#a0ced9', '#87bdd8', '#6aa9cf'];
+            timeOfDay = 'Noon';
+            gradientColors = ['#00ced1', '#ffffff', '#ffd700'];
         } else if (hours >= 13 && hours < 17) {
             timeOfDay = 'Afternoon';
-            gradientColors = ['#f2897b', '#f18b7f', '#f18d83'];
+            gradientColors = ['#ffd700', '#ff4500', '#ff6347'];
         } else if (hours >= 17 && hours < 19) {
             timeOfDay = 'Sunset';
-            gradientColors = ['#e07a5f', '#e28571', '#e39084'];
+            gradientColors = ['#ff6347', '#ff8c00', '#dc143c'];
         } else if (hours >= 19 && hours < 24) {
             timeOfDay = 'Night';
-            gradientColors = ['#33334c', '#404066', '#4d4d80'];
+            gradientColors = ['#191970', '#000080', '#000000'];
         } else if (hours >= 0 && hours < 4) {
             timeOfDay = 'Midnight';
-            gradientColors = ['#0a0a0a', '#262626', '#404040'];
+            gradientColors = ['#000000', '#191970', '#000080'];
         }
 
         // Actualizar elementos en la página
