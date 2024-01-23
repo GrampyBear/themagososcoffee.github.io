@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración</title>
+</head>
+<body>
+    <h1>Configuración</h1>
+    <label for="year">Año:</label>
+    <input type="number" id="year" value="2024"><br>
+
+    <label for="month">Mes:</label>
+    <input type="number" id="month" value="1"><br>
+
+    <label for="day">Día:</label>
+    <input type="number" id="day" value="23"><br>
+
+    <label for="hour">Hora:</label>
+    <input type="number" id="hour" value="12"><br>
+
+    <label for="minute">Minuto:</label>
+    <input type="number" id="minute" value="30"><br>
+
+    <label for="second">Segundo:</label>
+    <input type="number" id="second" value="45"><br>
+
+    <button onclick="saveConfig()">Guardar Configuración</button>
+
+    <script>
+        function saveConfig() {
+            const config = {
+                year: document.getElementById('year').value,
+                month: document.getElementById('month').value,
+                day: document.getElementById('day').value,
+                hour: document.getElementById('hour').value,
+                minute: document.getElementById('minute').value,
+                second: document.getElementById('second').value
+            };
+
+            const blob = new Blob([JSON.stringify(config)], { type: 'application/json' });
+            const url = window.URL.createObjectURL(blob);
+
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'datetime.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    </script>
+</body>
+  </html>
+  
