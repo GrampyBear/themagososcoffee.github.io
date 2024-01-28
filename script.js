@@ -108,3 +108,34 @@ document.addEventListener("DOMContentLoaded", function () {
     updateClock();
 });
                               
+document.addEventListener("DOMContentLoaded", function () {
+    // ... (Tu código existente)
+
+    // Nueva función para obtener información de celebraciones
+    function getTodayCelebration() {
+        const celebrationElement = document.getElementById('today-celebration');
+
+        // URL de la API "Today in History"
+        const apiURL = 'https://www.whoisapi.com/rest_api/today';
+        
+        // Hacer una solicitud a la API
+        fetch(apiURL)
+            .then(response => response.json())
+            .then(data => {
+                // Obtener la celebración del día de hoy
+                const todayCelebration = data.events[0];
+                
+                // Mostrar la información en la página
+                celebrationElement.innerHTML = `<strong>Celebration Today:</strong> ${todayCelebration.title}<br>
+                                                <strong>Country:</strong> ${todayCelebration.country}<br>
+                                                <strong>Description:</strong> ${todayCelebration.description}`;
+            })
+            .catch(error => {
+                console.error('Error fetching today celebration:', error);
+                celebrationElement.innerHTML = 'Unable to fetch today\'s celebration.';
+            });
+    }
+
+    // Llamar a la función para obtener la celebración del día de hoy
+    getTodayCelebration();
+});
