@@ -115,20 +115,27 @@ document.addEventListener("DOMContentLoaded", function () {
     function getTodayCelebration() {
         const celebrationElement = document.getElementById('today-celebration');
 
-        // URL de la API "Today in History"
-        const apiURL = 'https://www.whoisapi.com/rest_api/today';
-        
+        // URL de la API "Nageru"
+        const apiURL = 'https://date.nager.at/api/v3/PublicHolidays/world';
+
+        // Obtener la fecha de hoy en formato YYYY-MM-DD
+        const todayDate = new Date().toISOString().split('T')[0];
+
         // Hacer una solicitud a la API
-        fetch(apiURL)
+        fetch(`${apiURL}/${todayDate}`)
             .then(response => response.json())
             .then(data => {
                 // Obtener la celebración del día de hoy
-                const todayCelebration = data.events[0];
-                
-                // Mostrar la información en la página
-                celebrationElement.innerHTML = `<strong>Celebration Today:</strong> ${todayCelebration.title}<br>
-                                                <strong>Country:</strong> ${todayCelebration.country}<br>
-                                                <strong>Description:</strong> ${todayCelebration.description}`;
+                const todayCelebration = data[0];
+
+                if (todayCelebration) {
+                    // Mostrar la información en la página
+                    celebrationElement.innerHTML = `<strong>Celebration Today:</strong> ${todayCelebration.name}<br>
+                                                    <strong>Country:</strong> ${todayCelebration.country}<br>
+                                                    <strong>Description:</strong> ${todayCelebration.localName}`;
+                } else {
+                    celebrationElement.innerHTML = 'No celebration today.';
+                }
             })
             .catch(error => {
                 console.error('Error fetching today celebration:', error);
