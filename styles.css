@@ -120,6 +120,14 @@ section:last-child {
     transition: opacity 0.5s ease-in-out;
 }
 
+#today-celebration {
+    border: 2px solid #000;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    }
 
 
 
