@@ -1,135 +1,67 @@
+/* Estilos generales */
 body {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Arial', sans-serif;
     margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
 }
 
 header {
-    background-image: linear-gradient(to bottom, #ffffff, #f0f0f0);
-    text-align: center;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
 }
 
 header h1 {
-    font-family: 'Dancing Script', cursive;
-    color: #333;
     margin: 0;
+    font-size: 24px;
 }
 
-header img {
-    max-width: 80px;
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
 }
 
 main {
     padding: 20px;
-    text-align: center;
 }
 
-.footer-container {
-    background-image: linear-gradient(to bottom, #000, #333);
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+section {
+    margin-bottom: 40px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+    font-size: 24px;
+}
+
+/* Estilos específicos para cada sección */
+#art, #animation, #web {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
 }
 
 footer {
-    background-image: linear-gradient(to bottom, #333, #000);
+    background-color: #333;
+    color: #fff;
     text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    padding: 10px 0;
 }
-
-footer p {
-    color: #fff;
-    margin: 0;
-}
-
-.social-links {
-    margin-top: 10px;
-}
-
-.social-links a {
-    margin: 0 5px;
-    text-decoration: none;
-    color: #fff;
-    display: inline-block;
-}
-
-.social-links img {
-    max-width: 20px;
-    height: auto;
-}
-
-/* Nuevo código para el reloj y el contenedor */
-.clock-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    background-color: rgba(0, 0, 0, 0.7);
-    border: 2px solid #000;
-    border-radius: 10px;
-    padding: 10px;
-    color: #fff; /* Cambiado a blanco */
-    width: 200px;
-    text-align: center;
-    margin-left: 20px;
-}
-
-.clock {
-    color: #fff; /* Cambiado a blanco */
-    font-size: 18px;
-    margin-top: 10px;
-}
-
-.time-container {
-    background-color: rgba(0, 0, 0, 0.7);
-    border: 2px solid #000;
-    border-radius: 10px;
-    padding: 10px;
-    color: #fff;
-    width: 200px;
-    text-align: center;
-    margin-left: 20px;
-}
-
-.time-container p {
-    margin: 5px 0;
-}
-
-
-section {
-    background-color: rgba(0, 0, 0, 0.6);
-    border: 2px solid #000;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    padding: 20px;
-}
-
-h2, p {
-    color: #fff;
-}
-
-section:last-child {
-    margin-bottom: 50px; /* Puedes ajustar el valor según sea necesario */
-}
-
-.content-to-toggle {
-    transition: opacity 0.5s ease-in-out;
-}
-
-#today-celebration {
-    border: 2px solid #000;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 10px;
-    }
-
-
-
-
-
