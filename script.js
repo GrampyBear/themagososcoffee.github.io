@@ -1,13 +1,22 @@
-document.querySelectorAll('nav ul a').forEach(anchor => {
-    anchor.addEventListener('click', function(event) {
-        event.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const targetSection = document.getElementById(targetId);
+document.addEventListener("DOMContentLoaded", function(event) { 
+    var links = document.querySelectorAll('nav a');
 
-        document.querySelector('.active-section').classList.remove('active-section');
-        targetSection.classList.add('active-section');
+    links.forEach(function(link) {
+        link.addEventListener('click', function() {
+            var target = this.getAttribute('href').substring(1);
+            var sections = document.querySelectorAll('.section');
 
-        document.querySelector('.active').classList.remove('active');
-        this.classList.add('active');
+            sections.forEach(function(section) {
+                section.classList.remove('visible');
+            });
+
+            document.getElementById(target).classList.add('visible');
+
+            links.forEach(function(link) {
+                link.classList.remove('active');
+            });
+
+            this.classList.add('active');
+        });
     });
 });
