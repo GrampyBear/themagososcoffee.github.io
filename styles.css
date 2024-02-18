@@ -1,20 +1,11 @@
-/* Estilos generales */
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
+    background-image: url('ciudad.jpg'); /* Reemplaza 'ciudad.jpg' con la imagen de la ciudad */
+    background-size: cover;
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 24px;
+    background-color: black;
+    padding: 20px;
 }
 
 nav ul {
@@ -29,39 +20,19 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: white;
     text-decoration: none;
-    font-size: 18px;
+    font-family: 'Arial', sans-serif;
 }
 
-main {
-    padding: 20px;
+nav ul li a.active {
+    font-weight: bold;
 }
 
-section {
-    margin-bottom: 40px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.section {
+    display: none;
 }
 
-h2 {
-    color: #333;
-    font-size: 24px;
-}
-
-/* Estilos específicos para cada sección */
-#art, #animation, #web {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-top: 20px;
-    background-color: #f9f9f9;
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
+.visible {
+    display: block;
 }
