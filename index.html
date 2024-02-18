@@ -3,58 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nombre del Sitio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Mi Portafolio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Nombre del Sitio</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#portfolio">Portafolio</a></li>
-                <li><a href="#commissions">Comisiones</a></li>
-                <li><a href="#about">Acerca de mí</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section id="home">
-            <h2>Bienvenido a mi sitio web</h2>
-            <!-- Contenido de la sección Home -->
-        </section>
-
-        <section id="portfolio">
-            <h2>Portafolio</h2>
-            <div id="art">
-                <h3>Arte</h3>
-                <!-- Contenido de la subsección Arte -->
-            </div>
-            <div id="animation">
-                <h3>Animación</h3>
-                <!-- Contenido de la subsección Animación -->
-            </div>
-            <div id="web">
-                <h3>Web</h3>
-                <!-- Contenido de la subsección Web -->
-            </div>
-        </section>
-
-        <section id="commissions">
-            <h2>Comisiones</h2>
-            <!-- Contenido de la sección Comisiones -->
-        </section>
-
-        <section id="about">
-            <h2>Acerca de mí</h2>
-            <!-- Contenido de la sección Acerca de mí -->
-        </section>
-    </main>
-
+    <nav>
+        <ul>
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#commissions">Commissions</a></li>
+            <li><a href="#about">About Me</a></li>
+        </ul>
+    </nav>
+    
+    <section id="home" class="active-section">
+        <h1>Home Section</h1>
+    </section>
+    
+    <section id="portfolio">
+        <h1>Portfolio Section</h1>
+        <ul>
+            <li><a href="#art">Art</a></li>
+            <li><a href="#animations">Animations</a></li>
+            <li><a href="#web">Web</a></li>
+        </ul>
+    </section>
+    
+    <section id="commissions">
+        <h1>Commissions Section</h1>
+    </section>
+    
+    <section id="about">
+        <h1>About Me Section</h1>
+    </section>
+    
     <footer>
-        <p>&copy; 2024 Nombre del Sitio</p>
+        <p>Footer Section</p>
     </footer>
+    
     <script src="script.js"></script>
 </body>
 </html>
